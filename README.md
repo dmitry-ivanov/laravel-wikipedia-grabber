@@ -1,5 +1,5 @@
 # Laravel Wikipedia Grabber
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/980a6cbe-8317-4444-a5bc-81815dcb0379/big.png)](https://insight.sensiolabs.com/projects/980a6cbe-8317-4444-a5bc-81815dcb0379)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/70bebdc8-aaac-4314-9fa2-159a9a2844eb/big.png)](https://insight.sensiolabs.com/projects/70bebdc8-aaac-4314-9fa2-159a9a2844eb)
 
 Provides convenient way to grab Wikipedia (or another MediaWiki) page.
