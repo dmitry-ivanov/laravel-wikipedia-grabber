@@ -1,7 +1,5 @@
 # Laravel Wikipedia Grabber
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/70bebdc8-aaac-4314-9fa2-159a9a2844eb/big.png)](https://insight.sensiolabs.com/projects/70bebdc8-aaac-4314-9fa2-159a9a2844eb)
-
 [![StyleCI](https://styleci.io/repos/117998599/shield?branch=master&style=flat)](https://styleci.io/repos/117998599)
 [![Build Status](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=master)](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber)
 [![Coverage Status](https://coveralls.io/repos/github/dmitry-ivanov/laravel-wikipedia-grabber/badge.svg?branch=master)](https://coveralls.io/github/dmitry-ivanov/laravel-wikipedia-grabber?branch=master)
