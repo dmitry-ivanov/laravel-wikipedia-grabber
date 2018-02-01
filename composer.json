@@ -24,5 +24,13 @@
         "classmap": [
             "tests/WikipediaGrabber/TestCase.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Wikipedia": "Illuminated\\Wikipedia\\Grabber",
+                "WikiMedia": "Illuminated\\Wikipedia\\Grabber"
+            }
+        }
     }
 }
