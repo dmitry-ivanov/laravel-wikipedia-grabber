@@ -2,15 +2,11 @@
 
 namespace Illuminated\Wikipedia;
 
+use Illuminated\Wikipedia\Grabber\PageGrabbing;
+use Illuminated\Wikipedia\Grabber\PreviewGrabbing;
+
 abstract class Grabber
 {
-    public function page()
-    {
-        return 'page';
-    }
-
-    public function preview()
-    {
-        return 'preview';
-    }
+    use PageGrabbing;
+    use PreviewGrabbing;
 }
