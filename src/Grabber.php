@@ -2,10 +2,15 @@
 
 namespace Illuminated\Wikipedia;
 
-class Grabber
+abstract class Grabber
 {
-    public static function page()
+    public function page()
     {
-        return 'okay';
+        return 'page';
+    }
+
+    public function preview()
+    {
+        return 'preview';
     }
 }

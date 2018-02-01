@@ -28,8 +28,8 @@
     "extra": {
         "laravel": {
             "aliases": {
-                "Wikipedia": "Illuminated\\Wikipedia\\Grabber",
-                "WikiMedia": "Illuminated\\Wikipedia\\Grabber"
+                "Wikipedia": "Illuminated\\Wikipedia\\Wikipedia",
+                "MediaWiki": "Illuminated\\Wikipedia\\MediaWiki"
             }
         }
     }
