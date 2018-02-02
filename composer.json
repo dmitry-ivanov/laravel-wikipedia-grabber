@@ -29,6 +29,9 @@
     },
     "extra": {
         "laravel": {
+            "providers": [
+                "Illuminated\\Wikipedia\\ServiceProvider"
+            ],
             "aliases": {
                 "Wikipedia": "Illuminated\\Wikipedia\\Wikipedia",
                 "MediaWiki": "Illuminated\\Wikipedia\\MediaWiki"
