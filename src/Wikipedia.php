@@ -9,5 +9,7 @@ class Wikipedia extends Grabber
     public function __construct($lang = 'en')
     {
         $this->lang = $lang;
+
+        parent::__construct();
     }
 }

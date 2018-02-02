@@ -9,5 +9,7 @@ class MediaWiki extends Grabber
     public function __construct($url)
     {
         $this->url = $url;
+
+        parent::__construct();
     }
 }
