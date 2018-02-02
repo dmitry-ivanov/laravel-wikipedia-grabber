@@ -15,16 +15,26 @@ abstract class Grabber
 
     public function __construct()
     {
-        $name = config('app.name');
-        $url = config('app.url');
-
         $this->client = new Client([
             'base_uri' => $this->getBaseUri(),
             'headers' => [
-                'User-Agent' => "{$name} ({$url})",
+                'User-Agent' => $this->getUserAgent(),
             ],
         ]);
     }
 
     abstract protected function getBaseUri();
+
+    protected function getUserAgent()
+    {
+        $userAgent = config('wikipedia-grabber.user_agent');
+        if (!empty($userAgent)) {
+            return $userAgent;
+        }
+
+        $name = config('app.name');
+        $url = config('app.url');
+
+        return "{$name} ({$url})";
+    }
 }
