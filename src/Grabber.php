@@ -15,12 +15,14 @@ abstract class Grabber
 
     public function __construct()
     {
+        $name = config('app.name');
+        $url = config('app.url');
+
         $this->client = new Client([
             'base_uri' => $this->getBaseUri(),
-            // 'headers' => [
-            //     'User-Agent' => 'Aforizmu.net (http://aforizmu.net; dmitry.g.ivanov@gmail.com); Powered by illuminated/wikipedia-grabber',
-            //     'Api-User-Agent' => 'Aforizmu.net (http://aforizmu.net; dmitry.g.ivanov@gmail.com); Powered by illuminated/wikipedia-grabber',
-            // ],
+            'headers' => [
+                'User-Agent' => "{$name} ({$url})",
+            ],
         ]);
     }
 
