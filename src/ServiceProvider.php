@@ -12,7 +12,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            $this->getConfigPath() => config_path('wikipedia-grabber.php')
+            $this->getConfigPath() => config_path('wikipedia-grabber.php'),
         ], 'config');
     }
 
