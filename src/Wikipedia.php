@@ -12,4 +12,9 @@ class Wikipedia extends Grabber
 
         parent::__construct();
     }
+
+    protected function getBaseUri()
+    {
+        return "https://{$this->lang}.wikipedia.org/w/api.php";
+    }
 }

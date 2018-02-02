@@ -12,4 +12,9 @@ class MediaWiki extends Grabber
 
         parent::__construct();
     }
+
+    protected function getBaseUri()
+    {
+        return $this->url;
+    }
 }

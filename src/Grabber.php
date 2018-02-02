@@ -16,11 +16,13 @@ abstract class Grabber
     public function __construct()
     {
         $this->client = new Client([
-            // 'base_uri' => 'https://ru.wikipedia.org/w/api.php',
+            'base_uri' => $this->getBaseUri(),
             // 'headers' => [
             //     'User-Agent' => 'Aforizmu.net (http://aforizmu.net; dmitry.g.ivanov@gmail.com); Powered by illuminated/wikipedia-grabber',
             //     'Api-User-Agent' => 'Aforizmu.net (http://aforizmu.net; dmitry.g.ivanov@gmail.com); Powered by illuminated/wikipedia-grabber',
             // ],
         ]);
     }
+
+    abstract protected function getBaseUri();
 }
