@@ -4,8 +4,8 @@ namespace Illuminated\Wikipedia\Grabber;
 
 trait PreviewGrabbing
 {
-    public function preview()
+    public function preview($title)
     {
-        return 'preview';
+        dd($title);
     }
 }

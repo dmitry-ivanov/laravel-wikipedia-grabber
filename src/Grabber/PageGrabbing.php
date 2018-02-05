@@ -4,8 +4,8 @@ namespace Illuminated\Wikipedia\Grabber;
 
 trait PageGrabbing
 {
-    public function page($idOrTitle)
+    public function page($title)
     {
-        dd($idOrTitle);
+        dd($title);
     }
 }
