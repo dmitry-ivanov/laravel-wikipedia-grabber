@@ -6,9 +6,9 @@ trait PageGrabbing
 {
     public function page($title)
     {
-        $params = $this->composePageParams($title);
+        $response = $this->client->get('', $this->composePageParams($title));
 
-        dd($params);
+        return json_decode($response->getBody(), true);
     }
 
     protected function composePageParams($title)
