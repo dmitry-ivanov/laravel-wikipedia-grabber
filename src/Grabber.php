@@ -40,7 +40,7 @@ abstract class Grabber
 
     protected function composeTargetParams($target)
     {
-        if (is_integer($target)) {
+        if (is_int($target)) {
             return ['pageids' => $target];
         }
 
