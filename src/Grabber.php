@@ -37,4 +37,13 @@ abstract class Grabber
 
         return "{$name} ({$url})";
     }
+
+    protected function composeTargetParams($target)
+    {
+        if (is_integer($target)) {
+            return ['pageids' => $target];
+        }
+
+        return ['titles' => $target];
+    }
 }

@@ -6,6 +6,8 @@ trait PageGrabbing
 {
     public function page($title)
     {
-        dd($title);
+        $params = $this->composeTargetParams($title);
+
+        dd($params);
     }
 }
