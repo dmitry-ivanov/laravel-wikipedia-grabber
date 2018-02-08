@@ -11,15 +11,19 @@ trait PageGrabbing
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
+     */
     protected function pageParams($title)
     {
         return [
             'query' => array_merge([
                 'action' => 'query',
                 'format' => 'json',
-                'formatversion' => 2, // https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
+                'formatversion' => 2,
                 'redirects' => true,
-                'prop' => 'extracts', // https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
+                'prop' => 'extracts',
                 'exlimit' => 1,
             ], $this->targetParams($title)),
         ];
