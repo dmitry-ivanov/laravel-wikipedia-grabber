@@ -6,12 +6,12 @@ trait PageGrabbing
 {
     public function page($title)
     {
-        $response = $this->client->get('', $this->composePageParams($title));
+        $response = $this->client->get('', $this->pageParams($title));
 
         return json_decode($response->getBody(), true);
     }
 
-    protected function composePageParams($title)
+    protected function pageParams($title)
     {
         return [
             'query' => array_merge([
