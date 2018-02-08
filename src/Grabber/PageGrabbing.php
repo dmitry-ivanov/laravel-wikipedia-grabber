@@ -21,7 +21,7 @@ trait PageGrabbing
                 'redirects' => true,
                 'prop' => 'extracts', // https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
                 'exlimit' => 1,
-            ], $this->composeTargetParams($title)),
+            ], $this->targetParams($title)),
         ];
     }
 }
