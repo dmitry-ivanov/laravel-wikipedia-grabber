@@ -16,16 +16,16 @@ abstract class Grabber
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => $this->getBaseUri(),
+            'base_uri' => $this->baseUri(),
             'headers' => [
-                'User-Agent' => $this->getUserAgent(),
+                'User-Agent' => $this->userAgent(),
             ],
         ]);
     }
 
-    abstract protected function getBaseUri();
+    abstract protected function baseUri();
 
-    protected function getUserAgent()
+    protected function userAgent()
     {
         $userAgent = config('wikipedia-grabber.user_agent');
         if (!empty($userAgent)) {

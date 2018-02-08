@@ -13,7 +13,7 @@ class MediaWiki extends Grabber
         parent::__construct();
     }
 
-    protected function getBaseUri()
+    protected function baseUri()
     {
         return $this->url;
     }
