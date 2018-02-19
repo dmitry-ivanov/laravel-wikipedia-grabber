@@ -8,7 +8,7 @@ class Page extends Target
 
     public function isMissing()
     {
-        dd($this->response);
+        return !empty($this->response['missing']);
     }
 
     protected function grab()
