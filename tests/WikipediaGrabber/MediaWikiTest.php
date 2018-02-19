@@ -56,4 +56,28 @@ class MediaWikiTest extends TestCase
         $this->assertEquals(537, $page->getId());
         $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
     }
+
+    /** @test */
+    public function some_pages_can_be_marked_as_missed()
+    {
+        $page = (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Fake-Unexisting-Page');
+
+        $this->assertTrue($page->isMissing());
+        $this->assertFalse($page->isSuccess());
+        $this->assertFalse($page->isInvalid());
+        $this->assertNull($page->getId());
+        $this->assertNull($page->getTitle());
+    }
+
+    /** @test */
+    public function some_pages_can_be_marked_as_invalid()
+    {
+        $page = (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Talk:');
+
+        $this->assertTrue($page->isInvalid());
+        $this->assertFalse($page->isSuccess());
+        $this->assertFalse($page->isMissing());
+        $this->assertNull($page->getId());
+        $this->assertNull($page->getTitle());
+    }
 }
