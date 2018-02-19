@@ -31,4 +31,15 @@ class GrabberTest extends TestCase
             $client->getConfig('headers')['User-Agent']
         );
     }
+
+    /** @test */
+    public function and_it_takes_specified_user_agent_if_set()
+    {
+        $client = (new Wikipedia)->getClient();
+
+        $this->assertEquals(
+            'Laravel Wikipedia Grabber (https://github.com/dmitry-ivanov/laravel-wikipedia-grabber; dmitry.g.ivanov@gmail.com)',
+            $client->getConfig('headers')['User-Agent']
+        );
+    }
 }
