@@ -63,4 +63,13 @@ class Page extends Target
 
         return $this->response['pageid'];
     }
+
+    public function getTitle()
+    {
+        if (!$this->isSuccess()) {
+            return null;
+        }
+
+        return $this->response['title'];
+    }
 }
