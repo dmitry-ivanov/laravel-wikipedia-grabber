@@ -21,7 +21,7 @@ abstract class Grabber
 
     public function page($title)
     {
-        $page = new Page($this->client);
+        $page = new Page($this->client, $title);
 
         dd($title, $page);
         // $response = $this->client->get('', $this->pageParams($title));

@@ -7,18 +7,20 @@ use GuzzleHttp\Client;
 abstract class Target
 {
     protected $client;
+    private $target;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client, $target)
     {
         $this->client = $client;
+        $this->target = $target;
     }
 
-    protected function targetParams($target)
+    protected function targetParams()
     {
-        if (is_int($target)) {
-            return ['pageids' => $target];
+        if (is_int($this->target)) {
+            return ['pageids' => $this->target];
         }
 
-        return ['titles' => $target];
+        return ['titles' => $this->target];
     }
 }

@@ -8,7 +8,7 @@ class Page extends Target
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
      */
-    protected function params($title)
+    protected function params()
     {
         return [
             'query' => array_merge([
@@ -18,7 +18,7 @@ class Page extends Target
                 'redirects' => true,
                 'prop' => 'extracts',
                 'exlimit' => 1,
-            ], $this->targetParams($title)),
+            ], $this->targetParams()),
         ];
     }
 }
