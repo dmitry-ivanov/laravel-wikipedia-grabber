@@ -36,4 +36,24 @@ class MediaWikiTest extends TestCase
 
         $this->assertInstanceOf(Page::class, $wiki->page('Pushkin'));
     }
+
+    /** @test */
+    public function page_can_be_retrieved_by_title()
+    {
+        $page = (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page('Пушкин');
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals(537, $page->getId());
+        $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
+    }
+
+    /** @test */
+    public function or_page_can_be_retrieved_by_id_if_integer_passed()
+    {
+        $page = (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page(537);
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals(537, $page->getId());
+        $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
+    }
 }
