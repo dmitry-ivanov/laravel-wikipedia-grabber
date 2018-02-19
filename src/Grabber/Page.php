@@ -54,4 +54,13 @@ class Page extends Target
     {
         return !empty($this->response['invalid']);
     }
+
+    public function getId()
+    {
+        if (!$this->isSuccess()) {
+            return null;
+        }
+
+        return $this->response['pageid'];
+    }
 }
