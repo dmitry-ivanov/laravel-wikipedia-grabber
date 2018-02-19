@@ -21,13 +21,7 @@ abstract class Grabber
 
     public function page($title)
     {
-        $page = new Page($this->client, $title);
-
-        dd($title, $page);
-        // $response = $this->client->get('', $this->pageParams($title));
-        // $body = json_decode($response->getBody(), true);
-        //
-        // return new Page($body);
+        return new Page($this->client, $title);
     }
 
     public function preview($title)

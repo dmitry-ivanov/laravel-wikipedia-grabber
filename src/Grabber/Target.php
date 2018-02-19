@@ -13,7 +13,11 @@ abstract class Target
     {
         $this->client = $client;
         $this->target = $target;
+
+        $this->grab();
     }
+
+    abstract protected function grab();
 
     protected function targetParams()
     {
