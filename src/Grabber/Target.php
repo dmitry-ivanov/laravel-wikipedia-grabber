@@ -8,7 +8,6 @@ abstract class Target
 {
     protected $client;
     protected $target;
-    protected $response;
 
     public function __construct(Client $client, $target)
     {
@@ -18,13 +17,7 @@ abstract class Target
         $this->grab();
     }
 
-    protected function grab()
-    {
-        $this->response = json_decode(
-            $this->client->get('', $this->params())->getBody(),
-            true
-        );
-    }
+    abstract protected function grab();
 
     abstract protected function params();
 

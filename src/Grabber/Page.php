@@ -4,9 +4,21 @@ namespace Illuminated\Wikipedia\Grabber;
 
 class Page extends Target
 {
+    protected $response;
+
     public function isMissing()
     {
         dd($this->response);
+    }
+
+    protected function grab()
+    {
+        $fullResponse = json_decode(
+            $this->client->get('', $this->params())->getBody(),
+            true
+        );
+
+        $this->response = head($fullResponse['query']['pages']);
     }
 
     /**
