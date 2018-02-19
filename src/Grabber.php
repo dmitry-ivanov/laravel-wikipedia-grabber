@@ -3,14 +3,9 @@
 namespace Illuminated\Wikipedia;
 
 use GuzzleHttp\Client;
-use Illuminated\Wikipedia\Grabber\PageGrabbing;
-use Illuminated\Wikipedia\Grabber\PreviewGrabbing;
 
 abstract class Grabber
 {
-    use PageGrabbing;
-    use PreviewGrabbing;
-
     protected $client;
 
     public function __construct()
@@ -21,6 +16,20 @@ abstract class Grabber
                 'User-Agent' => $this->userAgent(),
             ],
         ]);
+    }
+
+    public function page($title)
+    {
+        dd($title);
+        // $response = $this->client->get('', $this->pageParams($title));
+        // $body = json_decode($response->getBody(), true);
+        //
+        // return new Page($body);
+    }
+
+    public function preview($title)
+    {
+        dd($title);
     }
 
     abstract protected function baseUri();
@@ -36,14 +45,5 @@ abstract class Grabber
         $url = config('app.url');
 
         return "{$name} ({$url})";
-    }
-
-    protected function targetParams($target)
-    {
-        if (is_int($target)) {
-            return ['pageids' => $target];
-        }
-
-        return ['titles' => $target];
     }
 }

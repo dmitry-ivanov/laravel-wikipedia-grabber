@@ -2,20 +2,17 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
-trait PageGrabbing
+class Page
 {
-    public function page($title)
+    public function __construct()
     {
-        $response = $this->client->get('', $this->pageParams($title));
-
-        return json_decode($response->getBody(), true);
     }
 
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
      */
-    protected function pageParams($title)
+    protected function params($title)
     {
         return [
             'query' => array_merge([
@@ -27,5 +24,14 @@ trait PageGrabbing
                 'exlimit' => 1,
             ], $this->targetParams($title)),
         ];
+    }
+
+    protected function targetParams($target)
+    {
+        if (is_int($target)) {
+            return ['pageids' => $target];
+        }
+
+        return ['titles' => $target];
     }
 }
