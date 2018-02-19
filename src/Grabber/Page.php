@@ -6,9 +6,20 @@ class Page extends Target
 {
     protected $response;
 
+    /**
+     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
+     */
     public function isMissing()
     {
         return !empty($this->response['missing']);
+    }
+
+    /**
+     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
+     */
+    public function isInvalid()
+    {
+        return !empty($this->response['invalid']);
     }
 
     protected function grab()
