@@ -4,6 +4,11 @@ namespace Illuminated\Wikipedia\Grabber;
 
 class Page extends Target
 {
+    public function isMissing()
+    {
+        dd($this->response);
+    }
+
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
