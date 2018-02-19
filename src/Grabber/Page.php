@@ -6,27 +6,6 @@ class Page extends Target
 {
     protected $response;
 
-    public function isSuccess()
-    {
-        return !$this->isMissing() && !$this->isInvalid();
-    }
-
-    /**
-     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
-     */
-    public function isMissing()
-    {
-        return !empty($this->response['missing']);
-    }
-
-    /**
-     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
-     */
-    public function isInvalid()
-    {
-        return !empty($this->response['invalid']);
-    }
-
     protected function grab()
     {
         $fullResponse = json_decode(
@@ -53,5 +32,26 @@ class Page extends Target
                 'exlimit' => 1,
             ], $this->targetParams()),
         ];
+    }
+
+    public function isSuccess()
+    {
+        return !$this->isMissing() && !$this->isInvalid();
+    }
+
+    /**
+     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
+     */
+    public function isMissing()
+    {
+        return !empty($this->response['missing']);
+    }
+
+    /**
+     * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
+     */
+    public function isInvalid()
+    {
+        return !empty($this->response['invalid']);
     }
 }
