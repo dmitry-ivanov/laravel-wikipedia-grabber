@@ -18,6 +18,11 @@ abstract class Target
         $this->grab();
     }
 
+    public function isMissing()
+    {
+        dd($this->response);
+    }
+
     protected function grab()
     {
         $this->response = json_decode(
