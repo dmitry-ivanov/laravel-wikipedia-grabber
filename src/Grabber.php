@@ -19,6 +19,11 @@ abstract class Grabber
         ]);
     }
 
+    public function getClient()
+    {
+        return $this->client;
+    }
+
     public function page($title)
     {
         return new Page($this->client, $title);
