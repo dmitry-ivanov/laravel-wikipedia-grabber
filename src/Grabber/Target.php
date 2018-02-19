@@ -7,7 +7,8 @@ use GuzzleHttp\Client;
 abstract class Target
 {
     protected $client;
-    private $target;
+    protected $target;
+    protected $response;
 
     public function __construct(Client $client, $target)
     {
@@ -17,7 +18,15 @@ abstract class Target
         $this->grab();
     }
 
-    abstract protected function grab();
+    protected function grab()
+    {
+        $this->response = json_decode(
+            $this->client->get('', $this->params())->getBody(),
+            true
+        );
+    }
+
+    abstract protected function params();
 
     protected function targetParams()
     {
