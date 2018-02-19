@@ -36,4 +36,24 @@ class WikipediaTest extends TestCase
 
         $this->assertInstanceOf(Page::class, $wiki->page('Pushkin'));
     }
+
+    /** @test */
+    public function page_can_be_retrieved_by_title()
+    {
+        $page = (new Wikipedia('ru'))->page('Пушкин');
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals(537, $page->getId());
+        $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
+    }
+
+    /** @test */
+    public function or_page_can_be_retrieved_by_id_if_integer_passed()
+    {
+        $page = (new Wikipedia('ru'))->page(537);
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals(537, $page->getId());
+        $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
+    }
 }
