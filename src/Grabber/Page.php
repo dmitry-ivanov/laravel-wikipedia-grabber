@@ -6,6 +6,11 @@ class Page extends Target
 {
     protected $response;
 
+    public function isSuccess()
+    {
+        return !$this->isMissing() && !$this->isInvalid();
+    }
+
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
      */
