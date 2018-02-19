@@ -2,6 +2,22 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
-abstract class TestCase extends \PHPUnit\Framework\TestCase
+use Illuminated\Wikipedia\ServiceProvider;
+
+abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    protected function getPackageProviders($app)
+    {
+        return [ServiceProvider::class];
+    }
+
+    protected function resolveApplicationConfiguration($app)
+    {
+        $orchestraConfig = $this->getBasePath() . '/config/wikipedia-grabber.php';
+        copy(__DIR__ . '/fixture/config/wikipedia-grabber.php', $orchestraConfig);
+
+        parent::resolveApplicationConfiguration($app);
+
+        unlink($orchestraConfig);
+    }
 }
