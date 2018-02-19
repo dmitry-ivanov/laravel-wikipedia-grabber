@@ -2,12 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
-class Page
+class Page extends Target
 {
-    public function __construct()
-    {
-    }
-
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
@@ -24,14 +20,5 @@ class Page
                 'exlimit' => 1,
             ], $this->targetParams($title)),
         ];
-    }
-
-    protected function targetParams($target)
-    {
-        if (is_int($target)) {
-            return ['pageids' => $target];
-        }
-
-        return ['titles' => $target];
     }
 }

@@ -3,6 +3,7 @@
 namespace Illuminated\Wikipedia;
 
 use GuzzleHttp\Client;
+use Illuminated\Wikipedia\Grabber\Page;
 
 abstract class Grabber
 {
@@ -20,7 +21,9 @@ abstract class Grabber
 
     public function page($title)
     {
-        dd($title);
+        $page = new Page($this->client);
+
+        dd($title, $page);
         // $response = $this->client->get('', $this->pageParams($title));
         // $body = json_decode($response->getBody(), true);
         //
