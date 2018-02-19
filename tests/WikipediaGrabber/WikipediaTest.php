@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
+use Illuminated\Wikipedia\Grabber\Page;
 use Illuminated\Wikipedia\Wikipedia;
 
 class WikipediaTest extends TestCase
@@ -26,5 +27,13 @@ class WikipediaTest extends TestCase
             'https://ru.wikipedia.org/w/api.php',
             (string) $wiki->getClient()->getConfig('base_uri')
         );
+    }
+
+    /** @test */
+    public function it_has_method_for_page_grabbing()
+    {
+        $wiki = new Wikipedia;
+
+        $this->assertInstanceOf(Page::class, $wiki->page('Pushkin'));
     }
 }
