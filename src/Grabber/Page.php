@@ -32,7 +32,7 @@ class Page extends Target
                 'redirects' => true,
                 'prop' => 'extracts|pageprops',
                 'exlimit' => 1,
-                'ppprop' => 'disambiguation'
+                'ppprop' => 'disambiguation',
             ], $this->targetParams()),
         ];
     }
@@ -40,6 +40,11 @@ class Page extends Target
     public function isSuccess()
     {
         return !$this->isMissing() && !$this->isInvalid();
+    }
+
+    public function isDisambiguation()
+    {
+        return !empty($this->response['pageprops']) && isset($this->response['pageprops']['disambiguation']);
     }
 
     /**
