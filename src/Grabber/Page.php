@@ -17,8 +17,10 @@ class Page extends Target
     }
 
     /**
-     * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts
+     * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs                 - FormatVersion
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bextracts             - Extracts
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query%2Bpageprops            - PageProps
+     * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - Avaliable Prop Names
      */
     protected function params()
     {
@@ -28,8 +30,9 @@ class Page extends Target
                 'format' => 'json',
                 'formatversion' => 2,
                 'redirects' => true,
-                'prop' => 'extracts',
+                'prop' => 'extracts|pageprops',
                 'exlimit' => 1,
+                'ppprop' => 'disambiguation'
             ], $this->targetParams()),
         ];
     }
