@@ -43,6 +43,7 @@ class WikipediaTest extends TestCase
         $page = (new Wikipedia('ru'))->page('Пушкин');
 
         $this->assertTrue($page->isSuccess());
+        $this->assertFalse($page->isDisambiguation());
         $this->assertEquals(537, $page->getId());
         $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
     }
@@ -53,6 +54,7 @@ class WikipediaTest extends TestCase
         $page = (new Wikipedia('ru'))->page(537);
 
         $this->assertTrue($page->isSuccess());
+        $this->assertFalse($page->isDisambiguation());
         $this->assertEquals(537, $page->getId());
         $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
     }
@@ -64,6 +66,7 @@ class WikipediaTest extends TestCase
 
         $this->assertTrue($page->isMissing());
         $this->assertFalse($page->isSuccess());
+        $this->assertFalse($page->isDisambiguation());
         $this->assertFalse($page->isInvalid());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
@@ -76,8 +79,20 @@ class WikipediaTest extends TestCase
 
         $this->assertTrue($page->isInvalid());
         $this->assertFalse($page->isSuccess());
+        $this->assertFalse($page->isDisambiguation());
         $this->assertFalse($page->isMissing());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
+    }
+
+    /** @test */
+    public function some_pages_can_be_marked_as_disambiguation()
+    {
+        $page = (new Wikipedia)->page('David Taylor');
+
+        $this->assertTrue($page->isDisambiguation());
+        $this->assertTrue($page->isSuccess());
+        $this->assertFalse($page->isInvalid());
+        $this->assertFalse($page->isMissing());
     }
 }
