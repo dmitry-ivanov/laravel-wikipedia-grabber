@@ -70,6 +70,7 @@ class WikipediaTest extends TestCase
         $this->assertFalse($page->isInvalid());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
+        $this->assertEquals('The page `Fake-Unexisting-Page` does not exist.', $page->getBody());
     }
 
     /** @test */

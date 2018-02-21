@@ -85,8 +85,8 @@ class Page extends Target
 
     public function getBody()
     {
-        if (!$this->isSuccess()) {
-            return null;
+        if ($this->isMissing()) {
+            return "The page `{$this->target}` does not exist.";
         }
 
         return $this->response['extract'];
