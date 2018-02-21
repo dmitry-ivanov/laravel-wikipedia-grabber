@@ -109,4 +109,9 @@ class Page extends Target
 
         return "The page `{$this->target}` is invalid.{$reason}";
     }
+
+    public function __toString()
+    {
+        return $this->getBody();
+    }
 }
