@@ -80,4 +80,13 @@ class Page extends Target
 
         return $this->response['title'];
     }
+
+    public function getBody()
+    {
+        if (!$this->isSuccess()) {
+            return null;
+        }
+
+        return $this->response['extract'];
+    }
 }
