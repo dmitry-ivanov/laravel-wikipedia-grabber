@@ -32,6 +32,8 @@ class Page extends Target
                 'redirects' => true,
                 'prop' => 'extracts|pageprops',
                 'exlimit' => 1,
+                'explaintext' => true,
+                'exsectionformat' => 'wiki',
                 'ppprop' => 'disambiguation',
             ], $this->targetParams()),
         ];
