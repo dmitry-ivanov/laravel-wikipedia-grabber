@@ -84,6 +84,10 @@ class MediaWikiTest extends TestCase
         $this->assertFalse($page->isMissing());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
+        $this->assertEquals(
+            "The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.",
+            $page->getBody()
+        );
     }
 
     /** @test */

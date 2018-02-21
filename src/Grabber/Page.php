@@ -86,9 +86,27 @@ class Page extends Target
     public function getBody()
     {
         if ($this->isMissing()) {
-            return "The page `{$this->target}` does not exist.";
+            return $this->getMissingBody();
+        }
+
+        if ($this->isInvalid()) {
+            return $this->getInvalidBody();
         }
 
         return $this->response['extract'];
+    }
+
+    private function getMissingBody()
+    {
+        return "The page `{$this->target}` does not exist.";
+    }
+
+    private function getInvalidBody()
+    {
+        $reason = !empty($this->response['invalidreason'])
+            ? "\n{$this->response['invalidreason']}"
+            : '';
+
+        return "The page `{$this->target}` is invalid.{$reason}";
     }
 }
