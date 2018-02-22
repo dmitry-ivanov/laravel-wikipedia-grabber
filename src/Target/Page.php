@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber;
+namespace Illuminated\Wikipedia\Target;
 
-class Page extends Target
+class Page extends Entity
 {
     protected $response;
 

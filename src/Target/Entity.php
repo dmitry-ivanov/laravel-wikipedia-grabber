@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber;
+namespace Illuminated\Wikipedia\Target;
 
 use GuzzleHttp\Client;
 
-abstract class Target
+abstract class Entity
 {
     protected $client;
     protected $target;
