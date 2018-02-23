@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Target;
 
+use Illuminated\Wikipedia\Grabber\Parser;
+
 class Page extends Entity
 {
     protected $response;
@@ -93,7 +95,7 @@ class Page extends Entity
             return $this->getInvalidBody();
         }
 
-        return $this->response['extract'];
+        return (new Parser($this->response['extract']))->parse();
     }
 
     private function getMissingBody()
