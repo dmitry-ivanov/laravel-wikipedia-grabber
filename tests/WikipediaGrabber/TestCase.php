@@ -3,6 +3,9 @@
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
 use Illuminated\Wikipedia\ServiceProvider;
+use Mockery;
+
+Mockery::globalHelpers();
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
