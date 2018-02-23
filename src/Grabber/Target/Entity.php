@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Target;
+namespace Illuminated\Wikipedia\Grabber\Target;
 
 use GuzzleHttp\Client;
 

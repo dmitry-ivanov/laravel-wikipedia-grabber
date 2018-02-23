@@ -3,7 +3,7 @@
 namespace Illuminated\Wikipedia;
 
 use GuzzleHttp\Client;
-use Illuminated\Wikipedia\Target\Page;
+use Illuminated\Wikipedia\Grabber\Target\Page;
 
 abstract class Grabber
 {

@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
+use Illuminated\Wikipedia\Grabber\Target\Page;
 use Illuminated\Wikipedia\MediaWiki;
-use Illuminated\Wikipedia\Target\Page;
 
 class MediaWikiTest extends TestCase
 {
