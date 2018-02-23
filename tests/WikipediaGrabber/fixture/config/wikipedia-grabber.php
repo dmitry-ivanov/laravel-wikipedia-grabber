@@ -4,6 +4,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Output Format
+    |--------------------------------------------------------------------------
+    |
+    | Specify here output format for the grabbed Wikipedia or MediaWiki pages.
+    | It defines html decoration for headings, sections and other elements.
+    | Default format is plain, which is not using any of css frameworks.
+    |
+    | Supported: "plain", "bulma".
+    |
+    */
+
+    'format' => 'bulma',
+
+    /*
+    |--------------------------------------------------------------------------
     | User-Agent
     |--------------------------------------------------------------------------
     |
