@@ -95,7 +95,7 @@ class Page extends Entity
             return $this->getInvalidBody();
         }
 
-        return (new Parser($this->response['extract']))->parse();
+        return (new Parser($this->response['extract'], $this->format))->parse();
     }
 
     private function getMissingBody()
