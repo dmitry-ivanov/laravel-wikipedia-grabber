@@ -6,6 +6,8 @@ use Illuminated\Wikipedia\Grabber\Parser;
 
 abstract class SingularEntity extends Entity
 {
+    use VariousFormatters;
+
     protected $response;
 
     public function isSuccess()
