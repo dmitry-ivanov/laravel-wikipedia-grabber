@@ -105,4 +105,43 @@ class MediaWikiTest extends TestCase
         $this->assertFalse($page->isInvalid());
         $this->assertFalse($page->isMissing());
     }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function page_is_returned_in_specified_in_config_format_by_default()
+    {
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser->expects()->parse('bulma');
+
+        (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page('Пушкин')->getBody();
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
+    {
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser->expects()->parse('plain');
+
+        (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page('Пушкин')->plain();
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
+    {
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser->expects()->parse('bulma');
+
+        (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page('Пушкин')->bulma();
+    }
 }
