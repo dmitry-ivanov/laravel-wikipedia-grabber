@@ -14,6 +14,8 @@ class ParserTest extends TestCase
 
         $parsed = (new Parser($body))->parse('plain');
 
+        // assert here that parse result is ok
+        // exact parsing parts are tested separately
         dd($parsed);
     }
 }
