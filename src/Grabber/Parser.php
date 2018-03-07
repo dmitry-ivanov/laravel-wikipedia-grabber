@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
+use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
+
 class Parser
 {
     protected $body;
@@ -13,6 +15,10 @@ class Parser
 
     public function parse($format)
     {
+        $sections = (new SectionsParser($this->body))->sections();
+
+        dd($sections);
+
         return $this->body;
     }
 }
