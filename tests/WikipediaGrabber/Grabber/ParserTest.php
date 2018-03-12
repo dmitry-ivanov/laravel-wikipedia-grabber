@@ -10,7 +10,7 @@ class ParserTest extends TestCase
     /** @test */
     public function it_can_parse_body_for_plain_format()
     {
-        $body = file_get_contents('./ParserTest/body.txt');
+        $body = file_get_contents(__DIR__ . '/ParserTest/body.txt');
 
         $parsed = (new Parser($body))->parse('plain');
 

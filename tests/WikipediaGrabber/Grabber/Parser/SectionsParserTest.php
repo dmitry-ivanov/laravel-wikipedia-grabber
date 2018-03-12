@@ -10,7 +10,7 @@ class SectionsParserTest extends TestCase
     /** @test */
     public function it_()
     {
-        $body = file_get_contents('./SectionsParserTest/body.txt');
+        $body = file_get_contents(__DIR__ . '/SectionsParserTest/body.txt');
 
         $sections = (new SectionsParser($body))->sections();
 
