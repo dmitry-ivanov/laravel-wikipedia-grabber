@@ -15,20 +15,16 @@ class SectionsParser
 
     public function sections()
     {
-        $sections = collect([[
-            'level' => 1,
-            'title' => $this->title,
-            'body' => null,
-        ]]);
+        $sections = collect([
+            $this->section($this->title, 1)
+        ]);
 
         $items = $this->parse();
         foreach ($items as $item) {
             if ($this->isTitle($item)) {
-                $sections->push([
-                    'level' => $this->level($item),
-                    'title' => $this->title($item),
-                    'body' => null,
-                ]);
+                $title = $this->title($item);
+                $level = $this->level($item);
+                $sections->push($this->section($title, $level));
             } else {
                 $last = $sections->pop();
                 $last['body'] = trim($item);
@@ -46,6 +42,15 @@ class SectionsParser
         $pattern = "/({$marker}{$whitespace}.*?{$whitespace}{$marker})/";
 
         return preg_split($pattern, $this->body, -1, PREG_SPLIT_DELIM_CAPTURE);
+    }
+
+    private function section($title, $level)
+    {
+        return [
+            'level' => $level,
+            'title' => $title,
+            'body' => null,
+        ];
     }
 
     private function isTitle($subject)
