@@ -12,7 +12,7 @@ class SectionsParserTest extends TestCase
     {
         $body = file_get_contents(__DIR__ . '/SectionsParserTest/body.txt');
 
-        $sections = (new SectionsParser($body))->sections();
+        $sections = (new SectionsParser('Александр Сергеевич Пушкин', $body))->sections();
 
         dd($sections);
     }
