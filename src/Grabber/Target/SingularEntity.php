@@ -64,7 +64,7 @@ abstract class SingularEntity extends Entity
             return $this->getInvalidBody();
         }
 
-        return (new Parser($this->response['extract']))->parse($this->format);
+        return (new Parser($this->getTitle(), $this->response['extract']))->parse($this->format);
     }
 
     private function getMissingBody()
