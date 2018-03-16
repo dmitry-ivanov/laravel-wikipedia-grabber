@@ -11,8 +11,7 @@ class ParserTest extends TestCase
     public function it_can_parse_body_for_plain_format()
     {
         $body = file_get_contents(__DIR__ . '/ParserTest/body.txt');
-
-        $parsed = (new Parser($body))->parse('plain');
+        $parsed = (new Parser('Page title', $body))->parse('plain');
 
         // assert here that parse result is ok
         // exact parsing parts are tested separately

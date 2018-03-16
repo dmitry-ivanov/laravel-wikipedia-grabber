@@ -19,7 +19,7 @@ class Parser
     {
         $sections = (new SectionsParser($this->title, $this->body))->sections();
 
-        dd($sections);
+        dd($format, $sections);
 
         return $this->body;
     }
