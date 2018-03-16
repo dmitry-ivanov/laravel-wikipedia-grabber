@@ -2,25 +2,27 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
+use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
 use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
 
 class Parser
 {
-    protected $title;
-    protected $body;
+    protected $sections;
 
     public function __construct($title, $body)
     {
-        $this->title = $title;
-        $this->body = $body;
+        $this->sections = (new SectionsParser($title, $body))->sections();
     }
 
     public function parse($format)
     {
-        $sections = (new SectionsParser($this->title, $this->body))->sections();
+        $html = '';
 
-        dd($format, $sections);
+        $formatter = Formatter::factory($format);
+        foreach ($this->sections as $section) {
+            $html .= $formatter->section($section);
+        }
 
-        return $this->body;
+        return $html;
     }
 }
