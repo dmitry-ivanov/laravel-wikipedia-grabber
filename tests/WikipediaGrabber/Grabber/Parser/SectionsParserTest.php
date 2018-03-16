@@ -11,12 +11,12 @@ class SectionsParserTest extends TestCase
     /** @test */
     public function it_parses_collection_of_sections_from_passed_extract_body()
     {
-        $body = file_get_contents(__DIR__ . '/SectionsParserTest/body-1.txt');
+        $body = file_get_contents(__DIR__ . '/SectionsParserTest/body.txt');
         $sections = (new SectionsParser('Page title', $body))->sections();
 
         $this->assertInstanceOf(Collection::class, $sections);
 
-        $expected = require_once __DIR__ . '/SectionsParserTest/sections-1.php';
+        $expected = require_once __DIR__ . '/SectionsParserTest/sections.php';
         $this->assertEquals($expected, $sections->toArray());
     }
 }
