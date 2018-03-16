@@ -15,7 +15,7 @@ class SectionsParser
 
     public function sections()
     {
-        $sections = collect([$this->section($this->title, 1)]);
+        $sections = collect([$this->mainSection()]);
 
         $items = $this->parse();
         foreach ($items as $item) {
@@ -31,6 +31,11 @@ class SectionsParser
         }
 
         return $sections;
+    }
+
+    private function mainSection()
+    {
+        return $this->section($this->title, 1);
     }
 
     private function section($title, $level)
