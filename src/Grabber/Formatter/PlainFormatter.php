@@ -12,7 +12,7 @@ class PlainFormatter extends Formatter
 
         return "
             <{$titleTag}>{$title}</{$titleTag}>
-            <pre>{$body}</pre>
+            <div>{$body}</div>
         ";
     }
 }
