@@ -1,14 +1,12 @@
-Some intro text here.
+<h1>Page title</h1>
+<div>Some intro text here.</div>
 
+<h2>Title 2 (2 level)</h2>
+<div></div>
 
-== Title 2 (2 level) ==
-
-
-=== Title 3 (3 level) ===
-
-Section 3 line 1.
-Section 3 line 2.
-
+<h3>Title 3 (3 level)</h3>
+<div>Section 3 line 1.<br />
+Section 3 line 2.</div>
 
 === Title 4 (3 level) ===
 Section 4 line 1.

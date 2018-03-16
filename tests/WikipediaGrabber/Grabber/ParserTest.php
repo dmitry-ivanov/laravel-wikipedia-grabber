@@ -13,8 +13,7 @@ class ParserTest extends TestCase
         $body = file_get_contents(__DIR__ . '/ParserTest/body.txt');
         $parsed = (new Parser('Page title', $body))->parse('plain');
 
-        // assert here that parse result is ok
-        // exact parsing parts are tested separately
-        dd($parsed);
+        $expects = file_get_contents(__DIR__ . '/ParserTest/html.txt');
+        $this->assertEquals($expects, $parsed);
     }
 }

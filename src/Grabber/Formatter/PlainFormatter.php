@@ -10,9 +10,6 @@ class PlainFormatter extends Formatter
         $body = nl2br($section['body']);
         $tag = $this->titleTag($section['level']);
 
-        return "
-            <{$tag}>{$title}</{$tag}>
-            <div>{$body}</div>
-        ";
+        return "<{$tag}>{$title}</{$tag}>\n<div>{$body}</div>\n\n";
     }
 }
