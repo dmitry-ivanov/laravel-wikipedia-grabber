@@ -8,17 +8,15 @@
 <div>Section 3 line 1.<br />
 Section 3 line 2.</div>
 
-=== Title 4 (3 level) ===
-Section 4 line 1.
+<h3>Title 4 (3 level)</h3>
+<div>Section 4 line 1.<br />
+<br />
+Section 4 line 2.</div>
 
-Section 4 line 2.
-
-
-=== Title 5 (3 level) ===
-
-Section 5 line 1.
-Section 5 line 2.
-Section 5 line 3.
+<h3>Title 5 (3 level)</h3>
+<div>Section 5 line 1.<br />
+Section 5 line 2.<br />
+Section 5 line 3.</div>
 
 ==== Title 6 (4 level) ====
 Section 6 line 1.
