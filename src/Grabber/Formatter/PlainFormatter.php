@@ -6,6 +6,13 @@ class PlainFormatter extends Formatter
 {
     public function section(array $section)
     {
-        dd('plain section');
+        $titleTag = $this->sectionTitleTag($section);
+        $title = $section['title'];
+        $body = $section['body'];
+
+        return "
+            <{$titleTag}>{$title}</{$titleTag}>
+            <pre>{$body}</pre>
+        ";
     }
 }

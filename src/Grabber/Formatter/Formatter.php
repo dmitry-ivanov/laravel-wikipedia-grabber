@@ -17,4 +17,15 @@ abstract class Formatter
     }
 
     abstract public function section(array $section);
+
+    protected function sectionTitleTag(array $section)
+    {
+        $level = $section['level'];
+
+        if ($level > 6) {
+            $level = 6;
+        }
+
+        return "h{$level}";
+    }
 }
