@@ -9,7 +9,7 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class SectionsParserTest extends TestCase
 {
     /** @test */
-    public function it_parses_sections_from_extracted_body()
+    public function it_parses_sections_from_passed_extract_body()
     {
         $body = file_get_contents(__DIR__ . '/SectionsParserTest/body-1.txt');
         $sections = (new SectionsParser('Page title', $body))->sections();
