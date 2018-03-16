@@ -30,15 +30,14 @@ Section 7 line 2.</div>
 Section 8 line 2.<br />
 Section 8 line 3.</div>
 
-== Title 9 (2 level) ==
+<h2>Title 9 (2 level)</h2>
+<div>Section 9 line 1.</div>
 
-Section 9 line 1.
+<h2>Title 10 (2 level)</h2>
+<div></div>
 
+<h3>Title 11 (3 level)</h3>
+<div>Section 11 line 1.<br />
+Section 11 line 2.<br />
+Section 11 line 3.</div>
 
-== Title 10 (2 level) ==
-
-
-=== Title 11 (3 level) ===
-Section 11 line 1.
-Section 11 line 2.
-Section 11 line 3.
