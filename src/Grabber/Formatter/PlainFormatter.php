@@ -7,7 +7,7 @@ class PlainFormatter extends Formatter
     public function section(array $section)
     {
         $title = $section['title'];
-        $body = $section['body'];
+        $body = nl2br($section['body']);
         $tag = $this->titleTag($section['level']);
 
         return "
