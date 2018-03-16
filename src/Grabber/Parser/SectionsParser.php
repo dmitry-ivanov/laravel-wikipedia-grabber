@@ -33,6 +33,15 @@ class SectionsParser
         return $sections;
     }
 
+    private function section($title, $level)
+    {
+        return [
+            'title' => $title,
+            'level' => $level,
+            'body' => null,
+        ];
+    }
+
     private function parse()
     {
         $marker = '[=]{2,}';
@@ -40,15 +49,6 @@ class SectionsParser
         $pattern = "/({$marker}{$whitespace}.*?{$whitespace}{$marker})/";
 
         return preg_split($pattern, $this->body, -1, PREG_SPLIT_DELIM_CAPTURE);
-    }
-
-    private function section($title, $level)
-    {
-        return [
-            'level' => $level,
-            'title' => $title,
-            'body' => null,
-        ];
     }
 
     private function isTitle($subject)
