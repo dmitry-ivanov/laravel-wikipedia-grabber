@@ -18,18 +18,17 @@ Section 4 line 2.</div>
 Section 5 line 2.<br />
 Section 5 line 3.</div>
 
-==== Title 6 (4 level) ====
-Section 6 line 1.
+<h4>Title 6 (4 level)</h4>
+<div>Section 6 line 1.</div>
 
+<h4>Title 7 (4 level)</h4>
+<div>Section 7 line 1.<br />
+Section 7 line 2.</div>
 
-==== Title 7 (4 level) ====
-Section 7 line 1.
-Section 7 line 2.
-
-=== Title 8 (3 level) ===
-Section 8 line 1.
-Section 8 line 2.
-Section 8 line 3.
+<h3>Title 8 (3 level)</h3>
+<div>Section 8 line 1.<br />
+Section 8 line 2.<br />
+Section 8 line 3.</div>
 
 == Title 9 (2 level) ==
 
