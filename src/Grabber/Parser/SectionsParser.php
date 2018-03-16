@@ -15,9 +15,7 @@ class SectionsParser
 
     public function sections()
     {
-        $sections = collect([
-            $this->section($this->title, 1)
-        ]);
+        $sections = collect([$this->section($this->title, 1)]);
 
         $items = $this->parse();
         foreach ($items as $item) {
