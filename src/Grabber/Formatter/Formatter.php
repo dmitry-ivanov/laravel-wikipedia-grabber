@@ -15,4 +15,6 @@ abstract class Formatter
                 return new PlainFormatter;
         }
     }
+
+    abstract public function section(array $section);
 }
