@@ -70,17 +70,6 @@ class SectionsParser
         return preg_match($pattern, $item);
     }
 
-    private function level($titleItem)
-    {
-        $marker = '[=]{2,}';
-        $whitespace = '\s*';
-        $pattern = "/({$marker}){$whitespace}.*?{$whitespace}{$marker}/";
-
-        preg_match($pattern, $titleItem, $matches);
-
-        return strlen($matches[1]);
-    }
-
     private function title($titleItem)
     {
         $marker = '[=]{2,}';
@@ -90,5 +79,16 @@ class SectionsParser
         preg_match($pattern, $titleItem, $matches);
 
         return $matches[1];
+    }
+
+    private function level($titleItem)
+    {
+        $marker = '[=]{2,}';
+        $whitespace = '\s*';
+        $pattern = "/({$marker}){$whitespace}.*?{$whitespace}{$marker}/";
+
+        preg_match($pattern, $titleItem, $matches);
+
+        return strlen($matches[1]);
     }
 }
