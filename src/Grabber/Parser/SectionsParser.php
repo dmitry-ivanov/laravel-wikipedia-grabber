@@ -17,8 +17,7 @@ class SectionsParser
     {
         $sections = collect([$this->mainSection()]);
 
-        $items = $this->parse();
-        foreach ($items as $item) {
+        foreach ($this->splitByTitles() as $item) {
             if ($this->isTitle($item)) {
                 $title = $this->title($item);
                 $level = $this->level($item);
@@ -47,7 +46,7 @@ class SectionsParser
         ];
     }
 
-    private function parse()
+    private function splitByTitles()
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
