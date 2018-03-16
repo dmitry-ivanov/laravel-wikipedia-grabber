@@ -55,33 +55,33 @@ class SectionsParser
         return preg_split($pattern, $this->body, -1, PREG_SPLIT_DELIM_CAPTURE);
     }
 
-    private function isTitle($subject)
+    private function isTitle($item)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
         $pattern = "/{$marker}{$whitespace}.*?{$whitespace}{$marker}/";
 
-        return preg_match($pattern, $subject);
+        return preg_match($pattern, $item);
     }
 
-    private function level($subject)
+    private function level($titleItem)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
         $pattern = "/({$marker}){$whitespace}.*?{$whitespace}{$marker}/";
 
-        preg_match($pattern, $subject, $matches);
+        preg_match($pattern, $titleItem, $matches);
 
         return strlen($matches[1]);
     }
 
-    private function title($subject)
+    private function title($titleItem)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
         $pattern = "/{$marker}{$whitespace}(.*?){$whitespace}{$marker}/";
 
-        preg_match($pattern, $subject, $matches);
+        preg_match($pattern, $titleItem, $matches);
 
         return $matches[1];
     }
