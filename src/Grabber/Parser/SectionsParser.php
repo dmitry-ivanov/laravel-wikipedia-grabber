@@ -19,15 +19,7 @@ class SectionsParser
         $this->sections = collect([$this->mainSection()]);
 
         foreach ($this->splitByTitles() as $item) {
-            // if ($this->isTitle($item)) {
-            //     $title = $this->title($item);
-            //     $level = $this->level($item);
-            //     $sections->push($this->section($title, $level));
-            // } else {
-            //     $last = $sections->pop();
-            //     $last['body'] = trim($item);
-            //     $sections->push($last);
-            // }
+            $this->handleItem($item);
         }
 
         return $this->sections;
@@ -54,6 +46,19 @@ class SectionsParser
         $pattern = "/({$marker}{$whitespace}.*?{$whitespace}{$marker})/";
 
         return preg_split($pattern, $this->body, -1, PREG_SPLIT_DELIM_CAPTURE);
+    }
+
+    private function handleItem($item)
+    {
+        if ($this->isTitle($item)) {
+            return $this->sections->push(
+                $this->section($this->title($item), $this->level($item))
+            );
+        }
+
+        $last = $this->sections->pop();
+        $last['body'] = trim($item);
+        $this->sections->push($last);
     }
 
     private function isTitle($item)
