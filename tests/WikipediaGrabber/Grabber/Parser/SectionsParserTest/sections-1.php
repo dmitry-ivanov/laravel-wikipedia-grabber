@@ -4,12 +4,12 @@ return [
     [
         'title' => 'Page title',
         'level' => 1,
-        'body' => "Some intro text here.",
+        'body' => 'Some intro text here.',
     ],
     [
         'title' => 'Title 2 (2 level)',
         'level' => 2,
-        'body' => "",
+        'body' => '',
     ],
     [
         'title' => 'Title 3 (3 level)',
@@ -29,7 +29,7 @@ return [
     [
         'title' => 'Title 6 (4 level)',
         'level' => 4,
-        'body' => "Section 6 line 1.",
+        'body' => 'Section 6 line 1.',
     ],
     [
         'title' => 'Title 7 (4 level)',
@@ -44,12 +44,12 @@ return [
     [
         'title' => 'Title 9 (2 level)',
         'level' => 2,
-        'body' => "Section 9 line 1.",
+        'body' => 'Section 9 line 1.',
     ],
     [
         'title' => 'Title 10 (2 level)',
         'level' => 2,
-        'body' => "",
+        'body' => '',
     ],
     [
         'title' => 'Title 11 (3 level)',
