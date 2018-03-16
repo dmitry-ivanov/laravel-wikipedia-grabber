@@ -18,10 +18,8 @@ abstract class Formatter
 
     abstract public function section(array $section);
 
-    protected function sectionTitleTag(array $section)
+    protected function titleTag($level)
     {
-        $level = $section['level'];
-
         if ($level > 6) {
             $level = 6;
         }

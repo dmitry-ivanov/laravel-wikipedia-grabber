@@ -6,12 +6,12 @@ class PlainFormatter extends Formatter
 {
     public function section(array $section)
     {
-        $titleTag = $this->sectionTitleTag($section);
         $title = $section['title'];
         $body = $section['body'];
+        $tag = $this->titleTag($section['level']);
 
         return "
-            <{$titleTag}>{$title}</{$titleTag}>
+            <{$tag}>{$title}</{$tag}>
             <div>{$body}</div>
         ";
     }
