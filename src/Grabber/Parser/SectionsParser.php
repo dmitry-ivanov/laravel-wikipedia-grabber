@@ -6,6 +6,7 @@ class SectionsParser
 {
     protected $title;
     protected $body;
+    protected $sections;
 
     public function __construct($title, $body)
     {
@@ -15,21 +16,21 @@ class SectionsParser
 
     public function sections()
     {
-        $sections = collect([$this->mainSection()]);
+        $this->sections = collect([$this->mainSection()]);
 
         foreach ($this->splitByTitles() as $item) {
-            if ($this->isTitle($item)) {
-                $title = $this->title($item);
-                $level = $this->level($item);
-                $sections->push($this->section($title, $level));
-            } else {
-                $last = $sections->pop();
-                $last['body'] = trim($item);
-                $sections->push($last);
-            }
+            // if ($this->isTitle($item)) {
+            //     $title = $this->title($item);
+            //     $level = $this->level($item);
+            //     $sections->push($this->section($title, $level));
+            // } else {
+            //     $last = $sections->pop();
+            //     $last['body'] = trim($item);
+            //     $sections->push($last);
+            // }
         }
 
-        return $sections;
+        return $this->sections;
     }
 
     private function mainSection()
