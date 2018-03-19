@@ -1,9 +1,8 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber;
+namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
-use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
 
 class Parser
 {

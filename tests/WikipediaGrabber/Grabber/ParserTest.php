@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber;
 
-use Illuminated\Wikipedia\Grabber\Parser;
+use Illuminated\Wikipedia\Grabber\Parser\Parser;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 
 class ParserTest extends TestCase

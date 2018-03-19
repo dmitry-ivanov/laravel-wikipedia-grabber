@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Target;
 
-use Illuminated\Wikipedia\Grabber\Parser;
+use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
 abstract class SingularEntity extends Entity
 {

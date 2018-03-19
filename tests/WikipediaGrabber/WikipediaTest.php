@@ -113,7 +113,7 @@ class WikipediaTest extends TestCase
      */
     public function page_is_returned_in_specified_in_config_format_by_default()
     {
-        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
         (new Wikipedia('ru'))->page('Пушкин')->getBody();
@@ -126,7 +126,7 @@ class WikipediaTest extends TestCase
      */
     public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
     {
-        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('plain');
 
         (new Wikipedia('ru'))->page('Пушкин')->plain();
@@ -139,7 +139,7 @@ class WikipediaTest extends TestCase
      */
     public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
     {
-        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser');
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
         (new Wikipedia('ru'))->page('Пушкин')->bulma();
