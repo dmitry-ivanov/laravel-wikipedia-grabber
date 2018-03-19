@@ -6,8 +6,6 @@ use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
 abstract class SingularEntity extends Entity
 {
-    use VariousFormatters;
-
     protected $response;
 
     public function isSuccess()
@@ -52,6 +50,20 @@ abstract class SingularEntity extends Entity
         }
 
         return $this->response['title'];
+    }
+
+    public function plain()
+    {
+        $this->format = 'plain';
+
+        return $this->getBody();
+    }
+
+    public function bulma()
+    {
+        $this->format = 'bulma';
+
+        return $this->getBody();
     }
 
     public function getBody()
