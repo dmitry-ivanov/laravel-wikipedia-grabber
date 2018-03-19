@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Target;
+namespace Illuminated\Wikipedia\Grabber;
 
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
