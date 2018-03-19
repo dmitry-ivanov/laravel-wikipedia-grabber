@@ -26,7 +26,7 @@ return [
     | By default, the header will be composed from your application name and url.
     | It's recommended to override it and specify some of your contacts also.
     |
-    | Default: "Application Name (http://example.com)"
+    | Default: "Application Name (http://example.com)" (if null set)
     | Recommended: "Application Name (http://example.com; foo@example.com)"
     |
     | @see https://www.mediawiki.org/wiki/API:Main_page#Identifying_your_client
