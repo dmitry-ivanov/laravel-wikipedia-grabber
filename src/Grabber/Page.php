@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
-class Page extends EntitySingle
+class Page extends EntitySingular
 {
     protected function grab()
     {

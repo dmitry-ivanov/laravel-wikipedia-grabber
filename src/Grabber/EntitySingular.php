@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber;
 
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
-abstract class EntitySingle extends Entity
+abstract class EntitySingular extends Entity
 {
     protected $parser;
     protected $response;
