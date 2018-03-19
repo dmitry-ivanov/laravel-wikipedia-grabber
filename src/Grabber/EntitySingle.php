@@ -6,6 +6,7 @@ use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
 abstract class EntitySingle extends Entity
 {
+    protected $parser;
     protected $response;
 
     public function isSuccess()
@@ -76,9 +77,7 @@ abstract class EntitySingle extends Entity
             return $this->getInvalidBody();
         }
 
-        $parser = new Parser($this->getTitle(), $this->response['extract']);
-
-        return $parser->parse($this->format);
+        return $this->getParser()->parse($this->format);
     }
 
     private function getMissingBody()
@@ -93,6 +92,15 @@ abstract class EntitySingle extends Entity
             : '';
 
         return "The page `{$this->target}` is invalid.{$reason}";
+    }
+
+    private function getParser()
+    {
+        if (empty($this->parser)) {
+            $this->parser = new Parser($this->getTitle(), $this->response['extract']);
+        }
+
+        return $this->parser;
     }
 
     public function __toString()
