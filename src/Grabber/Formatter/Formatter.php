@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminated\Wikipedia\Grabber\Partial\Section;
+
 abstract class Formatter
 {
     public static function factory($format)
@@ -16,7 +18,7 @@ abstract class Formatter
         }
     }
 
-    abstract public function section(array $section);
+    abstract public function section(Section $section);
 
     protected function titleTag($level)
     {

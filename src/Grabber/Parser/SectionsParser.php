@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
+use Illuminated\Wikipedia\Grabber\Partial\Section;
+
 class SectionsParser
 {
     protected $title;
@@ -32,11 +34,7 @@ class SectionsParser
 
     private function section($title, $level)
     {
-        return [
-            'title' => $title,
-            'level' => $level,
-            'body' => null,
-        ];
+        return new Section($title, null, $level);
     }
 
     private function splitByTitles()
@@ -57,7 +55,7 @@ class SectionsParser
         }
 
         $last = $this->sections->pop();
-        $last['body'] = trim($item);
+        $last->setBody($item);
         $this->sections->push($last);
     }
 

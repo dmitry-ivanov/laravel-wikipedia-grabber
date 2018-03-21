@@ -2,13 +2,15 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminated\Wikipedia\Grabber\Partial\Section;
+
 class PlainFormatter extends Formatter
 {
-    public function section(array $section)
+    public function section(Section $section)
     {
-        $title = $section['title'];
-        $body = nl2br($section['body']);
-        $tag = $this->titleTag($section['level']);
+        $title = $section->getTitle();
+        $body = nl2br($section->getBody());
+        $tag = $this->titleTag($section->getLevel());
 
         return "<{$tag}>{$title}</{$tag}>\n<div>{$body}</div>\n\n";
     }
