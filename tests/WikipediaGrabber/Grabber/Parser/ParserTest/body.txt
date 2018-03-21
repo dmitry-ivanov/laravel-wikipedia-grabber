@@ -38,6 +38,12 @@ Section 2-4 line 1.
 Section 2-4 line 2.
 Section 2-4 line 3.
 
+== Title empty with few levels (2 level) ==
+
+=== Title empty child 1 (3 level) ===
+
+==== Title empty child 2 (4 level) ====
+
 == Title 3 (2 level) ==
 
 Section 3 line 1.
