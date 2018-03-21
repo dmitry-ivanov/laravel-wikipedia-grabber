@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Partial;
+namespace Illuminated\Wikipedia\Grabber\Component;
 
 class Section
 {

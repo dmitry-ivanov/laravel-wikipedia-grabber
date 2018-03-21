@@ -1,6 +1,6 @@
 <?php
 
-use Illuminated\Wikipedia\Grabber\Partial\Section;
+use Illuminated\Wikipedia\Grabber\Component\Section;
 
 return [
     new Section('Page title', 'Some intro text here.', 1),

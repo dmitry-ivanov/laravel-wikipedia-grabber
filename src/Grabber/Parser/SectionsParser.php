@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
-use Illuminated\Wikipedia\Grabber\Partial\Section;
+use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class SectionsParser
 {

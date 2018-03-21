@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-use Illuminated\Wikipedia\Grabber\Partial\Section;
+use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class Formatter
 {
