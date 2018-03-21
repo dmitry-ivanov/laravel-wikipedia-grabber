@@ -10,6 +10,7 @@ Some intro text here.
 Section 2-1 line 1.
 Section 2-1 line 2.
 
+=== Title 2-empty (3 level) ===
 
 === Title 2-2 (3 level) ===
 Section 2-2 line 1.
@@ -26,6 +27,7 @@ Section 2-3 line 3.
 ==== Title 2-3-1 (4 level) ====
 Section 2-3-1 line 1.
 
+==== Title 2-3-empty (4 level) ====
 
 ==== Title 2-3-2 (4 level) ====
 Section 2-3-2 line 1.
@@ -40,6 +42,8 @@ Section 2-4 line 3.
 
 Section 3 line 1.
 
+== Title empty (2 level) ==
+
 
 == Title 4 (2 level) ==
 
@@ -48,3 +52,5 @@ Section 3 line 1.
 Section 4-1 line 1.
 Section 4-1 line 2.
 Section 4-1 line 3.
+
+== Title empty and last (2 level) ==
