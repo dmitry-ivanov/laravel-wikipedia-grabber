@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber;
+namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Parser;
 
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
