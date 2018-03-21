@@ -22,7 +22,7 @@ class Section
 
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->title = trim($title);
     }
 
     public function getBody()

@@ -8,10 +8,10 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class SectionTest extends TestCase
 {
     /** @test */
-    public function it_makes_no_transformations_with_passed_title()
+    public function it_trims_passed_title()
     {
         $section = new Section('  Title FOO  ', 'Body', 1);
-        $this->assertEquals('  Title FOO  ', $section->getTitle());
+        $this->assertEquals('Title FOO', $section->getTitle());
     }
 
     /** @test */
