@@ -1,5 +1,6 @@
 Some intro text here.
 
+== Title empty (2 level) ==
 
 == Title 2 (2 level) ==
 

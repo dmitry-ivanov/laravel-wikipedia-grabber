@@ -11,6 +11,7 @@ class Parser
     public function __construct($title, $body)
     {
         $this->sections = (new SectionsParser($title, $body))->sections();
+        $this->sections = (new SectionsRemoveEmpty($this->sections))->filter();
     }
 
     public function parse($format)
