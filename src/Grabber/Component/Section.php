@@ -42,6 +42,12 @@ class Section
 
     public function setLevel($level)
     {
-        $this->level = (int) $level;
+        $level = (int) $level;
+
+        if ($level < 1) {
+            $level = 1;
+        }
+
+        $this->level = $level;
     }
 }
