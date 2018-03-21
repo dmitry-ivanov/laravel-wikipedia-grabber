@@ -19,13 +19,4 @@ abstract class Formatter
     }
 
     abstract public function section(Section $section);
-
-    protected function titleTag($level)
-    {
-        if ($level > 6) {
-            $level = 6;
-        }
-
-        return "h{$level}";
-    }
 }

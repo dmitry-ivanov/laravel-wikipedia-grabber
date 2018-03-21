@@ -50,4 +50,14 @@ class Section
 
         $this->level = $level;
     }
+
+    public function getHtmlLevel()
+    {
+        // We have only h1..h6 html tags.
+        if ($this->level > 6) {
+            return 6;
+        }
+
+        return $this->level;
+    }
 }
