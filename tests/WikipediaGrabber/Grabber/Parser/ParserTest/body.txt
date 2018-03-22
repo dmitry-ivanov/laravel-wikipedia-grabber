@@ -17,6 +17,9 @@ Section 2-2 line 1.
 
 Section 2-2 line 2.
 
+=== Boring section 1 ===
+
+Boring section contents.
 
 === Title 2-3 (3 level) ===
 
@@ -55,6 +58,9 @@ Section 3-1 line 2.
 
 == Title empty (2 level) ==
 
+== Boring section 2 ==
+
+Boring section contents.
 
 == Title 4 (2 level) ==
 
@@ -66,5 +72,9 @@ Section 4-1 line 2.
 Section 4-1 line 3.
 
 === Title 4-empty (3 level) ===
+
+== Boring section 3 ==
+
+Boring section contents.
 
 == Title empty and last (2 level) ==

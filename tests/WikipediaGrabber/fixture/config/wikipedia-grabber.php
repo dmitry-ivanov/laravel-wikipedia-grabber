@@ -35,4 +35,28 @@ return [
 
     'user_agent' => 'Laravel Wikipedia Grabber (https://github.com/dmitry-ivanov/laravel-wikipedia-grabber; dmitry.g.ivanov@gmail.com)',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Boring Sections
+    |--------------------------------------------------------------------------
+    |
+    | Grabbed version of the page is light and clean, it has no external links.
+    | Without links, some of the sections became totally useless and boring.
+    | Here is the list of such boring sections. All of them are skipped.
+    |
+    */
+
+    'boring_sections' => [
+        'en' => [
+            'Boring section 1',
+            'Boring section 2',
+            'Boring section 3',
+        ],
+        'ru' => [
+            'Скучная секция 1',
+            'Скучная секция 2',
+            'Скучная секция 3',
+        ],
+    ],
+
 ];
