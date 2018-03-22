@@ -36,6 +36,20 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_has_is_main_method()
+    {
+        $section = new Section('Title', 'Body', 3);
+        $this->assertFalse($section->isMain());
+    }
+
+    /** @test */
+    public function which_returns_true_only_if_section_level_is_1()
+    {
+        $section = new Section('Title', 'Body', 1);
+        $this->assertTrue($section->isMain());
+    }
+
+    /** @test */
     public function it_has_get_html_level_method()
     {
         $section = new Section('Title', 'Body', 3);

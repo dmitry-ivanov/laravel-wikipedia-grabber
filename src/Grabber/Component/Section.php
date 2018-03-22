@@ -51,6 +51,11 @@ class Section
         $this->level = $level;
     }
 
+    public function isMain()
+    {
+        return ($this->level == 1);
+    }
+
     public function getHtmlLevel()
     {
         // We have only h1..h6 html tags.
