@@ -31,9 +31,8 @@ class SectionsRemoveEmpty
         foreach ($this->sections as $index => $section) {
             $body = $section->getBody();
             $level = $section->getLevel();
-            $isMainSection = ($level == 1);
 
-            if ($isMainSection || !empty($body)) {
+            if ($section->isMain() || !empty($body)) {
                 $filtered->push($section);
                 continue;
             }
