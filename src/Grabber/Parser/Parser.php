@@ -12,6 +12,7 @@ class Parser
     {
         $this->sections = (new SectionsParser($title, $body))->sections();
         $this->sections = (new SectionsRemoveEmpty($this->sections))->filter();
+        $this->sections = (new SectionsRemoveBoring($this->sections))->filter();
     }
 
     public function parse($format)
