@@ -35,4 +35,64 @@ return [
 
     'user_agent' => null,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Boring Sections
+    |--------------------------------------------------------------------------
+    |
+    | Grabbed version of the page is light and clean, it has no external links.
+    | Without links, some of the sections became totally useless and boring.
+    | Here is the list of such boring sections. All of them are skipped.
+    |
+    */
+
+    'boring_sections' => [
+        'en' => [
+            'Bibliography',
+            'Bibliography and further reading',
+            'External links',
+            'External references',
+            'Footnotes',
+            'Further reading',
+            'Further reading/listening/viewing',
+            'Literature',
+            'Notes',
+            'Notes and references',
+            'Quotations',
+            'References',
+            'References and notes',
+            'References and sources',
+            'Secondary literature',
+            'See also',
+            'Source',
+            'Sources',
+        ],
+        'ru' => [
+            'Библиография',
+            'Другие ссылки',
+            'Использованные источники',
+            'Исследования',
+            'Исследования и научно-популярная литература',
+            'Источники',
+            'Источники и библиография',
+            'Источники и литература',
+            'Источники и примечания',
+            'Источники и ссылки',
+            'Комментарии',
+            'Комментарии и цитаты',
+            'Литература',
+            'Примечания',
+            'Русская библиография',
+            'Сноски и источники',
+            'Ссылки',
+            'Ссылки и источники',
+            'Ссылки и литература',
+            'Смотрите также',
+            'См.также',
+            'См. также',
+            'Сноски',
+            'Тематические ссылки',
+        ],
+    ],
+
 ];
