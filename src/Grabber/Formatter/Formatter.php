@@ -19,7 +19,7 @@ abstract class Formatter
         }
     }
 
-    abstract public function style();
+    abstract public function style(Collection $sections);
 
     abstract public function tableOfContents(Collection $sections);
 

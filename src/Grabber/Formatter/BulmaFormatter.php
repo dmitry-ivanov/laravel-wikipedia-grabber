@@ -7,7 +7,7 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class BulmaFormatter extends Formatter
 {
-    public function style()
+    public function style(Collection $sections)
     {
         dd('bulma style');
     }

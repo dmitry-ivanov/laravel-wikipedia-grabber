@@ -7,18 +7,29 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class PlainFormatter extends Formatter
 {
-    public function style()
+    public function style(Collection $sections)
     {
-        $style = "<style>\n";
-        $style .= ".wiki-toc {}";
-        $style .= "</style>\n\n";
+        $styles = collect(['.wiki-toc {padding: 20px 0px;}']);
 
-        return $style;
+        $levels = $sections->map(function ($item) {
+            return $item->getLevel();
+        })->unique()->sort();
+
+        foreach ($levels as $level) {
+            $padding = ($level - 1) * 20;
+            if ($padding > 0) {
+                $styles->push(".wiki-toc-item-level-{$level} {padding-left: {$padding}px;}");
+            }
+        }
+
+        $styles = $styles->implode("\n");
+
+        return "<style>\n{$styles}\n</style>\n\n";
     }
 
     public function tableOfContents(Collection $sections)
     {
-        $toc = "<div style='padding: 20px 0px;'>\n";
+        $toc = "<div class='wiki-toc'>\n";
 
         foreach ($sections as $section) {
             if ($section->isMain()) {
@@ -27,9 +38,8 @@ class PlainFormatter extends Formatter
 
             $title = $section->getTitle();
             $level = $section->getLevel();
-            $padding = ($level - 1) * 20;
 
-            $toc .= "<div style='padding-left: {$padding}px;'><a href='#'>{$title}</a></div>\n";
+            $toc .= "<div class='wiki-toc-item-level-{$level}'><a href='#'>{$title}</a></div>\n";
         }
 
         $toc .= "</div>\n\n";
