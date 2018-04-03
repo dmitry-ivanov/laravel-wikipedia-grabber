@@ -20,6 +20,8 @@ class Parser
         $html = '';
 
         $formatter = Formatter::factory($format);
+        $html .= $formatter->style();
+
         foreach ($this->sections as $section) {
             $html .= $formatter->section($section);
 

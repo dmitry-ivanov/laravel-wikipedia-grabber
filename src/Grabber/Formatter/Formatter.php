@@ -19,6 +19,8 @@ abstract class Formatter
         }
     }
 
+    abstract public function style();
+
     abstract public function tableOfContents(Collection $sections);
 
     abstract public function section(Section $section);

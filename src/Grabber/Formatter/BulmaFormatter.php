@@ -7,6 +7,11 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class BulmaFormatter extends Formatter
 {
+    public function style()
+    {
+        dd('bulma style');
+    }
+
     public function tableOfContents(Collection $sections)
     {
         dd('bulma toc');

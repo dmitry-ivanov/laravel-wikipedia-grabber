@@ -7,9 +7,18 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class PlainFormatter extends Formatter
 {
+    public function style()
+    {
+        $style = "<style>\n";
+        $style .= ".wiki-toc {}";
+        $style .= "</style>\n\n";
+
+        return $style;
+    }
+
     public function tableOfContents(Collection $sections)
     {
-        $toc = "<div>\n";
+        $toc = "<div style='padding: 20px 0px;'>\n";
 
         foreach ($sections as $section) {
             if ($section->isMain()) {
