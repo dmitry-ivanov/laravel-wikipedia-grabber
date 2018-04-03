@@ -9,7 +9,23 @@ class PlainFormatter extends Formatter
 {
     public function tableOfContents(Collection $sections)
     {
-        return 'TOC PLAIN';
+        $toc = "<div>\n";
+
+        foreach ($sections as $section) {
+            if ($section->isMain()) {
+                continue;
+            }
+
+            $title = $section->getTitle();
+            $level = $section->getLevel();
+            $padding = ($level - 1) * 20;
+
+            $toc .= "<a href='#' style='padding-left: {$padding}px;'>{$title}</a>\n";
+        }
+
+        $toc .= "</div>\n\n";
+
+        return $toc;
     }
 
     public function section(Section $section)
