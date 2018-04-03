@@ -20,7 +20,7 @@ class PlainFormatter extends Formatter
             $level = $section->getLevel();
             $padding = ($level - 1) * 20;
 
-            $toc .= "<a href='#' style='padding-left: {$padding}px;'>{$title}</a>\n";
+            $toc .= "<div style='padding-left: {$padding}px;'><a href='#'>{$title}</a></div>\n";
         }
 
         $toc .= "</div>\n\n";
