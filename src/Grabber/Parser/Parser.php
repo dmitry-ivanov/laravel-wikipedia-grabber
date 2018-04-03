@@ -22,6 +22,10 @@ class Parser
         $formatter = Formatter::factory($format);
         foreach ($this->sections as $section) {
             $html .= $formatter->section($section);
+
+            if ($section->isMain()) {
+                $html .= $formatter->tableOfContents($this->sections);
+            }
         }
 
         return $html;

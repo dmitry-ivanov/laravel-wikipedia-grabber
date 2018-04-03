@@ -2,10 +2,16 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class PlainFormatter extends Formatter
 {
+    public function tableOfContents(Collection $sections)
+    {
+        return 'TOC PLAIN';
+    }
+
     public function section(Section $section)
     {
         $title = $section->getTitle();

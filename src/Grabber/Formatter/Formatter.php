@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class Formatter
@@ -17,6 +18,8 @@ abstract class Formatter
                 return new PlainFormatter;
         }
     }
+
+    abstract public function tableOfContents(Collection $sections);
 
     abstract public function section(Section $section);
 }
