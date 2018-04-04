@@ -32,7 +32,8 @@ class PlainFormatter extends Formatter
                 continue;
             }
 
-            $items->push("<a href='#' class='wiki-toc-item level-{$section->getLevel()}'>{$section->getTitle()}</a>");
+            $link = "<a href='#'>{$section->getTitle()}</a>";
+            $items->push("<div class='wiki-toc-item level-{$section->getLevel()}'>{$link}</div>");
         }
 
         $items = $items->implode("\n");
