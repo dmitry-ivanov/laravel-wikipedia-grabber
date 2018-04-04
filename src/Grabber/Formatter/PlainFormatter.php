@@ -8,11 +8,14 @@ class PlainFormatter extends Formatter
 {
     public function style()
     {
-        $styles = collect(['.wiki-toc {padding: 20px 0px;}']);
+        $styles = collect([
+            '.wiki-toc {padding:20px 0px}',
+            '.wiki-toc-item {display:block}',
+        ]);
 
         foreach ($this->getLevels() as $level) {
             $padding = ($level - 1) * 20;
-            $styles->push(".wiki-toc-item-level-{$level} {padding-left: {$padding}px;}");
+            $styles->push(".wiki-toc-item.level-{$level} {padding-left:{$padding}px}");
         }
 
         $styles = $styles->implode("\n");
@@ -29,7 +32,7 @@ class PlainFormatter extends Formatter
                 continue;
             }
 
-            $items->push("<a href='#' class='wiki-toc-item-level-{$section->getLevel()}'>{$section->getTitle()}</a>");
+            $items->push("<a href='#' class='wiki-toc-item level-{$section->getLevel()}'>{$section->getTitle()}</a>");
         }
 
         $items = $items->implode("\n");
