@@ -2,16 +2,15 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class PlainFormatter extends Formatter
 {
-    public function style(Collection $sections)
+    public function style()
     {
         $styles = collect(['.wiki-toc {padding: 20px 0px;}']);
 
-        $levels = $sections->map(function ($item) {
+        $levels = $this->sections->map(function ($item) {
             return $item->getLevel();
         })->unique()->sort();
 
@@ -27,11 +26,11 @@ class PlainFormatter extends Formatter
         return "<style>\n{$styles}\n</style>\n\n";
     }
 
-    public function tableOfContents(Collection $sections)
+    public function tableOfContents()
     {
         $toc = "<div class='wiki-toc'>\n";
 
-        foreach ($sections as $section) {
+        foreach ($this->sections as $section) {
             if ($section->isMain()) {
                 continue;
             }

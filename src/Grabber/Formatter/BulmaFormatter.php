@@ -2,17 +2,16 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class BulmaFormatter extends Formatter
 {
-    public function style(Collection $sections)
+    public function style()
     {
         dd('bulma style');
     }
 
-    public function tableOfContents(Collection $sections)
+    public function tableOfContents()
     {
         dd('bulma toc');
     }

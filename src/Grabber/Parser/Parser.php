@@ -19,14 +19,14 @@ class Parser
     {
         $html = '';
 
-        $formatter = Formatter::factory($format);
-        $html .= $formatter->style($this->sections);
+        $formatter = Formatter::factory($format, $this->sections);
+        $html .= $formatter->style();
 
         foreach ($this->sections as $section) {
             $html .= $formatter->section($section);
 
             if ($section->isMain()) {
-                $html .= $formatter->tableOfContents($this->sections);
+                $html .= $formatter->tableOfContents();
             }
         }
 
