@@ -17,10 +17,8 @@ class Parser
 
     public function parse($format)
     {
-        $html = '';
-
         $formatter = Formatter::factory($format, $this->sections);
-        $html .= $formatter->style();
+        $html = $formatter->style();
 
         foreach ($this->sections as $section) {
             $html .= $formatter->section($section);
