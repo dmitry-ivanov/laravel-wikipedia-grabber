@@ -22,22 +22,19 @@ class PlainFormatter extends Formatter
 
     public function tableOfContents()
     {
-        $toc = "<div class='wiki-toc'>\n";
+        $items = collect();
 
         foreach ($this->sections as $section) {
             if ($section->isMain()) {
                 continue;
             }
 
-            $title = $section->getTitle();
-            $level = $section->getLevel();
-
-            $toc .= "<div class='wiki-toc-item-level-{$level}'><a href='#'>{$title}</a></div>\n";
+            $items->push("<a href='#' class='wiki-toc-item-level-{$section->getLevel()}'>{$section->getTitle()}</a>");
         }
 
-        $toc .= "</div>\n\n";
+        $items = $items->implode("\n");
 
-        return $toc;
+        return "<div class='wiki-toc'>\n{$items}\n</div>\n\n";
     }
 
     public function section(Section $section)
