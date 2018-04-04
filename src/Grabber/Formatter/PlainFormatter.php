@@ -32,7 +32,8 @@ class PlainFormatter extends Formatter
                 continue;
             }
 
-            $link = "<a href='#'>{$section->getTitle()}</a>";
+            $title = $section->getTitle();
+            $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
             $items->push("<div class='wiki-toc-item level-{$section->getLevel()}'>{$link}</div>");
         }
 
@@ -47,7 +48,7 @@ class PlainFormatter extends Formatter
         $body = nl2br($section->getBody());
         $tag = "h{$section->getHtmlLevel()}";
 
-        $titleHtml = "<{$tag}>{$title}</{$tag}>\n";
+        $titleHtml = "<{$tag} id='{$this->sectionId($title)}'>{$title}</{$tag}>\n";
         $bodyHtml = "<div>{$body}</div>\n\n";
 
         return "{$titleHtml}{$bodyHtml}";

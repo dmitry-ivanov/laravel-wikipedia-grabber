@@ -32,6 +32,11 @@ abstract class Formatter
 
     abstract public function section(Section $section);
 
+    protected function sectionId($title)
+    {
+        return str_slug($title);
+    }
+
     protected function getLevels()
     {
         $withoutMainSection = $this->sections->filter(function (Section $section) {
