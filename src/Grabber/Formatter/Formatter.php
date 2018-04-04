@@ -31,4 +31,15 @@ abstract class Formatter
     abstract public function tableOfContents();
 
     abstract public function section(Section $section);
+
+    protected function getLevels()
+    {
+        $withoutMainSection = $this->sections->filter(function (Section $section) {
+            return !$section->isMain();
+        });
+
+        return $withoutMainSection->map(function (Section $section) {
+            return $section->getLevel();
+        })->unique()->sort();
+    }
 }

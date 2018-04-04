@@ -10,15 +10,9 @@ class PlainFormatter extends Formatter
     {
         $styles = collect(['.wiki-toc {padding: 20px 0px;}']);
 
-        $levels = $this->sections->map(function ($item) {
-            return $item->getLevel();
-        })->unique()->sort();
-
-        foreach ($levels as $level) {
+        foreach ($this->getLevels() as $level) {
             $padding = ($level - 1) * 20;
-            if ($padding > 0) {
-                $styles->push(".wiki-toc-item-level-{$level} {padding-left: {$padding}px;}");
-            }
+            $styles->push(".wiki-toc-item-level-{$level} {padding-left: {$padding}px;}");
         }
 
         $styles = $styles->implode("\n");
