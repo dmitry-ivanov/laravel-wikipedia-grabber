@@ -163,4 +163,23 @@ class WikipediaTest extends TestCase
             new Section('Appended title', 'Appended body', 2),
         ]), $sections);
     }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function however_level_of_appended_section_can_be_set_manually()
+    {
+        $this->mockWikipediaQuery();
+
+        $sections = (new Wikipedia)->page('Mocked Page')
+            ->append('Appended title', 'Appended body', 5)
+            ->getSections();
+
+        $this->assertEquals(collect([
+            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
+            new Section('Appended title', 'Appended body', 5),
+        ]), $sections);
+    }
 }
