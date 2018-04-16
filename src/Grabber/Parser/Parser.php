@@ -30,4 +30,9 @@ class Parser
 
         return $html;
     }
+
+    public function getSections()
+    {
+        return $this->sections;
+    }
 }
