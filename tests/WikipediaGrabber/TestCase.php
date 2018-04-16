@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Response;
 use Illuminated\Wikipedia\ServiceProvider;
 use Mockery;
 
@@ -22,5 +24,14 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         parent::resolveApplicationConfiguration($app);
 
         unlink($orchestraConfig);
+    }
+
+    protected function mockWikipediaQuery()
+    {
+        $stream = Psr7\stream_for('{"query":{"pages":[{"pageid":1234567,"title":"Foo Bar","extract":"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}]}}');
+        $response = new Response(200, ['Content-Type' => 'application/json'], $stream);
+
+        $client = mock('overload:GuzzleHttp\Client');
+        $client->expects()->get('', Mockery::any())->andReturn($response);
     }
 }

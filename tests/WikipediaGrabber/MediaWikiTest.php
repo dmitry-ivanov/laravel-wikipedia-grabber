@@ -106,6 +106,8 @@ class MediaWikiTest extends TestCase
      */
     public function page_is_returned_in_specified_in_config_format_by_default()
     {
+        $this->mockWikipediaQuery();
+
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
@@ -119,6 +121,8 @@ class MediaWikiTest extends TestCase
      */
     public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
     {
+        $this->mockWikipediaQuery();
+
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('plain');
 
@@ -132,6 +136,8 @@ class MediaWikiTest extends TestCase
      */
     public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
     {
+        $this->mockWikipediaQuery();
+
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
