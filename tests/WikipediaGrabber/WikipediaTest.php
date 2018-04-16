@@ -155,7 +155,7 @@ class WikipediaTest extends TestCase
         $this->mockWikipediaQuery();
 
         $sections = (new Wikipedia)->page('Mocked Page')
-            ->append('Appended title', 'Appended body')
+            ->append('   Appended title   ', '  Appended body  ')
             ->getSections();
 
         $this->assertEquals(collect([
