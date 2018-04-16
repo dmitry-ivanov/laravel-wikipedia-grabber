@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
+use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
 abstract class EntitySingular extends Entity
@@ -92,6 +93,18 @@ abstract class EntitySingular extends Entity
             : '';
 
         return "The page `{$this->target}` is invalid.{$reason}";
+    }
+
+    public function append($title, $body, $level = 2)
+    {
+        $this->getSections()->push(new Section($title, $body, $level));
+
+        return $this;
+    }
+
+    public function getSections()
+    {
+        return $this->getParser()->getSections();
     }
 
     private function getParser()
