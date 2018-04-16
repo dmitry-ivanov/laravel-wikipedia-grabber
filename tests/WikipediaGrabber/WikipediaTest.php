@@ -155,7 +155,7 @@ class WikipediaTest extends TestCase
         $this->mockWikipediaQuery();
 
         $sections = (new Wikipedia)->page('Mocked Page')
-            ->append('   Appended title   ', '  Appended body  ')
+            ->append('Appended title', 'Appended body')
             ->getSections();
 
         $this->assertEquals(collect([
@@ -181,5 +181,28 @@ class WikipediaTest extends TestCase
             new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
             new Section('Appended title', 'Appended body', 5),
         ]), $sections);
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function page_sections_can_be_massaged_in_any_way_through_get_sections_method()
+    {
+        $this->mockWikipediaQuery();
+
+        $page = (new Wikipedia)->page('Mocked Page');
+        $page->getSections()
+            ->push(new Section('Appended title 1', 'Appended body 1', 2))
+            ->push(new Section('Appended title 1.1', 'Appended body 1.1', 3))
+            ->push(new Section('Appended title 1.2', 'Appended body 1.2', 3));
+
+        $this->assertEquals(collect([
+            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
+            new Section('Appended title 1', 'Appended body 1', 2),
+            new Section('Appended title 1.1', 'Appended body 1.1', 3),
+            new Section('Appended title 1.2', 'Appended body 1.2', 3),
+        ]), $page->getSections());
     }
 }
