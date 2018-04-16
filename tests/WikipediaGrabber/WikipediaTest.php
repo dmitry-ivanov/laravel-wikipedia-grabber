@@ -30,18 +30,11 @@ class WikipediaTest extends TestCase
     }
 
     /** @test */
-    public function it_has_method_for_page_grabbing()
-    {
-        $wiki = new Wikipedia;
-
-        $this->assertInstanceOf(Page::class, $wiki->page('Pushkin'));
-    }
-
-    /** @test */
     public function page_can_be_retrieved_by_title()
     {
         $page = (new Wikipedia('ru'))->page('Пушкин');
 
+        $this->assertInstanceOf(Page::class, $page);
         $this->assertTrue($page->isSuccess());
         $this->assertFalse($page->isDisambiguation());
         $this->assertEquals(537, $page->getId());
