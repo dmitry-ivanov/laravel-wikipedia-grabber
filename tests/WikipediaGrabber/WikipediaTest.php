@@ -150,17 +150,36 @@ class WikipediaTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function custom_section_can_be_appended_to_the_page()
+    public function custom_section_can_be_appended_to_the_page_and_default_level_is_2()
     {
         $this->mockWikipediaQuery();
 
         $sections = (new Wikipedia)->page('Mocked Page')
-            ->append('Appended title', 'Appended body', 3)
+            ->append('Appended title', 'Appended body')
             ->getSections();
 
         $this->assertEquals(collect([
             new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
-            new Section('Appended title', 'Appended body', 3),
+            new Section('Appended title', 'Appended body', 2),
+        ]), $sections);
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function however_level_of_appended_section_can_be_set_manually()
+    {
+        $this->mockWikipediaQuery();
+
+        $sections = (new Wikipedia)->page('Mocked Page')
+            ->append('Appended title', 'Appended body', 5)
+            ->getSections();
+
+        $this->assertEquals(collect([
+            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
+            new Section('Appended title', 'Appended body', 5),
         ]), $sections);
     }
 
