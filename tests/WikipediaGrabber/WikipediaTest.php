@@ -111,7 +111,7 @@ class WikipediaTest extends TestCase
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
-        (new Wikipedia('ru'))->page('Пушкин')->getBody();
+        (new Wikipedia)->page('Mocked Page')->getBody();
     }
 
     /**
@@ -126,7 +126,7 @@ class WikipediaTest extends TestCase
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('plain');
 
-        (new Wikipedia('ru'))->page('Пушкин')->plain();
+        (new Wikipedia)->page('Mocked Page')->plain();
     }
 
     /**
@@ -141,6 +141,6 @@ class WikipediaTest extends TestCase
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
         $parser->expects()->parse('bulma');
 
-        (new Wikipedia('ru'))->page('Пушкин')->bulma();
+        (new Wikipedia)->page('Mocked Page')->bulma();
     }
 }

@@ -38,7 +38,7 @@ class MediaWikiTest extends TestCase
     {
         $this->mockWikipediaQuery();
 
-        $page = (new MediaWiki('https://ru.wikipedia.org/w/api.php'))->page('Пушкин');
+        $page = (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Mocked Page');
 
         $this->assertInstanceOf(Page::class, $page);
     }

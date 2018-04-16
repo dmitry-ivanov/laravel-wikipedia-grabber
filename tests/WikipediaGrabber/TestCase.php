@@ -32,7 +32,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             'query' => [
                 'pages' => [[
                     'pageid' => 1234567,
-                    'title' => 'Foo Bar',
+                    'title' => 'Mocked Page',
                     'extract' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                 ]],
             ],
