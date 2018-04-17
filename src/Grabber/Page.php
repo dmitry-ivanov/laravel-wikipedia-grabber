@@ -20,10 +20,10 @@ class Page extends EntitySingular
 
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs - FormatVersion
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Extracts (Contents of the page)
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - PageProps (Disambiguation)
-     * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - Avaliable PageProp Names
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Revisions (WikiText for images)
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Extracts: contents of the page
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - PageProps: disambiguation
+     * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - Avaliable pageprop names
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Revisions: wikitext for images
      */
     protected function params()
     {
