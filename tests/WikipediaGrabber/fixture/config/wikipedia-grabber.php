@@ -19,6 +19,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Images Grabbing
+    |--------------------------------------------------------------------------
+    |
+    | By default, pages are grabbed with images. You can change this behavior.
+    | If you're interested only in the page text, then disable this setting.
+    | Images are making page prettier, but grabbing takes some more time.
+    |
+    */
+
+    'images' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | User-Agent
     |--------------------------------------------------------------------------
     |
