@@ -188,7 +188,7 @@ class WikipediaTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function page_sections_can_be_massaged_in_any_way_through_get_sections_method()
+    public function page_sections_can_be_massaged_in_any_way_through_the_get_sections_method()
     {
         $this->mockWikipediaQuery();
 
