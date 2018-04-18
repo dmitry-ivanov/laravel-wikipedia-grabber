@@ -30,13 +30,11 @@ class Page extends EntitySingular
     {
         $prop = collect(['extracts', 'pageprops']);
 
-        $imageParams = [];
+        $forImages = collect();
         if (config('wikipedia-grabber.images')) {
             $prop->push('revisions');
-            $imageParams = [
-                'rvprop' => 'content',
-                'rvcontentformat' => 'text/x-wiki',
-            ];
+            $forImages->put('rvprop', 'content');
+            $forImages->put('rvcontentformat', 'text/x-wiki');
         }
 
         return [
@@ -50,7 +48,7 @@ class Page extends EntitySingular
                 'explaintext' => true,
                 'exsectionformat' => 'wiki',
                 'ppprop' => 'disambiguation',
-            ], $this->targetParams(), $imageParams),
+            ], $this->targetParams(), $forImages->toArray()),
         ];
     }
 }
