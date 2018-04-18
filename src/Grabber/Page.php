@@ -48,8 +48,8 @@ class Page extends EntitySingular
             $params->put('rvcontentformat', 'text/x-wiki');
 
             $prop->push('pageimages');
-            $params->put('piprop', 'original|thumbnail|name');
             $params->put('pithumbsize', 300);
+            $params->put('piprop', 'original|thumbnail|name');
         }
 
         return [
