@@ -21,9 +21,9 @@ class Page extends EntitySingular
 
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs - FormatVersion
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Extracts: contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - PageProps: disambiguation
-     * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - Avaliable pageprop names
+     * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - Avaliable pageprops
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Extracts: contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Revisions: wikitext for images
      */
     protected function params()
@@ -31,13 +31,13 @@ class Page extends EntitySingular
         $prop = collect();
         $params = collect();
 
+        $prop->push('pageprops');
+        $params->put('ppprop', 'disambiguation');
+
         $prop->push('extracts');
         $params->put('exlimit', 1);
         $params->put('explaintext', true);
         $params->put('exsectionformat', 'wiki');
-
-        $prop->push('pageprops');
-        $params->put('ppprop', 'disambiguation');
 
         if (config('wikipedia-grabber.images')) {
             $prop->push('revisions');
