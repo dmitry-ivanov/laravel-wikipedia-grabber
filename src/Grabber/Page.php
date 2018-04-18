@@ -14,10 +14,13 @@ class Page extends EntitySingular
         $this->response = head($fullResponse['query']['pages']);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        dd($this->response['thumbnail'], $this->response['original'], $this->response['pageimage']);
-
         $wikitext = head($this->response['revisions'])['content'];
         dd($wikitext);
+
+        $mainThumbnail = $this->response['thumbnail'];
+        $mainOriginal = $this->response['original'];
+        $mainName = $this->response['pageimage'];
+        dd($mainThumbnail, $mainOriginal, $mainName);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
