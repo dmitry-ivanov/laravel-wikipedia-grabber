@@ -21,6 +21,9 @@ class Page extends EntitySingular
         $mainOriginal = $this->response['original'];
         $mainName = $this->response['pageimage'];
         dd($mainThumbnail, $mainOriginal, $mainName);
+
+        $images = $this->response['images'];
+        dd($images);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
@@ -31,6 +34,7 @@ class Page extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Wikitext for images
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images
      */
     protected function params()
     {
@@ -53,6 +57,9 @@ class Page extends EntitySingular
             $prop->push('pageimages');
             $params->put('pithumbsize', 300);
             $params->put('piprop', 'original|thumbnail|name');
+
+            $prop->push('images');
+            $params->put('imlimit', 'max');
         }
 
         return [
