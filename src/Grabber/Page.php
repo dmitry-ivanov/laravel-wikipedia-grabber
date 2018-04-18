@@ -32,7 +32,8 @@ class Page extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Wikitext for images
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images list
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo - Image info
      */
     protected function params()
     {
