@@ -14,6 +14,8 @@ class Page extends EntitySingular
         $this->response = head($fullResponse['query']['pages']);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        dd($this->response['thumbnail'], $this->response['original'], $this->response['pageimage']);
+
         $wikitext = head($this->response['revisions'])['content'];
         dd($wikitext);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,6 +46,10 @@ class Page extends EntitySingular
             $prop->push('revisions');
             $params->put('rvprop', 'content');
             $params->put('rvcontentformat', 'text/x-wiki');
+
+            $prop->push('pageimages');
+            $params->put('piprop', 'original|thumbnail|name');
+            $params->put('pithumbsize', 300);
         }
 
         return [
