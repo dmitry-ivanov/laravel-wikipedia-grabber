@@ -28,13 +28,21 @@ class Page extends EntitySingular
      */
     protected function params()
     {
-        $prop = collect(['extracts', 'pageprops']);
+        $prop = collect();
+        $params = collect();
 
-        $forImages = collect();
+        $prop->push('extracts');
+        $params->put('exlimit', 1);
+        $params->put('explaintext', true);
+        $params->put('exsectionformat', 'wiki');
+
+        $prop->push('pageprops');
+        $params->put('ppprop', 'disambiguation');
+
         if (config('wikipedia-grabber.images')) {
             $prop->push('revisions');
-            $forImages->put('rvprop', 'content');
-            $forImages->put('rvcontentformat', 'text/x-wiki');
+            $params->put('rvprop', 'content');
+            $params->put('rvcontentformat', 'text/x-wiki');
         }
 
         return [
@@ -44,11 +52,7 @@ class Page extends EntitySingular
                 'formatversion' => 2,
                 'redirects' => true,
                 'prop' => $prop->implode('|'),
-                'exlimit' => 1,
-                'explaintext' => true,
-                'exsectionformat' => 'wiki',
-                'ppprop' => 'disambiguation',
-            ], $this->targetParams(), $forImages->toArray()),
+            ], $this->targetParams(), $params->toArray()),
         ];
     }
 }
