@@ -18,10 +18,9 @@ class Page extends EntitySingular
 
         $mainThumbnail = $this->response['thumbnail'];
         $mainOriginal = $this->response['original'];
-        $mainName = $this->response['pageimage'];
 
         $images = $this->response['images'];
-        dd($mainThumbnail, $mainOriginal, $mainName, $images, $wikitext);
+        dd($mainThumbnail, $mainOriginal, $images, $wikitext);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
@@ -55,7 +54,7 @@ class Page extends EntitySingular
 
             $prop->push('pageimages');
             $params->put('pithumbsize', 300);
-            $params->put('piprop', 'original|thumbnail|name');
+            $params->put('piprop', 'thumbnail|original');
 
             $prop->push('images');
             $params->put('imlimit', 'max');
