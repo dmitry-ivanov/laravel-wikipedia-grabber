@@ -9,12 +9,14 @@ abstract class Entity
     protected $client;
     protected $target;
     protected $format;
+    protected $withImages;
 
     public function __construct(Client $client, $target)
     {
         $this->client = $client;
         $this->target = $target;
         $this->format = config('wikipedia-grabber.format');
+        $this->withImages = config('wikipedia-grabber.images');
 
         $this->grab();
     }

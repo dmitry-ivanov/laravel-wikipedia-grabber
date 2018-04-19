@@ -48,7 +48,7 @@ class Page extends EntitySingular
         $params->put('explaintext', true);
         $params->put('exsectionformat', 'wiki');
 
-        if (config('wikipedia-grabber.images')) {
+        if ($this->withImages) {
             $prop->push('revisions');
             $params->put('rvprop', 'content');
             $params->put('rvcontentformat', 'text/x-wiki');
