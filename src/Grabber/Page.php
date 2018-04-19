@@ -13,14 +13,18 @@ class Page extends EntitySingular
 
         $this->response = head($fullResponse['query']['pages']);
 
+        if ($this->withImages) {
+            $this->response['imagesinfo'] = $this->getImagesInfo();
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $wikitext = head($this->response['revisions'])['content'];
 
         $mainThumbnail = $this->response['thumbnail'];
         $mainOriginal = $this->response['original'];
 
-        $images = $this->response['images'];
-        dd($mainThumbnail, $mainOriginal, $images, $wikitext);
+        $imagesInfo = $this->response['imagesinfo'];
+        dd($mainThumbnail, $mainOriginal, $imagesInfo, $wikitext);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
@@ -32,7 +36,6 @@ class Page extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Wikitext for images
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images list
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo - Image info
      */
     protected function params()
     {
@@ -69,5 +72,44 @@ class Page extends EntitySingular
                 'prop' => $prop->implode('|'),
             ], $this->targetParams(), $params->toArray()),
         ];
+    }
+
+    /**
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo
+     */
+    protected function getImagesInfo()
+    {
+        $imagesInfo = collect();
+
+        $images = collect($this->response['images']);
+        if ($images->isEmpty()) {
+            return $imagesInfo->toArray();
+        }
+
+        $images = $images->pluck('title');
+        foreach ($images->chunk(50) as $chunk) {
+            $params = [
+                'query' => [
+                    'action' => 'query',
+                    'format' => 'json',
+                    'formatversion' => 2,
+                    'redirects' => true,
+                    'prop' => 'imageinfo',
+                    'iiprop' => 'url|mime',
+                    'iiurlwidth' => 300,
+                    'iiurlheight' => 300,
+                    'titles' => $chunk->implode('|'),
+                ],
+            ];
+
+            $fullResponse = json_decode(
+                $this->client->get('', $params)->getBody(),
+                true
+            );
+
+            $imagesInfo->push($fullResponse['query']['pages']);
+        }
+
+        return $imagesInfo->collapse()->toArray();
     }
 }
