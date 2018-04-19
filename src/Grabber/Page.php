@@ -25,6 +25,25 @@ class Page extends EntitySingular
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
+    protected function getImagesInfo()
+    {
+        $imagesInfo = collect();
+
+        $images = collect($this->response['images']);
+        if ($images->isEmpty()) {
+            return [];
+        }
+
+        $images = $images->pluck('title');
+        foreach ($images->chunk(50) as $chunk) {
+            $imagesInfo->push(
+                $this->request($this->imageInfoParams($chunk))['query']['pages']
+            );
+        }
+
+        return $imagesInfo->collapse()->toArray();
+    }
+
     /**
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs - FormatVersion
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - Disambiguation
@@ -69,25 +88,6 @@ class Page extends EntitySingular
                 'prop' => $prop->implode('|'),
             ], $this->targetParams(), $params->toArray()),
         ];
-    }
-
-    protected function getImagesInfo()
-    {
-        $imagesInfo = collect();
-
-        $images = collect($this->response['images']);
-        if ($images->isEmpty()) {
-            return $imagesInfo->toArray();
-        }
-
-        $images = $images->pluck('title');
-        foreach ($images->chunk(50) as $chunk) {
-            $imagesInfo->push(
-                $this->request($this->imageInfoParams($chunk))['query']['pages']
-            );
-        }
-
-        return $imagesInfo->collapse()->toArray();
     }
 
     /**
