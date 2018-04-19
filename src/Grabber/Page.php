@@ -8,12 +8,7 @@ class Page extends EntitySingular
 {
     protected function grab()
     {
-        $fullResponse = json_decode(
-            $this->client->get('', $this->params())->getBody(),
-            true
-        );
-
-        $this->response = head($fullResponse['query']['pages']);
+        $this->response = head($this->request($this->params())['query']['pages']);
 
         if ($this->withImages) {
             $this->response['imagesinfo'] = $this->getImagesInfo();
@@ -87,12 +82,9 @@ class Page extends EntitySingular
 
         $images = $images->pluck('title');
         foreach ($images->chunk(50) as $chunk) {
-            $fullResponse = json_decode(
-                $this->client->get('', $this->imageInfoParams($chunk))->getBody(),
-                true
+            $imagesInfo->push(
+                $this->request($this->imageInfoParams($chunk))['query']['pages']
             );
-
-            $imagesInfo->push($fullResponse['query']['pages']);
         }
 
         return $imagesInfo->collapse()->toArray();

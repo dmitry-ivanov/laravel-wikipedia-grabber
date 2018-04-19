@@ -33,4 +33,12 @@ abstract class Entity
 
         return ['titles' => $this->target];
     }
+
+    protected function request(array $params)
+    {
+        return json_decode(
+            $this->client->get('', $params)->getBody(),
+            true
+        );
+    }
 }
