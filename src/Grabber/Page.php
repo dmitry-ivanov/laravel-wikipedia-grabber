@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
+use Illuminate\Support\Collection;
+
 class Page extends EntitySingular
 {
     protected function grab()
@@ -74,9 +76,6 @@ class Page extends EntitySingular
         ];
     }
 
-    /**
-     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo
-     */
     protected function getImagesInfo()
     {
         $imagesInfo = collect();
@@ -88,22 +87,8 @@ class Page extends EntitySingular
 
         $images = $images->pluck('title');
         foreach ($images->chunk(50) as $chunk) {
-            $params = [
-                'query' => [
-                    'action' => 'query',
-                    'format' => 'json',
-                    'formatversion' => 2,
-                    'redirects' => true,
-                    'prop' => 'imageinfo',
-                    'iiprop' => 'url|mime',
-                    'iiurlwidth' => 300,
-                    'iiurlheight' => 300,
-                    'titles' => $chunk->implode('|'),
-                ],
-            ];
-
             $fullResponse = json_decode(
-                $this->client->get('', $params)->getBody(),
+                $this->client->get('', $this->imageInfoParams($chunk))->getBody(),
                 true
             );
 
@@ -111,5 +96,25 @@ class Page extends EntitySingular
         }
 
         return $imagesInfo->collapse()->toArray();
+    }
+
+    /**
+     * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo
+     */
+    protected function imageInfoParams(Collection $images)
+    {
+        return [
+            'query' => [
+                'action' => 'query',
+                'format' => 'json',
+                'formatversion' => 2,
+                'redirects' => true,
+                'prop' => 'imageinfo',
+                'iiprop' => 'url|mime',
+                'iiurlwidth' => 300,
+                'iiurlheight' => 300,
+                'titles' => $images->implode('|'),
+            ],
+        ];
     }
 }
