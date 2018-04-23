@@ -72,7 +72,7 @@ class Page extends EntitySingular
             $params->put('rvcontentformat', 'text/x-wiki');
 
             $prop->push('pageimages');
-            $params->put('pithumbsize', 300);
+            $params->put('pithumbsize', $this->imageSize);
             $params->put('piprop', 'thumbnail|original');
 
             $prop->push('images');
@@ -103,8 +103,8 @@ class Page extends EntitySingular
                 'redirects' => true,
                 'prop' => 'imageinfo',
                 'iiprop' => 'url|mime',
-                'iiurlwidth' => 300,
-                'iiurlheight' => 300,
+                'iiurlwidth' => $this->imageSize,
+                'iiurlheight' => $this->imageSize,
                 'titles' => $images->implode('|'),
             ],
         ];

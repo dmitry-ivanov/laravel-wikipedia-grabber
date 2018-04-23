@@ -10,6 +10,7 @@ abstract class Entity
     protected $target;
     protected $format;
     protected $withImages;
+    protected $imageSize;
 
     public function __construct(Client $client, $target)
     {
@@ -17,6 +18,7 @@ abstract class Entity
         $this->target = $target;
         $this->format = config('wikipedia-grabber.format');
         $this->withImages = config('wikipedia-grabber.images');
+        $this->imageSize = (int) config('wikipedia-grabber.image_size');
 
         $this->grab();
     }
