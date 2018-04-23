@@ -32,6 +32,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Image Size
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify the size of image thumbnails on the grabbed page.
+    | According to proportions, it would be used for the width or height.
+    | In most cases, default value is fine. Change it, if you need it.
+    |
+    */
+
+    'image_size' => 300,
+
+    /*
+    |--------------------------------------------------------------------------
     | User-Agent
     |--------------------------------------------------------------------------
     |
