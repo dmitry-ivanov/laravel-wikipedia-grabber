@@ -10,7 +10,7 @@ class Page extends EntitySingular
     {
         $this->response = head($this->request($this->params())['query']['pages']);
 
-        if ($this->withImages) {
+        if ($this->images) {
             $this->response['imagesinfo'] = $this->getImagesInfo();
         }
 
@@ -66,7 +66,7 @@ class Page extends EntitySingular
         $params->put('explaintext', true);
         $params->put('exsectionformat', 'wiki');
 
-        if ($this->withImages) {
+        if ($this->images) {
             $prop->push('revisions');
             $params->put('rvprop', 'content');
             $params->put('rvcontentformat', 'text/x-wiki');
