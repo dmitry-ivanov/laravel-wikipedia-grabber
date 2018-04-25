@@ -10,19 +10,9 @@ class Page extends EntitySingular
     {
         $this->response = head($this->request($this->params())['query']['pages']);
 
-        if ($this->images) {
+        if ($this->isSuccess() && $this->images) {
             $this->response['imagesinfo'] = $this->getImagesInfo();
         }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        $wikitext = head($this->response['revisions'])['content'];
-
-        $mainThumbnail = $this->response['thumbnail'];
-        $mainOriginal = $this->response['original'];
-
-        $imagesInfo = $this->response['imagesinfo'];
-        dd($mainThumbnail, $mainOriginal, $imagesInfo, $wikitext);
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     protected function getImagesInfo()
