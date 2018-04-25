@@ -8,7 +8,7 @@ class Parser
 {
     protected $sections;
 
-    public function __construct($title, $body)
+    public function __construct($title, $body, array $images = null)
     {
         $this->sections = (new SectionsParser($title, $body))->sections();
         $this->sections = (new SectionsRemoveEmpty($this->sections))->filter();

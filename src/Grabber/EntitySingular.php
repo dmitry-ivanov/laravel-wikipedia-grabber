@@ -110,7 +110,19 @@ abstract class EntitySingular extends Entity
     private function getParser()
     {
         if (empty($this->parser)) {
-            $this->parser = new Parser($this->getTitle(), $this->response['extract']);
+            $imagesResponseData = null;
+            if ($this->images) {
+                $imagesResponseData = [
+                    'wikitext' => head($this->response['revisions'])['content'],
+                    'main_image' => [
+                        'original' => $this->response['original'],
+                        'thumbnail' => $this->response['thumbnail'],
+                    ],
+                    'images' => $this->response['imagesinfo'],
+                ];
+            }
+
+            $this->parser = new Parser($this->getTitle(), $this->response['extract'], $imagesResponseData);
         }
 
         return $this->parser;
