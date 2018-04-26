@@ -11,6 +11,7 @@ class Parser
     public function __construct($title, $body, array $images = null)
     {
         $this->sections = (new SectionsParser($title, $body))->sections();
+        $this->sections = (new SectionsAddImages($this->sections, $images))->filter();
         $this->sections = (new SectionsRemoveEmpty($this->sections))->filter();
         $this->sections = (new SectionsRemoveBoring($this->sections))->filter();
     }
