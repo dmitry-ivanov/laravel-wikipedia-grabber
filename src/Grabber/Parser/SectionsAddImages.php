@@ -7,24 +7,24 @@ use Illuminate\Support\Collection;
 class SectionsAddImages
 {
     protected $sections;
-    protected $images;
+    protected $imagesResponseData;
 
-    public function __construct(Collection $sections, array $images = null)
+    public function __construct(Collection $sections, array $imagesResponseData = null)
     {
         $this->sections = $sections;
-        $this->images = $images;
+        $this->imagesResponseData = $imagesResponseData;
     }
 
     public function filter()
     {
-        if (empty($this->images)) {
+        if (empty($this->imagesResponseData)) {
             return $this->sections;
         }
 
         $wikitextSections = $this->getWikitextSections();
 
         dd($wikitextSections);
-        dd($this->images);
+        dd($this->imagesResponseData);
 
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
@@ -32,7 +32,7 @@ class SectionsAddImages
     protected function getWikitextSections()
     {
         $main = $this->getMainSection();
-        $wikitext = $this->images['wikitext'];
+        $wikitext = $this->imagesResponseData['wikitext'];
 
         return (new SectionsParser($main->getTitle(), $wikitext))->sections();
     }
