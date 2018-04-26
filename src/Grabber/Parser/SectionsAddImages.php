@@ -21,6 +21,24 @@ class SectionsAddImages
             return $this->sections;
         }
 
+        $wikitextSections = $this->getWikitextSections();
+
+        dd($wikitextSections);
+        dd($this->images);
+
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    protected function getWikitextSections()
+    {
+        $main = $this->getMainSection();
+        $wikitext = $this->images['wikitext'];
+
+        return (new SectionsParser($main->getTitle(), $wikitext))->sections();
+    }
+
+    protected function getMainSection()
+    {
+        return $this->sections->first->isMain();
     }
 }
