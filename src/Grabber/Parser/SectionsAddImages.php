@@ -52,6 +52,20 @@ class SectionsAddImages
         return empty($this->mainImage) && empty($this->images);
     }
 
+    protected function filterImages(array $images)
+    {
+        $filtered = [];
+
+        foreach ($images as $image) {
+            $file = last(explode(':', $image['title']));
+            if (str_contains($this->wikitext, $file)) {
+                $filtered[] = $image;
+            }
+        }
+
+        return $filtered;
+    }
+
     protected function getWikitextSectionFor(Section $section)
     {
         $wikitextSections = $this->getWikitextSections();
