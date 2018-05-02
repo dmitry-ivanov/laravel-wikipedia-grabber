@@ -39,7 +39,7 @@ class SectionsAddImages
                 continue;
             }
 
-            dd($section, $wikitextSection);
+            dd($section, $wikitextSection, $this->images);
         }
 
         dd('filter method');
