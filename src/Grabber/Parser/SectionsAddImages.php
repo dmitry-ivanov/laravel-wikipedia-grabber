@@ -25,7 +25,7 @@ class SectionsAddImages
         }
 
         foreach ($this->sections as $section) {
-            $wikitextSection = $this->getWikitextSection($section->getTitle());
+            $wikitextSection = $this->getWikitextSection($section);
             if (empty($wikitextSection)) {
                 continue;
             }
@@ -38,12 +38,13 @@ class SectionsAddImages
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
-    protected function getWikitextSection($title)
+    protected function getWikitextSection(Section $section)
     {
         $wikitextSections = $this->getWikitextSections();
 
-        return $wikitextSections->first(function (Section $section) use ($title) {
-            return ($section->getTitle() == $title);
+        return $wikitextSections->first(function (Section $wikiSection) use ($section) {
+            return ($wikiSection->getTitle() == $section->getTitle())
+                && ($wikiSection->getLevel() == $section->getLevel());
         });
     }
 
