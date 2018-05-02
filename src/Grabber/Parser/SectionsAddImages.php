@@ -25,11 +25,12 @@ class SectionsAddImages
         }
 
         foreach ($this->sections as $section) {
-            $title = $section->getTitle();
-            $wikitextSection = $this->getWikitextSection($title);
+            $wikitextSection = $this->getWikitextSection($section->getTitle());
             if (empty($wikitextSection)) {
-                dd($title);
+                continue;
             }
+
+            dd($section, $wikitextSection);
         }
 
         dd($this->imagesResponseData);
