@@ -56,7 +56,10 @@ class SectionsAddImages
         $main = $this->getMainSection();
         $wikitext = $this->imagesResponseData['wikitext'];
         $this->wikitextSections = (new SectionsParser($main->getTitle(), $wikitext))->sections();
-        $this->sanitizeWikitextSections();
+        $this->wikitextSections->each(function (Section $section) {
+            $sanitized = (new Wikitext($section->getTitle()))->sanitize();
+            $section->setTitle($sanitized);
+        });
 
         return $this->wikitextSections;
     }
@@ -64,14 +67,5 @@ class SectionsAddImages
     protected function getMainSection()
     {
         return $this->sections->first->isMain();
-    }
-
-    protected function sanitizeWikitextSections()
-    {
-        $this->wikitextSections->each(function (Section $section) {
-            $section->setTitle(
-                (new Wikitext($section->getTitle()))->sanitize()
-            );
-        });
     }
 }
