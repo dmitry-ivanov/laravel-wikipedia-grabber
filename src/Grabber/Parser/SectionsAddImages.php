@@ -9,18 +9,27 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 class SectionsAddImages
 {
     protected $sections;
+    protected $hasImages = false;
+    protected $images;
+    protected $mainImage;
+    protected $wikitext;
     protected $wikitextSections;
-    protected $imagesResponseData;
 
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
         $this->sections = $sections;
-        $this->imagesResponseData = $imagesResponseData;
+
+        if (!empty($imagesResponseData)) {
+            $this->hasImages = true;
+            $this->images = $imagesResponseData['images'];
+            $this->mainImage = $imagesResponseData['main_image'];
+            $this->wikitext = $imagesResponseData['wikitext'];
+        }
     }
 
     public function filter()
     {
-        if (empty($this->imagesResponseData)) {
+        if (!$this->hasImages) {
             return $this->sections;
         }
 
@@ -55,8 +64,7 @@ class SectionsAddImages
         }
 
         $title = $this->getMainSection()->getTitle();
-        $wikitext = $this->imagesResponseData['wikitext'];
-        $this->wikitextSections = (new SectionsParser($title, $wikitext))->sections();
+        $this->wikitextSections = (new SectionsParser($title, $this->wikitext))->sections();
         $this->wikitextSections->each(function (Section $section) {
             $sanitized = (new Wikitext($section->getTitle()))->sanitize();
             $section->setTitle($sanitized);
