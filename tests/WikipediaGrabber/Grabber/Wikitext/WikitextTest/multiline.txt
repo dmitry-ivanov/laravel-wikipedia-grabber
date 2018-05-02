@@ -1,0 +1,3 @@
+This is [[Super Link|Link1]], and this is [[Wow Link|Link2]], and [[Link3]]
+This is [[Super Link Line2|Link4]] and [[Wow Link|Link2]], and [[Link3]]
+Previous line had duplicates of links from line 1! [[Cool?|Link5]].
