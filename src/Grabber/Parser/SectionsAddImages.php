@@ -33,7 +33,7 @@ class SectionsAddImages
             dd($section, $wikitextSection);
         }
 
-        dd($this->imagesResponseData);
+        dd('filter method');
 
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
