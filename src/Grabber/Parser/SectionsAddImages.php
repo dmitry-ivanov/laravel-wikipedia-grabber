@@ -9,22 +9,24 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 class SectionsAddImages
 {
     protected $sections;
-    protected $hasImages = false;
+    protected $wikitext;
     protected $images;
     protected $mainImage;
-    protected $wikitext;
+    protected $hasImages = false;
     protected $wikitextSections;
 
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
         $this->sections = $sections;
 
-        if (!empty($imagesResponseData)) {
-            $this->hasImages = true;
-            $this->images = $imagesResponseData['images'];
-            $this->mainImage = $imagesResponseData['main_image'];
-            $this->wikitext = $imagesResponseData['wikitext'];
+        if (empty($imagesResponseData)) {
+            return;
         }
+
+        $this->wikitext = $imagesResponseData['wikitext'];
+        $this->images = $imagesResponseData['images'];
+        $this->mainImage = $imagesResponseData['main_image'];
+        $this->hasImages = true;
     }
 
     public function filter()
