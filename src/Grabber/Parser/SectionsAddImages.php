@@ -12,25 +12,24 @@ class SectionsAddImages
     protected $wikitext;
     protected $mainImage;
     protected $images;
-    protected $hasImages = false;
     protected $wikitextSections;
 
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
+        $this->sections = $sections;
+
         if (empty($imagesResponseData)) {
             return;
         }
 
-        $this->sections = $sections;
         $this->wikitext = $imagesResponseData['wikitext'];
         $this->mainImage = $imagesResponseData['main_image'];
         $this->images = $this->filterImages($imagesResponseData['images']);
-        $this->hasImages = true;
     }
 
     public function filter()
     {
-        if (!$this->hasImages) {
+        if ($this->noImages()) {
             return $this->sections;
         }
 
@@ -46,6 +45,11 @@ class SectionsAddImages
         dd('filter method');
 
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    protected function noImages()
+    {
+        return empty($this->mainImage) && empty($this->images);
     }
 
     protected function getWikitextSectionFor(Section $section)
