@@ -34,7 +34,7 @@ class SectionsAddImages
         }
 
         foreach ($this->sections as $section) {
-            $wikitextSection = $this->getWikitextSection($section);
+            $wikitextSection = $this->getWikitextSectionFor($section);
             if (empty($wikitextSection)) {
                 continue;
             }
@@ -47,7 +47,7 @@ class SectionsAddImages
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
-    protected function getWikitextSection(Section $section)
+    protected function getWikitextSectionFor(Section $section)
     {
         $wikitextSections = $this->getWikitextSections();
 
