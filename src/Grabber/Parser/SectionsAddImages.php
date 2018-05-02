@@ -3,6 +3,8 @@
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminate\Support\Collection;
+use Illuminated\Wikipedia\Grabber\Component\Section;
+use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class SectionsAddImages
 {
@@ -22,9 +24,26 @@ class SectionsAddImages
             return $this->sections;
         }
 
+        foreach ($this->sections as $section) {
+            $title = $section->getTitle();
+            $wikitextSection = $this->getWikitextSection($title);
+            if (empty($wikitextSection)) {
+                dd($title);
+            }
+        }
+
         dd($this->imagesResponseData);
 
         return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    protected function getWikitextSection($title)
+    {
+        $wikitextSections = $this->getWikitextSections();
+
+        return $wikitextSections->first(function (Section $section) use ($title) {
+            return ($section->getTitle() == $title);
+        });
     }
 
     protected function getWikitextSections()
@@ -36,6 +55,7 @@ class SectionsAddImages
         $main = $this->getMainSection();
         $wikitext = $this->imagesResponseData['wikitext'];
         $this->wikitextSections = (new SectionsParser($main->getTitle(), $wikitext))->sections();
+        $this->sanitizeWikitextSections();
 
         return $this->wikitextSections;
     }
@@ -43,5 +63,14 @@ class SectionsAddImages
     protected function getMainSection()
     {
         return $this->sections->first->isMain();
+    }
+
+    protected function sanitizeWikitextSections()
+    {
+        $this->wikitextSections->each(function (Section $section) {
+            $section->setTitle(
+                (new Wikitext($section->getTitle()))->sanitize()
+            );
+        });
     }
 }
