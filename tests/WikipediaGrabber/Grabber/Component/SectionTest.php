@@ -57,6 +57,13 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function and_if_images_collection_is_empty_and_also_body_then_section_is_empty_too()
+    {
+        $section = new Section('Title', '', 3, collect([]));
+        $this->assertTrue($section->isEmpty());
+    }
+
+    /** @test */
     public function it_has_is_main_method()
     {
         $section = new Section('Title', 'Body', 3);

@@ -67,7 +67,7 @@ class Section
 
     public function isEmpty()
     {
-        return empty($this->body) && empty($this->images);
+        return empty($this->body) && (empty($this->images) || $this->images->isEmpty());
     }
 
     public function isMain()
