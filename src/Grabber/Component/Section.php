@@ -2,17 +2,21 @@
 
 namespace Illuminated\Wikipedia\Grabber\Component;
 
+use Illuminate\Support\Collection;
+
 class Section
 {
     protected $title;
     protected $body;
     protected $level;
+    protected $images;
 
-    public function __construct($title, $body, $level)
+    public function __construct($title, $body, $level, Collection $images = null)
     {
         $this->setTitle($title);
         $this->setBody($body);
         $this->setLevel($level);
+        $this->setImages($images);
     }
 
     public function getTitle()
@@ -49,6 +53,16 @@ class Section
         }
 
         $this->level = $level;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function setImages(Collection $images = null)
+    {
+        $this->images = $images;
     }
 
     public function isMain()
