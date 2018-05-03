@@ -40,11 +40,15 @@ class SectionsAddImages
             }
 
             $sectionImages = $this->getUsedImages($wikitextSection->getBody(), $this->images);
+            $this->freeUsedImages($sectionImages);
 
             // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
             // удалить из images все что вошло в section images
-            dump('----------------------------------------------------------------');
-            dump(count($sectionImages), count($this->images));
+            dump('////////////////////////////////////////////////////////////////');
+            dump('////////////////////////////////////////////////////////////////');
+            dump(array_pluck($sectionImages, 'title'));
+            dump('////////////////////////////////////////////////////////////////');
+            dump(array_pluck($this->images, 'title'));
 
             // 4. Парсинг аттрибутов картинки
             // 5. Создать объекты Image и присвоить их секции
@@ -72,6 +76,18 @@ class SectionsAddImages
         $file = last(explode(':', $image['title']));
 
         return str_contains($wikitext, $file);
+    }
+
+    protected function freeUsedImages(array $usedImages)
+    {
+        if (empty($usedImages)) {
+            return;
+        }
+
+        $usedImages = array_pluck($usedImages, 'title');
+        $this->images = collect($this->images)->filter(function (array $image) use ($usedImages) {
+            return !in_array($image['title'], $usedImages);
+        })->toArray();
     }
 
     protected function getWikitextSectionFor(Section $section)
