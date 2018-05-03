@@ -40,6 +40,10 @@ class SectionsAddImages
             }
 
             $sectionImages = $this->getUsedImages($wikitextSection->getBody(), $this->images);
+            if (empty($sectionImages)) {
+                continue;
+            }
+
             $this->freeUsedImages($sectionImages);
 
             // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
@@ -80,10 +84,6 @@ class SectionsAddImages
 
     protected function freeUsedImages(array $usedImages)
     {
-        if (empty($usedImages)) {
-            return;
-        }
-
         $usedImages = array_pluck($usedImages, 'title');
         $this->images = collect($this->images)->filter(function (array $image) use ($usedImages) {
             return !in_array($image['title'], $usedImages);
