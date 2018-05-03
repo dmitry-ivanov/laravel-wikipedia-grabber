@@ -39,6 +39,20 @@ class SectionsAddImages
                 continue;
             }
 
+            $sectionImages = [];
+            foreach ($this->images as $image) {
+                if ($this->isImageUsed($wikitextSection->getBody(), $image)) {
+                    $sectionImages[] = $image;
+                }
+            }
+
+            // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
+            // удалить из images все что вошло в section images
+            dd($sectionImages);
+
+            // 4. Парсинг аттрибутов картинки
+            // 5. Создать объекты Image и присвоить их секции
+
             dd($section, $wikitextSection, $this->images);
         }
 
