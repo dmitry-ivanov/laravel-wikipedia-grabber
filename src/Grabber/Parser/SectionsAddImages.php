@@ -39,21 +39,26 @@ class SectionsAddImages
                 continue;
             }
 
-            $sectionImages = [];
-            foreach ($this->images as $key => $image) {
+            $newImages = collect();
+            $sectionImages = collect();
+
+            foreach ($this->images as $image) {
                 if ($this->isImageUsed($wikitextSection->getBody(), $image)) {
-                    $sectionImages[] = $this->images->pull($key);
+                    $sectionImages->push($image);
+                } else {
+                    $newImages->push($image);
                 }
             }
 
+            $this->images = $newImages;
+
             // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
             // удалить из images все что вошло в section images
-            dd($sectionImages, $this->images);
+            dump('----------------------------------------------------------------');
+            dump($sectionImages->count(), $this->images->count());
 
             // 4. Парсинг аттрибутов картинки
             // 5. Создать объекты Image и присвоить их секции
-
-            dd($section, $wikitextSection, $this->images);
         }
 
         dd('filter method');
