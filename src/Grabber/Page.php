@@ -11,8 +11,21 @@ class Page extends EntitySingular
         $this->response = head($this->request($this->params())['query']['pages']);
 
         if ($this->isSuccess() && $this->images) {
-            $this->response['imagesinfo'] = $this->getImagesInfo();
+            $this->response['main_image'] = $this->getMainImage();
+            $this->response['images_info'] = $this->getImagesInfo();
         }
+    }
+
+    protected function getMainImage()
+    {
+        if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
+            return null;
+        }
+
+        return [
+            'original' => $this->response['original'],
+            'thumbnail' => $this->response['thumbnail'],
+        ];
     }
 
     protected function getImagesInfo()
