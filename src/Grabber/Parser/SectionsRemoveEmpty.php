@@ -29,10 +29,7 @@ class SectionsRemoveEmpty
         $filtered = collect();
 
         foreach ($this->sections as $index => $section) {
-            $body = $section->getBody();
-            $level = $section->getLevel();
-
-            if ($section->isMain() || !empty($body)) {
+            if ($section->isMain() || !$section->isEmpty()) {
                 $filtered->push($section);
                 continue;
             }
@@ -42,10 +39,10 @@ class SectionsRemoveEmpty
                 continue;
             }
 
+            $level = $section->getLevel();
             $nextSection = $this->sections[$index + 1];
             $nextSectionLevel = $nextSection->getLevel();
             $hasChild = ($level < $nextSectionLevel);
-
             if ($hasChild) {
                 $filtered->push($section);
             }
