@@ -13,12 +13,12 @@ class Image
 
     public function __construct($url, $width, $height, $originalUrl, $position = 'right', $description = '')
     {
-        $this->url = $url;
-        $this->width = $width;
-        $this->height = $height;
-        $this->position = $position;
-        $this->description = $description;
-        $this->originalUrl = $originalUrl;
+        $this->setUrl($url);
+        $this->setWidth($width);
+        $this->setHeight($height);
+        $this->setPosition($position);
+        $this->setDescription($description);
+        $this->setOriginalUrl($originalUrl);
     }
 
     public function getUrl()
@@ -38,7 +38,7 @@ class Image
 
     public function setWidth($width)
     {
-        $this->width = $width;
+        $this->width = (int) $width;
     }
 
     public function getHeight()
@@ -48,7 +48,7 @@ class Image
 
     public function setHeight($height)
     {
-        $this->height = $height;
+        $this->height = (int) $height;
     }
 
     public function getPosition()
