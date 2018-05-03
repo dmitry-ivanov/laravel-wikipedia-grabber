@@ -36,6 +36,27 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_has_is_empty_method_which_returns_true_if_body_and_images_both_empty()
+    {
+        $section = new Section('Title', '', 3, null);
+        $this->assertTrue($section->isEmpty());
+    }
+
+    /** @test */
+    public function and_if_body_is_not_empty_then_section_is_not_empty()
+    {
+        $section = new Section('Title', 'Not empty body', 3, null);
+        $this->assertFalse($section->isEmpty());
+    }
+
+    /** @test */
+    public function and_if_images_is_not_empty_then_section_is_not_empty()
+    {
+        $section = new Section('Title', '', 3, collect(['images', 'collection', 'here']));
+        $this->assertFalse($section->isEmpty());
+    }
+
+    /** @test */
     public function it_has_is_main_method()
     {
         $section = new Section('Title', 'Body', 3);

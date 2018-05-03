@@ -65,6 +65,11 @@ class Section
         $this->images = $images;
     }
 
+    public function isEmpty()
+    {
+        return empty($this->body) && empty($this->images);
+    }
+
     public function isMain()
     {
         return ($this->level == 1);
