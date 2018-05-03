@@ -30,21 +30,13 @@ class Page extends EntitySingular
 
     protected function getImagesInfo()
     {
-        $imagesInfo = collect();
-
-        $images = collect($this->response['images']);
-        if ($images->isEmpty()) {
+        if (empty($this->response['images'])) {
             return [];
         }
 
-        $images = $images->pluck('title');
-        foreach ($images->chunk(50) as $chunk) {
-            $imagesInfo->push(
-                $this->request($this->imageInfoParams($chunk))['query']['pages']
-            );
-        }
-
-        return $imagesInfo->collapse()->toArray();
+        return collect($this->response['images'])->pluck('title')->chunk(50)->map(function ($chunk) {
+            return $this->request($this->imageInfoParams($chunk))['query']['pages'];
+        })->collapse()->toArray();
     }
 
     /**
