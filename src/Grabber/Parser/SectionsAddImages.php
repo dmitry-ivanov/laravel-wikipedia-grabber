@@ -24,7 +24,7 @@ class SectionsAddImages
 
         $this->wikitext = $imagesResponseData['wikitext'];
         $this->mainImage = $imagesResponseData['main_image'];
-        $this->images = $this->onlyUsedImages($imagesResponseData['images']);
+        $this->images = $this->getUsedImages($this->wikitext, $imagesResponseData['images']);
     }
 
     public function filter()
@@ -39,12 +39,12 @@ class SectionsAddImages
                 continue;
             }
 
-            $sectionImages = $this->getSectionImages($wikitextSection);
+            $sectionImages = $this->getUsedImages($wikitextSection->getBody(), $this->images);
 
             // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
             // удалить из images все что вошло в section images
             dump('----------------------------------------------------------------');
-            dump($sectionImages->count(), count($this->images));
+            dump(count($sectionImages), count($this->images));
 
             // 4. Парсинг аттрибутов картинки
             // 5. Создать объекты Image и присвоить их секции
@@ -60,10 +60,10 @@ class SectionsAddImages
         return empty($this->mainImage) && empty($this->images);
     }
 
-    protected function onlyUsedImages(array $images)
+    protected function getUsedImages($wikitext, array $images)
     {
-        return collect($images)->filter(function (array $image) {
-            return $this->isImageUsed($this->wikitext, $image);
+        return collect($images)->filter(function (array $image) use ($wikitext) {
+            return $this->isImageUsed($wikitext, $image);
         })->toArray();
     }
 
@@ -72,13 +72,6 @@ class SectionsAddImages
         $file = last(explode(':', $image['title']));
 
         return str_contains($wikitext, $file);
-    }
-
-    protected function getSectionImages(Section $wikitextSection)
-    {
-        return collect($this->images)->filter(function (array $image) use ($wikitextSection) {
-            return $this->isImageUsed($wikitextSection->getBody(), $image);
-        });
     }
 
     protected function getWikitextSectionFor(Section $section)
