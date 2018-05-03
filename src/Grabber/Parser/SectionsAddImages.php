@@ -76,9 +76,9 @@ class SectionsAddImages
 
     protected function getSectionImages(Section $wikitextSection)
     {
-        $newImages = collect();
         $sectionImages = collect();
 
+        $newImages = collect();
         foreach ($this->images as $image) {
             if ($this->isImageUsed($wikitextSection->getBody(), $image)) {
                 $sectionImages->push($image);
