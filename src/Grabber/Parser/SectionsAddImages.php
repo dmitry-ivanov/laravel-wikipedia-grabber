@@ -50,12 +50,12 @@ class SectionsAddImages
                 }
             }
 
-            $this->images = $newImages;
+            $this->images = $newImages->toArray();
 
             // 3. В конце у меня есть $sectionImages и уменьшенный $images (картинка может быть использована 1 раз на странице)
             // удалить из images все что вошло в section images
             dump('----------------------------------------------------------------');
-            dump($sectionImages->count(), $this->images->count());
+            dump($sectionImages->count(), count($this->images));
 
             // 4. Парсинг аттрибутов картинки
             // 5. Создать объекты Image и присвоить их секции
@@ -68,14 +68,14 @@ class SectionsAddImages
 
     protected function noImages()
     {
-        return empty($this->mainImage) && $this->images->isEmpty();
+        return empty($this->mainImage) && empty($this->images);
     }
 
     protected function filterImages(array $images)
     {
         return collect($images)->filter(function (array $image) {
             return $this->isImageUsed($this->wikitext, $image);
-        });
+        })->toArray();
     }
 
     protected function isImageUsed($wikitext, array $image)
