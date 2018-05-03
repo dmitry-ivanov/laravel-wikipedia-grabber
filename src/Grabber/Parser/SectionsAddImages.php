@@ -68,15 +68,9 @@ class SectionsAddImages
 
     protected function filterImages(array $images)
     {
-        $filtered = [];
-
-        foreach ($images as $image) {
-            if ($this->isImageUsed($this->wikitext, $image)) {
-                $filtered[] = $image;
-            }
-        }
-
-        return $filtered;
+        return collect($images)->filter(function (array $image) {
+            return $this->isImageUsed($this->wikitext, $image);
+        });
     }
 
     protected function isImageUsed($wikitext, array $image)
