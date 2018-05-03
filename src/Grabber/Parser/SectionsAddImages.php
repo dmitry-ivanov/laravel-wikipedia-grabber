@@ -44,19 +44,14 @@ class SectionsAddImages
                 continue;
             }
 
-            $images = collect([]);
-            $wikitext = new Wikitext($wikitextSection->getBody());
-            foreach ($sectionImages as $image) {
-                $images->push($wikitext->image($image));
-            }
-            $section->setImages($images);
+            $section->setImages(
+                $this->createObjects($wikitextSection, $sectionImages)
+            );
 
             $this->freeUsedImages($sectionImages);
         }
 
-        dd('filter method');
-
-        return true; ///////////////////////////////////////////////////////////////////////////////////////////////////
+        return $this->sections;
     }
 
     protected function noImages()
@@ -76,6 +71,15 @@ class SectionsAddImages
         $file = last(explode(':', $image['title']));
 
         return str_contains($wikitext, $file);
+    }
+
+    protected function createObjects(Section $wikitextSection, array $images)
+    {
+        $wikitext = new Wikitext($wikitextSection->getBody());
+
+        return collect($images)->map(function (array $image) use ($wikitext) {
+            return $wikitext->image($image);
+        });
     }
 
     protected function freeUsedImages(array $usedImages)
