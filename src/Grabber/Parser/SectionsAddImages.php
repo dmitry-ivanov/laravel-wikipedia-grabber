@@ -57,13 +57,19 @@ class SectionsAddImages
         $filtered = [];
 
         foreach ($images as $image) {
-            $file = last(explode(':', $image['title']));
-            if (str_contains($this->wikitext, $file)) {
+            if ($this->isImageUsed($this->wikitext, $image)) {
                 $filtered[] = $image;
             }
         }
 
         return $filtered;
+    }
+
+    protected function isImageUsed($wikitext, array $image)
+    {
+        $file = last(explode(':', $image['title']));
+
+        return str_contains($wikitext, $file);
     }
 
     protected function getWikitextSectionFor(Section $section)
