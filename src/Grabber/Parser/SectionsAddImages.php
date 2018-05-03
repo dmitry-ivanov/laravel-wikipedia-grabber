@@ -24,7 +24,7 @@ class SectionsAddImages
 
         $this->wikitext = $imagesResponseData['wikitext'];
         $this->mainImage = $imagesResponseData['main_image'];
-        $this->images = $this->filterImages($imagesResponseData['images']);
+        $this->images = $this->onlyUsedImages($imagesResponseData['images']);
     }
 
     public function filter()
@@ -60,7 +60,7 @@ class SectionsAddImages
         return empty($this->mainImage) && empty($this->images);
     }
 
-    protected function filterImages(array $images)
+    protected function onlyUsedImages(array $images)
     {
         return collect($images)->filter(function (array $image) {
             return $this->isImageUsed($this->wikitext, $image);
