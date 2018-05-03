@@ -44,11 +44,12 @@ class SectionsAddImages
                 continue;
             }
 
-            // 4. Парсинг аттрибутов картинки
-            // 5. Создать объекты Image и присвоить их секции
+            $images = collect([]);
+            $wikitext = new Wikitext($wikitextSection->getBody());
             foreach ($sectionImages as $image) {
-                dd($image);
+                $images->push($wikitext->image($image));
             }
+            $section->setImages($images);
 
             $this->freeUsedImages($sectionImages);
         }

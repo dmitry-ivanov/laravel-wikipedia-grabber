@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
+use Illuminated\Wikipedia\Grabber\Component\Image;
+
 class Wikitext
 {
     protected $body;
@@ -9,6 +11,18 @@ class Wikitext
     public function __construct($body)
     {
         $this->body = $body;
+    }
+
+    public function image(array $image)
+    {
+        $imageInfo = head($image['imageinfo']);
+
+        $url = $imageInfo['thumburl'];
+        $width = $imageInfo['thumbwidth'];
+        $height = $imageInfo['thumbheight'];
+        $originalUrl = $imageInfo['url'];
+
+        return new Image($url, $width, $height, $originalUrl);
     }
 
     public function sanitize()
