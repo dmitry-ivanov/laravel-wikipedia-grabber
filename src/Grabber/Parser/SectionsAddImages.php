@@ -44,10 +44,13 @@ class SectionsAddImages
                 continue;
             }
 
-            $this->freeUsedImages($sectionImages);
-
             // 4. Парсинг аттрибутов картинки
             // 5. Создать объекты Image и присвоить их секции
+            foreach ($sectionImages as $image) {
+                dd($image);
+            }
+
+            $this->freeUsedImages($sectionImages);
         }
 
         dd('filter method');
