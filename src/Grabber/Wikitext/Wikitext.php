@@ -13,7 +13,7 @@ class Wikitext
         $this->body = $body;
     }
 
-    public function image(array $image)
+    public function createImageObject(array $image)
     {
         $imageInfo = head($image['imageinfo']);
 

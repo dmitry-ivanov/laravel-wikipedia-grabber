@@ -78,7 +78,7 @@ class SectionsAddImages
         $wikitext = new Wikitext($wikitextSection->getBody());
 
         return collect($images)->map(function (array $image) use ($wikitext) {
-            return $wikitext->image($image);
+            return $wikitext->createImageObject($image);
         });
     }
 
