@@ -62,12 +62,12 @@ class Section
 
     public function setImages(Collection $images = null)
     {
-        $this->images = $images;
+        $this->images = $images ?? collect();
     }
 
     public function isEmpty()
     {
-        return empty($this->body) && (empty($this->images) || $this->images->isEmpty());
+        return empty($this->body) && $this->images->isEmpty();
     }
 
     public function isMain()
