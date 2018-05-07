@@ -90,4 +90,31 @@ class SectionTest extends TestCase
         $section = new Section('Title', 'Body', 7);
         $this->assertEquals(6, $section->getHtmlLevel());
     }
+
+    /** @test */
+    public function it_has_add_images_method()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $section->addImages(collect(['some', 'fake', 'images']));
+
+        $this->assertEquals($section->getImages(), collect(['some', 'fake', 'images']));
+    }
+
+    /** @test */
+    public function which_works_even_if_images_are_set_initially_as_empty_collection()
+    {
+        $section = new Section('Title', 'Body', 7, collect());
+        $section->addImages(collect(['some', 'fake', 'images']));
+
+        $this->assertEquals($section->getImages(), collect(['some', 'fake', 'images']));
+    }
+
+    /** @test */
+    public function which_works_even_if_images_are_set_initially()
+    {
+        $section = new Section('Title', 'Body', 7, collect(['initial', 'images']));
+        $section->addImages(collect(['some', 'fake', 'images']));
+
+        $this->assertEquals($section->getImages(), collect(['initial', 'images', 'some', 'fake', 'images']));
+    }
 }
