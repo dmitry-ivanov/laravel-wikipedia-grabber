@@ -36,6 +36,20 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_sets_images_to_empty_collection_by_default()
+    {
+        $section = new Section('Title', 'Body', '7');
+        $this->assertEquals($section->getImages(), collect());
+    }
+
+    /** @test */
+    public function but_if_images_are_passed_then_they_would_be_set()
+    {
+        $section = new Section('Title', 'Body', '7', collect(['some', 'fake', 'images']));
+        $this->assertEquals($section->getImages(), collect(['some', 'fake', 'images']));
+    }
+
+    /** @test */
     public function it_has_is_main_method()
     {
         $section = new Section('Title', 'Body', 3);
