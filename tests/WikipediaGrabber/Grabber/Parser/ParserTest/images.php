@@ -612,4 +612,22 @@ return [
             ],
         ],
     ],
+    34 => [
+        'ns' => 6,
+        'title' => 'Файл:Main-Section-Image.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1000x1000',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Main-Section-Image.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
