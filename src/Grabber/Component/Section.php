@@ -65,6 +65,16 @@ class Section
         $this->images = $images ?? collect();
     }
 
+    public function isMain()
+    {
+        return ($this->level == 1);
+    }
+
+    public function isEmpty()
+    {
+        return empty($this->body) && !$this->hasImages();
+    }
+
     public function hasImages()
     {
         return $this->images->isNotEmpty();
@@ -73,16 +83,6 @@ class Section
     public function addImages(Collection $images)
     {
         $this->images = $this->images->merge($images);
-    }
-
-    public function isEmpty()
-    {
-        return empty($this->body) && !$this->hasImages();
-    }
-
-    public function isMain()
-    {
-        return ($this->level == 1);
     }
 
     public function getHtmlLevel()

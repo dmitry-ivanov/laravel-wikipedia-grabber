@@ -78,20 +78,6 @@ class SectionTest extends TestCase
     }
 
     /** @test */
-    public function it_has_get_html_level_method()
-    {
-        $section = new Section('Title', 'Body', 3);
-        $this->assertEquals(3, $section->getHtmlLevel());
-    }
-
-    /** @test */
-    public function which_will_return_6_if_level_is_greater_than_6()
-    {
-        $section = new Section('Title', 'Body', 7);
-        $this->assertEquals(6, $section->getHtmlLevel());
-    }
-
-    /** @test */
     public function it_has_has_images_method()
     {
         $section = new Section('Title', 'Body', 7);
@@ -137,5 +123,19 @@ class SectionTest extends TestCase
         $section->addImages(collect(['some', 'fake', 'images']));
 
         $this->assertEquals($section->getImages(), collect(['initial', 'images', 'some', 'fake', 'images']));
+    }
+
+    /** @test */
+    public function it_has_get_html_level_method()
+    {
+        $section = new Section('Title', 'Body', 3);
+        $this->assertEquals(3, $section->getHtmlLevel());
+    }
+
+    /** @test */
+    public function which_will_return_6_if_level_is_greater_than_6()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $this->assertEquals(6, $section->getHtmlLevel());
     }
 }
