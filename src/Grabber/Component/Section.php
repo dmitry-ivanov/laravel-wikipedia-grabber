@@ -65,6 +65,11 @@ class Section
         $this->images = $images ?? collect();
     }
 
+    public function addImages(Collection $images)
+    {
+        $this->images = $this->images->merge($images);
+    }
+
     public function isEmpty()
     {
         return empty($this->body) && $this->images->isEmpty();

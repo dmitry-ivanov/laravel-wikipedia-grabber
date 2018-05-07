@@ -49,7 +49,7 @@ class SectionsAddImages
                 continue;
             }
 
-            $section->setImages( ////////////////////////////////////////////////////////////////// ADD instead of SET!!
+            $section->addImages(
                 $this->createObjects($wikitextSection, $sectionImages)
             );
 
