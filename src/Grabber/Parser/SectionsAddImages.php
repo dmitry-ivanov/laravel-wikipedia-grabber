@@ -3,6 +3,7 @@
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminate\Support\Collection;
+use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
@@ -34,6 +35,12 @@ class SectionsAddImages
         }
 
         foreach ($this->sections as $section) {
+            if ($section->isMain()) {
+                $section->setImages(
+                    $this->createMainObject()
+                );
+            }
+
             $wikitextSection = $this->getWikitextSectionFor($section);
             if (empty($wikitextSection)) {
                 continue;
@@ -44,7 +51,7 @@ class SectionsAddImages
                 continue;
             }
 
-            $section->setImages(
+            $section->setImages( ////////////////////////////////////////////////////////////////// ADD instead of SET!!
                 $this->createObjects($wikitextSection, $sectionImages)
             );
 
@@ -71,6 +78,18 @@ class SectionsAddImages
         $file = last(explode(':', $image['title']));
 
         return str_contains($wikitext, $file);
+    }
+
+    protected function createMainObject()
+    {
+        return collect([
+            new Image(
+                $this->mainImage['thumbnail']['source'],
+                $this->mainImage['thumbnail']['width'],
+                $this->mainImage['thumbnail']['height'],
+                $this->mainImage['original']['source']
+            )
+        ]);
     }
 
     protected function createObjects(Section $wikitextSection, array $images)
