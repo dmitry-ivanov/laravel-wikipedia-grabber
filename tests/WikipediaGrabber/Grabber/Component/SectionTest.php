@@ -92,6 +92,27 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_has_has_images_method()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $this->assertFalse($section->hasImages());
+    }
+
+    /** @test */
+    public function which_returns_false_even_if_images_are_set_as_empty_collection()
+    {
+        $section = new Section('Title', 'Body', 7, collect());
+        $this->assertFalse($section->hasImages());
+    }
+
+    /** @test */
+    public function which_returns_true_if_section_has_images()
+    {
+        $section = new Section('Title', 'Body', 7, collect(['some', 'fake', 'images']));
+        $this->assertTrue($section->hasImages());
+    }
+
+    /** @test */
     public function it_has_add_images_method()
     {
         $section = new Section('Title', 'Body', 7);

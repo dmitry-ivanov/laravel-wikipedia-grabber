@@ -65,6 +65,11 @@ class Section
         $this->images = $images ?? collect();
     }
 
+    public function hasImages()
+    {
+        return $this->images->isNotEmpty();
+    }
+
     public function addImages(Collection $images)
     {
         $this->images = $this->images->merge($images);
@@ -72,7 +77,7 @@ class Section
 
     public function isEmpty()
     {
-        return empty($this->body) && $this->images->isEmpty();
+        return empty($this->body) && !$this->hasImages();
     }
 
     public function isMain()
