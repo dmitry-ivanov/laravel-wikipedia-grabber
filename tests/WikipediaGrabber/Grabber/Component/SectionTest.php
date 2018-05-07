@@ -36,6 +36,20 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_has_is_main_method()
+    {
+        $section = new Section('Title', 'Body', 3);
+        $this->assertFalse($section->isMain());
+    }
+
+    /** @test */
+    public function which_returns_true_only_if_section_level_is_1()
+    {
+        $section = new Section('Title', 'Body', 1);
+        $this->assertTrue($section->isMain());
+    }
+
+    /** @test */
     public function it_has_is_empty_method_which_returns_true_if_body_and_images_both_empty()
     {
         $section = new Section('Title', '', 3, null);
@@ -61,20 +75,6 @@ class SectionTest extends TestCase
     {
         $section = new Section('Title', '', 3, collect([]));
         $this->assertTrue($section->isEmpty());
-    }
-
-    /** @test */
-    public function it_has_is_main_method()
-    {
-        $section = new Section('Title', 'Body', 3);
-        $this->assertFalse($section->isMain());
-    }
-
-    /** @test */
-    public function which_returns_true_only_if_section_level_is_1()
-    {
-        $section = new Section('Title', 'Body', 1);
-        $this->assertTrue($section->isMain());
     }
 
     /** @test */
