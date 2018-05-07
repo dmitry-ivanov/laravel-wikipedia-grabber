@@ -88,7 +88,7 @@ class SectionsAddImages
                 $this->mainImage['thumbnail']['width'],
                 $this->mainImage['thumbnail']['height'],
                 $this->mainImage['original']['source']
-            )
+            ),
         ]);
     }
 
