@@ -25,17 +25,16 @@ class PlainFormatter extends Formatter
 
     public function tableOfContents()
     {
-        $items = collect();
-
-        foreach ($this->sections as $section) {
+        $items = $this->sections->map(function (Section $section) {
             if ($section->isMain()) {
-                continue;
+                return null;
             }
 
             $title = $section->getTitle();
             $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
-            $items->push("<div class='wiki-toc-item level-{$section->getLevel()}'>{$link}</div>");
-        }
+
+            return "<div class='wiki-toc-item level-{$section->getLevel()}'>{$link}</div>";
+        })->filter();
 
         $items = $items->implode("\n");
 
