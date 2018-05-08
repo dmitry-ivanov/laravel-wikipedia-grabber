@@ -7,7 +7,7 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class Formatter
 {
-    protected $sections;
+    protected $tocSections;
 
     public static function factory($format, Collection $sections)
     {
@@ -23,7 +23,9 @@ abstract class Formatter
 
     public function __construct(Collection $sections)
     {
-        $this->sections = $sections;
+        $this->tocSections = $sections->filter(function (Section $section) {
+            return !$section->isMain();
+        });
     }
 
     abstract public function style();
@@ -39,11 +41,7 @@ abstract class Formatter
 
     protected function getLevels()
     {
-        $withoutMainSection = $this->sections->filter(function (Section $section) {
-            return !$section->isMain();
-        });
-
-        return $withoutMainSection->map(function (Section $section) {
+        return $this->tocSections->map(function (Section $section) {
             return $section->getLevel();
         })->unique()->sort();
     }
