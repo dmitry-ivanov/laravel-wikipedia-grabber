@@ -13,10 +13,12 @@ class PlainFormatter extends Formatter
             '.wiki-toc-item {display:block}',
         ]);
 
-        collect($this->getLevels())->each(function ($level) use ($styles) {
-            $padding = ($level - 1) * 20;
-            $styles->push(".wiki-toc-item.level-{$level} {padding-left:{$padding}px}");
-        });
+        $styles = $styles->merge(
+            collect($this->getLevels())->map(function ($level) {
+                $padding = ($level - 1) * 20;
+                return ".wiki-toc-item.level-{$level} {padding-left:{$padding}px}";
+            })
+        );
 
         $styles = $styles->implode("\n");
 
