@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class PlainFormatter extends Formatter
@@ -41,12 +42,31 @@ class PlainFormatter extends Formatter
     public function section(Section $section)
     {
         $title = $section->getTitle();
-        $body = nl2br($section->getBody());
+        $id = $this->sectionId($title);
         $tag = "h{$section->getHtmlLevel()}";
 
-        $titleHtml = "<{$tag} id='{$this->sectionId($title)}'>{$title}</{$tag}>\n";
-        $bodyHtml = "<div>{$body}</div>\n\n";
+        $images = $this->images($section);
+        $body = nl2br($section->getBody());
+
+        $titleHtml = "<{$tag} id='{$id}'>{$title}</{$tag}>\n";
+        $bodyHtml = "<div>\n{$images}{$body}\n</div>\n\n";
 
         return "{$titleHtml}{$bodyHtml}";
+    }
+
+    protected function images(Section $section)
+    {
+        if (!$section->hasImages()) {
+            return;
+        }
+
+        return $section->getImages()->map(function (Image $image) {
+            $url = $image->getUrl();
+            $width = $image->getWidth();
+            $height = $image->getHeight();
+            $originalUrl = $image->getOriginalUrl();
+
+            return "<a href='{$originalUrl}'><img src='{$url}' width='{$width}' height='{$height}' /></a>";
+        })->implode("\n") . "\n";
     }
 }
