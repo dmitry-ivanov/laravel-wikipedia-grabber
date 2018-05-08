@@ -68,8 +68,9 @@ class PlainFormatter extends Formatter
             $width = $image->getWidth();
             $height = $image->getHeight();
             $originalUrl = $image->getOriginalUrl();
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
 
-            return "<a href='{$originalUrl}'><img src='{$url}' width='{$width}' height='{$height}' /></a>";
+            return "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
         })->implode("\n") . "\n";
     }
 }
