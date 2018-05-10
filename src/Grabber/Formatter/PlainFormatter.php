@@ -77,13 +77,13 @@ class PlainFormatter extends Formatter
             $originalUrl = $image->getOriginalUrl();
 
             $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
-            $link = "<a href='{$originalUrl}' target='_blank'>\n{$img}\n</a>";
-            $desc = "<div class='description'>{$description}</div>\n";
+            $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+            $desc = "<div class='description'>{$description}</div>";
             if (empty($description)) {
                 $desc = '';
             }
 
-            return "<div class='wiki-media {$position}' style='width:{$width}px;'>\n{$link}\n{$desc}</div>\n";
+            return "<div class='wiki-media {$position}' style='width:{$width}px;'>{$link}{$desc}</div>";
         })->implode("\n") . "\n";
     }
 }
