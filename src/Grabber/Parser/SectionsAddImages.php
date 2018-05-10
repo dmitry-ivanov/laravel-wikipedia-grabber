@@ -25,7 +25,9 @@ class SectionsAddImages
 
         $this->wikitext = $imagesResponseData['wikitext'];
         $this->mainImage = $imagesResponseData['main_image'];
-        $this->images = $this->getUsedImages($this->wikitext, $imagesResponseData['images']);
+        $this->images = $this->skipMainImage(
+            $this->getUsedImages($this->wikitext, $imagesResponseData['images'])
+        );
     }
 
     public function filter()
@@ -64,16 +66,23 @@ class SectionsAddImages
         return empty($this->mainImage) && empty($this->images);
     }
 
-    protected function getUsedImages($wikitext, array $images)
+    protected function skipMainImage(array $images)
     {
-        return collect($images)->filter(function (array $image) use ($wikitext) {
-            return !$this->isMainImage($image) && $this->isImageUsed($wikitext, $image);
+        return collect($images)->filter(function (array $image) {
+            return !$this->isMainImage($image);
         })->toArray();
     }
 
     protected function isMainImage(array $image)
     {
         return (array_get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
+    }
+
+    protected function getUsedImages($wikitext, array $images)
+    {
+        return collect($images)->filter(function (array $image) use ($wikitext) {
+            return $this->isImageUsed($wikitext, $image);
+        })->toArray();
     }
 
     protected function isImageUsed($wikitext, array $image)
