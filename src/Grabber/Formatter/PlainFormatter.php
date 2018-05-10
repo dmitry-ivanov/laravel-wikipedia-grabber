@@ -12,9 +12,11 @@ class PlainFormatter extends Formatter
         $styles = collect([
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
-            '.wiki-img {margin:0px 10px 10px 10px; padding:3px; border:1px solid #9E9E9E}',
-            '.wiki-img.left {float:left; clear:left}',
-            '.wiki-img.right {float:right; clear:right}',
+            '.wiki-media {color:#616161; padding:3px; margin:0px 10px 10px 10px; border:1px solid #9E9E9E; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+            '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
+            '.wiki-media.left {float:left; clear:left}',
+            '.wiki-media.right {float:right; clear:right}',
+            '.wiki-media .description {padding:10px 16px}',
         ]);
 
         $styles = $styles->merge(
@@ -71,10 +73,17 @@ class PlainFormatter extends Formatter
             $width = $image->getWidth();
             $height = $image->getHeight();
             $position = $image->getPosition();
+            $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' class='wiki-img {$position}' />";
 
-            return "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
+            $link = "<a href='{$originalUrl}' target='_blank'>\n{$img}\n</a>";
+            $desc = "<div class='description'>{$description}</div>\n";
+            if (empty($description)) {
+                $desc = '';
+            }
+
+            return "<div class='wiki-media {$position}' style='width:{$width}px;'>\n{$link}\n{$desc}</div>\n";
         })->implode("\n") . "\n";
     }
 }
