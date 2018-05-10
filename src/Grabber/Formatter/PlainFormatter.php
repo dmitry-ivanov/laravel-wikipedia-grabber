@@ -12,6 +12,9 @@ class PlainFormatter extends Formatter
         $styles = collect([
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
+            '.wiki-img {margin:0px 10px 10px 10px; padding:3px; border:1px solid #9E9E9E}',
+            '.wiki-img.left {float:left; clear:left}',
+            '.wiki-img.right {float:right; clear:right}',
         ]);
 
         $styles = $styles->merge(
@@ -67,8 +70,9 @@ class PlainFormatter extends Formatter
             $url = $image->getUrl();
             $width = $image->getWidth();
             $height = $image->getHeight();
+            $position = $image->getPosition();
             $originalUrl = $image->getOriginalUrl();
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' class='wiki-img {$position}' />";
 
             return "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
         })->implode("\n") . "\n";
