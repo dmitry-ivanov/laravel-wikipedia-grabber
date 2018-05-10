@@ -22,7 +22,7 @@ class Wikitext
         $height = $imageInfo['thumbheight'];
         $originalUrl = $imageInfo['url'];
 
-        return new Image($url, $width, $height, $originalUrl);
+        return new Image($url, $width, $height, $originalUrl, 'right', $image['title']);
     }
 
     public function sanitize()
