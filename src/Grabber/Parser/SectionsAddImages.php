@@ -67,8 +67,13 @@ class SectionsAddImages
     protected function getUsedImages($wikitext, array $images)
     {
         return collect($images)->filter(function (array $image) use ($wikitext) {
-            return $this->isImageUsed($wikitext, $image);
+            return !$this->isMainImage($image) && $this->isImageUsed($wikitext, $image);
         })->toArray();
+    }
+
+    protected function isMainImage(array $image)
+    {
+        return (array_get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
     }
 
     protected function isImageUsed($wikitext, array $image)
