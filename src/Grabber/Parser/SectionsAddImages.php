@@ -38,7 +38,7 @@ class SectionsAddImages
 
         foreach ($this->sections as $section) {
             if ($section->isMain()) {
-                $section->setImages($this->createMainObject($section));
+                $section->setImages($this->createMainObject());
             }
 
             $wikitextSection = $this->getWikitextSectionFor($section);
@@ -92,7 +92,7 @@ class SectionsAddImages
         return str_contains($wikitext, $file);
     }
 
-    protected function createMainObject(Section $mainSection)
+    protected function createMainObject()
     {
         return collect([
             new Image(
@@ -101,7 +101,7 @@ class SectionsAddImages
                 $this->mainImage['thumbnail']['height'],
                 $this->mainImage['original']['source'],
                 'right',
-                $mainSection->getTitle()
+                $this->getMainSection()->getTitle()
             ),
         ]);
     }
