@@ -12,10 +12,10 @@ class PlainFormatter extends Formatter
         $styles = collect([
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
-            '.wiki-media {color:#757575; padding:3px; margin-bottom:20px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+            '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
             '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
-            '.wiki-media.left {float:left; clear:left; margin-right:20px}',
-            '.wiki-media.right {float:right; clear:right; margin-left:20px}',
+            '.wiki-media.left {float:left; clear:left; margin-right:16px}',
+            '.wiki-media.right {float:right; clear:right; margin-left:16px}',
             '.wiki-media .description {padding:10px 16px}',
         ]);
 
