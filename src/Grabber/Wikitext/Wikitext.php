@@ -22,7 +22,25 @@ class Wikitext
         $height = $imageInfo['thumbheight'];
         $originalUrl = $imageInfo['url'];
 
-        return new Image($url, $width, $height, $originalUrl, 'right', $image['title']);
+        $imageWikitext = $this->getImageWikitext($image);
+        $position = $this->getImagePosition($imageWikitext);
+
+        return new Image($url, $width, $height, $originalUrl, $position, $image['title']);
+    }
+
+    protected function getImageWikitext(array $image)
+    {
+        $file = last(explode(':', $image['title']));
+
+        return collect(preg_split('/\R/', $this->body))->first(function ($line) use ($file) {
+            return str_contains($line, $file);
+        });
+    }
+
+    protected function getImagePosition($imageWikitext)
+    {
+        $parts = explode('|', trim($imageWikitext, '[]'));
+        return in_array('left', $parts) ? 'left' : 'right';
     }
 
     public function sanitize()
