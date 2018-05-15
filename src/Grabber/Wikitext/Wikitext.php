@@ -27,4 +27,21 @@ class Wikitext
 
         return $body;
     }
+
+    public function removeTemplates($body = null)
+    {
+        $body = $body ?? $this->body;
+
+        if (!preg_match_all('/\{\{(.*?)\}\}/', $body, $matches, PREG_SET_ORDER)) {
+            return $body;
+        }
+
+        foreach ($matches as $match) {
+            $template = $match[0];
+            $title = last(explode('|', $match[1]));
+            $body = str_replace_first($template, $title, $body);
+        }
+
+        return $body;
+    }
 }
