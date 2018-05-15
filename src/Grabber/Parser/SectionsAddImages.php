@@ -126,7 +126,7 @@ class SectionsAddImages
 
         $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
         $image = new WikitextImage($imageWikitext);
-        $position = $image->getPosition();
+        $position = $image->getLocation();
         // $description = $image->getDescription();
 
         return new Image($url, $width, $height, $originalUrl, $position, $description);

@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
 class WikitextImage extends Wikitext
 {
-    protected $position;
+    protected $location;
 
     public function __construct($body)
     {
@@ -19,6 +19,8 @@ class WikitextImage extends Wikitext
     protected function parse()
     {
         $body = $this->body;
+        dump('--------------------------------------------------------'); //////////////////////////////////////////////
+        dump($body); ///////////////////////////////////////////////////////////////////////////////////////////////////
         $body = str_replace_first('[[', '', $body);
         $body = str_replace_last(']]', '', $body);
 
@@ -30,7 +32,12 @@ class WikitextImage extends Wikitext
                 continue;
             }
 
-            dump($part);
+            if ($this->isLocation($part)) {
+                $this->location = $part;
+                continue;
+            }
+
+            dump($part); ///////////////////////////////////////////////////////////////////////////////////////////////
         }
     }
 
@@ -45,8 +52,13 @@ class WikitextImage extends Wikitext
         return ($string == 'border');
     }
 
-    public function getPosition()
+    protected function isLocation($string)
     {
-        return $this->position;
+        return in_array($string, ['right', 'left', 'center', 'none']);
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
     }
 }
