@@ -114,4 +114,31 @@ class WikitextTest extends TestCase
 
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
     }
+
+    /** @test */
+    public function it_can_remove_formatting_from_wikitext()
+    {
+        $this->assertEquals(
+            'Some formatted text',
+            (new Wikitext("''Some formatted text''"))->removeFormatting()
+        );
+    }
+
+    /** @test */
+    public function it_works_fine_with_wikitext_without_formatting()
+    {
+        $this->assertEquals(
+            'Some not formatted text',
+            (new Wikitext('Some not formatted text'))->removeFormatting()
+        );
+    }
+
+    /** @test */
+    public function it_works_fine_with_wikitext_with_few_formattings()
+    {
+        $this->assertEquals(
+            'Some formatted text and more',
+            (new Wikitext("''Some formatted text'' and '''more'''"))->removeFormatting()
+        );
+    }
 }

@@ -11,6 +11,12 @@ class Wikitext
         $this->body = $body;
     }
 
+    public function removeFormatting($body = null)
+    {
+        $body = $body ?? $this->body;
+        return str_replace("'", '', $body);
+    }
+
     public function removeLinks($body = null)
     {
         $body = $body ?? $this->body;

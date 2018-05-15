@@ -26,6 +26,7 @@ class WikitextImage extends Wikitext
 
         $body = $this->removeLinks($body);
         $body = $this->removeTemplates($body);
+        $body = $this->removeFormatting($body);
 
         $parts = explode('|', $body);
         array_shift($parts);
