@@ -115,15 +115,6 @@ class SectionsAddImages
         });
     }
 
-    protected function getImageWikitext(Section $wikitextSection, array $image)
-    {
-        $file = last(explode(':', $image['title']));
-
-        return collect(preg_split('/\R/', $wikitextSection->getBody()))->first(function ($line) use ($file) {
-            return str_contains($line, $file);
-        });
-    }
-
     protected function createObject($imageWikitext, array $image)
     {
         $imageInfo = head($image['imageinfo']);
@@ -139,6 +130,15 @@ class SectionsAddImages
         // $description = $image->getDescription();
 
         return new Image($url, $width, $height, $originalUrl, $position, $description);
+    }
+
+    protected function getImageWikitext(Section $wikitextSection, array $image)
+    {
+        $file = last(explode(':', $image['title']));
+
+        return collect(preg_split('/\R/', $wikitextSection->getBody()))->first(function ($line) use ($file) {
+            return str_contains($line, $file);
+        });
     }
 
     protected function freeUsedImages(array $usedImages)
