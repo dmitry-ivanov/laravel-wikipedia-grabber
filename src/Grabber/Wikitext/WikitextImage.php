@@ -28,7 +28,7 @@ class WikitextImage extends Wikitext
         array_shift($parts);
 
         foreach ($parts as $part) {
-            if ($this->isType($part) || $this->isBorder($part)) {
+            if ($this->isUnhandledPart($part)) {
                 continue;
             }
 
@@ -41,6 +41,13 @@ class WikitextImage extends Wikitext
         }
     }
 
+    protected function isUnhandledPart($string)
+    {
+        return $this->isType($string)
+            || $this->isBorder($string)
+            || $this->isAlignment($string);
+    }
+
     protected function isType($string)
     {
         return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
@@ -50,6 +57,11 @@ class WikitextImage extends Wikitext
     protected function isBorder($string)
     {
         return ($string == 'border');
+    }
+
+    protected function isAlignment($string)
+    {
+        return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
     }
 
     protected function isLocation($string)
