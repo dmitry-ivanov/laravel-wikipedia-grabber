@@ -45,7 +45,8 @@ class WikitextImage extends Wikitext
     {
         return $this->isType($string)
             || $this->isBorder($string)
-            || $this->isAlignment($string);
+            || $this->isAlignment($string)
+            || $this->isSize($string);
     }
 
     protected function isType($string)
@@ -62,6 +63,15 @@ class WikitextImage extends Wikitext
     protected function isAlignment($string)
     {
         return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
+    }
+
+    protected function isSize($string)
+    {
+        return in_array($string, ['upright'])
+            || starts_with($string, ['upright='])
+            || preg_match('/(\d+)px/', $string)
+            || preg_match('/x(\d+)px/', $string)
+            || preg_match('/(\d+)x(\d+)px/', $string);
     }
 
     protected function isLocation($string)
