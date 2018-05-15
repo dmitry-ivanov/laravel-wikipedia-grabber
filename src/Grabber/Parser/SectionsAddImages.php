@@ -110,10 +110,8 @@ class SectionsAddImages
     protected function createObjects(Section $wikitextSection, array $images)
     {
         return collect($images)->map(function (array $image) use ($wikitextSection) {
-            return $this->createObject(
-                $this->getImageWikitext($wikitextSection, $image),
-                $image
-            );
+            $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
+            return $this->createObject($imageWikitext, $image);
         });
     }
 
