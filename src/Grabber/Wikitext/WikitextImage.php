@@ -26,7 +26,7 @@ class WikitextImage extends Wikitext
         array_shift($parts);
 
         foreach ($parts as $part) {
-            if ($this->isType($part)) {
+            if ($this->isType($part) || $this->isBorder($part)) {
                 continue;
             }
 
@@ -36,7 +36,13 @@ class WikitextImage extends Wikitext
 
     protected function isType($string)
     {
-        return starts_with($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless']);
+        return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
+            || starts_with($string, ['thumb=', 'thumbnail=']);
+    }
+
+    protected function isBorder($string)
+    {
+        return ($string == 'border');
     }
 
     public function getPosition()
