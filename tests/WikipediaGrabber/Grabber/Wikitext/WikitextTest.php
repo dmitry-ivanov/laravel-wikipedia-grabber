@@ -60,4 +60,58 @@ class WikitextTest extends TestCase
 
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeLinks());
     }
+
+    /** @test */
+    public function it_can_remove_templates_from_wikitext()
+    {
+        $this->assertEquals(
+            'Some Text',
+            (new Wikitext('{{nobr|Some Text}}'))->removeTemplates()
+        );
+    }
+
+    /** @test */
+    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_remove_templates_method()
+    {
+        $this->assertEquals(
+            'Some Passed Text',
+            (new Wikitext('{{nobr|Some Text}}'))->removeTemplates('{{nobr|Some Passed Text}}')
+        );
+    }
+
+    /** @test */
+    public function which_works_for_simple_templates_too()
+    {
+        $this->assertEquals(
+            '',
+            (new Wikitext('{{simple}}'))->removeTemplates()
+        );
+    }
+
+    /** @test */
+    public function which_works_for_multiple_templates_too()
+    {
+        $this->assertEquals(
+            'This is Template1, and this is Template2, and !',
+            (new Wikitext('This is {{nobr|Template1}}, and this is {{nowrap|Template2}}, and {{foo}}!'))->removeTemplates()
+        );
+    }
+
+    /** @test */
+    public function which_works_for_wikitext_without_templates_too()
+    {
+        $this->assertEquals(
+            'This is wikitext without templates',
+            (new Wikitext('This is wikitext without templates'))->removeTemplates()
+        );
+    }
+
+    /** @test */
+    public function which_works_for_multiline_wikitext_with_templates_too()
+    {
+        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline_templates.txt');
+        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline_templates_sanitized.txt');
+
+        $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
+    }
 }
