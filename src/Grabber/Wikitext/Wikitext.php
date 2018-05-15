@@ -11,25 +11,20 @@ class Wikitext
         $this->body = $body;
     }
 
-    public function sanitize()
+    public function removeLinks()
     {
-        return $this->removeLinks();
-    }
+        $body = $this->body;
 
-    protected function removeLinks()
-    {
-        $sanitized = $this->body;
-
-        if (!preg_match_all('/\[\[(.*?)\]\]/', $this->body, $matches, PREG_SET_ORDER)) {
-            return $sanitized;
+        if (!preg_match_all('/\[\[(.*?)\]\]/', $body, $matches, PREG_SET_ORDER)) {
+            return $body;
         }
 
         foreach ($matches as $match) {
             $link = $match[0];
             $title = last(explode('|', $match[1]));
-            $sanitized = str_replace_first($link, $title, $sanitized);
+            $body = str_replace_first($link, $title, $body);
         }
 
-        return $sanitized;
+        return $body;
     }
 }

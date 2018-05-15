@@ -8,11 +8,11 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class WikitextTest extends TestCase
 {
     /** @test */
-    public function it_can_sanitize_wikitext_by_removing_links()
+    public function it_can_remove_links_from_wikitext()
     {
         $this->assertEquals(
             'Link Title',
-            (new Wikitext('[[Link Href|Link Title]]'))->sanitize()
+            (new Wikitext('[[Link Href|Link Title]]'))->removeLinks()
         );
     }
 
@@ -21,7 +21,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'Some link',
-            (new Wikitext('[[Some link]]'))->sanitize()
+            (new Wikitext('[[Some link]]'))->removeLinks()
         );
     }
 
@@ -30,7 +30,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'This is Link1, and this is Link2, and Link3',
-            (new Wikitext('This is [[Super Link|Link1]], and this is [[Wow Link|Link2]], and [[Link3]]'))->sanitize()
+            (new Wikitext('This is [[Super Link|Link1]], and this is [[Wow Link|Link2]], and [[Link3]]'))->removeLinks()
         );
     }
 
@@ -39,7 +39,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'This is wikitext without links',
-            (new Wikitext('This is wikitext without links'))->sanitize()
+            (new Wikitext('This is wikitext without links'))->removeLinks()
         );
     }
 
@@ -49,6 +49,6 @@ class WikitextTest extends TestCase
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline_sanitized.txt');
 
-        $this->assertEquals($sanitized, (new Wikitext($multiline))->sanitize());
+        $this->assertEquals($sanitized, (new Wikitext($multiline))->removeLinks());
     }
 }
