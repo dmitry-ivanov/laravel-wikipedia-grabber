@@ -2,15 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
-class WikitextImage
+class WikitextImage extends Wikitext
 {
-    protected $body;
-
-    public function __construct($body)
-    {
-        $this->body = $body;
-    }
-
     public function getPosition()
     {
         $parts = explode('|', trim($this->body, '[]'));
