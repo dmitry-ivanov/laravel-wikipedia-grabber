@@ -114,7 +114,7 @@ class SectionsAddImages
         });
     }
 
-    protected function createObject(array $image)
+    protected function createObject($imageWikitext, array $image)
     {
         $imageInfo = head($image['imageinfo']);
 
@@ -124,7 +124,7 @@ class SectionsAddImages
         $originalUrl = $imageInfo['url'];
 
         $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
-        $image = new WikitextImage($this->getImageWikitext($image));
+        $image = new WikitextImage($imageWikitext);
         $position = $image->getPosition();
         // $description = $image->getDescription();
 
