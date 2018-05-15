@@ -136,7 +136,7 @@ class SectionsAddImages
     {
         $file = last(explode(':', $image['title']));
 
-        return collect(preg_split('/\R/', $wikitextSection->getBody()))->first(function ($line) use ($file) {
+        return collect(preg_split("/\r\n|\n|\r/", $wikitextSection->getBody()))->first(function ($line) use ($file) {
             return str_contains($line, $file);
         });
     }
