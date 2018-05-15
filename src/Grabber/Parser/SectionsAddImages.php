@@ -153,4 +153,45 @@ class SectionsAddImages
     {
         return $this->sections->first->isMain();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function createImageObject(array $image)
+    {
+        $imageInfo = head($image['imageinfo']);
+
+        $url = $imageInfo['thumburl'];
+        $width = $imageInfo['thumbwidth'];
+        $height = $imageInfo['thumbheight'];
+        $originalUrl = $imageInfo['url'];
+
+        $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
+        $image = new ImageWikitext($this->getImageWikitext($image));
+        $position = $image->getPosition();
+        // $description = $image->getDescription();
+
+        return new Image($url, $width, $height, $originalUrl, $position, $description);
+    }
+
+    protected function getImageWikitext(array $image)
+    {
+        $file = last(explode(':', $image['title']));
+
+        return collect(preg_split('/\R/', $this->body))->first(function ($line) use ($file) {
+            return str_contains($line, $file);
+        });
+    }
 }
