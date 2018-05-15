@@ -11,9 +11,9 @@ class Wikitext
         $this->body = $body;
     }
 
-    public function removeLinks()
+    public function removeLinks($body = null)
     {
-        $body = $this->body;
+        $body = $body ?? $this->body;
 
         if (!preg_match_all('/\[\[(.*?)\]\]/', $body, $matches, PREG_SET_ORDER)) {
             return $body;

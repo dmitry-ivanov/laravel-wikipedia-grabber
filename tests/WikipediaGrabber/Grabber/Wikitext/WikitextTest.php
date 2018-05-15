@@ -17,6 +17,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_method()
+    {
+        $this->assertEquals(
+            'Passed Link Title',
+            (new Wikitext('[[Link Href|Link Title]]'))->removeLinks('[[Passed Link Href|Passed Link Title]]')
+        );
+    }
+
+    /** @test */
     public function which_works_for_simple_links_too()
     {
         $this->assertEquals(
