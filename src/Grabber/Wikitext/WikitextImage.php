@@ -24,6 +24,8 @@ class WikitextImage extends Wikitext
         $body = str_replace_first('[[', '', $body);
         $body = str_replace_last(']]', '', $body);
 
+        $body = $this->removeLinks($body);
+
         $parts = explode('|', $body);
         array_shift($parts);
 
