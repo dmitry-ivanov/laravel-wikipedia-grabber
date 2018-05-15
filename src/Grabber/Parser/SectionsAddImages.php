@@ -108,11 +108,26 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        $wikitext = new Wikitext($wikitextSection->getBody());
-
-        return collect($images)->map(function (array $image) use ($wikitext) {
-            return $wikitext->createImageObject($image);
+        return collect($images)->map(function (array $image) {
+            return $this->createObject($image);
         });
+    }
+
+    protected function createObject(array $image)
+    {
+        $imageInfo = head($image['imageinfo']);
+
+        $url = $imageInfo['thumburl'];
+        $width = $imageInfo['thumbwidth'];
+        $height = $imageInfo['thumbheight'];
+        $originalUrl = $imageInfo['url'];
+
+        $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
+        $image = new ImageWikitext($this->getImageWikitext($image));
+        $position = $image->getPosition();
+        // $description = $image->getDescription();
+
+        return new Image($url, $width, $height, $originalUrl, $position, $description);
     }
 
     protected function freeUsedImages(array $usedImages)
@@ -168,23 +183,6 @@ class SectionsAddImages
 
 
 
-
-    public function createImageObject(array $image)
-    {
-        $imageInfo = head($image['imageinfo']);
-
-        $url = $imageInfo['thumburl'];
-        $width = $imageInfo['thumbwidth'];
-        $height = $imageInfo['thumbheight'];
-        $originalUrl = $imageInfo['url'];
-
-        $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
-        $image = new ImageWikitext($this->getImageWikitext($image));
-        $position = $image->getPosition();
-        // $description = $image->getDescription();
-
-        return new Image($url, $width, $height, $originalUrl, $position, $description);
-    }
 
     protected function getImageWikitext(array $image)
     {
