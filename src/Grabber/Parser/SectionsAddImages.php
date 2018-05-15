@@ -109,8 +109,20 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        return collect($images)->map(function (array $image) {
-            return $this->createObject($image);
+        return collect($images)->map(function (array $image) use ($wikitextSection) {
+            return $this->createObject(
+                $this->getImageWikitext($wikitextSection, $image),
+                $image
+            );
+        });
+    }
+
+    protected function getImageWikitext(Section $wikitextSection, array $image)
+    {
+        $file = last(explode(':', $image['title']));
+
+        return collect(preg_split('/\R/', $wikitextSection->getBody()))->first(function ($line) use ($file) {
+            return str_contains($line, $file);
         });
     }
 
@@ -168,29 +180,5 @@ class SectionsAddImages
     protected function getMainSection()
     {
         return $this->sections->first->isMain();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    protected function getImageWikitext(array $image)
-    {
-        $file = last(explode(':', $image['title']));
-
-        return collect(preg_split('/\R/', $this->body))->first(function ($line) use ($file) {
-            return str_contains($line, $file);
-        });
     }
 }
