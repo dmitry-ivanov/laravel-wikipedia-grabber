@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
+use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
 class SectionsAddImages
 {
@@ -123,7 +124,7 @@ class SectionsAddImages
         $originalUrl = $imageInfo['url'];
 
         $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
-        $image = new ImageWikitext($this->getImageWikitext($image));
+        $image = new WikitextImage($this->getImageWikitext($image));
         $position = $image->getPosition();
         // $description = $image->getDescription();
 

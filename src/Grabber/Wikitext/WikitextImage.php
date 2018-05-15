@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
-class ImageWikitext
+class WikitextImage
 {
     protected $body;
 
