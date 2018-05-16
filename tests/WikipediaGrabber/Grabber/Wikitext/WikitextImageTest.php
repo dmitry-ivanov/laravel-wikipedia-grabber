@@ -57,4 +57,21 @@ class WikitextImageTest extends TestCase
         $this->assertEquals($image->getLangtag(), 'lang=foo');
         $this->assertEquals($image->getCaption(), 'Image Caption');
     }
+
+    /** @test */
+    public function caption_is_sanitized_against_formatting_links_and_templates()
+    {
+        $image = new WikitextImage("[[File:Name.jpg|right|frame|x200px|alt=foo|Image caption with [[Url|Link]] and {{nobr|Template with [[Another Link]]}} and '''Formatting with q'otes'''!");
+
+        $this->assertEquals($image->getName(), 'File:Name.jpg');
+        $this->assertEquals($image->getType(), 'frame');
+        $this->assertEquals($image->getBorder(), null);
+        $this->assertEquals($image->getLocation(), 'right');
+        $this->assertEquals($image->getAlignment(), null);
+        $this->assertEquals($image->getSize(), 'x200px');
+        $this->assertEquals($image->getLink(), null);
+        $this->assertEquals($image->getAlt(), 'alt=foo');
+        $this->assertEquals($image->getLangtag(), null);
+        $this->assertEquals($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
+    }
 }
