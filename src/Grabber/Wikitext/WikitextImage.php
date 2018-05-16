@@ -21,8 +21,7 @@ class WikitextImage extends Wikitext
         $body = $this->body;
         dump('--------------------------------------------------------'); //////////////////////////////////////////////
         dump($body); ///////////////////////////////////////////////////////////////////////////////////////////////////
-        $body = str_replace_first('[[', '', $body);
-        $body = str_replace_last(']]', '', $body);
+        $body = $this->strip($body);
 
         $body = $this->plain($body);
 
@@ -41,6 +40,19 @@ class WikitextImage extends Wikitext
 
             dump($part); ///////////////////////////////////////////////////////////////////////////////////////////////
         }
+    }
+
+    protected function strip($body)
+    {
+        if (starts_with($body, '[[')) {
+            $body = str_replace_first('[[', '', $body);
+        }
+
+        if (ends_with($body, ']]')) {
+            $body = str_replace_last(']]', '', $body);
+        }
+
+        return $body;
     }
 
     protected function isUnhandledPart($string)
