@@ -2,6 +2,12 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
+/**
+ * @see https://en.wikipedia.org/wiki/Help:Link
+ * @see https://en.wikipedia.org/wiki/Help:Template
+ * @see https://en.wikipedia.org/wiki/Template:Nowrap
+ * @see https://www.mediawiki.org/wiki/Help:Formatting
+ */
 class Wikitext
 {
     protected $body;
