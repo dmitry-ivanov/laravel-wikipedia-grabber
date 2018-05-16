@@ -13,6 +13,7 @@ class WikitextImage extends Wikitext
     protected $link;
     protected $alt;
     protected $langtag;
+    protected $caption;
 
     public function __construct($body)
     {
@@ -39,7 +40,7 @@ class WikitextImage extends Wikitext
                 continue;
             }
 
-            dump($part); ///////////////////////////////////////////////////////////////////////////////////////////////
+            $this->caption = $part;
         }
 
         dump($this); ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,5 +170,10 @@ class WikitextImage extends Wikitext
     public function getLangtag()
     {
         return $this->langtag;
+    }
+
+    public function getCaption()
+    {
+        return $this->caption;
     }
 }
