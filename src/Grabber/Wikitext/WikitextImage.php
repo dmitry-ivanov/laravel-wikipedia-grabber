@@ -65,29 +65,14 @@ class WikitextImage extends Wikitext
 
     protected function handle($part)
     {
-        if ($this->isType($part)) {
-            $this->type = $part;
-            return true;
-        }
+        $fields = ['type', 'border', 'location', 'alignment', 'size'];
 
-        if ($this->isBorder($part)) {
-            $this->border = $part;
-            return true;
-        }
-
-        if ($this->isLocation($part)) {
-            $this->location = $part;
-            return true;
-        }
-
-        if ($this->isAlignment($part)) {
-            $this->alignment = $part;
-            return true;
-        }
-
-        if ($this->isSize($part)) {
-            $this->size = $part;
-            return true;
+        foreach ($fields as $field) {
+            $method = camel_case("is_{$field}");
+            if ($this->{$method}($part)) {
+                $this->{$field} = $part;
+                return true;
+            }
         }
 
         return false;
