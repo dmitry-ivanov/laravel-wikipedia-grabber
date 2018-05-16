@@ -27,14 +27,14 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function it_can_parse_image_wikitext_with_few_params()
     {
-        $image = new WikitextImage('[[File:Name.jpg|thumb|left]]');
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|200px]]');
 
         $this->assertEquals($image->getName(), 'File:Name.jpg');
         $this->assertEquals($image->getType(), 'thumb');
         $this->assertEquals($image->getBorder(), null);
         $this->assertEquals($image->getLocation(), 'left');
         $this->assertEquals($image->getAlignment(), null);
-        $this->assertEquals($image->getSize(), null);
+        $this->assertEquals($image->getSize(), '200px');
         $this->assertEquals($image->getLink(), null);
         $this->assertEquals($image->getAlt(), null);
         $this->assertEquals($image->getLangtag(), null);
