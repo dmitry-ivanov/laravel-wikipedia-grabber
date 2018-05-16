@@ -132,6 +132,19 @@ class WikitextImage extends Wikitext
         return preg_match('/(.+?)=(.+?)/', $string);
     }
 
+    public function getDescription()
+    {
+        if ($caption = $this->getCaption()) {
+            return $caption;
+        }
+
+        if ($alt = $this->getAlt()) {
+            return last(explode('=', $alt));
+        }
+
+        return null;
+    }
+
     public function getName()
     {
         return $this->name;

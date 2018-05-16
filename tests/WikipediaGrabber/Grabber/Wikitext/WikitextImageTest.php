@@ -12,16 +12,16 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[File:Name.jpg]]');
 
-        $this->assertEquals($image->getName(), 'File:Name.jpg');
-        $this->assertEquals($image->getType(), null);
-        $this->assertEquals($image->getBorder(), null);
-        $this->assertEquals($image->getLocation(), null);
-        $this->assertEquals($image->getAlignment(), null);
-        $this->assertEquals($image->getSize(), null);
-        $this->assertEquals($image->getLink(), null);
-        $this->assertEquals($image->getAlt(), null);
-        $this->assertEquals($image->getLangtag(), null);
-        $this->assertEquals($image->getCaption(), null);
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), null);
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), null);
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), null);
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), null);
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), null);
     }
 
     /** @test */
@@ -29,16 +29,16 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[File:Name.jpg|thumb|left|200px]]');
 
-        $this->assertEquals($image->getName(), 'File:Name.jpg');
-        $this->assertEquals($image->getType(), 'thumb');
-        $this->assertEquals($image->getBorder(), null);
-        $this->assertEquals($image->getLocation(), 'left');
-        $this->assertEquals($image->getAlignment(), null);
-        $this->assertEquals($image->getSize(), '200px');
-        $this->assertEquals($image->getLink(), null);
-        $this->assertEquals($image->getAlt(), null);
-        $this->assertEquals($image->getLangtag(), null);
-        $this->assertEquals($image->getCaption(), null);
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumb');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'left');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), null);
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), null);
     }
 
     /** @test */
@@ -46,16 +46,16 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption]]');
 
-        $this->assertEquals($image->getName(), 'File:Name.jpg');
-        $this->assertEquals($image->getType(), 'thumbnail=foo');
-        $this->assertEquals($image->getBorder(), 'border');
-        $this->assertEquals($image->getLocation(), 'left');
-        $this->assertEquals($image->getAlignment(), 'text-bottom');
-        $this->assertEquals($image->getSize(), 'upright');
-        $this->assertEquals($image->getLink(), 'link=foo');
-        $this->assertEquals($image->getAlt(), 'alt=foo');
-        $this->assertEquals($image->getLangtag(), 'lang=foo');
-        $this->assertEquals($image->getCaption(), 'Image Caption');
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumbnail=foo');
+        $this->assertSame($image->getBorder(), 'border');
+        $this->assertSame($image->getLocation(), 'left');
+        $this->assertSame($image->getAlignment(), 'text-bottom');
+        $this->assertSame($image->getSize(), 'upright');
+        $this->assertSame($image->getLink(), 'link=foo');
+        $this->assertSame($image->getAlt(), 'alt=foo');
+        $this->assertSame($image->getLangtag(), 'lang=foo');
+        $this->assertSame($image->getCaption(), 'Image Caption');
     }
 
     /** @test */
@@ -63,16 +63,16 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage("[[File:Name.jpg|right|frame|x200px|alt=foo|Image caption with [[Url|Link]] and {{nobr|Template with [[Another Link]]}} and '''Formatting with q'otes'''!");
 
-        $this->assertEquals($image->getName(), 'File:Name.jpg');
-        $this->assertEquals($image->getType(), 'frame');
-        $this->assertEquals($image->getBorder(), null);
-        $this->assertEquals($image->getLocation(), 'right');
-        $this->assertEquals($image->getAlignment(), null);
-        $this->assertEquals($image->getSize(), 'x200px');
-        $this->assertEquals($image->getLink(), null);
-        $this->assertEquals($image->getAlt(), 'alt=foo');
-        $this->assertEquals($image->getLangtag(), null);
-        $this->assertEquals($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'frame');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'right');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), 'x200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'alt=foo');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
     }
 
     /** @test */
@@ -80,15 +80,36 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|альт=foo|foo=bar|Image Caption|page=11]]');
 
-        $this->assertEquals($image->getName(), 'File:Name.jpg');
-        $this->assertEquals($image->getType(), 'thumb=foo');
-        $this->assertEquals($image->getBorder(), null);
-        $this->assertEquals($image->getLocation(), 'none');
-        $this->assertEquals($image->getAlignment(), 'super');
-        $this->assertEquals($image->getSize(), '100x200px');
-        $this->assertEquals($image->getLink(), null);
-        $this->assertEquals($image->getAlt(), 'альт=foo');
-        $this->assertEquals($image->getLangtag(), null);
-        $this->assertEquals($image->getCaption(), 'Image Caption');
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumb=foo');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'none');
+        $this->assertSame($image->getAlignment(), 'super');
+        $this->assertSame($image->getSize(), '100x200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'альт=foo');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), 'Image Caption');
+    }
+
+    /** @test */
+    public function it_has_get_description_method_which_returns_caption_by_default()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|alt=Image Alt|Image Caption]]');
+        $this->assertSame($image->getDescription(), 'Image Caption');
+    }
+
+    /** @test */
+    public function which_will_return_alt_if_caption_is_empty()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|alt=Image Alt]]');
+        $this->assertSame($image->getDescription(), 'Image Alt');
+    }
+
+    /** @test */
+    public function which_will_return_null_if_caption_and_alt_are_both_empty()
+    {
+        $image = new WikitextImage('[[File:Name.jpg]]');
+        $this->assertSame($image->getDescription(), null);
     }
 }
