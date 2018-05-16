@@ -11,6 +11,7 @@ class WikitextImage extends Wikitext
     protected $alignment;
     protected $size;
     protected $link;
+    protected $alt;
 
     public function __construct($body)
     {
@@ -66,7 +67,7 @@ class WikitextImage extends Wikitext
 
     protected function handle($part)
     {
-        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link'];
+        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt'];
 
         foreach ($fields as $field) {
             $method = camel_case("is_{$field}");
@@ -114,6 +115,11 @@ class WikitextImage extends Wikitext
         return starts_with($string, ['link=']);
     }
 
+    protected function isAlt($string)
+    {
+        return starts_with($string, ['alt=', 'альт=']);
+    }
+
     public function getName()
     {
         return $this->name;
@@ -147,5 +153,10 @@ class WikitextImage extends Wikitext
     public function getLink()
     {
         return $this->link;
+    }
+
+    public function getAlt()
+    {
+        return $this->alt;
     }
 }
