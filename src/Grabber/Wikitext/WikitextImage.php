@@ -12,6 +12,7 @@ class WikitextImage extends Wikitext
     protected $size;
     protected $link;
     protected $alt;
+    protected $langtag;
 
     public function __construct($body)
     {
@@ -67,7 +68,7 @@ class WikitextImage extends Wikitext
 
     protected function handle($part)
     {
-        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt'];
+        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag'];
 
         foreach ($fields as $field) {
             $method = camel_case("is_{$field}");
@@ -120,6 +121,11 @@ class WikitextImage extends Wikitext
         return starts_with($string, ['alt=', 'альт=']);
     }
 
+    protected function isLangtag($string)
+    {
+        return starts_with($string, ['lang=']);
+    }
+
     public function getName()
     {
         return $this->name;
@@ -158,5 +164,10 @@ class WikitextImage extends Wikitext
     public function getAlt()
     {
         return $this->alt;
+    }
+
+    public function getLangtag()
+    {
+        return $this->langtag;
     }
 }
