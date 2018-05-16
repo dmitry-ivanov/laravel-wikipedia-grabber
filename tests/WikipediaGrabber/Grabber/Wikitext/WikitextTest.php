@@ -83,7 +83,7 @@ class WikitextTest extends TestCase
     public function which_works_for_simple_templates_too()
     {
         $this->assertEquals(
-            '',
+            'simple',
             (new Wikitext('{{simple}}'))->removeTemplates()
         );
     }
@@ -92,7 +92,7 @@ class WikitextTest extends TestCase
     public function which_works_for_multiple_templates_too()
     {
         $this->assertEquals(
-            'This is Template1, and this is Template2, and !',
+            'This is Template1, and this is Template2, and foo!',
             (new Wikitext('This is {{nobr|Template1}}, and this is {{nowrap|Template2}}, and {{foo}}!'))->removeTemplates()
         );
     }

@@ -50,8 +50,7 @@ class Wikitext
 
         foreach ($matches as $match) {
             $template = $match[0];
-            $parts = explode('|', $match[1]);
-            $title = (count($parts) > 1) ? last($parts) : '';
+            $title = last(explode('|', $match[1]));
             $body = str_replace_first($template, $title, $body);
         }
 
