@@ -119,8 +119,8 @@ class WikitextTest extends TestCase
     public function it_can_remove_formatting_from_wikitext()
     {
         $this->assertEquals(
-            'Some formatted text',
-            (new Wikitext("''Some formatted text''"))->removeFormatting()
+            "Some formatted text - and this text doesn't care about it.",
+            (new Wikitext("''Some formatted text'' - and this text doesn't care about it."))->removeFormatting()
         );
     }
 
@@ -128,17 +128,17 @@ class WikitextTest extends TestCase
     public function it_works_fine_with_wikitext_without_formatting()
     {
         $this->assertEquals(
-            'Some not formatted text',
-            (new Wikitext('Some not formatted text'))->removeFormatting()
+            "Some not formatted text - doesn't remove single quote.",
+            (new Wikitext("Some not formatted text - doesn't remove single quote."))->removeFormatting()
         );
     }
 
     /** @test */
-    public function it_works_fine_with_wikitext_with_few_formattings()
+    public function it_works_fine_with_wikitext_with_few_formatting()
     {
         $this->assertEquals(
-            'Some formatted text and more',
-            (new Wikitext("''Some formatted text'' and '''more'''"))->removeFormatting()
+            "Doesn't remove quote here and more and more with q'oute.",
+            (new Wikitext("''Doesn't remove quote here'' and '''more''' and '''''more with q'oute'''''."))->removeFormatting()
         );
     }
 }

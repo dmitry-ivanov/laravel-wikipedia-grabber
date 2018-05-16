@@ -14,7 +14,7 @@ class Wikitext
     public function removeFormatting($body = null)
     {
         $body = $body ?? $this->body;
-        return str_replace("'", '', $body);
+        return preg_replace("/'{2,}/", '', $body);
     }
 
     public function removeLinks($body = null)
