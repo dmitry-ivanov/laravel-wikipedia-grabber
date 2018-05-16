@@ -8,6 +8,7 @@ class WikitextImage extends Wikitext
     protected $type;
     protected $border;
     protected $location;
+    protected $alignment;
 
     public function __construct($body)
     {
@@ -49,6 +50,11 @@ class WikitextImage extends Wikitext
                 continue;
             }
 
+            if ($this->isAlignment($part)) {
+                $this->alignment = $part;
+                continue;
+            }
+
             dump($part); ///////////////////////////////////////////////////////////////////////////////////////////////
         }
 
@@ -78,8 +84,7 @@ class WikitextImage extends Wikitext
 
     protected function isUnhandledPart($string)
     {
-        return $this->isAlignment($string)
-            || $this->isSize($string);
+        return $this->isSize($string);
     }
 
     protected function isType($string)
@@ -130,5 +135,10 @@ class WikitextImage extends Wikitext
     public function getLocation()
     {
         return $this->location;
+    }
+
+    public function getAlignment()
+    {
+        return $this->alignment;
     }
 }
