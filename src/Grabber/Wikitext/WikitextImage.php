@@ -6,6 +6,7 @@ class WikitextImage extends Wikitext
 {
     protected $name;
     protected $type;
+    protected $border;
     protected $location;
 
     public function __construct($body)
@@ -35,6 +36,11 @@ class WikitextImage extends Wikitext
 
             if ($this->isType($part)) {
                 $this->type = $part;
+                continue;
+            }
+
+            if ($this->isBorder($part)) {
+                $this->border = $part;
                 continue;
             }
 
@@ -72,8 +78,7 @@ class WikitextImage extends Wikitext
 
     protected function isUnhandledPart($string)
     {
-        return $this->isBorder($string)
-            || $this->isAlignment($string)
+        return $this->isAlignment($string)
             || $this->isSize($string);
     }
 
@@ -115,6 +120,11 @@ class WikitextImage extends Wikitext
     public function getType()
     {
         return $this->type;
+    }
+
+    public function getBorder()
+    {
+        return $this->border;
     }
 
     public function getLocation()
