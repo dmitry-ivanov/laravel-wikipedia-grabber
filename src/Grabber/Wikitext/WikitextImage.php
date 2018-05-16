@@ -4,6 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
 class WikitextImage extends Wikitext
 {
+    protected $name;
     protected $location;
 
     public function __construct($body)
@@ -57,7 +58,7 @@ class WikitextImage extends Wikitext
     protected function explode($body)
     {
         $parts = explode('|', $body);
-        array_shift($parts);
+        $this->name = array_shift($parts);
 
         return $parts;
     }
@@ -98,6 +99,11 @@ class WikitextImage extends Wikitext
     protected function isLocation($string)
     {
         return in_array($string, ['right', 'left', 'center', 'none']);
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
     public function getLocation()
