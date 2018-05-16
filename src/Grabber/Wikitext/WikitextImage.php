@@ -29,8 +29,6 @@ class WikitextImage extends Wikitext
     {
         $body = $this->body;
 
-        dump('--------------------------------------------------------'); //////////////////////////////////////////////
-
         $body = $this->strip($body);
         $body = $this->plain($body);
         $parts = $this->explode($body);
@@ -42,8 +40,6 @@ class WikitextImage extends Wikitext
 
             $this->caption = $part;
         }
-
-        dump($this); ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     protected function strip($body)
