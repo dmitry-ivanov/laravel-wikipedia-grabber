@@ -93,6 +93,11 @@ class WikitextImage extends Wikitext
         return ($string == 'border');
     }
 
+    protected function isLocation($string)
+    {
+        return in_array($string, ['right', 'left', 'center', 'none']);
+    }
+
     protected function isAlignment($string)
     {
         return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
@@ -105,11 +110,6 @@ class WikitextImage extends Wikitext
             || preg_match('/(\d+)px/', $string)
             || preg_match('/x(\d+)px/', $string)
             || preg_match('/(\d+)x(\d+)px/', $string);
-    }
-
-    protected function isLocation($string)
-    {
-        return in_array($string, ['right', 'left', 'center', 'none']);
     }
 
     public function getName()
