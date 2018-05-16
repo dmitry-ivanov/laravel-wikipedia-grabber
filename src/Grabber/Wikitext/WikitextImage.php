@@ -75,6 +75,10 @@ class WikitextImage extends Wikitext
             }
         }
 
+        if ($this->isSomeParameter($part)) {
+            return true;
+        }
+
         return false;
     }
 
@@ -121,6 +125,11 @@ class WikitextImage extends Wikitext
     protected function isLangtag($string)
     {
         return starts_with($string, ['lang=']);
+    }
+
+    protected function isSomeParameter($string)
+    {
+        return preg_match('/(.+?)=(.+?)/', $string);
     }
 
     public function getName()
