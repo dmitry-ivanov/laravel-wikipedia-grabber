@@ -17,6 +17,17 @@ class Wikitext
         $this->body = $body;
     }
 
+    public function plain($body = null)
+    {
+        $body = $body ?? $this->body;
+
+        $body = $this->removeLinks($body);
+        $body = $this->removeTemplates($body);
+        $body = $this->removeFormatting($body);
+
+        return $body;
+    }
+
     public function removeFormatting($body = null)
     {
         $body = $body ?? $this->body;

@@ -168,7 +168,7 @@ class SectionsAddImages
         $title = $this->getMainSection()->getTitle();
         $this->wikitextSections = (new SectionsParser($title, $this->wikitext))->sections();
         $this->wikitextSections->each(function (Section $section) {
-            $title = (new Wikitext($section->getTitle()))->removeLinks();
+            $title = (new Wikitext($section->getTitle()))->plain();
             $section->setTitle($title);
         });
 
