@@ -5,6 +5,7 @@ namespace Illuminated\Wikipedia\Grabber\Wikitext;
 class WikitextImage extends Wikitext
 {
     protected $name;
+    protected $type;
     protected $location;
 
     public function __construct($body)
@@ -22,7 +23,6 @@ class WikitextImage extends Wikitext
         $body = $this->body;
 
         dump('--------------------------------------------------------'); //////////////////////////////////////////////
-        dump($body); ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         $body = $this->strip($body);
         $body = $this->plain($body);
@@ -33,6 +33,11 @@ class WikitextImage extends Wikitext
                 continue;
             }
 
+            if ($this->isType($part)) {
+                $this->type = $part;
+                continue;
+            }
+
             if ($this->isLocation($part)) {
                 $this->location = $part;
                 continue;
@@ -40,6 +45,8 @@ class WikitextImage extends Wikitext
 
             dump($part); ///////////////////////////////////////////////////////////////////////////////////////////////
         }
+
+        dump($this); ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     protected function strip($body)
@@ -65,8 +72,7 @@ class WikitextImage extends Wikitext
 
     protected function isUnhandledPart($string)
     {
-        return $this->isType($string)
-            || $this->isBorder($string)
+        return $this->isBorder($string)
             || $this->isAlignment($string)
             || $this->isSize($string);
     }
@@ -104,6 +110,11 @@ class WikitextImage extends Wikitext
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getType()
+    {
+        return $this->type;
     }
 
     public function getLocation()
