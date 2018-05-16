@@ -8,6 +8,15 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class WikitextTest extends TestCase
 {
     /** @test */
+    public function is_has_plain_method_for_converting_wikitext_to_plain_text()
+    {
+        // $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
+        // $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.sanitized.txt');
+        //
+        // $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
+    }
+
+    /** @test */
     public function it_can_remove_formatting_from_wikitext()
     {
         $this->assertEquals(
@@ -82,8 +91,8 @@ class WikitextTest extends TestCase
     /** @test */
     public function which_works_for_multiline_wikitext_too()
     {
-        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
-        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline_sanitized.txt');
+        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.links.txt');
+        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.links.sanitized.txt');
 
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeLinks());
     }
@@ -136,8 +145,8 @@ class WikitextTest extends TestCase
     /** @test */
     public function which_works_for_multiline_wikitext_with_templates_too()
     {
-        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline_templates.txt');
-        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline_templates_sanitized.txt');
+        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.templates.txt');
+        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.templates.sanitized.txt');
 
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
     }
