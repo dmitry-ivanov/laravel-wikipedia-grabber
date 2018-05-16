@@ -44,7 +44,7 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function params_can_be_mixed_in_any_order()
     {
-        $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption|page=11]]');
+        $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption]]');
 
         $this->assertEquals($image->getName(), 'File:Name.jpg');
         $this->assertEquals($image->getType(), 'thumbnail=foo');
@@ -73,5 +73,22 @@ class WikitextImageTest extends TestCase
         $this->assertEquals($image->getAlt(), 'alt=foo');
         $this->assertEquals($image->getLangtag(), null);
         $this->assertEquals($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
+    }
+
+    /** @test */
+    public function it_ignores_parts_with_unknown_parameters()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|альт=foo|foo=bar|Image Caption|page=11]]');
+
+        $this->assertEquals($image->getName(), 'File:Name.jpg');
+        $this->assertEquals($image->getType(), 'thumb=foo');
+        $this->assertEquals($image->getBorder(), null);
+        $this->assertEquals($image->getLocation(), 'none');
+        $this->assertEquals($image->getAlignment(), 'super');
+        $this->assertEquals($image->getSize(), '100x200px');
+        $this->assertEquals($image->getLink(), null);
+        $this->assertEquals($image->getAlt(), 'альт=foo');
+        $this->assertEquals($image->getLangtag(), null);
+        $this->assertEquals($image->getCaption(), 'Image Caption');
     }
 }
