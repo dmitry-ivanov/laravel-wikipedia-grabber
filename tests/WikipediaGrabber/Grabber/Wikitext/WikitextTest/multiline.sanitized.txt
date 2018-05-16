@@ -1,0 +1,3 @@
+This is Link1 with single q'uote, and this is Template1 with q'oute, and Simple Link2.
+Some formatted text here with single q'ote! Template1 with q'oute and Link in template.
+A lot of formatting here. Okay, let's finish!

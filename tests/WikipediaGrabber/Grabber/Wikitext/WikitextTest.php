@@ -10,10 +10,10 @@ class WikitextTest extends TestCase
     /** @test */
     public function is_has_plain_method_for_converting_wikitext_to_plain_text()
     {
-        // $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
-        // $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.sanitized.txt');
-        //
-        // $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
+        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
+        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.sanitized.txt');
+
+        $this->assertEquals($sanitized, (new Wikitext($multiline))->plain());
     }
 
     /** @test */

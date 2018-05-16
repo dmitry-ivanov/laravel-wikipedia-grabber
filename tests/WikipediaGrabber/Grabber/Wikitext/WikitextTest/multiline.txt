@@ -1,0 +1,3 @@
+This is [[Super Link|Link1 with single q'uote]], and this is {{nowrap|Template1 with q'oute}}, and [[Simple Link2]].
+''Some formatted text here with single q'ote''! {{nowrap|Template1 with q'oute and [[Super Link|Link in template]]}}.
+'''''A lot of formatting''''' here. {{Okay}}, let's finish!
