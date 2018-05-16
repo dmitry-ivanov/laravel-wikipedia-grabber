@@ -40,4 +40,21 @@ class WikitextImageTest extends TestCase
         $this->assertEquals($image->getLangtag(), null);
         $this->assertEquals($image->getCaption(), null);
     }
+
+    /** @test */
+    public function params_can_be_mixed_in_any_order()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption|page=11]]');
+
+        $this->assertEquals($image->getName(), 'File:Name.jpg');
+        $this->assertEquals($image->getType(), 'thumbnail=foo');
+        $this->assertEquals($image->getBorder(), 'border');
+        $this->assertEquals($image->getLocation(), 'left');
+        $this->assertEquals($image->getAlignment(), 'text-bottom');
+        $this->assertEquals($image->getSize(), 'upright');
+        $this->assertEquals($image->getLink(), 'link=foo');
+        $this->assertEquals($image->getAlt(), 'alt=foo');
+        $this->assertEquals($image->getLangtag(), 'lang=foo');
+        $this->assertEquals($image->getCaption(), 'Image Caption');
+    }
 }
