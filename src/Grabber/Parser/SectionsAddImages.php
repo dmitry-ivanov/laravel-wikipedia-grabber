@@ -124,10 +124,9 @@ class SectionsAddImages
         $height = $imageInfo['thumbheight'];
         $originalUrl = $imageInfo['url'];
 
-        $description = $image['title']; ////////////////////////////////////////////////////////////////////////////////
         $image = new WikitextImage($imageWikitext);
         $position = $image->getLocation();
-        // $description = $image->getDescription();
+        $description = $image->getDescription();
 
         return new Image($url, $width, $height, $originalUrl, $position, $description);
     }
