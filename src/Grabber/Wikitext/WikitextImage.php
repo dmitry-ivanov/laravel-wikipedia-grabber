@@ -19,14 +19,13 @@ class WikitextImage extends Wikitext
     protected function parse()
     {
         $body = $this->body;
+
         dump('--------------------------------------------------------'); //////////////////////////////////////////////
         dump($body); ///////////////////////////////////////////////////////////////////////////////////////////////////
+
         $body = $this->strip($body);
-
         $body = $this->plain($body);
-
-        $parts = explode('|', $body);
-        array_shift($parts);
+        $parts = $this->explode($body);
 
         foreach ($parts as $part) {
             if ($this->isUnhandledPart($part)) {
@@ -53,6 +52,14 @@ class WikitextImage extends Wikitext
         }
 
         return $body;
+    }
+
+    protected function explode($body)
+    {
+        $parts = explode('|', $body);
+        array_shift($parts);
+
+        return $parts;
     }
 
     protected function isUnhandledPart($string)
