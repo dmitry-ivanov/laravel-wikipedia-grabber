@@ -10,6 +10,7 @@ class WikitextImage extends Wikitext
     protected $location;
     protected $alignment;
     protected $size;
+    protected $link;
 
     public function __construct($body)
     {
@@ -65,7 +66,7 @@ class WikitextImage extends Wikitext
 
     protected function handle($part)
     {
-        $fields = ['type', 'border', 'location', 'alignment', 'size'];
+        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link'];
 
         foreach ($fields as $field) {
             $method = camel_case("is_{$field}");
@@ -108,6 +109,11 @@ class WikitextImage extends Wikitext
             || preg_match('/(\d+)x(\d+)px/', $string);
     }
 
+    protected function isLink($string)
+    {
+        return starts_with($string, ['link=']);
+    }
+
     public function getName()
     {
         return $this->name;
@@ -136,5 +142,10 @@ class WikitextImage extends Wikitext
     public function getSize()
     {
         return $this->size;
+    }
+
+    public function getLink()
+    {
+        return $this->link;
     }
 }
