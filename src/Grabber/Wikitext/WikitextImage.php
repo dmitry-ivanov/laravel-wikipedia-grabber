@@ -32,28 +32,7 @@ class WikitextImage extends Wikitext
         $parts = $this->explode($body);
 
         foreach ($parts as $part) {
-            if ($this->isType($part)) {
-                $this->type = $part;
-                continue;
-            }
-
-            if ($this->isBorder($part)) {
-                $this->border = $part;
-                continue;
-            }
-
-            if ($this->isLocation($part)) {
-                $this->location = $part;
-                continue;
-            }
-
-            if ($this->isAlignment($part)) {
-                $this->alignment = $part;
-                continue;
-            }
-
-            if ($this->isSize($part)) {
-                $this->size = $part;
+            if ($this->handle($part)) {
                 continue;
             }
 
@@ -82,6 +61,36 @@ class WikitextImage extends Wikitext
         $this->name = array_shift($parts);
 
         return $parts;
+    }
+
+    protected function handle($part)
+    {
+        if ($this->isType($part)) {
+            $this->type = $part;
+            return true;
+        }
+
+        if ($this->isBorder($part)) {
+            $this->border = $part;
+            return true;
+        }
+
+        if ($this->isLocation($part)) {
+            $this->location = $part;
+            return true;
+        }
+
+        if ($this->isAlignment($part)) {
+            $this->alignment = $part;
+            return true;
+        }
+
+        if ($this->isSize($part)) {
+            $this->size = $part;
+            return true;
+        }
+
+        return false;
     }
 
     protected function isType($string)
