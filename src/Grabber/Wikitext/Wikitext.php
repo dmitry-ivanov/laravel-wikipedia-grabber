@@ -23,6 +23,7 @@ class Wikitext
 
         $body = $this->removeLinks($body);
         $body = $this->removeTemplates($body);
+        $body = $this->removeHtmlTags($body);
         $body = $this->removeFormatting($body);
 
         return $body;
@@ -66,5 +67,12 @@ class Wikitext
         }
 
         return $body;
+    }
+
+    public function removeHtmlTags($body = null)
+    {
+        $body = $body ?? $this->body;
+
+        return preg_replace('/<ref.*?>.*?<\/ref>/', '', $body);
     }
 }
