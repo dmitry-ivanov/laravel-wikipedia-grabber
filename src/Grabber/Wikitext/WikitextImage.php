@@ -222,6 +222,11 @@ class WikitextImage extends Wikitext
         return $this->link;
     }
 
+    protected function setLink($link)
+    {
+        $this->link = $link;
+    }
+
     public function getAlt()
     {
         return $this->alt;
