@@ -84,58 +84,6 @@ class WikitextImage extends Wikitext
         return false;
     }
 
-    protected function isType($string)
-    {
-        return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
-            || in_array($string, ['мини', 'миниатюра'])
-            || starts_with($string, ['thumb=', 'thumbnail=']);
-    }
-
-    protected function isBorder($string)
-    {
-        return ($string == 'border');
-    }
-
-    protected function isLocation($string)
-    {
-        return in_array($string, ['right', 'left', 'center', 'none'])
-            || in_array($string, ['справа', 'слева', 'центр']);
-    }
-
-    protected function isAlignment($string)
-    {
-        return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
-    }
-
-    protected function isSize($string)
-    {
-        return in_array($string, ['upright'])
-            || starts_with($string, ['upright='])
-            || preg_match('/(\d+)px/', $string) || preg_match('/x(\d+)px/', $string) || preg_match('/(\d+)x(\d+)px/', $string)
-            || preg_match('/(\d+)пкс/', $string) || preg_match('/x(\d+)пкс/', $string) || preg_match('/(\d+)x(\d+)пкс/', $string);
-    }
-
-    protected function isLink($string)
-    {
-        return starts_with($string, ['link=']);
-    }
-
-    protected function isAlt($string)
-    {
-        return starts_with($string, 'alt=')
-            || starts_with($string, 'альт=');
-    }
-
-    protected function isLangtag($string)
-    {
-        return starts_with($string, ['lang=']);
-    }
-
-    protected function isSomeParameter($string)
-    {
-        return preg_match('/(.+?)=(.+?)/', $string);
-    }
-
     public function getDescription()
     {
         if ($caption = $this->getCaption()) {
@@ -161,6 +109,13 @@ class WikitextImage extends Wikitext
         $this->name = $name;
     }
 
+    protected function isType($string)
+    {
+        return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
+            || in_array($string, ['мини', 'миниатюра'])
+            || starts_with($string, ['thumb=', 'thumbnail=']);
+    }
+
     public function getType()
     {
         return $this->type;
@@ -173,6 +128,11 @@ class WikitextImage extends Wikitext
         ]);
     }
 
+    protected function isBorder($string)
+    {
+        return ($string == 'border');
+    }
+
     public function getBorder()
     {
         return $this->border;
@@ -181,6 +141,12 @@ class WikitextImage extends Wikitext
     protected function setBorder($border)
     {
         $this->border = $border;
+    }
+
+    protected function isLocation($string)
+    {
+        return in_array($string, ['right', 'left', 'center', 'none'])
+            || in_array($string, ['справа', 'слева', 'центр']);
     }
 
     public function getLocation()
@@ -195,6 +161,11 @@ class WikitextImage extends Wikitext
         ]);
     }
 
+    protected function isAlignment($string)
+    {
+        return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
+    }
+
     public function getAlignment()
     {
         return $this->alignment;
@@ -203,6 +174,14 @@ class WikitextImage extends Wikitext
     protected function setAlignment($alignment)
     {
         $this->alignment = $alignment;
+    }
+
+    protected function isSize($string)
+    {
+        return in_array($string, ['upright'])
+            || starts_with($string, ['upright='])
+            || preg_match('/(\d+)px/', $string) || preg_match('/x(\d+)px/', $string) || preg_match('/(\d+)x(\d+)px/', $string)
+            || preg_match('/(\d+)пкс/', $string) || preg_match('/x(\d+)пкс/', $string) || preg_match('/(\d+)x(\d+)пкс/', $string);
     }
 
     public function getSize()
@@ -217,6 +196,11 @@ class WikitextImage extends Wikitext
         $this->size = $size;
     }
 
+    protected function isLink($string)
+    {
+        return starts_with($string, ['link=']);
+    }
+
     public function getLink()
     {
         return $this->link;
@@ -225,6 +209,12 @@ class WikitextImage extends Wikitext
     protected function setLink($link)
     {
         $this->link = $link;
+    }
+
+    protected function isAlt($string)
+    {
+        return starts_with($string, 'alt=')
+            || starts_with($string, 'альт=');
     }
 
     public function getAlt()
@@ -237,6 +227,11 @@ class WikitextImage extends Wikitext
         $alt = str_replace_first('альт=', 'alt=', $alt);
 
         $this->alt = $alt;
+    }
+
+    protected function isLangtag($string)
+    {
+        return starts_with($string, ['lang=']);
     }
 
     public function getLangtag()
@@ -252,6 +247,11 @@ class WikitextImage extends Wikitext
     public function getCaption()
     {
         return $this->caption;
+    }
+
+    protected function isSomeParameter($string)
+    {
+        return preg_match('/(.+?)=(.+?)/', $string);
     }
 
     private function normalize($value, array $map)
