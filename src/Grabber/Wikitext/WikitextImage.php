@@ -169,8 +169,7 @@ class WikitextImage extends Wikitext
     protected function setType($type)
     {
         $this->type = $this->normalize($type, [
-            'мини' => 'thumb',
-            'миниатюра' => 'thumbnail',
+            'мини' => 'thumb', 'миниатюра' => 'thumbnail',
         ]);
     }
 
@@ -182,6 +181,13 @@ class WikitextImage extends Wikitext
     public function getLocation()
     {
         return $this->location;
+    }
+
+    public function setLocation($location)
+    {
+        $this->location = $this->normalize($location, [
+            'справа' => 'right', 'слева' => 'left', 'центр' => 'center',
+        ]);
     }
 
     public function getAlignment()
