@@ -1,0 +1,3 @@
+This is example<ref>some ref</ref> of html tags<ref attr="val">foo</ref> stripping.
+Multiline text provided<ref foo="bar" baz>text of ref here</ref>.
+And all works perfectly fine<ref>cool</ref>.
