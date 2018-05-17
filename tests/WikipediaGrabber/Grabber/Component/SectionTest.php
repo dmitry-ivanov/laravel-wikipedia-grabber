@@ -15,6 +15,13 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_transform_passed_wikitext_to_plain_for_title()
+    {
+        $section = new Section('Title [[Url|With Link]]', 'Body', 1);
+        $this->assertEquals('Title With Link', $section->getTitle());
+    }
+
+    /** @test */
     public function it_trims_passed_body()
     {
         $section = new Section('Title', '  Body FOO  ', 1);

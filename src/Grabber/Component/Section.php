@@ -3,6 +3,7 @@
 namespace Illuminated\Wikipedia\Grabber\Component;
 
 use Illuminate\Support\Collection;
+use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class Section
 {
@@ -29,7 +30,7 @@ class Section
         $title = str_replace(chr(194) . chr(160), ' ', $title);
         $title = str_replace(chr(226) . chr(128) . chr(137), ' ', $title);
 
-        $this->title = trim($title);
+        $this->title = trim((new Wikitext($title))->plain());
     }
 
     public function getBody()
