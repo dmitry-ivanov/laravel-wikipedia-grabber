@@ -69,9 +69,10 @@ class WikitextImage extends Wikitext
         $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag'];
 
         foreach ($fields as $field) {
-            $method = camel_case("is_{$field}");
-            if ($this->{$method}($part)) {
-                $this->{$field} = $part;
+            $is = camel_case("is_{$field}");
+            $set = camel_case("set_{$field}");
+            if ($this->{$is}($part)) {
+                $this->{$set}($part);
                 return true;
             }
         }
@@ -153,7 +154,7 @@ class WikitextImage extends Wikitext
         return $this->name;
     }
 
-    public function setName($name)
+    protected function setName($name)
     {
         $name = str_replace_first('Файл:', 'File:', $name);
 
@@ -163,6 +164,14 @@ class WikitextImage extends Wikitext
     public function getType()
     {
         return $this->type;
+    }
+
+    protected function setType($type)
+    {
+        $this->type = $this->normalize($type, [
+            'мини' => 'thumb',
+            'миниатюра' => 'thumbnail',
+        ]);
     }
 
     public function getBorder()
@@ -203,5 +212,10 @@ class WikitextImage extends Wikitext
     public function getCaption()
     {
         return $this->caption;
+    }
+
+    private function normalize($value, array $map)
+    {
+        return array_key_exists($value, $map) ? $map[$value] : $value;
     }
 }
