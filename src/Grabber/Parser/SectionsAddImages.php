@@ -5,7 +5,6 @@ namespace Illuminated\Wikipedia\Grabber\Parser;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
 class SectionsAddImages
@@ -161,16 +160,10 @@ class SectionsAddImages
 
     protected function getWikitextSections()
     {
-        if (!empty($this->wikitextSections)) {
-            return $this->wikitextSections;
+        if (empty($this->wikitextSections)) {
+            $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
+            $this->wikitextSections = $parser->sections();
         }
-
-        $title = $this->getMainSection()->getTitle();
-        $this->wikitextSections = (new SectionsParser($title, $this->wikitext))->sections();
-        $this->wikitextSections->each(function (Section $section) {
-            $title = (new Wikitext($section->getTitle()))->plain();
-            $section->setTitle($title);
-        });
 
         return $this->wikitextSections;
     }
