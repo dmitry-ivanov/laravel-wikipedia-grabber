@@ -24,6 +24,7 @@ class WikitextImage extends Wikitext
 
     /**
      * @see https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax
+     * @see https://ru.wikipedia.org/wiki/Википедия:Иллюстрирование
      */
     protected function parse()
     {
@@ -85,6 +86,7 @@ class WikitextImage extends Wikitext
     protected function isType($string)
     {
         return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
+            || in_array($string, ['мини', 'миниатюра'])
             || starts_with($string, ['thumb=', 'thumbnail=']);
     }
 
@@ -95,7 +97,8 @@ class WikitextImage extends Wikitext
 
     protected function isLocation($string)
     {
-        return in_array($string, ['right', 'left', 'center', 'none']);
+        return in_array($string, ['right', 'left', 'center', 'none'])
+            || in_array($string, ['справа', 'слева', 'центр']);
     }
 
     protected function isAlignment($string)
@@ -107,9 +110,8 @@ class WikitextImage extends Wikitext
     {
         return in_array($string, ['upright'])
             || starts_with($string, ['upright='])
-            || preg_match('/(\d+)px/', $string)
-            || preg_match('/x(\d+)px/', $string)
-            || preg_match('/(\d+)x(\d+)px/', $string);
+            || preg_match('/(\d+)px/', $string) || preg_match('/x(\d+)px/', $string) || preg_match('/(\d+)x(\d+)px/', $string)
+            || preg_match('/(\d+)пкс/', $string) || preg_match('/x(\d+)пкс/', $string) || preg_match('/(\d+)x(\d+)пкс/', $string);
     }
 
     protected function isLink($string)
@@ -119,7 +121,8 @@ class WikitextImage extends Wikitext
 
     protected function isAlt($string)
     {
-        return starts_with($string, ['alt=', 'альт=']);
+        return starts_with($string, 'alt=')
+            || starts_with($string, 'альт=');
     }
 
     protected function isLangtag($string)
