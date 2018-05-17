@@ -183,7 +183,7 @@ class WikitextImage extends Wikitext
         return $this->location;
     }
 
-    public function setLocation($location)
+    protected function setLocation($location)
     {
         $this->location = $this->normalize($location, [
             'справа' => 'right', 'слева' => 'left', 'центр' => 'center',
