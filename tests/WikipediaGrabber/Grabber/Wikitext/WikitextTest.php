@@ -155,8 +155,8 @@ class WikitextTest extends TestCase
     public function it_can_remove_html_tags_from_wikitext()
     {
         $this->assertEquals(
-            'Some Text',
-            (new Wikitext('Some Text<ref>some ref text</ref>'))->removeHtmlTags()
+            'Some text with html tags!',
+            (new Wikitext('Some text<ref>some ref text</ref> with <b>html tags</b>!'))->removeHtmlTags()
         );
     }
 
@@ -164,8 +164,8 @@ class WikitextTest extends TestCase
     public function it_can_remove_html_tags_with_attributes_from_wikitext()
     {
         $this->assertEquals(
-            'Another Text',
-            (new Wikitext('Another Text<ref with="attributes" more="attributes">some ref text</ref>'))->removeHtmlTags()
+            'Another text with tags!',
+            (new Wikitext('Another text<ref with="attributes" more="attributes">some ref text</ref> with <p>tags</p><br>!'))->removeHtmlTags()
         );
     }
 
@@ -174,7 +174,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'Multiple html tags!',
-            (new Wikitext(''))->removeHtmlTags('Multiple html tags<ref>ignored</ref>!<ref with="attr">ignored</ref>')
+            (new Wikitext(''))->removeHtmlTags('Multiple <s foo="bar" baz>html</s> tags<ref>ignored</ref>!<ref with="attr">ignored</ref>')
         );
     }
 
