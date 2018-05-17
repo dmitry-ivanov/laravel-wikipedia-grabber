@@ -16,7 +16,7 @@ class PlainFormatter extends Formatter
             '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
             '.wiki-media.left {float:left; clear:left; margin-right:16px}',
             '.wiki-media.right {float:right; clear:right; margin-left:16px}',
-            '.wiki-media .description {padding:10px 16px}',
+            '.wiki-media .description {padding:10px 16px; font-size:0.95rem}',
         ]);
 
         $styles = $styles->merge(
