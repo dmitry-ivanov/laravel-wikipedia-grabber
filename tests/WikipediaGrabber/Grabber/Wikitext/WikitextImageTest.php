@@ -78,7 +78,7 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function it_ignores_parts_with_unknown_parameters()
     {
-        $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|альт=foo|foo=bar|Image Caption|page=11]]');
+        $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|alt=foo|foo=bar|Image Caption|page=11]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb=foo');
@@ -87,7 +87,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlignment(), 'super');
         $this->assertSame($image->getSize(), '100x200px');
         $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), 'альт=foo');
+        $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), 'Image Caption');
     }
