@@ -232,6 +232,13 @@ class WikitextImage extends Wikitext
         return $this->alt;
     }
 
+    protected function setAlt($alt)
+    {
+        $alt = str_replace_first('альт=', 'alt=', $alt);
+
+        $this->alt = $alt;
+    }
+
     public function getLangtag()
     {
         return $this->langtag;
