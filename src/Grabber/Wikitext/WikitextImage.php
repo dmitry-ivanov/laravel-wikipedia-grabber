@@ -200,6 +200,11 @@ class WikitextImage extends Wikitext
         return $this->alignment;
     }
 
+    protected function setAlignment($alignment)
+    {
+        $this->alignment = $alignment;
+    }
+
     public function getSize()
     {
         return $this->size;
