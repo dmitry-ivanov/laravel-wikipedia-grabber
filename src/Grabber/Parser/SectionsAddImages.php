@@ -40,6 +40,7 @@ class SectionsAddImages
         foreach ($this->sections as $section) {
             if ($section->isMain()) {
                 $section->setImages($this->createMainObject());
+                continue;
             }
 
             $wikitextSection = $this->getWikitextSectionFor($section);
@@ -52,7 +53,7 @@ class SectionsAddImages
                 continue;
             }
 
-            $section->addImages(
+            $section->setImages(
                 $this->createObjects($wikitextSection, $sectionImages)
             );
 
