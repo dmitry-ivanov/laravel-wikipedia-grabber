@@ -112,4 +112,21 @@ class WikitextImageTest extends TestCase
         $image = new WikitextImage('[[File:Name.jpg]]');
         $this->assertSame($image->getDescription(), null);
     }
+
+    /** @test */
+    public function it_can_handle_ru_specific_wikitext_params_and_converts_them_to_en()
+    {
+        $image = new WikitextImage('[[Файл:Name.jpg|мини|справа|200пкс|альт=Альтернативный текст|Описание картинки]]');
+
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumb');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'right');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), 'Описание картинки');
+    }
 }
