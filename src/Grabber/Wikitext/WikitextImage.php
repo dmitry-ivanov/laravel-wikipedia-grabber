@@ -59,7 +59,7 @@ class WikitextImage extends Wikitext
     protected function explode($body)
     {
         $parts = explode('|', $body);
-        $this->name = array_shift($parts);
+        $this->setName(array_shift($parts));
 
         return $parts;
     }
@@ -151,6 +151,13 @@ class WikitextImage extends Wikitext
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $name = str_replace_first('Файл:', 'File:', $name);
+
+        $this->name = $name;
     }
 
     public function getType()
