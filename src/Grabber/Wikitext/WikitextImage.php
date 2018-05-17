@@ -244,6 +244,11 @@ class WikitextImage extends Wikitext
         return $this->langtag;
     }
 
+    protected function setLangtag($langtag)
+    {
+        $this->langtag = $langtag;
+    }
+
     public function getCaption()
     {
         return $this->caption;
