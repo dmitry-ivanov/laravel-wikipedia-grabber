@@ -150,4 +150,49 @@ class WikitextTest extends TestCase
 
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
     }
+
+    /** @test */
+    public function it_can_remove_html_tags_from_wikitext()
+    {
+        $this->assertEquals(
+            'Some Text',
+            (new Wikitext('Some Text<ref>some ref text</ref>'))->removeHtmlTags()
+        );
+    }
+
+    /** @test */
+    public function it_can_remove_html_tags_with_attributes_from_wikitext()
+    {
+        $this->assertEquals(
+            'Another Text',
+            (new Wikitext('Another Text<ref with="attributes" more="attributes">some ref text</ref>'))->removeHtmlTags()
+        );
+    }
+
+    /** @test */
+    public function which_works_for_multiple_html_tags_too()
+    {
+        $this->assertEquals(
+            'Multiple html tags!',
+            (new Wikitext(''))->removeHtmlTags('Multiple html tags<ref>ignored</ref>!<ref with="attr">ignored</ref>')
+        );
+    }
+
+    /** @test */
+    public function which_works_for_wikitext_without_html_tags_too()
+    {
+        $this->assertEquals(
+            'This is wikitext without html tags',
+            (new Wikitext('This is wikitext without html tags'))->removeHtmlTags()
+        );
+    }
+
+    /** @test */
+    public function which_works_for_multiline_wikitext_with_html_tags_too()
+    {
+        $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.html.txt');
+        $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.html.sanitized.txt');
+
+        $this->assertEquals($sanitized, (new Wikitext($multiline))->removeHtmlTags());
+    }
 }
