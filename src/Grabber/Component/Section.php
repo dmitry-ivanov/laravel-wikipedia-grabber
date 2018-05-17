@@ -27,6 +27,7 @@ class Section
     public function setTitle($title)
     {
         $title = str_replace(chr(194) . chr(160), ' ', $title);
+        $title = str_replace(chr(226) . chr(128) . chr(137), ' ', $title);
 
         $this->title = trim($title);
     }
