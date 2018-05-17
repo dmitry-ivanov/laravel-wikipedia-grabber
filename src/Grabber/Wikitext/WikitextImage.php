@@ -210,6 +210,13 @@ class WikitextImage extends Wikitext
         return $this->size;
     }
 
+    protected function setSize($size)
+    {
+        $size = str_replace_last('пкс', 'px', $size);
+
+        $this->size = $size;
+    }
+
     public function getLink()
     {
         return $this->link;
