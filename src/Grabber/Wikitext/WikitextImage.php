@@ -178,6 +178,11 @@ class WikitextImage extends Wikitext
         return $this->border;
     }
 
+    protected function setBorder($border)
+    {
+        $this->border = $border;
+    }
+
     public function getLocation()
     {
         return $this->location;
