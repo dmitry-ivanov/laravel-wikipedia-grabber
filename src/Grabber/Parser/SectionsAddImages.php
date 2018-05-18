@@ -133,11 +133,22 @@ class SectionsAddImages
 
     protected function getImageWikitext(Section $wikitextSection, array $image)
     {
-        $file = last(explode(':', $image['title']));
+        $title = $image['title'];
+        $file = last(explode(':', $title));
 
-        return collect(preg_split("/\r\n|\n|\r/", $wikitextSection->getBody()))->first(function ($line) use ($file) {
+        $line = collect(preg_split("/\r\n|\n|\r/", $wikitextSection->getBody()))->first(function ($line) use ($file) {
             return str_contains($line, $file);
         });
+
+        if (starts_with($line, "[[{$title}")) {
+            return $line;
+        }
+
+        if (preg_match("/\[\[{$title}.*\]\]/", $line, $matches)) {
+            return head($matches);
+        }
+
+        return $line;
     }
 
     protected function freeUsedImages(array $usedImages)
