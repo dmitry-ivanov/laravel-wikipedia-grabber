@@ -90,6 +90,10 @@ class SectionsAddImages
     {
         $file = last(explode(':', $image['title']));
 
+        if (ends_with($file, 'svg')) {
+            return false;
+        }
+
         return str_contains($wikitext, $file);
     }
 
