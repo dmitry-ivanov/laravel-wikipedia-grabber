@@ -134,6 +134,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_are_special_nbsp_and_space_templates_which_are_replaced_by_single_space()
+    {
+        $this->assertEquals(
+            'An example of wikitext with space templates.',
+            (new Wikitext('An example{{nbsp}}of wikitext{{space}}with{{space|em}}space{{spaces|10}}templates.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function which_works_for_wikitext_without_templates_too()
     {
         $this->assertEquals(

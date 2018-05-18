@@ -62,7 +62,14 @@ class Wikitext
 
         foreach ($matches as $match) {
             $template = $match[0];
-            $title = last(explode('|', $match[1]));
+            $templateBody = $match[1];
+
+            if (starts_with($templateBody, ['nbsp', 'space'])) {
+                $title = ' ';
+            } else {
+                $title = last(explode('|', $templateBody));
+            }
+
             $body = str_replace_first($template, $title, $body);
         }
 
