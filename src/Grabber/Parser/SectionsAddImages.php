@@ -89,10 +89,6 @@ class SectionsAddImages
     {
         $file = last(explode(':', $image['title']));
 
-        if (ends_with($file, 'svg')) {
-            return false;
-        }
-
         return str_contains($wikitext, $file);
     }
 
@@ -112,7 +108,11 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        return collect($images)->map(function (array $image) use ($wikitextSection) {
+        return collect($images)->filter(function (array $image) use ($wikitextSection) {
+            return $wikitextSection->isMain()
+                ? ends_with($image['title'], ['jpg', 'jpeg'])
+                : !ends_with($image['title'], 'svg');
+        })->map(function (array $image) use ($wikitextSection) {
             $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
             return $this->createObject($imageWikitext, $image);
         });
