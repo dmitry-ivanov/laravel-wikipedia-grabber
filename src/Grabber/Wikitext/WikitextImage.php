@@ -45,11 +45,8 @@ class WikitextImage extends Wikitext
 
     protected function strip($body)
     {
-        if (starts_with($body, '[[')) {
+        if (starts_with($body, '[[') && ends_with($body, ']]')) {
             $body = str_replace_first('[[', '', $body);
-        }
-
-        if (ends_with($body, ']]')) {
             $body = str_replace_last(']]', '', $body);
         }
 
