@@ -78,7 +78,7 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function braces_are_optional_for_image_wikitext()
     {
-        $image = new WikitextImage("File:Name.jpg|left|thumb|200x200px|alt=foo|Image caption with [[Url|Link]]");
+        $image = new WikitextImage('File:Name.jpg|left|thumb|200x200px|alt=foo|Image caption with [[Url|Link]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
@@ -89,7 +89,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getCaption(), "Image caption with Link");
+        $this->assertSame($image->getCaption(), 'Image caption with Link');
     }
 
     /** @test */
