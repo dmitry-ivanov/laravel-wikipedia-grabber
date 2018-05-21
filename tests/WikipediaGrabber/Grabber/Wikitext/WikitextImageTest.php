@@ -76,6 +76,23 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function braces_are_optional_for_image_wikitext()
+    {
+        $image = new WikitextImage("File:Name.jpg|left|thumb|200x200px|alt=foo|Image caption with [[Url|Link]]");
+
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumb');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'left');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), '200x200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'alt=foo');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), "Image caption with Link");
+    }
+
+    /** @test */
     public function it_ignores_parts_with_unknown_parameters()
     {
         $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|alt=foo|foo=bar|Image Caption|page=11]]');
