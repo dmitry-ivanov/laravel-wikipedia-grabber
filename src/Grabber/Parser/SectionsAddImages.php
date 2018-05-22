@@ -109,9 +109,9 @@ class SectionsAddImages
     protected function createObjects(Section $wikitextSection, array $images)
     {
         return collect($images)->filter(function (array $image) use ($wikitextSection) {
-            return $wikitextSection->isMain()
-                ? ends_with($image['title'], ['jpg', 'jpeg'])
-                : !ends_with($image['title'], 'svg');
+            $isJpeg = ends_with($image['title'], ['jpg', 'jpeg']);
+            $isSvg = ends_with($image['title'], 'svg');
+            return $wikitextSection->isMain() ? $isJpeg : !$isSvg;
         })->map(function (array $image) use ($wikitextSection) {
             $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
             return $this->createObject($imageWikitext, $image);
