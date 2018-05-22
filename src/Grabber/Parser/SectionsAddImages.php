@@ -154,6 +154,7 @@ class SectionsAddImages
         $line = (new Wikitext($line))->plain();
         $line = str_replace_first($placeholder, $openTag, $line);
 
+        $title = preg_quote($title);
         if (preg_match("/\[\[{$title}.*?\]\]/", $line, $matches)) {
             return head($matches);
         }
