@@ -64,13 +64,15 @@ class Wikitext
             $template = $match[0];
             $templateBody = $match[1];
 
-            if (starts_with($templateBody, ['nbsp', 'space'])) {
-                $title = ' ';
+            if (starts_with($templateBody, 'sfn')) {
+                $replace = '';
+            } elseif (starts_with($templateBody, ['nbsp', 'space'])) {
+                $replace = ' ';
             } else {
-                $title = last(explode('|', $templateBody));
+                $replace = last(explode('|', $templateBody));
             }
 
-            $body = str_replace_first($template, $title, $body);
+            $body = str_replace_first($template, $replace, $body);
         }
 
         return $body;

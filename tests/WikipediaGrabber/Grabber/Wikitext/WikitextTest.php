@@ -143,6 +143,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_is_special_sfn_template_which_is_totally_ignored()
+    {
+        $this->assertEquals(
+            'An example of wikitext with sfn template.',
+            (new Wikitext('An example of wikitext with sfn{{sfn|Roberts|2014|p=3}} template.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function which_works_for_wikitext_without_templates_too()
     {
         $this->assertEquals(
