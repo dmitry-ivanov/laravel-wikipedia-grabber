@@ -5,6 +5,7 @@ namespace Illuminated\Wikipedia\Grabber\Parser;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
+use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
 class SectionsAddImages
@@ -143,11 +144,17 @@ class SectionsAddImages
             return str_contains($line, $file);
         });
 
-        if (starts_with($line, "[[{$title}")) {
+        $openTag = "[[{$title}";
+        if (!str_contains($line, $openTag)) {
             return $line;
         }
 
-        if (preg_match("/\[\[{$title}.*\]\]/", $line, $matches)) {
+        $placeholder = '/!! IWG_TITLE !!/';
+        $line = str_replace_first($openTag, $placeholder, $line);
+        $line = (new Wikitext($line))->plain();
+        $line = str_replace_first($placeholder, $openTag, $line);
+
+        if (preg_match("/\[\[{$title}.*?\]\]/", $line, $matches)) {
             return head($matches);
         }
 
