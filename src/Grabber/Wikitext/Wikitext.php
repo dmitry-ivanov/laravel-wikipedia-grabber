@@ -64,7 +64,7 @@ class Wikitext
             $template = $match[0];
             $templateBody = $match[1];
 
-            if (starts_with($templateBody, 'sfn')) {
+            if (starts_with($templateBody, ['sfn', 'cite'])) {
                 $replace = '';
             } elseif (starts_with($templateBody, ['nbsp', 'space'])) {
                 $replace = ' ';

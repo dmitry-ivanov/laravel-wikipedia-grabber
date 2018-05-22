@@ -152,6 +152,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_is_special_cite_template_which_is_totally_ignored()
+    {
+        $this->assertEquals(
+            'An example of wikitext with cite template.',
+            (new Wikitext('An example of wikitext with cite{{cite web|url=http://example.com|title=Madonna|lang=en}} template.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function which_works_for_wikitext_without_templates_too()
     {
         $this->assertEquals(
