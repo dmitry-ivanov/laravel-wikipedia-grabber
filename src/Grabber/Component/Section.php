@@ -27,8 +27,7 @@ class Section
 
     public function setTitle($title)
     {
-        $title = str_replace(chr(194) . chr(160), ' ', $title);
-        $title = str_replace(chr(226) . chr(128) . chr(137), ' ', $title);
+        $title = $this->removeSpecialChars($title);
 
         $this->title = trim((new Wikitext($title))->plain());
     }
@@ -97,5 +96,13 @@ class Section
         }
 
         return $this->level;
+    }
+
+    protected function removeSpecialChars($string)
+    {
+        $string = str_replace(chr(194) . chr(160), ' ', $string);
+        $string = str_replace(chr(226) . chr(128) . chr(137), ' ', $string);
+
+        return $string;
     }
 }
