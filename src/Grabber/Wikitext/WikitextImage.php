@@ -80,7 +80,7 @@ class WikitextImage extends Wikitext
         }
 
         if ($this->isTextParameter($part)) {
-            $this->caption = last(explode('=', $part));
+            $this->caption = rtrim(last(explode('=', $part)), '}');
             return true;
         }
 
