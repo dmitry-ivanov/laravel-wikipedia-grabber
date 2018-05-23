@@ -161,6 +161,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_are_special_see_above_templates_which_are_ignored()
+    {
+        $this->assertEquals(
+            'Wikitext with see above templates.',
+            (new Wikitext('Wikitext{{see above|1|2|3}} with{{above|1|2|3}} see{{see at|1|2|3}} above{{см. выше|1|2|3}} templates{{выше|1|2|3}}.{{переход|1|2|3}}'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function which_works_for_wikitext_without_templates_too()
     {
         $this->assertEquals(
