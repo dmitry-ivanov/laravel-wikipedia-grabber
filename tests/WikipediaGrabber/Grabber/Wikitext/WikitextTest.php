@@ -161,6 +161,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_is_special_section_link_template_which_is_ignored()
+    {
+        $this->assertEquals(
+            'An example of wikitext with section link template.',
+            (new Wikitext('An example of wikitext with section link{{section link|url=http://example.com|title=Madonna|lang=en}} template.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function there_are_special_see_above_templates_which_are_ignored()
     {
         $this->assertEquals(
