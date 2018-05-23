@@ -143,7 +143,7 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
-    public function there_is_special_sfn_template_which_is_totally_ignored()
+    public function there_is_special_sfn_template_which_is_ignored()
     {
         $this->assertEquals(
             'An example of wikitext with sfn template.',
@@ -152,7 +152,7 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
-    public function there_is_special_cite_template_which_is_totally_ignored()
+    public function there_is_special_cite_template_which_is_ignored()
     {
         $this->assertEquals(
             'An example of wikitext with cite template.',
