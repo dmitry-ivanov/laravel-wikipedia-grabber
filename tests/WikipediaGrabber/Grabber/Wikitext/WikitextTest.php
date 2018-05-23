@@ -197,6 +197,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function templates_can_be_in_any_case()
+    {
+        $this->assertEquals(
+            'Wikitext with templates with mixed case.',
+            (new Wikitext('Wikitext with{{See Below|1|2|3}} templates{{СМ. Ниже|1|2|3}} with{{SEE AT|1|2|3}} mixed{{NBSP}}case.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function which_works_for_wikitext_without_templates_too()
     {
         $this->assertEquals(
