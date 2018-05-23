@@ -170,6 +170,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_are_special_anchor_templates_which_are_ignored()
+    {
+        $this->assertEquals(
+            'Wikitext with anchor templates.',
+            (new Wikitext('Wikitext with anchor{{anchor|1|2|3}} templates{{якорь|1|2|3}}.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function there_are_special_see_above_templates_which_are_ignored()
     {
         $this->assertEquals(
