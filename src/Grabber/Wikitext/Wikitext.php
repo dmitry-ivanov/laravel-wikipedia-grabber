@@ -63,10 +63,18 @@ class Wikitext
         foreach ($matches as $match) {
             $template = $match[0];
             $templateBody = $match[1];
+            $bodyInLowercase = mb_strtolower($templateBody, 'utf-8');
 
-            if (starts_with($templateBody, ['sfn', 'cite'])) {
+            $isSpace = starts_with($bodyInLowercase, ['nbsp', 'space']);
+            $isIgnored = starts_with($bodyInLowercase, [
+                'sfn', 'cite',
+                'see above', 'above', 'see at', 'см. выше', 'выше', 'переход',
+                'see below', 'below', 'см. ниже', 'ниже', 'section link', 'anchor', 'якорь',
+            ]);
+
+            if ($isIgnored) {
                 $replace = '';
-            } elseif (starts_with($templateBody, ['nbsp', 'space'])) {
+            } elseif ($isSpace) {
                 $replace = ' ';
             } else {
                 $replace = last(explode('|', $templateBody));
