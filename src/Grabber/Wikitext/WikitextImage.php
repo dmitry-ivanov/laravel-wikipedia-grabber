@@ -258,7 +258,10 @@ class WikitextImage extends Wikitext
 
     protected function isTextParameter($string)
     {
-        return preg_match('/text(\d*?)=(.+?)/', $string) || preg_match('/текст(\d*?)=(.+?)/', $string);
+        $string = mb_strtolower($string, 'utf-8');
+
+        return preg_match('/text(\d*?)=(.+?)/', $string) || preg_match('/текст(\d*?)=(.+?)/', $string)
+            || preg_match('/description(\d*?)=(.+?)/', $string) || preg_match('/подпись(\d*?)=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
