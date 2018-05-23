@@ -50,6 +50,11 @@ class WikitextImage extends Wikitext
             $body = str_replace_last(']]', '', $body);
         }
 
+        if (starts_with($body, '{{') && ends_with($body, '}}')) {
+            $body = str_replace_first('{{', '', $body);
+            $body = str_replace_last('}}', '', $body);
+        }
+
         return $body;
     }
 
@@ -72,6 +77,11 @@ class WikitextImage extends Wikitext
                 $this->{$set}($part);
                 return true;
             }
+        }
+
+        if ($this->isTextParameter($part)) {
+            $this->caption = last(explode('=', $part));
+            return true;
         }
 
         if ($this->isSomeParameter($part)) {
@@ -244,6 +254,11 @@ class WikitextImage extends Wikitext
     public function getCaption()
     {
         return $this->caption;
+    }
+
+    protected function isTextParameter($string)
+    {
+        return preg_match('/text(\d*?)=(.+?)/', $string) || preg_match('/текст(\d*?)=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
