@@ -68,8 +68,9 @@ class Wikitext
             $isSpace = starts_with($bodyInLowercase, ['nbsp', 'space']);
             $isIgnored = starts_with($bodyInLowercase, [
                 'sfn', 'cite',
+                'section link', 'anchor', 'якорь',
+                'see below', 'below', 'см. ниже', 'ниже',
                 'see above', 'above', 'see at', 'см. выше', 'выше', 'переход',
-                'see below', 'below', 'см. ниже', 'ниже', 'section link', 'anchor', 'якорь',
             ]);
 
             if ($isIgnored) {
