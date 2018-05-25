@@ -50,10 +50,10 @@ class WikitextImage extends Wikitext
             $body = str_replace_last(']]', '', $body);
         }
 
-        if (starts_with($body, '{{') && ends_with($body, '}}')) {
-            $body = str_replace_first('{{', '', $body);
-            $body = str_replace_last('}}', '', $body);
-        }
+        // if (starts_with($body, '{{') && ends_with($body, '}}')) {
+        //     $body = str_replace_first('{{', '', $body);
+        //     $body = str_replace_last('}}', '', $body);
+        // }
 
         return $body;
     }
