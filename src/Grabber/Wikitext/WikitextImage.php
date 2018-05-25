@@ -50,10 +50,11 @@ class WikitextImage extends Wikitext
             $body = str_replace_last(']]', '', $body);
         }
 
-        // if (starts_with($body, '{{') && ends_with($body, '}}')) {
-        //     $body = str_replace_first('{{', '', $body);
-        //     $body = str_replace_last('}}', '', $body);
-        // }
+        $lowercase = mb_strtolower($body, 'utf-8');
+        if (starts_with($lowercase, ['{{css image crop', '{{часть изображения']) && ends_with($body, '}}')) {
+            $body = str_replace_first('{{', '', $body);
+            $body = str_replace_last('}}', '', $body);
+        }
 
         return $body;
     }

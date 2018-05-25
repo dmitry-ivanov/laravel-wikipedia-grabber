@@ -164,4 +164,24 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getCaption(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
+
+    /** @test */
+    public function it_can_parse_css_image_crop_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{CSS Image crop|Image=Robert Lefèvre 001.jpg|Location=|Description=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|cWidth=150|oTop=9|oLeft=10}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Летиция Рамолино. Лефевр (1813)');
+    }
+
+    /** @test */
+    public function it_can_parse_css_image_crop_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Часть Изображения|изобр=Robert Lefèvre 001.jpg|позиция=|Подпись=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|ширина=150|общая=168|верх=9}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Летиция Рамолино. Лефевр (1813)');
+    }
 }
