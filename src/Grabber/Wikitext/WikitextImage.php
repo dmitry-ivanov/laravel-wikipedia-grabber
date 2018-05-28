@@ -30,6 +30,10 @@ class WikitextImage extends Wikitext
     {
         $body = $this->body;
 
+        if ($this->shouldBeGallery()) {
+            $this->setLocation('gallery');
+        }
+
         $body = $this->strip($body);
         $body = $this->plain($body);
         $parts = $this->explode($body);
@@ -41,6 +45,11 @@ class WikitextImage extends Wikitext
 
             $this->caption = $part;
         }
+    }
+
+    protected function shouldBeGallery()
+    {
+        return !(starts_with($this->body, '[[') && ends_with($this->body, ']]'));
     }
 
     protected function strip($body)
@@ -175,6 +184,10 @@ class WikitextImage extends Wikitext
 
     protected function setLocation($location)
     {
+        if ($this->location == 'gallery') {
+            return;
+        }
+
         $this->location = $this->normalize($location, [
             'справа' => 'right', 'слева' => 'left', 'центр' => 'center',
         ]);
