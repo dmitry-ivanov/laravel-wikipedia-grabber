@@ -15,10 +15,17 @@ class ImageTest extends TestCase
     }
 
     /** @test */
-    public function position_can_be_set_to_another_value()
+    public function position_can_be_set_to_left_value()
     {
         $image = new Image('url', 100, 200, 'original', 'left');
         $this->assertEquals('left', $image->getPosition());
+    }
+
+    /** @test */
+    public function position_can_be_set_to_gallery_value()
+    {
+        $image = new Image('url', 100, 200, 'original', 'gallery');
+        $this->assertEquals('gallery', $image->getPosition());
     }
 
     /** @test */
