@@ -30,7 +30,7 @@ class WikitextImage extends Wikitext
     {
         $body = $this->body;
 
-        if ($this->shouldBeGallery()) {
+        if ($this->isGalleryLocation()) {
             $this->setLocation('gallery');
         }
 
@@ -47,7 +47,7 @@ class WikitextImage extends Wikitext
         }
     }
 
-    protected function shouldBeGallery()
+    protected function isGalleryLocation()
     {
         return !(starts_with($this->body, '[[') && ends_with($this->body, ']]'));
     }
