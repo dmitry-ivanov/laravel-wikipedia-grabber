@@ -83,7 +83,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
         $this->assertSame($image->getBorder(), null);
-        $this->assertSame($image->getLocation(), 'left');
+        $this->assertSame($image->getLocation(), 'gallery');
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), '200x200px');
         $this->assertSame($image->getLink(), null);
