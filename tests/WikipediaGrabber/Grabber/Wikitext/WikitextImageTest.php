@@ -76,7 +76,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function braces_are_optional_for_image_wikitext()
+    public function braces_are_optional_for_image_wikitext_and_it_is_an_indicator_of_gallery_location()
     {
         $image = new WikitextImage('File:Name.jpg|left|thumb|200x200px|alt=foo|Image caption with [[Url|Link]]');
 
