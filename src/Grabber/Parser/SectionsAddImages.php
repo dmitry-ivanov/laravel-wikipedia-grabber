@@ -59,7 +59,7 @@ class SectionsAddImages
 
             $objects = $this->createObjects($wikitextSection, $sectionImages);
             $section->addImages($objects['images']);
-            $section->setGalleryImages($objects['gallery']);
+            $section->setGallery($objects['gallery']);
 
             $this->freeUsedImages($sectionImages);
         }
