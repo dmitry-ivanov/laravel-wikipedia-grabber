@@ -87,7 +87,7 @@ class Section
 
     public function isEmpty()
     {
-        return empty($this->body) && !$this->hasImages();
+        return empty($this->body) && !$this->hasImages() && !$this->hasGallery();
     }
 
     public function hasImages()
