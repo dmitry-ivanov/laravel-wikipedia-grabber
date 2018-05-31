@@ -163,6 +163,31 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_has_has_gallery_method()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $this->assertFalse($section->hasGallery());
+    }
+
+    /** @test */
+    public function which_returns_false_even_if_gallery_was_set_as_empty_collection()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $section->setGallery(collect());
+
+        $this->assertFalse($section->hasGallery());
+    }
+
+    /** @test */
+    public function which_returns_true_if_section_has_gallery()
+    {
+        $section = new Section('Title', 'Body', 7);
+        $section->setGallery(collect(['some', 'fake', 'gallery']));
+
+        $this->assertTrue($section->hasGallery());
+    }
+
+    /** @test */
     public function it_has_get_html_level_method()
     {
         $section = new Section('Title', 'Body', 3);

@@ -100,6 +100,11 @@ class Section
         $this->images = $this->images->merge($images);
     }
 
+    public function hasGallery()
+    {
+        return $this->gallery->isNotEmpty();
+    }
+
     public function getHtmlLevel()
     {
         // We have only h1..h6 html tags.
