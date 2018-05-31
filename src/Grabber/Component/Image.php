@@ -58,7 +58,7 @@ class Image
 
     public function setPosition($position)
     {
-        if (!in_array($position, ['left', 'right', 'gallery'])) {
+        if (!in_array($position, ['left', 'right'])) {
             $position = 'right';
         }
 
