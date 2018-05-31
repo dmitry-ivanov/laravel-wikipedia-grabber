@@ -57,9 +57,11 @@ class SectionsAddImages
                 continue;
             }
 
-            $section->addImages(
-                $this->createObjects($wikitextSection, $sectionImages)
-            );
+            $objects = $this->createObjects($wikitextSection, $sectionImages);
+            dd($objects);
+
+            // $section->addImages();
+            // $section->addGalleryImages();
 
             $this->freeUsedImages($sectionImages);
         }
@@ -117,10 +119,19 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        return collect($images)->map(function (array $image) use ($wikitextSection) {
+        $objects = ['all' => collect(), 'images' => collect(), 'gallery' => collect()];
+
+        foreach ($images as $image) {
             $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
-            return $this->createObject($imageWikitext, $image);
-        });
+            $object = $this->createObject($imageWikitext, $image);
+
+            $collection = $this->isGalleryImage($imageWikitext) ? $objects['gallery'] : $objects['images'];
+            $collection->push($object);
+
+            $objects['all']->push($object);
+        }
+
+        return $objects;
     }
 
     protected function createObject($imageWikitext, array $image)
@@ -164,6 +175,11 @@ class SectionsAddImages
         }
 
         return $line;
+    }
+
+    public function isGalleryImage($imageWikitext)
+    {
+        return !(starts_with($imageWikitext, '[[') && ends_with($imageWikitext, ']]'));
     }
 
     protected function freeUsedImages(array $usedImages)
