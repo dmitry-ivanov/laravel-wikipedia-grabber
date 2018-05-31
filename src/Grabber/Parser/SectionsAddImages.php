@@ -131,6 +131,12 @@ class SectionsAddImages
             $objects['all']->push($object);
         }
 
+        $minCountForGallery = 4;
+        if ($objects['gallery']->count() < $minCountForGallery) {
+            $objects['gallery'] = collect();
+            $objects['images'] = $objects['all'];
+        }
+
         return $objects;
     }
 
