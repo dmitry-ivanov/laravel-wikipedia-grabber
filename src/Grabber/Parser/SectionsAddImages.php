@@ -177,7 +177,7 @@ class SectionsAddImages
         return $line;
     }
 
-    public function isGalleryImage($imageWikitext)
+    protected function isGalleryImage($imageWikitext)
     {
         return !(starts_with($imageWikitext, '[[') && ends_with($imageWikitext, ']]'));
     }
