@@ -50,16 +50,43 @@ class PlainFormatter extends Formatter
         $id = $this->sectionId($title);
         $tag = "h{$section->getHtmlLevel()}";
 
+        $gallery = $this->gallery($section);
         $images = $this->images($section);
         $body = nl2br($section->getBody());
 
         $titleHtml = "<{$tag} id='{$id}'>{$title}</{$tag}>";
-        $bodyHtml = "<div>\n{$images}{$body}\n</div>\n\n";
+        $bodyHtml = "<div>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if (empty($images) && empty($body)) {
             $bodyHtml = "\n";
         }
 
         return "{$titleHtml}\n{$bodyHtml}";
+    }
+
+    protected function gallery(Section $section)
+    {
+        if (!$section->hasGallery()) {
+            return;
+        }
+
+        $gallery = $section->getGallery()->map(function (Image $image) {
+            $url = $image->getUrl();
+            $width = $image->getWidth();
+            $height = $image->getHeight();
+            $description = $image->getDescription();
+            $originalUrl = $image->getOriginalUrl();
+
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
+            $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+            $desc = "<div class='description'>{$description}</div>";
+            if (empty($description)) {
+                $desc = '';
+            }
+
+            return "<div class='wiki-media' style='width:{$width}px'>{$link}{$desc}</div>";
+        })->implode("\n");
+
+        return  "<div style='boder:1px solid'>\n{$gallery}\n</div>\n";
     }
 
     protected function images(Section $section)
@@ -83,7 +110,7 @@ class PlainFormatter extends Formatter
                 $desc = '';
             }
 
-            return "<div class='wiki-media {$position}' style='width:{$width}px;'>{$link}{$desc}</div>";
+            return "<div class='wiki-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
         })->implode("\n") . "\n";
     }
 }
