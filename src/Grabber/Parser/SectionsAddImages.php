@@ -58,10 +58,8 @@ class SectionsAddImages
             }
 
             $objects = $this->createObjects($wikitextSection, $sectionImages);
-            dd($objects);
-
-            // $section->addImages();
-            // $section->addGalleryImages();
+            $section->addImages($objects['images']);
+            $section->setGalleryImages($objects['gallery']);
 
             $this->freeUsedImages($sectionImages);
         }
@@ -131,8 +129,8 @@ class SectionsAddImages
             $objects['all']->push($object);
         }
 
-        $minCountForGallery = 4;
-        if ($objects['gallery']->count() < $minCountForGallery) {
+        $minCount = 4;
+        if ($objects['gallery']->count() < $minCount) {
             $objects['gallery'] = collect();
             $objects['images'] = $objects['all'];
         }
