@@ -76,14 +76,14 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function braces_are_optional_for_image_wikitext_and_it_is_an_indicator_of_gallery_location()
+    public function braces_are_optional_for_image_wikitext()
     {
         $image = new WikitextImage('File:Name.jpg|left|thumb|200x200px|alt=foo|Image caption with [[Url|Link]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
         $this->assertSame($image->getBorder(), null);
-        $this->assertSame($image->getLocation(), 'gallery');
+        $this->assertSame($image->getLocation(), 'left');
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), '200x200px');
         $this->assertSame($image->getLink(), null);
