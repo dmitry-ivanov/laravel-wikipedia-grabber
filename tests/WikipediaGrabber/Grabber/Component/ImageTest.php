@@ -22,13 +22,6 @@ class ImageTest extends TestCase
     }
 
     /** @test */
-    public function position_can_be_set_to_gallery_value()
-    {
-        $image = new Image('url', 100, 200, 'original', 'gallery');
-        $this->assertEquals('gallery', $image->getPosition());
-    }
-
-    /** @test */
     public function but_if_passed_position_is_unknown_it_would_be_set_to_right()
     {
         $image = new Image('url', 100, 200, 'original', 'foobar');
