@@ -87,15 +87,9 @@ class SectionsAddImages
     protected function getUsedImages($wikitext, array $images)
     {
         return collect($images)->filter(function (array $image) use ($wikitext) {
-            return $this->isImageUsed($wikitext, $image);
+            $file = last(explode(':', $image['title']));
+            return str_contains($wikitext, $file);
         })->toArray();
-    }
-
-    protected function isImageUsed($wikitext, array $image)
-    {
-        $file = last(explode(':', $image['title']));
-
-        return str_contains($wikitext, $file);
     }
 
     protected function filterByExtensions($wikitextSection, array $images)
