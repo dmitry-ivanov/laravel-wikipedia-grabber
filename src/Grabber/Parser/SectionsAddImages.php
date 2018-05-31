@@ -122,10 +122,10 @@ class SectionsAddImages
         $objects = ['all' => collect(), 'images' => collect(), 'gallery' => collect()];
 
         foreach ($images as $image) {
-            $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
-            $object = $this->createObject($imageWikitext, $image);
+            $wikitext = $this->getImageWikitext($wikitextSection, $image);
+            $object = $this->createObject($wikitext, $image);
 
-            $collection = $this->isGalleryImage($imageWikitext) ? $objects['gallery'] : $objects['images'];
+            $collection = $this->isGalleryImage($wikitext) ? $objects['gallery'] : $objects['images'];
             $collection->push($object);
 
             $objects['all']->push($object);
