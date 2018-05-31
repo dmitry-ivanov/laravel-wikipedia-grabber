@@ -52,6 +52,11 @@ class SectionsAddImages
                 continue;
             }
 
+            $sectionImages = $this->filterByExtensions($wikitextSection, $sectionImages);
+            if (empty($sectionImages)) {
+                continue;
+            }
+
             $section->addImages(
                 $this->createObjects($wikitextSection, $sectionImages)
             );
@@ -93,6 +98,15 @@ class SectionsAddImages
         return str_contains($wikitext, $file);
     }
 
+    protected function filterByExtensions($wikitextSection, array $images)
+    {
+        return collect($images)->filter(function (array $image) use ($wikitextSection) {
+            $isJpeg = ends_with($image['title'], ['jpg', 'jpeg']);
+            $isSvg = ends_with($image['title'], 'svg');
+            return $wikitextSection->isMain() ? $isJpeg : !$isSvg;
+        })->toArray();
+    }
+
     protected function createMainObject()
     {
         return collect([
@@ -109,11 +123,7 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        return collect($images)->filter(function (array $image) use ($wikitextSection) {
-            $isJpeg = ends_with($image['title'], ['jpg', 'jpeg']);
-            $isSvg = ends_with($image['title'], 'svg');
-            return $wikitextSection->isMain() ? $isJpeg : !$isSvg;
-        })->map(function (array $image) use ($wikitextSection) {
+        return collect($images)->map(function (array $image) use ($wikitextSection) {
             $imageWikitext = $this->getImageWikitext($wikitextSection, $image);
             return $this->createObject($imageWikitext, $image);
         });
