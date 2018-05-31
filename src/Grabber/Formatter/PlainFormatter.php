@@ -86,7 +86,7 @@ class PlainFormatter extends Formatter
             return "<div class='wiki-media' style='width:{$width}px'>{$link}{$desc}</div>";
         })->implode("\n");
 
-        return  "<div style='boder:1px solid'>\n{$gallery}\n</div>\n";
+        return  "<div style='border:1px solid'>\n{$gallery}\n</div>\n";
     }
 
     protected function images(Section $section)
