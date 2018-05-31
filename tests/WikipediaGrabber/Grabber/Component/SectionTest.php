@@ -57,6 +57,22 @@ class SectionTest extends TestCase
     }
 
     /** @test */
+    public function it_sets_gallery_to_empty_collection_by_default()
+    {
+        $section = new Section('Title', 'Body', '7');
+        $this->assertEquals($section->getGallery(), collect());
+    }
+
+    /** @test */
+    public function but_you_can_set_gallery_by_a_separate_call()
+    {
+        $section = new Section('Title', 'Body', '7');
+        $section->setGallery(collect(['some', 'fake', 'gallery']));
+
+        $this->assertEquals($section->getGallery(), collect(['some', 'fake', 'gallery']));
+    }
+
+    /** @test */
     public function it_has_is_main_method()
     {
         $section = new Section('Title', 'Body', 3);

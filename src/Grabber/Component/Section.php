@@ -11,6 +11,7 @@ class Section
     protected $body;
     protected $level;
     protected $images;
+    protected $gallery;
 
     public function __construct($title, $body, $level, Collection $images = null)
     {
@@ -18,6 +19,7 @@ class Section
         $this->setBody($body);
         $this->setLevel($level);
         $this->setImages($images);
+        $this->setGallery();
     }
 
     public function getTitle()
@@ -66,6 +68,16 @@ class Section
     public function setImages(Collection $images = null)
     {
         $this->images = $images ?? collect();
+    }
+
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    public function setGallery(Collection $gallery = null)
+    {
+        $this->gallery = $gallery ?? collect();
     }
 
     public function isMain()
