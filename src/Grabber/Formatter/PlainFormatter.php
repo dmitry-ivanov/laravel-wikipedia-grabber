@@ -54,8 +54,8 @@ class PlainFormatter extends Formatter
         $images = $this->images($section);
         $body = nl2br($section->getBody());
 
-        $titleHtml = "<{$tag} id='{$id}'>{$title}</{$tag}>";
-        $bodyHtml = "<div>\n{$gallery}{$images}{$body}\n</div>\n\n";
+        $titleHtml = "<{$tag} id='{$id}' class='wiki-section-title'>{$title}</{$tag}>";
+        $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if (empty($images) && empty($body)) {
             $bodyHtml = "\n";
         }
