@@ -12,6 +12,7 @@ class PlainFormatter extends Formatter
         $styles = collect([
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
+            '.wiki-section-title.has-gallery {clear:both}',
             '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
             '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
             '.wiki-media.left {float:left; clear:left; margin-right:16px}',
@@ -54,7 +55,13 @@ class PlainFormatter extends Formatter
         $images = $this->images($section);
         $body = nl2br($section->getBody());
 
-        $titleHtml = "<{$tag} id='{$id}' class='wiki-section-title'>{$title}</{$tag}>";
+        $class = collect(['wiki-section-title']);
+        if (!empty($gallery)) {
+            $class->push('has-gallery');
+        }
+        $class = $class->implode(' ');
+
+        $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if (empty($images) && empty($body)) {
             $bodyHtml = "\n";
