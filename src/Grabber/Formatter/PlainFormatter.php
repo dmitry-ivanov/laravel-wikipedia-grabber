@@ -13,6 +13,7 @@ class PlainFormatter extends Formatter
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
             '.wiki-section-title.has-gallery {clear:both}',
+            '.wiki-gallery {border:1px solid}',
             '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
             '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
             '.wiki-media.left {float:left; clear:left; margin-right:16px}',
@@ -93,7 +94,7 @@ class PlainFormatter extends Formatter
             return "<div class='wiki-media' style='width:{$width}px'>{$link}{$desc}</div>";
         })->implode("\n");
 
-        return  "<div style='border:1px solid'>\n{$gallery}\n</div>\n";
+        return  "<div class='wiki-gallery'>\n{$gallery}\n</div>\n";
     }
 
     protected function images(Section $section)
