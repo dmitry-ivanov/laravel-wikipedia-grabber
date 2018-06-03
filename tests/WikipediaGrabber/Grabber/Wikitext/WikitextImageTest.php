@@ -246,7 +246,17 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_double_image_ru_wikitext()
+    public function it_can_parse_multiple_image_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{multiple image|width=60|image1=Yellow card.svg|alt1=Yellow cartouche|image2=Red card.svg|alt2=Red cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Players are cautioned with a yellow card and sent off with a red card.');
+    }
+
+    /** @test */
+    public function it_can_parse_multiple_image_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{кратное изображение|зона=left|направление=horizontal|заголовок=|Подпись изображения=|ширина=138|изобр1=Vladimir Spiridonovich Putin.jpg|ширина1=|изобр2=Maria Ivanovna Shelomova.jpg|ширина2=|подпись=Родители Путина: Владимир Спиридонович Путин (1911—1999) и Мария Ивановна Путина (урождённая Шеломова) (1911—1998)}}'
