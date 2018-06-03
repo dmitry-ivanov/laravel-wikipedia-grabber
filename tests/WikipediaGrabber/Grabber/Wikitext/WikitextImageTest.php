@@ -304,4 +304,14 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getCaption(), 'Пример использования');
     }
+
+    /** @test */
+    public function it_can_parse_image_frame_ru2_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Рамка в стиле миниатюры|Содержание=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|Заголовок=Пример использования|Заголовок сверху=1|Ссылка=Hello world}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Пример использования');
+    }
 }

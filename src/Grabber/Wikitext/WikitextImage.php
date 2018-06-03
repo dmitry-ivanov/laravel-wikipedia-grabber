@@ -69,7 +69,7 @@ class WikitextImage extends Wikitext
             'фоторяд', 'фотоколонка',
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
-            'image frame',
+            'image frame', 'рамка в стиле миниатюры',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -288,6 +288,7 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотомонтаж - text
      * @see https://en.wikipedia.org/wiki/Template:Image_frame - caption
      * @see https://ru.wikipedia.org/wiki/Шаблон:Image_frame - заголовок
+     * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
      */
     protected function isTextParameter($string)
     {
