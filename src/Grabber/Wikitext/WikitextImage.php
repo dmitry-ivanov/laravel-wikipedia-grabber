@@ -62,8 +62,11 @@ class WikitextImage extends Wikitext
     {
         $body = mb_strtolower($body, 'utf-8');
 
-        $templates = ['css image crop', 'часть изображения', 'фоторяд', 'кратное изображение'];
-        $templates = collect($templates)->map(function ($template) {
+        $templates = collect([
+            'annotated image', 'описанное изображение',
+            'css image crop', 'часть изображения',
+            'фоторяд', 'кратное изображение',
+        ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
 
@@ -269,6 +272,8 @@ class WikitextImage extends Wikitext
     }
 
     /**
+     * @see https://en.wikipedia.org/wiki/Template:Annotated_image - caption
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Описанное_изображение - caption
      * @see https://en.wikipedia.org/wiki/Template:CSS_image_crop - description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Часть_изображения - подпись
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фоторяд - текст
@@ -279,7 +284,7 @@ class WikitextImage extends Wikitext
         $string = mb_strtolower($string, 'utf-8');
 
         return preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
-            || preg_match('/текст=(.+?)/', $string);
+            || preg_match('/caption=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
