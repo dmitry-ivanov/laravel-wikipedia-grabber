@@ -176,6 +176,16 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_annotated_image_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Описанное изображение|image=Mona Lisa color restoration2.jpg|image-width=2000|image-left=-850|image-top=-800|width=250|height=250|float=left|caption=Cropped Mona Lisa from a 2000 pixel image}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Cropped Mona Lisa from a 2000 pixel image');
+    }
+
+    /** @test */
     public function it_can_parse_css_image_crop_wikitext()
     {
         $image = new WikitextImage(
