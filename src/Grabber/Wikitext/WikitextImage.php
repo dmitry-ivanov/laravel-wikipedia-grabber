@@ -65,7 +65,7 @@ class WikitextImage extends Wikitext
         $templates = collect([
             'annotated image', 'описанное изображение',
             'css image crop', 'часть изображения',
-            'фоторяд', 'кратное изображение',
+            'фоторяд', 'фотоколонка', 'кратное изображение',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -277,6 +277,7 @@ class WikitextImage extends Wikitext
      * @see https://en.wikipedia.org/wiki/Template:CSS_image_crop - description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Часть_изображения - подпись
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фоторяд - текст
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка - текст
      * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подпись
      */
     protected function isTextParameter($string)

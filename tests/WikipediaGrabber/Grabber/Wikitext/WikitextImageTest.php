@@ -206,13 +206,23 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_multiple_images_ru_wikitext()
+    public function it_can_parse_photo_row_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Фоторяд|Pushkin 04.jpg|С. Г. Чириков.jpg|A.S.Pushkin.jpg|Pushkin Alexander.jpg|ш1=150|ш2=140|ш3=137|ш4=143|Текст=Прижизненные портреты Пушкина работы [[Местр, Ксаверий Ксаверьевич|Ксавье де Местра]] (1800—1802), С. Г. Чирикова (1810), [[Тропинин, Василий Андреевич|В. А. Тропинина]] (1827), [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1836)}}'
         );
 
         $this->assertSame($image->getCaption(), 'Прижизненные портреты Пушкина работы Ксавье де Местра (1800—1802), С. Г. Чирикова (1810), В. А. Тропинина (1827), П. Ф. Соколова (1836)');
+    }
+
+    /** @test */
+    public function it_can_parse_photo_column_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Фотоколонка|ф1.jpg|ф2.jpg|ф3.jpg|ф4.jpg|ф5.jpg|ф5.jpg|ф5.jpg|ш=100|color=black|текст=Описание фото-колонки}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Описание фото-колонки');
     }
 
     /** @test */
