@@ -66,6 +66,7 @@ class WikitextImage extends Wikitext
             'annotated image', 'описанное изображение',
             'css image crop', 'часть изображения',
             'фоторяд', 'фотоколонка', 'кратное изображение',
+            'photomontage', 'фотомонтаж',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -279,13 +280,16 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фоторяд - текст
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка - текст
      * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подпись
+     * @see https://en.wikipedia.org/wiki/Template:Photomontage - text
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Фотомонтаж - text
      */
     protected function isTextParameter($string)
     {
         $string = mb_strtolower($string, 'utf-8');
 
-        return preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
-            || preg_match('/caption=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string);
+        return preg_match('/text=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string)
+            || preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
+            || preg_match('/caption=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
