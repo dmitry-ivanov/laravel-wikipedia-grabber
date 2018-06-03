@@ -17,7 +17,7 @@ class PlainFormatter extends Formatter
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
             '.wiki-section-title.has-gallery {clear:both}',
-            '.wiki-gallery {display:flex; flex-wrap:wrap; margin:-8px}',
+            '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
             ".wiki-gallery .wiki-media {width:{$width}px; margin:8px; text-align:center}",
             ".wiki-gallery .wiki-media a {display:table-cell; width:{$width}px; height:{$height}px; vertical-align:middle}",
             '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
