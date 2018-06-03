@@ -67,6 +67,7 @@ class WikitextImage extends Wikitext
             'css image crop', 'часть изображения',
             'multiple image', 'кратное изображение',
             'фоторяд', 'фотоколонка',
+            'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
         ])->map(function ($template) {
             return "{{{$template}";
@@ -296,7 +297,7 @@ class WikitextImage extends Wikitext
 
     protected function isSomeParameter($string)
     {
-        return preg_match('/(.+?)=(.+?)/', $string);
+        return preg_match('/(.+?)=(.+?)/', $string) || preg_match('/^(\d+)%$/', $string);
     }
 
     private function normalize($value, array $map)

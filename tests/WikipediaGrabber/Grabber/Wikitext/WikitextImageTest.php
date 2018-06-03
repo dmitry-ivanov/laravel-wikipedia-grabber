@@ -246,6 +246,26 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_wide_image_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{wide image|Helsinki z00.jpg|1800px|[[Helsinki]] panorama|45%|none|alt=Panorama of city with mixture of five to ten story buildings}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Helsinki panorama');
+    }
+
+    /** @test */
+    public function it_can_parse_wide_image_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Панорама|AlsterPanorama.jpg|900px|Панорама центральной части Гамбурга|text-align=center}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Панорама центральной части Гамбурга');
+    }
+
+    /** @test */
     public function it_can_parse_photo_montage_wikitext()
     {
         $image = new WikitextImage(
