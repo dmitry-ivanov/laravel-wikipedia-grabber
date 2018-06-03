@@ -268,12 +268,18 @@ class WikitextImage extends Wikitext
         return $this->caption;
     }
 
+    /**
+     * @see https://en.wikipedia.org/wiki/Template:CSS_image_crop - description
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Часть_изображения - подпись
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Фоторяд - текст
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подпись
+     */
     protected function isTextParameter($string)
     {
         $string = mb_strtolower($string, 'utf-8');
 
-        return preg_match('/text(\d*?)=(.+?)/', $string) || preg_match('/текст(\d*?)=(.+?)/', $string)
-            || preg_match('/description(\d*?)=(.+?)/', $string) || preg_match('/подпись(\d*?)=(.+?)/', $string);
+        return preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
+            || preg_match('/текст=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
