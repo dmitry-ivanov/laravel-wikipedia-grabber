@@ -65,7 +65,8 @@ class WikitextImage extends Wikitext
         $templates = collect([
             'annotated image', 'описанное изображение',
             'css image crop', 'часть изображения',
-            'фоторяд', 'фотоколонка', 'кратное изображение',
+            'multiple image', 'кратное изображение',
+            'фоторяд', 'фотоколонка',
             'photomontage', 'фотомонтаж',
         ])->map(function ($template) {
             return "{{{$template}";
@@ -277,9 +278,10 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Описанное_изображение - caption
      * @see https://en.wikipedia.org/wiki/Template:CSS_image_crop - description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Часть_изображения - подпись
+     * @see https://en.wikipedia.org/wiki/Template:Multiple_image - footer
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подпись
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фоторяд - текст
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка - текст
-     * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подпись
      * @see https://en.wikipedia.org/wiki/Template:Photomontage - text
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотомонтаж - text
      */
@@ -289,7 +291,7 @@ class WikitextImage extends Wikitext
 
         return preg_match('/text=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string)
             || preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
-            || preg_match('/caption=(.+?)/', $string);
+            || preg_match('/footer=(.+?)/', $string) || preg_match('/caption=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
