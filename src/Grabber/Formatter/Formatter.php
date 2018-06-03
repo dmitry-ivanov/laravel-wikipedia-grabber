@@ -45,4 +45,9 @@ abstract class Formatter
             return $section->getLevel();
         })->unique()->sort();
     }
+
+    protected function toGallerySize($size)
+    {
+        return (int) ($size / 1.35);
+    }
 }

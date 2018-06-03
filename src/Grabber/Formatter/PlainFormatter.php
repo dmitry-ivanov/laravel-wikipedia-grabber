@@ -9,7 +9,7 @@ class PlainFormatter extends Formatter
 {
     public function style()
     {
-        $size = config('wikipedia-grabber.image_size');
+        $size = $this->toGallerySize(config('wikipedia-grabber.image_size'));
         $width = $size;
         $height = $size + 5;
 
@@ -85,8 +85,8 @@ class PlainFormatter extends Formatter
 
         $gallery = $section->getGallery()->map(function (Image $image) {
             $url = $image->getUrl();
-            $width = $image->getWidth();
-            $height = $image->getHeight();
+            $width = $this->toGallerySize($image->getWidth());
+            $height = $this->toGallerySize($image->getHeight());
             $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
 
