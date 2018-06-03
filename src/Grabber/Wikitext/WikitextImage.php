@@ -69,6 +69,7 @@ class WikitextImage extends Wikitext
             'фоторяд', 'фотоколонка',
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
+            'image frame',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -285,6 +286,8 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка - текст
      * @see https://en.wikipedia.org/wiki/Template:Photomontage - text
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотомонтаж - text
+     * @see https://en.wikipedia.org/wiki/Template:Image_frame - caption
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Image_frame - заголовок
      */
     protected function isTextParameter($string)
     {
@@ -292,7 +295,8 @@ class WikitextImage extends Wikitext
 
         return preg_match('/text=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string)
             || preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
-            || preg_match('/footer=(.+?)/', $string) || preg_match('/caption=(.+?)/', $string);
+            || preg_match('/footer=(.+?)/', $string)
+            || preg_match('/caption=(.+?)/', $string) || preg_match('/заголовок=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)

@@ -284,4 +284,24 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getCaption(), 'Описание фотомонтажа');
     }
+
+    /** @test */
+    public function it_can_parse_image_frame_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Image frame|width=200|content=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|caption=Example usage|link=Hello world|align=center}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Example usage');
+    }
+
+    /** @test */
+    public function it_can_parse_image_frame_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Image frame|Содержание=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|Заголовок=Пример использования|Заголовок сверху=1|Ссылка=Hello world}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Пример использования');
+    }
 }
