@@ -226,6 +226,26 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_photo_montage_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Photomontage|photo1a=Sevilla Plaza de España 19-03-2011 13-36-19.jpg|photo2a=Torredelorotyteatrolamaestranza.JPG|photo2b=Sevila10.JPG|photo3a=Alcaz archiv sev.jpg|text=Photo montage caption}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Photo montage caption');
+    }
+
+    /** @test */
+    public function it_can_parse_photo_montage_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Фотомонтаж|photo1a=Sevilla Plaza de España 19-03-2011 13-36-19.jpg|photo2a=Torredelorotyteatrolamaestranza.JPG|photo2b=Sevila10.JPG|photo3a=Alcaz archiv sev.jpg|text=Описание фотомонтажа}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Описание фотомонтажа');
+    }
+
+    /** @test */
     public function it_can_parse_double_image_ru_wikitext()
     {
         $image = new WikitextImage(
