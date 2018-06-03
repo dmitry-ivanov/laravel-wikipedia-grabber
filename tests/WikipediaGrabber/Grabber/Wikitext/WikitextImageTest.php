@@ -184,4 +184,24 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getCaption(), 'Летиция Рамолино. Лефевр (1813)');
     }
+
+    /** @test */
+    public function it_can_parse_multiple_images_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Фоторяд|Pushkin 04.jpg|С. Г. Чириков.jpg|A.S.Pushkin.jpg|Pushkin Alexander.jpg|ш1=150|ш2=140|ш3=137|ш4=143|Текст=Прижизненные портреты Пушкина работы [[Местр, Ксаверий Ксаверьевич|Ксавье де Местра]] (1800—1802), С. Г. Чирикова (1810), [[Тропинин, Василий Андреевич|В. А. Тропинина]] (1827), [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1836)}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Прижизненные портреты Пушкина работы Ксавье де Местра (1800—1802), С. Г. Чирикова (1810), В. А. Тропинина (1827), П. Ф. Соколова (1836)');
+    }
+
+    /** @test */
+    public function it_can_parse_double_image_ru_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{кратное изображение|зона=left|направление=horizontal|заголовок=|Подпись изображения=|ширина=138|изобр1=Vladimir Spiridonovich Putin.jpg|ширина1=|изобр2=Maria Ivanovna Shelomova.jpg|ширина2=|подпись=Родители Путина: Владимир Спиридонович Путин (1911—1999) и Мария Ивановна Путина (урождённая Шеломова) (1911—1998)}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'Родители Путина: Владимир Спиридонович Путин (1911—1999) и Мария Ивановна Путина (урождённая Шеломова) (1911—1998)');
+    }
 }

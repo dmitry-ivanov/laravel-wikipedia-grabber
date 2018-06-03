@@ -62,7 +62,7 @@ class WikitextImage extends Wikitext
     {
         $body = mb_strtolower($body, 'utf-8');
 
-        $templates = ['css image crop', 'часть изображения'];
+        $templates = ['css image crop', 'часть изображения', 'фоторяд', 'кратное изображение'];
         $templates = collect($templates)->map(function ($template) {
             return "{{{$template}";
         })->toArray();
