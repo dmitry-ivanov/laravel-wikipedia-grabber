@@ -165,6 +165,10 @@ class SectionsAddImages
 
         $openTag = "[[{$title}";
         if (!str_contains($line, $openTag)) {
+            if ($this->isDoubleImageTemplate($line)) {
+                return (new DoubleImageTemplate($line))->extract($file);
+            }
+
             return $line;
         }
 
@@ -184,6 +188,17 @@ class SectionsAddImages
     protected function isGalleryImage($imageWikitext)
     {
         return !(starts_with($imageWikitext, '[[') && ends_with($imageWikitext, ']]'));
+    }
+
+    protected function isDoubleImageTemplate($imageWikitext)
+    {
+        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
+
+        $templates = collect(['double image', 'сдвоенное изображение'])->map(function ($template) {
+            return "{{{$template}";
+        })->toArray();
+
+        return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
     }
 
     protected function freeUsedImages(array $usedImages)
