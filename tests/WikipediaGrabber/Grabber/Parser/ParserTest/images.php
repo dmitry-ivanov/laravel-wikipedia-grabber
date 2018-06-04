@@ -630,4 +630,40 @@ return [
             ],
         ],
     ],
+    35 => [
+        'ns' => 6,
+        'title' => 'Файл:Mikhail Andreyevich Dostoyevsky.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mikhail_Andreyevich_Dostoyevsky.jpg/188px-Mikhail_Andreyevich_Dostoyevsky.jpg',
+                'thumbwidth' => 188,
+                'thumbheight' => 250,
+                'url' => 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Mikhail_Andreyevich_Dostoyevsky.jpg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Mikhail_Andreyevich_Dostoyevsky.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=25997411',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    36 => [
+        'ns' => 6,
+        'title' => 'Файл:Maria Fyodorovna Dostoyevskaya.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Maria_Fyodorovna_Dostoyevskaya.jpg/189px-Maria_Fyodorovna_Dostoyevskaya.jpg',
+                'thumbwidth' => 189,
+                'thumbheight' => 250,
+                'url' => 'https://upload.wikimedia.org/wikipedia/commons/1/19/Maria_Fyodorovna_Dostoyevskaya.jpg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Maria_Fyodorovna_Dostoyevskaya.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=25997380',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
