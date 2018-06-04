@@ -166,6 +166,42 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function and_we_will_do_even_few_more_tests_for_that_ru_to_en_converting()
+    {
+        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|право|200пкс|альт=Альтернативный текст]]');
+
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumbnail');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'right');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), null);
+        $this->assertSame($image->getDescription(), 'Альтернативный текст');
+    }
+
+    /** @test */
+    public function and_we_will_do_the_last_one_test_for_that_ru_to_en_converting()
+    {
+        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|лево|x200пкс|альт=Альтернативный текст]]');
+
+        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getType(), 'thumbnail');
+        $this->assertSame($image->getBorder(), null);
+        $this->assertSame($image->getLocation(), 'left');
+        $this->assertSame($image->getAlignment(), null);
+        $this->assertSame($image->getSize(), 'x200px');
+        $this->assertSame($image->getLink(), null);
+        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getCaption(), null);
+        $this->assertSame($image->getDescription(), 'Альтернативный текст');
+    }
+
+    /** @test */
     public function it_can_parse_annotated_image_wikitext()
     {
         $image = new WikitextImage(

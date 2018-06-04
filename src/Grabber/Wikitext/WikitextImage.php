@@ -172,7 +172,8 @@ class WikitextImage extends Wikitext
     protected function isLocation($string)
     {
         return in_array($string, ['right', 'left', 'center', 'none'])
-            || in_array($string, ['справа', 'слева', 'центр']);
+            || in_array($string, ['справа', 'слева', 'центр'])
+            || in_array($string, ['право', 'лево', 'середина']);
     }
 
     public function getLocation()
@@ -184,6 +185,7 @@ class WikitextImage extends Wikitext
     {
         $this->location = $this->normalize($location, [
             'справа' => 'right', 'слева' => 'left', 'центр' => 'center',
+            'право' => 'right', 'лево' => 'left', 'середина' => 'center',
         ]);
     }
 
