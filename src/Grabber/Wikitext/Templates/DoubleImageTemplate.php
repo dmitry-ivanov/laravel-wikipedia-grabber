@@ -22,6 +22,7 @@ class DoubleImageTemplate
         $body = str_replace_last('}}', '', $body);
 
         $parts = explode('|', $body);
+        $position = array_get($parts, 1);
         $left = array_get($parts, 2);
         $right = array_get($parts, 4);
         $leftCaption = array_get($parts, 6);
@@ -36,11 +37,11 @@ class DoubleImageTemplate
         }
 
         if ($file == $left) {
-            return "{$file}|{$leftCaption}";
+            return "{$file}|{$position}|{$leftCaption}";
         }
 
         if ($file == $right) {
-            return "{$file}|{$rightCaption}";
+            return "{$file}|{$position}|{$rightCaption}";
         }
 
         return $this->body;
