@@ -107,6 +107,10 @@ class WikitextImage extends Wikitext
             return true;
         }
 
+        if ($this->isFileName($part)) {
+            return true;
+        }
+
         return false;
     }
 
@@ -305,6 +309,15 @@ class WikitextImage extends Wikitext
     protected function isSomeParameter($string)
     {
         return preg_match('/(.+?)=(.+?)/', $string) || preg_match('/^(\d+)%$/', $string);
+    }
+
+    protected function isFileName($string)
+    {
+        $extensions = collect(['jpg', 'jpeg', 'png', 'svg'])->map(function ($ext) {
+            return ".{$ext}";
+        })->toArray();
+
+        return ends_with($string, $extensions);
     }
 
     private function normalize($value, array $map)
