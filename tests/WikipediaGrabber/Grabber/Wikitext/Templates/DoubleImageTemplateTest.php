@@ -19,7 +19,7 @@ class DoubleImageTemplateTest extends TestCase
     /** @test */
     public function and_it_works_for_ru_wikitext_too()
     {
-        $template = new DoubleImageTemplate('{{сдвоенное изображение|право|Yellow card.svg|60|Red card.svg|60|Single description||Yellow|Red}}');
+        $template = new DoubleImageTemplate('{{сдвоенное изображение|право|Yellow card.svg|60|Red card.svg|60||Single description|Yellow|Red}}');
 
         $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|право|Single description');
         $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|право|Single description');
