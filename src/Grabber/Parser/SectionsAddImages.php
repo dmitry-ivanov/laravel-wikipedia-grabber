@@ -5,6 +5,7 @@ namespace Illuminated\Wikipedia\Grabber\Parser;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
