@@ -70,7 +70,7 @@ class PlainFormatter extends Formatter
 
         $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
-        if (empty($images) && empty($body)) {
+        if ($section->isEmpty()) {
             $bodyHtml = "\n";
         }
 
