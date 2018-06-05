@@ -180,7 +180,14 @@ class SectionsAddImages
 
         $title = preg_quote($title);
         if (preg_match("/\[\[{$title}.*?\]\]/", $line, $matches)) {
-            return head($matches);
+            $wikitext = head($matches);
+
+            if ($this->isGrayTable($line)) {
+                $wikitext = str_replace_first('[[', '', $wikitext);
+                $wikitext = str_replace_last(']]', '', $wikitext);
+            }
+
+            return $wikitext;
         }
 
         return $line;
@@ -200,6 +207,11 @@ class SectionsAddImages
         })->toArray();
 
         return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
+    }
+
+    protected function isGrayTable($imageWikitext)
+    {
+        return preg_match('/(\s*\|\s*)width=/', $imageWikitext) || preg_match('/(\s*\|\s*)align=/', $imageWikitext);
     }
 
     protected function freeUsedImages(array $usedImages)
