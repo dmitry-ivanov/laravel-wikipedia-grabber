@@ -84,4 +84,9 @@ class Image
     {
         $this->originalUrl = $originalUrl;
     }
+
+    public function getAlt()
+    {
+        return htmlspecialchars($this->description, ENT_QUOTES);
+    }
 }
