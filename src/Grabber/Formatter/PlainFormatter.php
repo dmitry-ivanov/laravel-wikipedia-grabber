@@ -90,7 +90,7 @@ class PlainFormatter extends Formatter
             $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
 
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$description}' />";
             $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
             $desc = "<div class='wiki-media-desc'>{$description}</div>";
             if (empty($description)) {
@@ -117,7 +117,7 @@ class PlainFormatter extends Formatter
             $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
 
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' />";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$description}' />";
             $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
             $desc = "<div class='wiki-media-desc'>{$description}</div>";
             if (empty($description)) {
