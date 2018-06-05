@@ -183,8 +183,7 @@ class SectionsAddImages
             $wikitext = head($matches);
 
             if ($this->isGrayTable($line)) {
-                $wikitext = str_replace_first('[[', '', $wikitext);
-                $wikitext = str_replace_last(']]', '', $wikitext);
+                $wikitext = $this->forceGalleryDisplaying($wikitext);
             }
 
             return $wikitext;
@@ -196,6 +195,14 @@ class SectionsAddImages
     protected function isGalleryImage($imageWikitext)
     {
         return !(starts_with($imageWikitext, '[[') && ends_with($imageWikitext, ']]'));
+    }
+
+    protected function forceGalleryDisplaying($imageWikitext)
+    {
+        $imageWikitext = str_replace_first('[[', '', $imageWikitext);
+        $imageWikitext = str_replace_last(']]', '', $imageWikitext);
+
+        return $imageWikitext;
     }
 
     protected function isDoubleImageTemplate($imageWikitext)
