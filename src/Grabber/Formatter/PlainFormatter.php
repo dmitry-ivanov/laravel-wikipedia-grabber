@@ -63,7 +63,7 @@ class PlainFormatter extends Formatter
         $body = nl2br($section->getBody());
 
         $class = collect(['wiki-section-title']);
-        if (!empty($gallery)) {
+        if ($section->hasGallery()) {
             $class->push('has-gallery');
         }
         $class = $class->implode(' ');
