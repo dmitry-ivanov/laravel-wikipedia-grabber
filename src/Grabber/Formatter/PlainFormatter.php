@@ -85,12 +85,13 @@ class PlainFormatter extends Formatter
 
         $gallery = $section->getGallery()->map(function (Image $image) {
             $url = $image->getUrl();
+            $alt = $image->getAlt();
             $width = $this->toGallerySize($image->getWidth());
             $height = $this->toGallerySize($image->getHeight());
             $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
 
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$description}' />";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
             $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
             $desc = "<div class='wiki-media-desc'>{$description}</div>";
             if (empty($description)) {
@@ -111,13 +112,14 @@ class PlainFormatter extends Formatter
 
         return $section->getImages()->map(function (Image $image) {
             $url = $image->getUrl();
+            $alt = $image->getAlt();
             $width = $image->getWidth();
             $height = $image->getHeight();
             $position = $image->getPosition();
             $description = $image->getDescription();
             $originalUrl = $image->getOriginalUrl();
 
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$description}' />";
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
             $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
             $desc = "<div class='wiki-media-desc'>{$description}</div>";
             if (empty($description)) {
