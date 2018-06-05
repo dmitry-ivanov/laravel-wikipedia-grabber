@@ -22,7 +22,7 @@
 |group="~"}}.
 
 [[Файл:Aquote2.png|thumb|right]]
-[[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here.]] Some text at the same line [[here]].
+[[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here with single quote ' and also double quote ".]] Some text at the same line [[here]].
 
 == Биография ==
 
