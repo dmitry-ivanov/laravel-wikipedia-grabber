@@ -900,4 +900,40 @@ return [
             ],
         ],
     ],
+    50 => [
+        'ns' => 6,
+        'title' => 'Файл:File with spaces here and underscores in wikitext.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1020x1020',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:File with spaces here and underscores in wikitext.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    51 => [
+        'ns' => 6,
+        'title' => 'Файл:File_with_underscores_here_and_spaces_in_wikitext.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1021x1021',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:File_with_underscores_here_and_spaces_in_wikitext.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
