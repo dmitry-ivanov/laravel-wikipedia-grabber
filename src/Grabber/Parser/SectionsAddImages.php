@@ -166,6 +166,12 @@ class SectionsAddImages
 
         $openTag = "[[{$title}";
         if (!str_contains($line, $openTag)) {
+            if ($this->isMultipleImageLine($line)) {
+                $line = preg_replace('/\d+=/', '=', $line);
+                $line = (new Wikitext($line))->plain();
+                return rtrim($line, '}');
+            }
+
             if ($this->isDoubleImageTemplate($line)) {
                 return (new DoubleImageTemplate($line))->extract($file);
             }
@@ -214,6 +220,25 @@ class SectionsAddImages
         })->toArray();
 
         return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
+    }
+
+    /**
+     * @see https://en.wikipedia.org/wiki/Template:Multiple_image - captionN
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+ - текстN
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подписьN
+     */
+    protected function isMultipleImageLine($imageWikitext)
+    {
+        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
+
+        $params = ['caption', 'текст', 'подпись'];
+        foreach ($params as $param) {
+            if (preg_match_all("/{$param}\d+=/", $imageWikitext) == 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     protected function isGrayTable($imageWikitext)
