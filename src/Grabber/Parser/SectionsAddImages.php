@@ -167,9 +167,7 @@ class SectionsAddImages
         $openTag = "[[{$title}";
         if (!str_contains($line, $openTag)) {
             if ($this->isMultipleImageLine($line)) {
-                $line = preg_replace('/\d+=/', '=', $line);
-                $line = (new Wikitext($line))->plain();
-                return rtrim($line, '}');
+                return $this->transformMultipleImageLine($line);
             }
 
             if ($this->isDoubleImageTemplate($line)) {
@@ -239,6 +237,13 @@ class SectionsAddImages
         }
 
         return false;
+    }
+
+    protected function transformMultipleImageLine($line)
+    {
+        $line = preg_replace('/\d+=/', '=', $line);
+        $line = (new Wikitext($line))->plain();
+        return rtrim($line, '}');
     }
 
     protected function isGrayTable($imageWikitext)
