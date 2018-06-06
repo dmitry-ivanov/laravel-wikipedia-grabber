@@ -89,8 +89,18 @@ class SectionsAddImages
     {
         return collect($images)->filter(function (array $image) use ($wikitext) {
             $file = last(explode(':', $image['title']));
-            return str_contains($wikitext, $file);
+            return $this->isFileUsed($wikitext, $file);
         })->toArray();
+    }
+
+    protected function isFileUsed($wikitext, $file)
+    {
+        $fileWithSpaces = str_replace('_', ' ', $file);
+        $fileWithUnderscores = str_replace(' ', '_', $file);
+
+        return str_contains($wikitext, $file)
+            || str_contains($wikitext, $fileWithSpaces)
+            || str_contains($wikitext, $fileWithUnderscores);
     }
 
     protected function filterByExtensions($wikitextSection, array $images)
@@ -199,7 +209,7 @@ class SectionsAddImages
         $lines = collect(preg_split("/\r\n|\n|\r/", $wikitext));
 
         $line = $lines->first(function ($line) use ($title) {
-            return str_contains($line, $title);
+            return $this->isFileUsed($line, $title);
         });
 
         if (!empty($line)) {
@@ -207,7 +217,7 @@ class SectionsAddImages
         }
 
         return $lines->first(function ($line) use ($file) {
-            return str_contains($line, $file);
+            return $this->isFileUsed($line, $file);
         });
     }
 
