@@ -212,8 +212,8 @@ class WikitextImage extends Wikitext
     {
         return in_array($string, ['upright'])
             || starts_with($string, ['upright='])
-            || preg_match('/(\d+)px/', $string) || preg_match('/x(\d+)px/', $string) || preg_match('/(\d+)x(\d+)px/', $string)
-            || preg_match('/(\d+)пкс/', $string) || preg_match('/x(\d+)пкс/', $string) || preg_match('/(\d+)x(\d+)пкс/', $string);
+            || preg_match('/(\d+)(\s*)px/', $string) || preg_match('/x(\d+)px/', $string) || preg_match('/(\d+)x(\d+)px/', $string)
+            || preg_match('/(\d+)(\s*)пкс/', $string) || preg_match('/x(\d+)пкс/', $string) || preg_match('/(\d+)x(\d+)пкс/', $string);
     }
 
     public function getSize()
@@ -223,6 +223,7 @@ class WikitextImage extends Wikitext
 
     protected function setSize($size)
     {
+        $size = str_replace(' ', '', $size);
         $size = str_replace_last('пкс', 'px', $size);
 
         $this->size = $size;

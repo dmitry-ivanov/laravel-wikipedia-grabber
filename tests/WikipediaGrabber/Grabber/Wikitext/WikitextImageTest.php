@@ -95,14 +95,14 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function it_ignores_parts_with_unknown_parameters()
     {
-        $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|100x200px|super|alt=foo|foo=bar|Image Caption|page=11]]');
+        $image = new WikitextImage('[[File:Name.jpg|none|thumb=foo|200 px|super|alt=foo|foo=bar|Image Caption|page=11]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb=foo');
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'none');
         $this->assertSame($image->getAlignment(), 'super');
-        $this->assertSame($image->getSize(), '100x200px');
+        $this->assertSame($image->getSize(), '200px');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
@@ -168,7 +168,7 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function and_we_will_do_even_few_more_tests_for_that_ru_to_en_converting()
     {
-        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|право|200пкс|альт=Альтернативный текст]]');
+        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|право|200 пкс|альт=Альтернативный текст]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
