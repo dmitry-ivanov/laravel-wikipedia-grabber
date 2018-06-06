@@ -271,9 +271,9 @@ class SectionsAddImages
         return rtrim($line, '}');
     }
 
-    protected function isGrayTable($imageWikitext)
+    protected function isGrayTable($line)
     {
-        return preg_match('/(\s*\|\s*)width=/', $imageWikitext) || preg_match('/(\s*\|\s*)align=/', $imageWikitext);
+        return preg_match('/(\s*\|\s*)width=/', $line) || preg_match('/(\s*\|\s*)align=/', $line);
     }
 
     protected function freeUsedImages(array $usedImages)
