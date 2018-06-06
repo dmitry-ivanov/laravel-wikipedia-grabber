@@ -250,13 +250,13 @@ class SectionsAddImages
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+ - текстN
      * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подписьN
      */
-    protected function isMultipleImageLine($imageWikitext)
+    protected function isMultipleImageLine($line)
     {
-        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
+        $line = mb_strtolower($line, 'utf-8');
 
         $params = ['caption', 'текст', 'подпись'];
         foreach ($params as $param) {
-            if (preg_match_all("/{$param}\d+=/", $imageWikitext) == 1) {
+            if (preg_match_all("/{$param}\d+=/", $line) == 1) {
                 return true;
             }
         }
