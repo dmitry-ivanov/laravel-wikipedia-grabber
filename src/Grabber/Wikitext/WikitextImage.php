@@ -301,10 +301,10 @@ class WikitextImage extends Wikitext
     {
         $string = mb_strtolower($string, 'utf-8');
 
-        return preg_match('/text=(.+?)/', $string) || preg_match('/текст=(.+?)/', $string)
-            || preg_match('/description=(.+?)/', $string) || preg_match('/подпись=(.+?)/', $string)
-            || preg_match('/footer=(.+?)/', $string)
-            || preg_match('/caption=(.+?)/', $string) || preg_match('/заголовок=(.+?)/', $string);
+        return preg_match('/^text=(.+?)/', $string) || preg_match('/^текст=(.+?)/', $string)
+            || preg_match('/^description=(.+?)/', $string) || preg_match('/^подпись=(.+?)/', $string)
+            || preg_match('/^footer=(.+?)/', $string)
+            || preg_match('/^caption=(.+?)/', $string) || preg_match('/^заголовок=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
