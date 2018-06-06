@@ -160,9 +160,7 @@ class SectionsAddImages
         $title = $image['title'];
         $file = last(explode(':', $title));
 
-        $line = collect(preg_split("/\r\n|\n|\r/", $wikitextSection->getBody()))->first(function ($line) use ($file) {
-            return str_contains($line, $file);
-        });
+        $line = $this->getImageWikitextLine($wikitextSection->getBody(), $title, $file);
 
         $openTag = "[[{$title}";
         if (!str_contains($line, $openTag)) {
@@ -194,6 +192,23 @@ class SectionsAddImages
         }
 
         return $line;
+    }
+
+    protected function getImageWikitextLine($wikitext, $title, $file)
+    {
+        $lines = collect(preg_split("/\r\n|\n|\r/", $wikitext));
+
+        $line = $lines->first(function ($line) use ($title) {
+            return str_contains($line, $title);
+        });
+
+        if (!empty($line)) {
+            return $line;
+        }
+
+        return $lines->first(function ($line) use ($file) {
+            return str_contains($line, $file);
+        });
     }
 
     protected function isGalleryImage($imageWikitext)
