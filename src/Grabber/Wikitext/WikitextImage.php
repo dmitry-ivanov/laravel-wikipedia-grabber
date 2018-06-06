@@ -309,7 +309,8 @@ class WikitextImage extends Wikitext
 
     protected function isSomeParameter($string)
     {
-        return preg_match('/(.+?)=(.+?)/', $string) || preg_match('/^(\d+)%$/', $string);
+        return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=(.*?)/', $string)
+            || preg_match('/^(\d+)%$/', $string);
     }
 
     protected function isFileName($string)
