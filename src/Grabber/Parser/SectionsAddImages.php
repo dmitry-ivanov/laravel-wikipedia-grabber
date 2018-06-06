@@ -256,7 +256,7 @@ class SectionsAddImages
 
         $params = ['caption', 'текст', 'подпись'];
         foreach ($params as $param) {
-            if (preg_match_all("/{$param}\d+=/", $line) == 1) {
+            if (preg_match_all("/{$param}\d+(\s*?)=/", $line) == 1) {
                 return true;
             }
         }
