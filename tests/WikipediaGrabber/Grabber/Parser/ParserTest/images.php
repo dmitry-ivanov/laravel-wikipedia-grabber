@@ -632,6 +632,24 @@ return [
     ],
     35 => [
         'ns' => 6,
+        'title' => 'Файл:Another-Main-Section-Image.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1100x1100',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Another-Main-Section-Image.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    36 => [
+        'ns' => 6,
         'title' => 'Файл:Mikhail Andreyevich Dostoyevsky.jpg',
         'missing' => true,
         'known' => true,
@@ -648,7 +666,7 @@ return [
             ],
         ],
     ],
-    36 => [
+    37 => [
         'ns' => 6,
         'title' => 'Файл:Maria Fyodorovna Dostoyevskaya.jpg',
         'missing' => true,
@@ -666,7 +684,7 @@ return [
             ],
         ],
     ],
-    37 => [
+    38 => [
         'ns' => 6,
         'title' => 'Файл:Gallery-Image-1.jpg',
         'missing' => true,
@@ -684,7 +702,7 @@ return [
             ],
         ],
     ],
-    38 => [
+    39 => [
         'ns' => 6,
         'title' => 'Файл:Gallery-Image-2.jpg',
         'missing' => true,
@@ -702,7 +720,7 @@ return [
             ],
         ],
     ],
-    39 => [
+    40 => [
         'ns' => 6,
         'title' => 'Файл:Gallery-Image-3.jpg',
         'missing' => true,
@@ -720,7 +738,7 @@ return [
             ],
         ],
     ],
-    40 => [
+    41 => [
         'ns' => 6,
         'title' => 'Файл:Gallery-Image-4.jpg',
         'missing' => true,
@@ -738,7 +756,7 @@ return [
             ],
         ],
     ],
-    41 => [
+    42 => [
         'ns' => 6,
         'title' => 'Файл:GrayTable-1.jpg',
         'missing' => true,
@@ -756,7 +774,7 @@ return [
             ],
         ],
     ],
-    42 => [
+    43 => [
         'ns' => 6,
         'title' => 'Файл:GrayTable-2.jpg',
         'missing' => true,
@@ -774,7 +792,7 @@ return [
             ],
         ],
     ],
-    43 => [
+    44 => [
         'ns' => 6,
         'title' => 'Файл:GrayTable-3.jpg',
         'missing' => true,
@@ -792,7 +810,7 @@ return [
             ],
         ],
     ],
-    44 => [
+    45 => [
         'ns' => 6,
         'title' => 'Файл:GrayTable-4.jpg',
         'missing' => true,
@@ -810,7 +828,7 @@ return [
             ],
         ],
     ],
-    45 => [
+    46 => [
         'ns' => 6,
         'title' => 'Файл:Photo-Column-1.jpg',
         'missing' => true,
@@ -828,7 +846,7 @@ return [
             ],
         ],
     ],
-    46 => [
+    47 => [
         'ns' => 6,
         'title' => 'Файл:Photo-Column-2.jpg',
         'missing' => true,
@@ -846,7 +864,7 @@ return [
             ],
         ],
     ],
-    47 => [
+    48 => [
         'ns' => 6,
         'title' => 'Файл:Photo-Column-3.jpg',
         'missing' => true,
@@ -864,7 +882,7 @@ return [
             ],
         ],
     ],
-    48 => [
+    49 => [
         'ns' => 6,
         'title' => 'Файл:Photo-Column-4.jpg',
         'missing' => true,
