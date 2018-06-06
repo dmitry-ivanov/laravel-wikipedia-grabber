@@ -1,3 +1,3 @@
-This is [[Super Link|Link1 with single q'uote]], and <b>this</b> is {{nowrap|Template1 with q'oute}}, and [[Simple Link2]]<ref>this should be ignored</ref>.<br>
-''Some formatted text here with single q'ote''!<ref attr="foo">refs{{nbsp}}are ignored</ref> {{nowrap|Template1 with q'oute and [[Super Link|Link in template]]}}.<br/>
+This is [[Super Link|Link1 with single q'uote]], and <b>this</b> is {{nowrap|Template1 with q'oute}}, and<br>[[Simple Link2]]<ref>this should be ignored</ref>.
+''Some formatted text here with single q'ote''!<ref attr="foo">refs{{nbsp}}are ignored</ref> {{nowrap|Template1 with q'oute and<br/>[[Super Link|Link in template]]}}.
 '''''A lot of formatting''''' here. {{Okay}}, let's{{space}}<strong>finish</strong>!<ref>you won't see this</ref>

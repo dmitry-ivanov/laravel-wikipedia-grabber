@@ -237,7 +237,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'Another text with tags!',
-            (new Wikitext('Another text<ref with="attributes" more="attributes">some ref text</ref> with <p>tags</p><br>!'))->removeHtmlTags()
+            (new Wikitext('Another text<ref with="attributes" more="attributes">some ref text</ref> with<br><p>tags</p>!'))->removeHtmlTags()
         );
     }
 
