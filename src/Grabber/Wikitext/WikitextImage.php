@@ -210,8 +210,11 @@ class WikitextImage extends Wikitext
 
     protected function isSize($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         return in_array($string, ['upright'])
-            || starts_with($string, ['upright='])
+            || preg_match('/^upright(\s*)=/', $string)
             || preg_match('/^(\d+)(\s*)px$/', $string) || preg_match('/^x(\d+)px$/', $string) || preg_match('/^(\d+)x(\d+)px$/', $string)
             || preg_match('/^(\d+)(\s*)пкс$/', $string) || preg_match('/^x(\d+)пкс$/', $string) || preg_match('/^(\d+)x(\d+)пкс$/', $string);
     }
@@ -223,6 +226,7 @@ class WikitextImage extends Wikitext
 
     protected function setSize($size)
     {
+        $size = trim($size);
         $size = str_replace(' ', '', $size);
         $size = str_replace_last('пкс', 'px', $size);
 
