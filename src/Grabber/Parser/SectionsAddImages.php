@@ -106,9 +106,11 @@ class SectionsAddImages
     protected function filterByExtensions($wikitextSection, array $images)
     {
         return collect($images)->filter(function (array $image) use ($wikitextSection) {
-            $isJpeg = ends_with($image['title'], ['jpg', 'jpeg']);
-            $isSvg = ends_with($image['title'], 'svg');
-            return $wikitextSection->isMain() ? $isJpeg : !$isSvg;
+            if ($wikitextSection->isMain()) {
+                return ends_with($image['title'], ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff']);
+            }
+
+            return !ends_with($image['title'], 'svg');
         })->toArray();
     }
 
