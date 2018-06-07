@@ -303,6 +303,7 @@ class WikitextImage extends Wikitext
      */
     protected function isTextParameter($string)
     {
+        $string = trim($string);
         $string = mb_strtolower($string, 'utf-8');
 
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
@@ -313,6 +314,8 @@ class WikitextImage extends Wikitext
 
     protected function isSomeParameter($string)
     {
+        $string = trim($string);
+
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=(.*?)/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
     }
