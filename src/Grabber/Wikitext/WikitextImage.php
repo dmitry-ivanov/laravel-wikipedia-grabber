@@ -320,6 +320,9 @@ class WikitextImage extends Wikitext
             || preg_match('/^(\d+)(\s*)%$/', $string);
     }
 
+    /**
+     * @see https://www.mediawiki.org/wiki/Help:Images#Supported_media_types_for_images
+     */
     protected function isFileName($string)
     {
         $extensions = collect([
