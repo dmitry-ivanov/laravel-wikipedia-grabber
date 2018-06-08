@@ -285,7 +285,10 @@ class WikitextImage extends Wikitext
 
     protected function isLangtag($string)
     {
-        return starts_with($string, ['lang=']);
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
+        return preg_match('/^lang(\s*)=/', $string);
     }
 
     public function getLangtag()
