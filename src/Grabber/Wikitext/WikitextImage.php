@@ -307,7 +307,7 @@ class WikitextImage extends Wikitext
 
     protected function isSomeParameter($string)
     {
-        return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=(.*?)/', $string)
+        return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
     }
 
