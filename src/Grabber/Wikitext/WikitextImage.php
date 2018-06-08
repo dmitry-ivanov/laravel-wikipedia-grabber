@@ -163,6 +163,9 @@ class WikitextImage extends Wikitext
 
     protected function isBorder($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         return ($string == 'border');
     }
 
