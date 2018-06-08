@@ -204,6 +204,9 @@ class WikitextImage extends Wikitext
 
     protected function isAlignment($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
     }
 
