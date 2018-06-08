@@ -122,7 +122,7 @@ class WikitextImage extends Wikitext
         }
 
         if ($alt = $this->getAlt()) {
-            return last(explode('=', $alt));
+            return trim(last(explode('=', $alt)));
         }
 
         return null;
