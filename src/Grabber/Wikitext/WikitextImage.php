@@ -265,8 +265,10 @@ class WikitextImage extends Wikitext
 
     protected function isAlt($string)
     {
-        return starts_with($string, 'alt=')
-            || starts_with($string, 'альт=');
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
+        return preg_match('/^alt(\s*)=/', $string) || preg_match('/^альт(\s*)=/', $string);
     }
 
     public function getAlt()
