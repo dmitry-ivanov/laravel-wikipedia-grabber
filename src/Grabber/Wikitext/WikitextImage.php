@@ -247,7 +247,10 @@ class WikitextImage extends Wikitext
 
     protected function isLink($string)
     {
-        return starts_with($string, ['link=']);
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
+        return preg_match('/^link(\s*)=/', $string);
     }
 
     public function getLink()
