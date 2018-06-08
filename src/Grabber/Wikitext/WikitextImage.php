@@ -23,6 +23,7 @@ class WikitextImage extends Wikitext
     }
 
     /**
+     * @see https://www.mediawiki.org/wiki/Help:Images#Syntax
      * @see https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax
      * @see https://ru.wikipedia.org/wiki/Википедия:Иллюстрирование
      */
