@@ -94,7 +94,9 @@ class WikitextImage extends Wikitext
             $is = camel_case("is_{$field}");
             $set = camel_case("set_{$field}");
             if ($this->{$is}($part)) {
-                $this->{$set}($part);
+                $this->{$set}(
+                    ($field == 'alt') ? $value : $part
+                );
                 return true;
             }
         }
