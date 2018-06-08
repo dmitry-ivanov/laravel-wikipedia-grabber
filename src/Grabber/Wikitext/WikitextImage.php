@@ -141,9 +141,12 @@ class WikitextImage extends Wikitext
 
     protected function isType($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
             || in_array($string, ['мини', 'миниатюра'])
-            || starts_with($string, ['thumb=', 'thumbnail=']);
+            || preg_match('/^thumb(\s*)=/', $string) || preg_match('/^thumbnail(\s*)=/', $string);
     }
 
     public function getType()
