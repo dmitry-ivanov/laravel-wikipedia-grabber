@@ -142,7 +142,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), '200px');
         $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), 'Описание картинки');
     }
@@ -159,7 +159,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), '100x200px');
         $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
@@ -177,7 +177,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), '200px');
         $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
@@ -195,7 +195,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlignment(), null);
         $this->assertSame($image->getSize(), 'x200px');
         $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), 'alt=Альтернативный текст');
+        $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');

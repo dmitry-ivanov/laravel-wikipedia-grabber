@@ -140,9 +140,6 @@ class WikitextImage extends Wikitext
 
     protected function isType($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
             || in_array($string, ['мини', 'миниатюра'])
             || preg_match('/^thumb(\s*)=/', $string) || preg_match('/^thumbnail(\s*)=/', $string);
@@ -162,9 +159,6 @@ class WikitextImage extends Wikitext
 
     protected function isBorder($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return ($string == 'border');
     }
 
@@ -180,9 +174,6 @@ class WikitextImage extends Wikitext
 
     protected function isLocation($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return in_array($string, ['right', 'left', 'center', 'none'])
             || in_array($string, ['справа', 'слева', 'центр'])
             || in_array($string, ['право', 'лево', 'середина']);
@@ -203,9 +194,6 @@ class WikitextImage extends Wikitext
 
     protected function isAlignment($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
     }
 
@@ -221,9 +209,6 @@ class WikitextImage extends Wikitext
 
     protected function isSize($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return in_array($string, ['upright'])
             || preg_match('/^upright(\s*)=/', $string)
             || preg_match('/^(\d+)(\s*)px$/', $string) || preg_match('/^x(\d+)px$/', $string) || preg_match('/^(\d+)x(\d+)px$/', $string)
@@ -237,18 +222,11 @@ class WikitextImage extends Wikitext
 
     protected function setSize($size)
     {
-        $size = trim($size);
-        $size = str_replace(' ', '', $size);
-        $size = str_replace_last('пкс', 'px', $size);
-
         $this->size = $size;
     }
 
     protected function isLink($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return preg_match('/^link(\s*)=/', $string);
     }
 
@@ -264,9 +242,6 @@ class WikitextImage extends Wikitext
 
     protected function isAlt($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return preg_match('/^alt(\s*)=/', $string) || preg_match('/^альт(\s*)=/', $string);
     }
 
@@ -277,16 +252,11 @@ class WikitextImage extends Wikitext
 
     protected function setAlt($alt)
     {
-        $alt = str_replace_first('альт=', 'alt=', $alt);
-
         $this->alt = $alt;
     }
 
     protected function isLangtag($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return preg_match('/^lang(\s*)=/', $string);
     }
 
@@ -327,9 +297,6 @@ class WikitextImage extends Wikitext
      */
     protected function isTextParameter($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
             || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
             || preg_match('/^footer(\s*)=(.+?)/', $string)
@@ -338,9 +305,6 @@ class WikitextImage extends Wikitext
 
     protected function isSomeParameter($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=(.*?)/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
     }
@@ -350,9 +314,6 @@ class WikitextImage extends Wikitext
      */
     protected function isFileName($string)
     {
-        $string = trim($string);
-        $string = mb_strtolower($string, 'utf-8');
-
         $extensions = collect([
             'jpg', 'jpeg', 'png', 'gif', 'svg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff',
         ])->map(function ($ext) {
