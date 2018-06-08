@@ -329,6 +329,7 @@ class WikitextImage extends Wikitext
      * @see https://en.wikipedia.org/wiki/Template:Image_frame - caption
      * @see https://ru.wikipedia.org/wiki/Шаблон:Image_frame - заголовок
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
+     * @see https://en.wikipedia.org/wiki/Template:Listen - description
      */
     protected function isTextParameter($string)
     {
