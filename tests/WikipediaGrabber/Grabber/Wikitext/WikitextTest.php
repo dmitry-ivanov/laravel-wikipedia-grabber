@@ -143,6 +143,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function there_are_special_clear_templates_which_are_replaced_by_single_space()
+    {
+        $this->assertEquals(
+            'An example of wikitext with clear templates.',
+            (new Wikitext('An example{{clear}}of wikitext{{clr}}with{{-}}clear{{clear|left}}templates.'))->removeTemplates()
+        );
+    }
+
+    /** @test */
     public function there_is_special_sfn_template_which_is_ignored()
     {
         $this->assertEquals(

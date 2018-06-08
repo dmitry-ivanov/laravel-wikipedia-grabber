@@ -65,7 +65,11 @@ class Wikitext
             $templateBody = $match[1];
             $bodyInLowercase = mb_strtolower($templateBody, 'utf-8');
 
-            $isSpace = starts_with($bodyInLowercase, ['nbsp', 'space']);
+            $isSpace = starts_with($bodyInLowercase, [
+                'nbsp', 'space',
+                'clear', 'clr', '-',
+            ]);
+
             $isIgnored = starts_with($bodyInLowercase, [
                 'sfn', 'cite',
                 'section link', 'anchor', 'якорь',
