@@ -251,12 +251,13 @@ class SectionsAddImages
      * @see https://en.wikipedia.org/wiki/Template:Multiple_image - captionN
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+ - текстN
      * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подписьN
+     * @see https://en.wikipedia.org/wiki/Template:Listen - descriptionN
      */
     protected function isMultipleImageLine($line)
     {
         $line = mb_strtolower($line, 'utf-8');
 
-        $params = ['caption', 'текст', 'подпись'];
+        $params = ['caption', 'текст', 'подпись', 'description'];
         foreach ($params as $param) {
             if (preg_match_all("/{$param}\d+(\s*?)=/", $line) == 1) {
                 return true;
