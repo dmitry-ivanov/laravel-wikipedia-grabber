@@ -13,6 +13,8 @@ class WikitextImage extends Wikitext
     protected $link;
     protected $alt;
     protected $langtag;
+    protected $page;
+    protected $class;
     protected $caption;
 
     public function __construct($body)
@@ -90,7 +92,7 @@ class WikitextImage extends Wikitext
     {
         $part = mb_strtolower(trim($value), 'utf-8');
 
-        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag'];
+        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag', 'page', 'class'];
         foreach ($fields as $field) {
             $is = camel_case("is_{$field}");
             $set = camel_case("set_{$field}");
@@ -271,6 +273,36 @@ class WikitextImage extends Wikitext
     protected function setLangtag($langtag)
     {
         $this->langtag = $langtag;
+    }
+
+    protected function isPage($string)
+    {
+        return preg_match('/^page(\s*)=/', $string);
+    }
+
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    protected function setPage($page)
+    {
+        $this->page = $page;
+    }
+
+    protected function isClass($string)
+    {
+        return preg_match('/^class(\s*)=/', $string);
+    }
+
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    protected function setClass($class)
+    {
+        $this->class = $class;
     }
 
     public function getCaption()
