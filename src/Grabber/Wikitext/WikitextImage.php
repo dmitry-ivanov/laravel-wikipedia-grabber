@@ -335,6 +335,7 @@ class WikitextImage extends Wikitext
     protected function isSomeParameter($string)
     {
         $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
 
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=(.*?)/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
@@ -345,6 +346,9 @@ class WikitextImage extends Wikitext
      */
     protected function isFileName($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         $extensions = collect([
             'jpg', 'jpeg', 'png', 'gif', 'svg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff',
         ])->map(function ($ext) {
