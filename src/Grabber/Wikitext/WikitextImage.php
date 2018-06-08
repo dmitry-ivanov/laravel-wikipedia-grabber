@@ -39,7 +39,7 @@ class WikitextImage extends Wikitext
                 continue;
             }
 
-            $this->caption = $part;
+            $this->setCaption($part);
         }
     }
 
@@ -85,10 +85,11 @@ class WikitextImage extends Wikitext
         return $parts;
     }
 
-    protected function handle($part)
+    protected function handle($value)
     {
-        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag'];
+        $part = mb_strtolower(trim($value), 'utf-8');
 
+        $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag'];
         foreach ($fields as $field) {
             $is = camel_case("is_{$field}");
             $set = camel_case("set_{$field}");
@@ -99,7 +100,7 @@ class WikitextImage extends Wikitext
         }
 
         if ($this->isTextParameter($part)) {
-            $this->caption = last(explode('=', $part));
+            $this->setCaption(last(explode('=', $value)));
             return true;
         }
 
@@ -302,6 +303,11 @@ class WikitextImage extends Wikitext
     public function getCaption()
     {
         return $this->caption;
+    }
+
+    public function setCaption($caption)
+    {
+        $this->caption = trim($caption);
     }
 
     /**
