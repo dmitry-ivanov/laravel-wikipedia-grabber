@@ -21,6 +21,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), null);
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), null);
     }
 
@@ -38,13 +40,15 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), null);
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), null);
     }
 
     /** @test */
     public function params_can_be_mixed_in_any_order()
     {
-        $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption]]');
+        $image = new WikitextImage('[[File:Name.jpg|left|thumbnail=foo|border|upright|lang=foo|text-bottom|alt=foo|link=foo|Image Caption|page=11|class=foo|unknown parameter = foo bar baz]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail=foo');
@@ -55,6 +59,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), 'link=foo');
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), 'lang=foo');
+        $this->assertSame($image->getPage(), 'page=11');
+        $this->assertSame($image->getClass(), 'class=foo');
         $this->assertSame($image->getCaption(), 'Image Caption');
     }
 
@@ -72,6 +78,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
     }
 
@@ -89,6 +97,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), 'Image caption with Link');
     }
 
@@ -106,6 +116,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), 'page=11');
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), 'Image Caption');
     }
 
@@ -133,7 +145,7 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function it_can_handle_ru_specific_wikitext_params_and_converts_them_to_en()
     {
-        $image = new WikitextImage('[[Файл:Name.jpg|мини|справа|200пкс|альт=Альтернативный текст|Описание картинки]]');
+        $image = new WikitextImage('[[Файл:Name.jpg|мини|справа|200пкс|альт=Альтернативный текст|Описание картинки|page=11]]');
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
@@ -144,13 +156,15 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
+        $this->assertSame($image->getPage(), 'page=11');
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getCaption(), 'Описание картинки');
     }
 
     /** @test */
     public function and_we_will_do_even_more_tests_for_that_ru_to_en_converting()
     {
-        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|слева|100x200пкс|альт=Альтернативный текст]]');
+        $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|слева|100x200пкс|альт=Альтернативный текст|page=11|class=foo| unknown parameter = foo bar baz]]');
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
@@ -162,6 +176,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
+        $this->assertSame($image->getPage(), 'page=11');
+        $this->assertSame($image->getClass(), 'class=foo');
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
 
@@ -180,6 +196,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
 
@@ -198,6 +216,8 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getCaption(), null);
+        $this->assertSame($image->getPage(), null);
+        $this->assertSame($image->getClass(), null);
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
 
