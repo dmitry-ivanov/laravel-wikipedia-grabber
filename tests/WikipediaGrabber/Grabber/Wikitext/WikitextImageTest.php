@@ -102,7 +102,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'none');
         $this->assertSame($image->getAlignment(), 'super');
-        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getSize(), '200 px');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'alt=foo');
         $this->assertSame($image->getLangtag(), null);
@@ -140,7 +140,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'right');
         $this->assertSame($image->getAlignment(), null);
-        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getSize(), '200пкс');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
@@ -157,7 +157,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'left');
         $this->assertSame($image->getAlignment(), null);
-        $this->assertSame($image->getSize(), '100x200px');
+        $this->assertSame($image->getSize(), '100x200пкс');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
@@ -175,7 +175,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'right');
         $this->assertSame($image->getAlignment(), null);
-        $this->assertSame($image->getSize(), '200px');
+        $this->assertSame($image->getSize(), '200 пкс');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
@@ -193,7 +193,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'left');
         $this->assertSame($image->getAlignment(), null);
-        $this->assertSame($image->getSize(), 'x200px');
+        $this->assertSame($image->getSize(), 'x200пкс');
         $this->assertSame($image->getLink(), null);
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
         $this->assertSame($image->getLangtag(), null);
