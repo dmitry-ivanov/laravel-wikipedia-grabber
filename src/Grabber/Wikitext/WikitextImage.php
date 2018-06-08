@@ -181,6 +181,9 @@ class WikitextImage extends Wikitext
 
     protected function isLocation($string)
     {
+        $string = trim($string);
+        $string = mb_strtolower($string, 'utf-8');
+
         return in_array($string, ['right', 'left', 'center', 'none'])
             || in_array($string, ['справа', 'слева', 'центр'])
             || in_array($string, ['право', 'лево', 'середина']);
