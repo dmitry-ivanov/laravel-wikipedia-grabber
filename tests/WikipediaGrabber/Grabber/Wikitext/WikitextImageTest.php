@@ -135,7 +135,7 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[Файл:Name.jpg|мини|справа|200пкс|альт=Альтернативный текст|Описание картинки]]');
 
-        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'right');
@@ -152,7 +152,7 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|слева|100x200пкс|альт=Альтернативный текст]]');
 
-        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'left');
@@ -170,7 +170,7 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|право|200 пкс|альт=Альтернативный текст]]');
 
-        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'right');
@@ -188,7 +188,7 @@ class WikitextImageTest extends TestCase
     {
         $image = new WikitextImage('[[Файл:Name.jpg|миниатюра|лево|x200пкс|альт=Альтернативный текст]]');
 
-        $this->assertSame($image->getName(), 'File:Name.jpg');
+        $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
         $this->assertSame($image->getBorder(), null);
         $this->assertSame($image->getLocation(), 'left');

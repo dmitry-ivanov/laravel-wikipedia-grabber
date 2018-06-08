@@ -134,8 +134,6 @@ class WikitextImage extends Wikitext
 
     protected function setName($name)
     {
-        $name = str_replace_first('Файл:', 'File:', $name);
-
         $this->name = $name;
     }
 
