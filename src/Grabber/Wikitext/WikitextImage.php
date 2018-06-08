@@ -60,6 +60,7 @@ class WikitextImage extends Wikitext
 
     protected function isHandledTemplate($body)
     {
+        $body = trim($body);
         $body = mb_strtolower($body, 'utf-8');
 
         $templates = collect([
