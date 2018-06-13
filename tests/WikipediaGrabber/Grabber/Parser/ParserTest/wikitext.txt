@@ -25,6 +25,8 @@
 [[Файл:Another-Main-Section-Image.jpg|thumb|left|Another image with almost the same name.]]
 [[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here with single quote ' and also double quote ".]] Some text at the same line [[here]].
 
+{{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}}
+
 == Биография ==
 
 === Происхождение ===
