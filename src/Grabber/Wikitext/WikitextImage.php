@@ -330,12 +330,13 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Image_frame - заголовок
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
      * @see https://en.wikipedia.org/wiki/Template:Listen - description
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Listen - название
      */
     protected function isTextParameter($string)
     {
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
             || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
-            || preg_match('/^footer(\s*)=(.+?)/', $string)
+            || preg_match('/^footer(\s*)=(.+?)/', $string) || preg_match('/^название(\s*)=(.+?)/', $string)
             || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string);
     }
 
