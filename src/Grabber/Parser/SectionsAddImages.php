@@ -155,6 +155,7 @@ class SectionsAddImages
     {
         $imageInfo = head($image['imageinfo']);
 
+        $mime = $imageInfo['mime'];
         $url = $imageInfo['thumburl'];
         $width = $imageInfo['thumbwidth'];
         $height = $imageInfo['thumbheight'];
@@ -164,7 +165,7 @@ class SectionsAddImages
         $position = $image->getLocation();
         $description = $image->getDescription();
 
-        return new Image($url, $width, $height, $originalUrl, $position, $description);
+        return new Image($url, $width, $height, $originalUrl, $position, $description, $mime);
     }
 
     protected function getImageWikitext(Section $wikitextSection, array $image)
