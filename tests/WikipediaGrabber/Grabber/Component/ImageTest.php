@@ -29,6 +29,13 @@ class ImageTest extends TestCase
     }
 
     /** @test */
+    public function passed_mime_would_be_automatically_lowercase()
+    {
+        $image = new Image('url', 100, 200, 'original', 'left', 'description', 'IMAGE/JPEG');
+        $this->assertEquals('image/jpeg', $image->getMime());
+    }
+
+    /** @test */
     public function it_has_get_alt_method_which_escapes_quotes_in_description()
     {
         $image = new Image('url', 100, 200, 'original', 'foobar', 'Description with single quote \' and double quote "!');
