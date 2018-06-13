@@ -73,6 +73,7 @@ class WikitextImage extends Wikitext
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
             'image frame', 'рамка в стиле миниатюры',
+            'listen', 'audio',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
