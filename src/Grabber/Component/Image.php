@@ -101,4 +101,22 @@ class Image
     {
         return htmlspecialchars($this->description, ENT_QUOTES);
     }
+
+    public function isAudio()
+    {
+        $extensions = collect(['oga', 'mp3', 'wav'])->map(function ($ext) {
+            return ".{$ext}";
+        })->toArray();
+
+        return ends_with($this->getOriginalUrl(), $extensions);
+    }
+
+    public function isVideo()
+    {
+        $extensions = collect(['ogv', 'mp4', 'webm'])->map(function ($ext) {
+            return ".{$ext}";
+        })->toArray();
+
+        return ends_with($this->getOriginalUrl(), $extensions);
+    }
 }
