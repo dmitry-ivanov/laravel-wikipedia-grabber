@@ -83,4 +83,28 @@ class ImageTest extends TestCase
         $this->assertFalse($png->isVideo());
         $this->assertFalse($gif->isVideo());
     }
+
+    /** @test */
+    public function is_audio_returns_false_for_video_files()
+    {
+        $ogv = new Image('http://example.com/thumb.ogv.jpg', 100, 200, 'http://example.com/file.ogv');
+        $mp4 = new Image('http://example.com/thumb.mp4.jpg', 100, 200, 'http://example.com/file.mp4');
+        $webm = new Image('http://example.com/thumb.webm.jpg', 100, 200, 'http://example.com/file.webm');
+
+        $this->assertFalse($ogv->isAudio());
+        $this->assertFalse($mp4->isAudio());
+        $this->assertFalse($webm->isAudio());
+    }
+
+    /** @test */
+    public function is_video_returns_false_for_audio_files()
+    {
+        $oga = new Image('http://example.com/thumb.oga.jpg', 100, 200, 'http://example.com/file.oga');
+        $mp3 = new Image('http://example.com/thumb.mp3.jpg', 100, 200, 'http://example.com/file.mp3');
+        $wav = new Image('http://example.com/thumb.wav.jpg', 100, 200, 'http://example.com/file.wav');
+
+        $this->assertFalse($oga->isVideo());
+        $this->assertFalse($mp3->isVideo());
+        $this->assertFalse($wav->isVideo());
+    }
 }
