@@ -94,7 +94,7 @@ class Image
 
     public function setMime($mime)
     {
-        $this->mime = $mime;
+        $this->mime = mb_strtolower($mime, 'utf-8');
     }
 
     public function getAlt()
@@ -104,19 +104,31 @@ class Image
 
     public function isAudio()
     {
-        $extensions = collect(['oga', 'mp3', 'wav'])->map(function ($ext) {
-            return ".{$ext}";
-        })->toArray();
+        $originalUrl = $this->getOriginalUrl();
 
-        return ends_with($this->getOriginalUrl(), $extensions);
+        if (ends_with($originalUrl, ['oga', 'mp3', 'wav'])) {
+            return true;
+        }
+
+        if (ends_with($originalUrl, 'ogg')) {
+            return !str_contains($this->getMime(), 'video');
+        }
+
+        return false;
     }
 
     public function isVideo()
     {
-        $extensions = collect(['ogv', 'mp4', 'webm'])->map(function ($ext) {
-            return ".{$ext}";
-        })->toArray();
+        $originalUrl = $this->getOriginalUrl();
 
-        return ends_with($this->getOriginalUrl(), $extensions);
+        if (ends_with($originalUrl, ['ogv', 'mp4', 'webm'])) {
+            return true;
+        }
+
+        if (ends_with($originalUrl, 'ogg')) {
+            return str_contains($this->getMime(), 'video');
+        }
+
+        return false;
     }
 }
