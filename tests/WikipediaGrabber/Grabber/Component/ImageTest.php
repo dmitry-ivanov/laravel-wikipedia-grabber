@@ -114,4 +114,22 @@ class ImageTest extends TestCase
         $this->assertFalse($mp3->isVideo());
         $this->assertFalse($wav->isVideo());
     }
+
+    /** @test */
+    public function ogg_file_would_be_recognized_as_audio_if_it_has_not_video_mime()
+    {
+        $ogg = new Image('http://example.com/thumb.ogg.jpg', 100, 200, 'http://example.com/file.ogg', 'right', 'desc', 'application/ogg');
+
+        $this->assertTrue($ogg->isAudio());
+        $this->assertFalse($ogg->isVideo());
+    }
+
+    /** @test */
+    public function ogg_file_would_be_recognized_as_video_if_it_has_video_mime()
+    {
+        $ogg = new Image('http://example.com/thumb.ogg.jpg', 100, 200, 'http://example.com/file.ogg', 'right', 'desc', 'video/ogg');
+
+        $this->assertFalse($ogg->isAudio());
+        $this->assertTrue($ogg->isVideo());
+    }
 }
