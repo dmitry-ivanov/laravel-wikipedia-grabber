@@ -5,15 +5,17 @@ namespace Illuminated\Wikipedia\Grabber\Component;
 class Image
 {
     protected $url;
+    protected $mime;
     protected $width;
     protected $height;
     protected $position;
     protected $description;
     protected $originalUrl;
 
-    public function __construct($url, $width, $height, $originalUrl, $position = 'right', $description = '')
+    public function __construct($url, $width, $height, $originalUrl, $position = 'right', $description = '', $mime = null)
     {
         $this->setUrl($url);
+        $this->setMime($mime);
         $this->setWidth($width);
         $this->setHeight($height);
         $this->setPosition($position);
@@ -83,6 +85,16 @@ class Image
     public function setOriginalUrl($originalUrl)
     {
         $this->originalUrl = $originalUrl;
+    }
+
+    public function getMime()
+    {
+        return $this->mime;
+    }
+
+    public function setMime($mime)
+    {
+        $this->mime = $mime;
     }
 
     public function getAlt()
