@@ -353,7 +353,7 @@ class WikitextImage extends Wikitext
     protected function isFileName($string)
     {
         $extensions = collect([
-            'jpg', 'jpeg', 'png', 'gif', 'svg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff',
+            'jpg', 'jpeg', 'png', 'gif', 'svg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm',
         ])->map(function ($ext) {
             return ".{$ext}";
         })->toArray();
