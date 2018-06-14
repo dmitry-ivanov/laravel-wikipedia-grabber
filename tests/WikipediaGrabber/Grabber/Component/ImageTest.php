@@ -132,4 +132,47 @@ class ImageTest extends TestCase
         $this->assertFalse($ogg->isAudio());
         $this->assertTrue($ogg->isVideo());
     }
+
+    /** @test */
+    public function it_has_get_transcoded_mp3_url()
+    {
+        $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
+
+        $this->assertEquals(
+            'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.oga/Filipp_Kirkorov_voice.oga.mp3',
+            $oga->getTranscodedMp3Url()
+        );
+    }
+
+    /** @test */
+    public function which_works_with_russian_file_names_too()
+    {
+        $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/ru/4/44/Филипп_Киркоров_-_Атлантида.ogg');
+
+        $this->assertEquals(
+            'https://upload.wikimedia.org/wikipedia/ru/transcoded/4/44/Филипп_Киркоров_-_Атлантида.ogg/Филипп_Киркоров_-_Атлантида.ogg.mp3',
+            $oga->getTranscodedMp3Url()
+        );
+    }
+
+    /** @test */
+    public function which_returns_false_for_not_audio_files()
+    {
+        $webm = new Image('http://example.com/thumb.webm.jpg', 100, 200, 'http://example.com/file.webm');
+        $this->assertFalse($webm->getTranscodedMp3Url());
+    }
+
+    /** @test */
+    public function which_returns_false_for_already_mp3_files()
+    {
+        $mp3 = new Image('http://example.com/thumb.mp3.jpg', 100, 200, 'http://example.com/file.mp3');
+        $this->assertFalse($mp3->getTranscodedMp3Url());
+    }
+
+    /** @test */
+    public function and_it_will_return_false_for_not_wikimedia_urls()
+    {
+        $notWikipediaImage = new Image('thumb-url', 100, 200, 'https://example.com/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
+        $this->assertFalse($notWikipediaImage->getTranscodedMp3Url());
+    }
 }

@@ -131,4 +131,22 @@ class Image
 
         return false;
     }
+
+    public function getTranscodedMp3Url()
+    {
+        $originalUrl = $this->getOriginalUrl();
+
+        if (!$this->isAudio() || ends_with($originalUrl, 'mp3')) {
+            return false;
+        }
+
+        $start = preg_quote('://upload.wikimedia.org/wikipedia', '/');
+        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/", $originalUrl, $matches)) {
+            return false;
+        }
+
+        $name = basename($originalUrl);
+
+        return "{$matches[1]}/transcoded/{$matches[2]}/{$name}.mp3";
+    }
 }
