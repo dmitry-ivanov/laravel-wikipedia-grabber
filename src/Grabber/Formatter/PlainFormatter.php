@@ -9,17 +9,16 @@ class PlainFormatter extends Formatter
 {
     public function style()
     {
-        $size = $this->toGallerySize(config('wikipedia-grabber.image_size'));
-        $width = $size;
-        $height = $size + 5;
+        $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
+        $galleryHeight = $galleryWidth + 5;
 
         $styles = collect([
             '.wiki-toc {padding:20px 0px}',
             '.wiki-toc-item {display:block}',
             '.wiki-section-title.has-gallery {clear:both}',
             '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
-            ".wiki-gallery .wiki-media {width:{$width}px; margin:8px; text-align:center}",
-            ".wiki-gallery .wiki-media a {display:table-cell; width:{$width}px; height:{$height}px; vertical-align:middle}",
+            ".wiki-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
+            ".wiki-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
             '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
             '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
             '.wiki-media.left {float:left; clear:left; margin-right:16px}',
