@@ -116,16 +116,16 @@ class PlainFormatter extends Formatter
         }
 
         $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
-        $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+        $media = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
         $desc = "<div class='wiki-media-desc'>{$description}</div>";
         if (empty($description)) {
             $desc = '';
         }
 
         if ($isGallery) {
-            return "<div class='wiki-media'>{$link}{$desc}</div>";
+            return "<div class='wiki-media'>{$media}{$desc}</div>";
         }
 
-        return "<div class='wiki-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
+        return "<div class='wiki-media {$position}' style='width:{$width}px'>{$media}{$desc}</div>";
     }
 }
