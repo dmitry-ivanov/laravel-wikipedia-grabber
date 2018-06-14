@@ -104,6 +104,7 @@ class PlainFormatter extends Formatter
     {
         $url = $image->getUrl();
         $alt = $image->getAlt();
+        $mime = $image->getMime();
         $width = $image->getWidth();
         $height = $image->getHeight();
         $position = $image->getPosition();
@@ -115,8 +116,19 @@ class PlainFormatter extends Formatter
             $height = $this->toGallerySize($height);
         }
 
-        $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
-        $media = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+        if ($image->isAudio()) {
+            $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
+            if ($mp3 = $image->getTranscodedMp3Url()) {
+                $source->push("<source src='{$mp3}' type='audio/mpeg'>");
+            }
+            $source = $source->implode('');
+
+            $media = "<audio controls>{$source}</audio>";
+        } else {
+            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
+            $media = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+        }
+
         $desc = "<div class='wiki-media-desc'>{$description}</div>";
         if (empty($description)) {
             $desc = '';
