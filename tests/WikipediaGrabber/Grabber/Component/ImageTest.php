@@ -36,34 +36,6 @@ class ImageTest extends TestCase
     }
 
     /** @test */
-    public function it_has_get_description_method_which_returns_beautified_filename_for_audio_files_if_description_was_empty()
-    {
-        $audio = new Image('thumb-url', 100, 200, 'http://example.com/some_audio_file.oga');
-        $this->assertEquals('Some Audio File', $audio->getDescription());
-    }
-
-    /** @test */
-    public function however_if_description_was_set_for_audio_file_then_it_would_be_used()
-    {
-        $audio = new Image('thumb-url', 100, 200, 'http://example.com/some_audio_file.oga', 'right', 'Description for audio');
-        $this->assertEquals('Description for audio', $audio->getDescription());
-    }
-
-    /** @test */
-    public function it_has_get_description_method_which_returns_beautified_filename_for_video_files_if_description_was_empty()
-    {
-        $video = new Image('thumb-url', 100, 200, 'http://example.com/some_video_file.ogv');
-        $this->assertEquals('Some Video File', $video->getDescription());
-    }
-
-    /** @test */
-    public function however_if_description_was_set_for_video_file_then_it_would_be_used()
-    {
-        $video = new Image('thumb-url', 100, 200, 'http://example.com/some_video_file.ogv', 'right', 'Description for video');
-        $this->assertEquals('Description for video', $video->getDescription());
-    }
-
-    /** @test */
     public function it_has_get_alt_method_which_escapes_quotes_in_description()
     {
         $image = new Image('url', 100, 200, 'original', 'foobar', 'Description with single quote \' and double quote "!');

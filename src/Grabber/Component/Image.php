@@ -69,13 +69,6 @@ class Image
 
     public function getDescription()
     {
-        if (empty($this->description) && ($this->isAudio() || $this->isVideo())) {
-            $name = str_replace('_', ' ', basename($this->getOriginalUrl()));
-            $name = head(explode('.', $name));
-            $name = mb_convert_case($name, MB_CASE_TITLE, 'utf-8');
-            $this->setDescription($name);
-        }
-
         return $this->description;
     }
 
