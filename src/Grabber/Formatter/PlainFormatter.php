@@ -102,42 +102,73 @@ class PlainFormatter extends Formatter
 
     protected function media(Image $image, $isGallery = false)
     {
+        if ($image->isAudio()) {
+            return $this->audio($image, $isGallery);
+        }
+
+        if ($image->isVideo()) {
+            return $this->video($image, $isGallery);
+        }
+
+        return $this->image($image, $isGallery);
+    }
+
+    protected function image(Image $image, $isGallery = false)
+    {
         $url = $image->getUrl();
         $alt = $image->getAlt();
-        $mime = $image->getMime();
         $width = $image->getWidth();
         $height = $image->getHeight();
         $position = $image->getPosition();
         $description = $image->getDescription();
         $originalUrl = $image->getOriginalUrl();
 
-        if ($image->isAudio()) {
-            $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
-            if ($mp3 = $image->getTranscodedMp3Url()) {
-                $source->push("<source src='{$mp3}' type='audio/mpeg'>");
-            }
-            $source = $source->implode('');
-
-            $media = "<audio controls>{$source}</audio>";
-        } else {
-            if ($isGallery) {
-                $width = $this->toGallerySize($width);
-                $height = $this->toGallerySize($height);
-            }
-
-            $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
-            $media = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+        if ($isGallery) {
+            $width = $this->toGallerySize($width);
+            $height = $this->toGallerySize($height);
         }
 
+        $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
+        $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
         $desc = "<div class='wiki-media-desc'>{$description}</div>";
         if (empty($description)) {
             $desc = '';
         }
 
         if ($isGallery) {
-            return "<div class='wiki-media'>{$media}{$desc}</div>";
+            return "<div class='wiki-media'>{$link}{$desc}</div>";
         }
 
-        return "<div class='wiki-media {$position}' style='width:{$width}px'>{$media}{$desc}</div>";
+        return "<div class='wiki-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
+    }
+
+    protected function audio(Image $image, $isGallery = false)
+    {
+        $mime = $image->getMime();
+        $position = $image->getPosition();
+        $description = $image->getDescription();
+        $originalUrl = $image->getOriginalUrl();
+
+        $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
+        if ($mp3 = $image->getTranscodedMp3Url()) {
+            $source->push("<source src='{$mp3}' type='audio/mpeg'>");
+        }
+
+        $audio = "<audio controls>{$source->implode('')}</audio>";
+        $desc = "<div class='wiki-media-desc'>{$description}</div>";
+        if (empty($description)) {
+            $desc = '';
+        }
+
+        if ($isGallery) {
+            return "<div class='wiki-media audio'>{$audio}{$desc}</div>";
+        }
+
+        return "<div class='wiki-media audio {$position}'>{$audio}{$desc}</div>";
+    }
+
+    protected function video(Image $image, $isGallery = false)
+    {
+        dd('video media');
     }
 }
