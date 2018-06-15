@@ -264,15 +264,15 @@ class SectionsAddImages
         return rtrim($line, '}');
     }
 
-    protected function isDoubleImageTemplate($imageWikitext)
+    protected function isDoubleImageTemplate($line)
     {
-        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
+        $line = mb_strtolower($line, 'utf-8');
 
         $templates = collect(['double image', 'сдвоенное изображение'])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
 
-        return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
+        return starts_with($line, $templates) && ends_with($line, '}}');
     }
 
     protected function isGrayTable($line)
