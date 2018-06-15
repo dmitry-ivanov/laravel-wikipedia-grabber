@@ -74,6 +74,7 @@ class WikitextImage extends Wikitext
             'photomontage', 'фотомонтаж',
             'image frame', 'рамка в стиле миниатюры',
             'listen', 'audio',
+            'музыкальный отрывок стиля', 'семпл', 'музос', 'sample',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -332,13 +333,18 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
      * @see https://en.wikipedia.org/wiki/Template:Listen - description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Listen - название
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Музыкальный_отрывок_стиля - пояснения
+     * @see https://ru.wikipedia.org/wiki/Шаблон:Семпл - пояснения
+     * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Sample&redirect=no - пояснения
+     * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:МузОС&redirect=no - пояснения
      */
     protected function isTextParameter($string)
     {
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
             || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
             || preg_match('/^footer(\s*)=(.+?)/', $string) || preg_match('/^название(\s*)=(.+?)/', $string)
-            || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string);
+            || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string)
+            || preg_match('/^пояснения(\s*)=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
