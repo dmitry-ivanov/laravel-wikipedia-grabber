@@ -237,17 +237,6 @@ class SectionsAddImages
         return $imageWikitext;
     }
 
-    protected function isDoubleImageTemplate($imageWikitext)
-    {
-        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
-
-        $templates = collect(['double image', 'сдвоенное изображение'])->map(function ($template) {
-            return "{{{$template}";
-        })->toArray();
-
-        return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
-    }
-
     /**
      * @see https://en.wikipedia.org/wiki/Template:Multiple_image - captionN
      * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+ - текстN
@@ -273,6 +262,17 @@ class SectionsAddImages
         $line = preg_replace('/\d+=/', '=', $line);
         $line = (new Wikitext($line))->plain();
         return rtrim($line, '}');
+    }
+
+    protected function isDoubleImageTemplate($imageWikitext)
+    {
+        $imageWikitext = mb_strtolower($imageWikitext, 'utf-8');
+
+        $templates = collect(['double image', 'сдвоенное изображение'])->map(function ($template) {
+            return "{{{$template}";
+        })->toArray();
+
+        return starts_with($imageWikitext, $templates) && ends_with($imageWikitext, '}}');
     }
 
     protected function isGrayTable($line)
