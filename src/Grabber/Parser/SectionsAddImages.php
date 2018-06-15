@@ -185,6 +185,10 @@ class SectionsAddImages
                 return (new DoubleImageTemplate($line))->extract($file);
             }
 
+            if ($this->isAudioTemplate($line, $image, $matches)) {
+                return head($matches);
+            }
+
             return $line;
         }
 
@@ -193,7 +197,7 @@ class SectionsAddImages
         $line = (new Wikitext($line))->plain();
         $line = str_replace_first($placeholder, $openTag, $line);
 
-        $title = preg_quote($title);
+        $title = preg_quote($title, '/');
         if (preg_match("/\[\[{$title}.*?\]\]/", $line, $matches)) {
             $wikitext = head($matches);
 
@@ -273,6 +277,14 @@ class SectionsAddImages
         })->toArray();
 
         return starts_with($line, $templates) && ends_with($line, '}}');
+    }
+
+    protected function isAudioTemplate($line, array $image, &$matches)
+    {
+        $file = last(explode(':', $image['title']));
+        $file = preg_quote($file, '/');
+
+        return preg_match("/\{\{audio.*?\|{$file}\|.*?\}\}/i", $line, $matches);
     }
 
     protected function isGrayTable($line)
