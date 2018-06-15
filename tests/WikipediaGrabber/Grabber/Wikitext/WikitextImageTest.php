@@ -394,4 +394,32 @@ class WikitextImageTest extends TestCase
         $image = new WikitextImage('{{Audio|en-us-Alabama.ogg|pronunciation of "Alabama"|help=no}}');
         $this->assertSame($image->getCaption(), 'pronunciation of "Alabama"');
     }
+
+    /** @test */
+    public function it_can_parse_template_sample_wikitext()
+    {
+        $image = new WikitextImage('{{Sample|название=«Lucky Star» (1984)|файл=Madonna-lucky star.ogg|формат=[[Ogg Vorbis]], 29 с, 62 Кб/с|пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas\'s Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).}}');
+        $this->assertSame($image->getCaption(), 'Четвёртый сингл «Lucky Star» с дебютного альбома занял 4-е место в чарте Billboard Hot 100 и стал первым хитом Мадонны, попавшим в «первую пятёрку». Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «Borderline» в «первую десятку»).');
+    }
+
+    /** @test */
+    public function it_can_parse_template_sample_ru1_wikitext()
+    {
+        $image = new WikitextImage('{{Музыкальный отрывок стиля|название=«Lucky Star» (1984)|файл=Madonna-lucky star.ogg|формат=[[Ogg Vorbis]], 29 с, 62 Кб/с|пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas\'s Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).}}');
+        $this->assertSame($image->getCaption(), 'Четвёртый сингл «Lucky Star» с дебютного альбома занял 4-е место в чарте Billboard Hot 100 и стал первым хитом Мадонны, попавшим в «первую пятёрку». Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «Borderline» в «первую десятку»).');
+    }
+
+    /** @test */
+    public function it_can_parse_template_sample_ru2_wikitext()
+    {
+        $image = new WikitextImage('{{Семпл|название=«Lucky Star» (1984)|файл=Madonna-lucky star.ogg|формат=[[Ogg Vorbis]], 29 с, 62 Кб/с|пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas\'s Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).}}');
+        $this->assertSame($image->getCaption(), 'Четвёртый сингл «Lucky Star» с дебютного альбома занял 4-е место в чарте Billboard Hot 100 и стал первым хитом Мадонны, попавшим в «первую пятёрку». Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «Borderline» в «первую десятку»).');
+    }
+
+    /** @test */
+    public function it_can_parse_template_sample_ru3_wikitext()
+    {
+        $image = new WikitextImage('{{МузОС|название=«Lucky Star» (1984)|файл=Madonna-lucky star.ogg|формат=[[Ogg Vorbis]], 29 с, 62 Кб/с|пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas\'s Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).}}');
+        $this->assertSame($image->getCaption(), 'Четвёртый сингл «Lucky Star» с дебютного альбома занял 4-е место в чарте Billboard Hot 100 и стал первым хитом Мадонны, попавшим в «первую пятёрку». Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «Borderline» в «первую десятку»).');
+    }
 }
