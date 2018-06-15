@@ -972,4 +972,22 @@ return [
             ],
         ],
     ],
+    54 => [
+        'ns' => 6,
+        'title' => 'Файл:Madonna-lucky star.ogg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'https://ru.wikipedia.org/w/resources/assets/file-type-icons/fileicon-ogg.png',
+                'thumbwidth' => 250,
+                'thumbheight' => 250,
+                'url' => 'https://upload.wikimedia.org/wikipedia/commons/2/26/Madonna-lucky star.ogg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Madonna-lucky star.ogg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=39545292',
+                'mime' => 'application/ogg',
+            ],
+        ],
+    ],
 ];
