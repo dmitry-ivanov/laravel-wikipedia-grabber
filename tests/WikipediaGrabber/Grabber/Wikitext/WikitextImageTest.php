@@ -370,4 +370,21 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getCaption(), 'Пример использования');
     }
+
+    /** @test */
+    public function it_can_parse_listen_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Listen|header=Recordings of this phrase:|type=speech|filename=Frase de Neil Armstrong.ogg|title="One small step for a man..."|description=First words spoken on the [[Moon]].}}'
+        );
+
+        $this->assertSame($image->getCaption(), 'First words spoken on the Moon.');
+    }
+
+    /** @test */
+    public function it_can_parse_listen_ru_wikitext()
+    {
+        $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России]]}}');
+        $this->assertSame($image->getCaption(), 'Гимн России');
+    }
 }
