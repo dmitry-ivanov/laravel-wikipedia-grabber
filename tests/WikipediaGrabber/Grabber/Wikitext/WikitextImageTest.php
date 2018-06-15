@@ -387,4 +387,11 @@ class WikitextImageTest extends TestCase
         $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России]]}}');
         $this->assertSame($image->getCaption(), 'Гимн России');
     }
+
+    /** @test */
+    public function it_can_parse_audio_wikitext()
+    {
+        $image = new WikitextImage('{{Audio|en-us-Alabama.ogg|pronunciation of "Alabama"|help=no}}');
+        $this->assertSame($image->getCaption(), 'pronunciation of "Alabama"');
+    }
 }
