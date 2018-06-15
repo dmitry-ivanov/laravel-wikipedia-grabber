@@ -24,6 +24,8 @@ class PlainFormatter extends Formatter
             '.wiki-media.left {float:left; clear:left; margin-right:16px}',
             '.wiki-media.right {float:right; clear:right; margin-left:16px}',
             '.wiki-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
+            '.wiki-media.audio {width:275px; padding:5px 5px 3px 5px}',
+            '.wiki-media audio {width:100%}',
         ]);
 
         $styles = $styles->merge(
