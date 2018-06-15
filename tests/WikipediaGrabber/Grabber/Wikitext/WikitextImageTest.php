@@ -222,7 +222,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_annotated_image_wikitext()
+    public function it_can_parse_template_annotated_image_wikitext()
     {
         $image = new WikitextImage(
             '{{Annotated image|image=Mona Lisa color restoration2.jpg|image-width=2000|image-left=-850|image-top=-800|width=250|height=250|float=left|caption=Cropped Mona Lisa from a 2000 pixel image}}'
@@ -232,7 +232,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_annotated_image_ru_wikitext()
+    public function it_can_parse_template_annotated_image_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Описанное изображение|image=Mona Lisa color restoration2.jpg|image-width=2000|image-left=-850|image-top=-800|width=250|height=250|float=left|caption=Cropped Mona Lisa from a 2000 pixel image}}'
@@ -242,7 +242,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_css_image_crop_wikitext()
+    public function it_can_parse_template_css_image_crop_wikitext()
     {
         $image = new WikitextImage(
             '{{CSS Image crop|Image=Robert Lefèvre 001.jpg|Location=|Description=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|cWidth=150|oTop=9|oLeft=10}}'
@@ -252,7 +252,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_css_image_crop_ru_wikitext()
+    public function it_can_parse_template_css_image_crop_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Часть Изображения|изобр=Robert Lefèvre 001.jpg|позиция=|Подпись=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|ширина=150|общая=168|верх=9}}'
@@ -262,7 +262,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_photo_row_ru_wikitext()
+    public function it_can_parse_template_photo_row_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Фоторяд|Pushkin 04.jpg|С. Г. Чириков.jpg|A.S.Pushkin.jpg|Pushkin Alexander.jpg|ш1=150|ш2=140|ш3=137|ш4=143|Текст=Прижизненные портреты Пушкина работы [[Местр, Ксаверий Ксаверьевич|Ксавье де Местра]] (1800—1802), С. Г. Чирикова (1810), [[Тропинин, Василий Андреевич|В. А. Тропинина]] (1827), [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1836)}}'
@@ -272,7 +272,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_photo_column_ru_wikitext()
+    public function it_can_parse_template_photo_column_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Фотоколонка|ф1.jpg|ф2.jpg|ф3.jpg|ф4.jpg|ф5.jpg|ф5.jpg|ф5.jpg|ш=100|color=black|текст=Описание фото-колонки}}'
@@ -282,7 +282,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_multiple_image_wikitext()
+    public function it_can_parse_template_multiple_image_wikitext()
     {
         $image = new WikitextImage(
             '{{multiple image|width=60|image1=Yellow card.svg|alt1=Yellow cartouche|image2=Red card.svg|alt2=Red cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}'
@@ -292,7 +292,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_multiple_image_ru_wikitext()
+    public function it_can_parse_template_multiple_image_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{кратное изображение|зона=left|направление=horizontal|заголовок=|Подпись изображения=|ширина=138|изобр1=Vladimir Spiridonovich Putin.jpg|ширина1=|изобр2=Maria Ivanovna Shelomova.jpg|ширина2=|подпись=Родители Путина: Владимир Спиридонович Путин (1911—1999) и Мария Ивановна Путина (урождённая Шеломова) (1911—1998)}}'
@@ -302,7 +302,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_wide_image_wikitext()
+    public function it_can_parse_template_wide_image_wikitext()
     {
         $image = new WikitextImage(
             '{{wide image|Helsinki z00.jpg|1800px|[[Helsinki]] panorama|45%|none|alt=Panorama of city with mixture of five to ten story buildings}}'
@@ -312,7 +312,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_wide_image_ru_wikitext()
+    public function it_can_parse_template_wide_image_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Панорама|AlsterPanorama.jpg|900px|Панорама центральной части Гамбурга|text-align=center}}'
@@ -322,7 +322,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_photo_montage_wikitext()
+    public function it_can_parse_template_photo_montage_wikitext()
     {
         $image = new WikitextImage(
             '{{Photomontage|photo1a=Sevilla Plaza de España 19-03-2011 13-36-19.jpg|photo2a=Torredelorotyteatrolamaestranza.JPG|photo2b=Sevila10.JPG|photo3a=Alcaz archiv sev.jpg|text=Photo montage caption}}'
@@ -332,7 +332,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_photo_montage_ru_wikitext()
+    public function it_can_parse_template_photo_montage_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Фотомонтаж|photo1a=Sevilla Plaza de España 19-03-2011 13-36-19.jpg|photo2a=Torredelorotyteatrolamaestranza.JPG|photo2b=Sevila10.JPG|photo3a=Alcaz archiv sev.jpg|text=Описание фотомонтажа}}'
@@ -342,7 +342,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_image_frame_wikitext()
+    public function it_can_parse_template_image_frame_wikitext()
     {
         $image = new WikitextImage(
             '{{Image frame|width=200|content=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|caption=Example usage|link=Hello world|align=center}}'
@@ -352,7 +352,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_image_frame_ru_wikitext()
+    public function it_can_parse_template_image_frame_ru_wikitext()
     {
         $image = new WikitextImage(
             '{{Image frame|Содержание=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|Заголовок=Пример использования|Заголовок сверху=1|Ссылка=Hello world}}'
@@ -362,7 +362,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_image_frame_ru2_wikitext()
+    public function it_can_parse_template_image_frame_ru2_wikitext()
     {
         $image = new WikitextImage(
             '{{Рамка в стиле миниатюры|Содержание=[[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]|Заголовок=Пример использования|Заголовок сверху=1|Ссылка=Hello world}}'
@@ -372,7 +372,7 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_listen_wikitext()
+    public function it_can_parse_template_listen_wikitext()
     {
         $image = new WikitextImage(
             '{{Listen|header=Recordings of this phrase:|type=speech|filename=Frase de Neil Armstrong.ogg|title="One small step for a man..."|description=First words spoken on the [[Moon]].}}'
@@ -382,14 +382,14 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
-    public function it_can_parse_listen_ru_wikitext()
+    public function it_can_parse_template_listen_ru_wikitext()
     {
         $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России]]}}');
         $this->assertSame($image->getCaption(), 'Гимн России');
     }
 
     /** @test */
-    public function it_can_parse_audio_wikitext()
+    public function it_can_parse_template_audio_wikitext()
     {
         $image = new WikitextImage('{{Audio|en-us-Alabama.ogg|pronunciation of "Alabama"|help=no}}');
         $this->assertSame($image->getCaption(), 'pronunciation of "Alabama"');
