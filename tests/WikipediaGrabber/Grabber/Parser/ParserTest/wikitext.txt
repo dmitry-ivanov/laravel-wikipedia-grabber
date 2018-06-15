@@ -26,6 +26,10 @@
 [[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here with single quote ' and also double quote ".]] Some text at the same line [[here]].
 
 {{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}}
+{{Listen
+ | Имя_файла = Филипп_Киркоров_-_Атлантида.oga
+ | Название = Тест случая, когда описание файла на другой строке, тогда мы берем имя файла.
+}}
 
 == Биография ==
 
