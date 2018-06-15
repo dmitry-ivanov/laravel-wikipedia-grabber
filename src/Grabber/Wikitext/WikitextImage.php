@@ -74,7 +74,7 @@ class WikitextImage extends Wikitext
             'photomontage', 'фотомонтаж',
             'image frame', 'рамка в стиле миниатюры',
             'listen', 'audio',
-            'музыкальный отрывок стиля', 'семпл', 'музос', 'sample',
+            'sample', 'музыкальный отрывок стиля', 'семпл', 'музос',
         ])->map(function ($template) {
             return "{{{$template}";
         })->toArray();
@@ -333,9 +333,9 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
      * @see https://en.wikipedia.org/wiki/Template:Listen - description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Listen - название
+     * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Sample&redirect=no - пояснения
      * @see https://ru.wikipedia.org/wiki/Шаблон:Музыкальный_отрывок_стиля - пояснения
      * @see https://ru.wikipedia.org/wiki/Шаблон:Семпл - пояснения
-     * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Sample&redirect=no - пояснения
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:МузОС&redirect=no - пояснения
      */
     protected function isTextParameter($string)
