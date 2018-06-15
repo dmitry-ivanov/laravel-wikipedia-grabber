@@ -111,11 +111,6 @@ class PlainFormatter extends Formatter
         $description = $image->getDescription();
         $originalUrl = $image->getOriginalUrl();
 
-        if ($isGallery) {
-            $width = $this->toGallerySize($width);
-            $height = $this->toGallerySize($height);
-        }
-
         if ($image->isAudio()) {
             $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
             if ($mp3 = $image->getTranscodedMp3Url()) {
@@ -125,6 +120,11 @@ class PlainFormatter extends Formatter
 
             $media = "<audio controls>{$source}</audio>";
         } else {
+            if ($isGallery) {
+                $width = $this->toGallerySize($width);
+                $height = $this->toGallerySize($height);
+            }
+
             $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
             $media = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
         }
