@@ -99,7 +99,7 @@ class Image
 
     public function getAlt()
     {
-        return htmlspecialchars($this->description, ENT_QUOTES);
+        return htmlspecialchars($this->getDescription(), ENT_QUOTES);
     }
 
     public function isAudio()
