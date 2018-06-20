@@ -252,7 +252,9 @@ class SectionsAddImages
     protected function isMultipleImageTemplate($line)
     {
         $line = mb_strtolower($line, 'utf-8');
-        return starts_with($line, ['{{multiple image', '{{кратное изображение']) && ends_with($line, '}}');
+
+        return starts_with($line, ['{{multiple image', '{{кратное изображение', '{{фотоколонка'])
+            && ends_with($line, '}}');
     }
 
     protected function isAudioTemplate($line, array $image, &$matches)
