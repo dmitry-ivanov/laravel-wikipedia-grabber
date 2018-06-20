@@ -57,4 +57,10 @@ Case with wide image template.
 Case with wide image ru template.
 {{Панорама|AlsterPanorama.jpg|900px|Панорама центральной части Гамбурга|text-align=center}}
 
+Case with photomontage template.
+{{Photomontage| photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg| photo2a = Torredelorotyteatrolamaestranza.JPG| photo2b = Sevila10.JPG| photo3a = Alcaz archiv sev.jpg| photo3b = Real Alcazares Sevilla Spain.JPG| photo4a = Pont Triana.jpg| position = center}}
+
+Case with wide photomontage ru template.
+{{Фотомонтаж| photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg| photo2a = Torredelorotyteatrolamaestranza.JPG| photo2b = Sevila10.JPG| photo3a = Alcaz archiv sev.jpg| photo3b = Real Alcazares Sevilla Spain.JPG| photo4a = Pont Triana.jpg}}
+
 More text here.

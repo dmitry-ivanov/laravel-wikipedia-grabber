@@ -43,6 +43,7 @@ class MultilineTemplate
             'multiple image', 'кратное изображение',
             'фоторяд', 'фотоколонка',
             'wide image', 'панорама',
+            'photomontage', 'фотомонтаж',
             'listen',
         ];
         foreach ($templates as $template) {
