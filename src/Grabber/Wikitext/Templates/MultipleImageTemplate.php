@@ -29,7 +29,7 @@ class MultipleImageTemplate
         foreach ($parts as $part) {
             if ($this->isExtractingPart($part, $index)) {
                 $part = $this->removeIndex($part, $index);
-                $part = $this->extractPosition($part);
+                $part = $this->transformPosition($part);
                 if (empty($part)) {
                     continue;
                 }
@@ -100,7 +100,7 @@ class MultipleImageTemplate
         return implode('=', $parts);
     }
 
-    protected function extractPosition($part)
+    protected function transformPosition($part)
     {
         $part = str_replace_first('align=', '', $part);
         $part = str_replace_first('pos=', '', $part);
