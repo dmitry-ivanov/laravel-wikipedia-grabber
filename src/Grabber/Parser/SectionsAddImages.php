@@ -7,6 +7,7 @@ use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultilineTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
@@ -182,6 +183,10 @@ class SectionsAddImages
                 return (new DoubleImageTemplate($line))->extract($file);
             }
 
+            if ($this->isMultipleImageTemplate($line)) {
+                return (new MultipleImageTemplate($line))->extract($file);
+            }
+
             if ($this->isAudioTemplate($line, $image, $matches)) {
                 return head($matches);
             }
@@ -242,6 +247,12 @@ class SectionsAddImages
     {
         $line = mb_strtolower($line, 'utf-8');
         return starts_with($line, ['{{double image', '{{сдвоенное изображение']) && ends_with($line, '}}');
+    }
+
+    protected function isMultipleImageTemplate($line)
+    {
+        $line = mb_strtolower($line, 'utf-8');
+        return starts_with($line, ['{{multiple image', '{{кратное изображение']) && ends_with($line, '}}');
     }
 
     protected function isAudioTemplate($line, array $image, &$matches)
