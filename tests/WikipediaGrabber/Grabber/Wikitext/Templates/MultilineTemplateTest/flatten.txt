@@ -33,4 +33,10 @@ Case with annotated image template.
 Case with annotated image ru template.
 {{Описанное изображение| image = Mona Lisa color restoration2.jpg| image-width = 2000  <!-- choose any width, as you like it. It doesn't matter the factual width of the image-->| image-left = -850   <!-- crop the left part. Be aware of the "-" minus symbol  -->| image-top = -800    <!-- crop the upper part. Be aware of the "-" minus symbol  -->| width =  250        <!-- crop the right part. That will be the width of the image in the article -->| height =  250       <!-- crop the below part. That will be the height of the image in the article -->| float = left| annotations =       <!-- empty or not, this parameter must be included -->| caption = Cropped Mona Lisa from a 2000 pixel image}}
 
+Case with css image crop template.
+{{CSS image crop|Image = Dew on grass Luc Viatour.jpg|bSize = 400|cWidth = 100|cHeight = 100|oTop = 180|oLeft = 60}}
+
+Case with css image crop ru template.
+{{часть изображения | изобр = Stepanov vs Grot 031111.jpeg | позиция = right | подпись = В матче КХЛ 3 ноября 2011 года | позиция_подписи = center | ширина = 270 | общая = 460 | верх = 65 | право = 160 | низ = 35 | лево = 30 | цвет_фона = AliceBlue}}
+
 More text here.
