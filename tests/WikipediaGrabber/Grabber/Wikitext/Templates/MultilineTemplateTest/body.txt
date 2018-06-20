@@ -175,4 +175,36 @@ Case with wide image frame ru template.
   |Ссылка = Hello world
   |Выравнивание = center}}
 
+Case with sample template.
+{{Sample
+ |название=Ninjah Lab — Sobotni Dub
+ |файл=Sobotni Dub.ogg
+ |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с
+ |пояснения=
+}}
+
+Case with sample ru template.
+{{Музыкальный отрывок стиля
+ |название=Ninjah Lab — Sobotni Dub
+ |файл=Sobotni Dub.ogg
+ |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с
+ |пояснения=
+}}
+
+Case with sample ru2 template.
+{{Семпл
+ |название=Ninjah Lab — Sobotni Dub
+ |файл=Sobotni Dub.ogg
+ |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с
+ |пояснения=
+}}
+
+Case with sample ru3 template.
+{{МузОС
+ |название=Ninjah Lab — Sobotni Dub
+ |файл=Sobotni Dub.ogg
+ |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с
+ |пояснения=
+}}
+
 More text here.

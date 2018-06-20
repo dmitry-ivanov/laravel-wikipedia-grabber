@@ -69,4 +69,16 @@ Case with image frame template.
 Case with wide image frame ru template.
 {{Рамка в стиле миниатюры  |Ширина = 200  |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]  |Заголовок = Пример использования  |Ссылка = Hello world  |Выравнивание = center}}
 
+Case with sample template.
+{{Sample |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+
+Case with sample ru template.
+{{Музыкальный отрывок стиля |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+
+Case with sample ru2 template.
+{{Семпл |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+
+Case with sample ru3 template.
+{{МузОС |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+
 More text here.
