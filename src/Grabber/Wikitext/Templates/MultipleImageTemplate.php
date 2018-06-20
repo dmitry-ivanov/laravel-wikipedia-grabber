@@ -2,7 +2,6 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 
-use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 /**
@@ -42,12 +41,10 @@ class MultipleImageTemplate
         $body = str_replace_last('}}', '', $body);
         $body = (new Wikitext($body))->plain();
 
-        return collect(explode('|', $body))->map(function ($part) {
-            return trim($part);
-        });
+        return array_map('trim', explode('|', $body));
     }
 
-    protected function getIndex($file, Collection $parts)
+    protected function getIndex($file, array $parts)
     {
         $index = 1;
 
