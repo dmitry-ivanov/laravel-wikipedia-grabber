@@ -290,9 +290,9 @@ class SectionsAddImages
         $fileWithSpaces = preg_quote($fileWithSpaces, '/');
         $fileWithUnderscores = preg_quote($fileWithUnderscores, '/');
 
-        return preg_match("/\{\{audio.*?\|{$file}\|.*?\}\}/i", $line, $matches)
-            || preg_match("/\{\{audio.*?\|{$fileWithSpaces}\|.*?\}\}/i", $line, $matches)
-            || preg_match("/\{\{audio.*?\|{$fileWithUnderscores}\|.*?\}\}/i", $line, $matches);
+        return preg_match("/\{\{(audio|pronunciation).*?\|{$file}\|.*?\}\}/i", $line, $matches)
+            || preg_match("/\{\{(audio|pronunciation).*?\|{$fileWithSpaces}\|.*?\}\}/i", $line, $matches)
+            || preg_match("/\{\{(audio|pronunciation).*?\|{$fileWithUnderscores}\|.*?\}\}/i", $line, $matches);
     }
 
     protected function isGrayTable($line)
