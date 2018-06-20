@@ -41,4 +41,9 @@ Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Ат
  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005
  | float=}}
 
+Case with listen template on multiple lines, with text on open tag and params and inline template:
+Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga
+ | Название = Отрывок из песни "Атлантида" {{ref|here}}
+ | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005}}
+
 More text here.
