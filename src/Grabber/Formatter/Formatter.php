@@ -39,6 +39,11 @@ abstract class Formatter
         return str_slug($title);
     }
 
+    protected function sectionBody(Section $section)
+    {
+        return preg_replace('/(\s*<br.*?>\s*){3,}/m', '$1$1', nl2br($section->getBody()));
+    }
+
     protected function getLevels()
     {
         return $this->tocSections->map(function (Section $section) {

@@ -61,7 +61,7 @@ class PlainFormatter extends Formatter
 
         $gallery = $this->gallery($section);
         $images = $this->images($section);
-        $body = nl2br($section->getBody());
+        $body = $this->sectionBody($section);
 
         $class = collect(['wiki-section-title']);
         if ($section->hasGallery()) {
