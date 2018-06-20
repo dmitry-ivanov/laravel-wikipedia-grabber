@@ -37,7 +37,10 @@ class MultilineTemplate
     {
         $line = mb_strtolower($line, 'utf-8');
 
-        $templates = ['listen'];
+        $templates = [
+            'annotated image', 'описанное изображение',
+            'listen',
+        ];
         foreach ($templates as $template) {
             if (!str_contains($line, "{{{$template}")) {
                 continue;
