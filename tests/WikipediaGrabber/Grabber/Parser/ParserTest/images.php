@@ -1116,4 +1116,58 @@ return [
             ],
         ],
     ],
+    62 => [
+        'ns' => 6,
+        'title' => 'Файл:Listen-01.ogg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1040x1040',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Listen-01.ogg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    63 => [
+        'ns' => 6,
+        'title' => 'Файл:Listen-02.ogg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1041x1041',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Listen-02.ogg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    64 => [
+        'ns' => 6,
+        'title' => 'Файл:Listen-03.ogg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1042x1042',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Listen-03.ogg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
