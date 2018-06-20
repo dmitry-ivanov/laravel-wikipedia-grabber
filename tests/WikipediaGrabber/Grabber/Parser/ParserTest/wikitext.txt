@@ -851,6 +851,19 @@ Some fake text line with audio template {{Audio-IPA|De-Ludwig_van_Beethoven.ogg|
  |подпись3    = Финальная подпись.
 }}
 
+{{Listen
+| type         = music
+| filename     = Listen-01.ogg
+| title        = Accordion chords
+| description  = Chords being played on an accordion
+| filename2    = Listen-02.ogg
+| title2       = ''Moonlight Sonata''
+| description2 = [[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]]
+| filename3    = Listen-03.ogg
+| title3       = Waltz No. 15
+| description3 = From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]
+}}
+
 Some fake text here.
 
 == Комментарии ==
