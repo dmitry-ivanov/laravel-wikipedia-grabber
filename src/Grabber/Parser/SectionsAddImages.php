@@ -178,10 +178,6 @@ class SectionsAddImages
 
         $openTag = "[[{$title}";
         if (!str_contains($line, $openTag)) {
-            if ($this->isMultipleImageLine($line)) {
-                return $this->transformMultipleImageLine($line);
-            }
-
             if ($this->isDoubleImageTemplate($line)) {
                 return (new DoubleImageTemplate($line))->extract($file);
             }
@@ -240,34 +236,6 @@ class SectionsAddImages
         $imageWikitext = str_replace_last(']]', '', $imageWikitext);
 
         return $imageWikitext;
-    }
-
-    /**
-     * @see https://en.wikipedia.org/wiki/Template:Multiple_image - captionN
-     * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение - подписьN
-     * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка - текстN
-     * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+ - текстN
-     * @see https://en.wikipedia.org/wiki/Template:Listen - descriptionN
-     */
-    protected function isMultipleImageLine($line)
-    {
-        $line = mb_strtolower($line, 'utf-8');
-
-        $params = ['caption', 'текст', 'подпись', 'description'];
-        foreach ($params as $param) {
-            if (preg_match_all("/{$param}\d+(\s*?)=/", $line) == 1) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    protected function transformMultipleImageLine($line)
-    {
-        $line = preg_replace('/\d+=/', '=', $line);
-        $line = (new Wikitext($line))->plain();
-        return rtrim($line, '}');
     }
 
     protected function isDoubleImageTemplate($line)
