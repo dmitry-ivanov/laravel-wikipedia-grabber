@@ -809,13 +809,31 @@ Some fake text line with audio template {{Audio-IPA|De-Ludwig_van_Beethoven.ogg|
 | align="center"|Юбилейная медно-никелевая монета номиналом в {{num|2|рубля}}, отчеканенная в [[40-летие космического полёта Ю. А. Гагарина (монеты)|2001 году к 40-летию первого полёта человека в космос]]
 | align="center"|Юбилейная золотая монета номиналом в {{num|1000|рублей}}, отчеканенная 2011 году к 50-летию первого полёта человека в космос
 |}
+
 {{Фотоколонка+|k=0.75|align=left|color=#eeeeff|border=3
 |Photo-Column-1.jpg|текст1=Могила матери и тёзки певицы Мадонны Чикконе. Мадонна-старшая родила шестерых детей и умерла от рака груди в 30 лет{{переход|1958—1981: детство и начало карьеры|1}}
 |Photo-Column-2.jpg|текст2=[[Боуи, Дэвид|Дэвид Боуи]] во время тура [[Ziggy Stardust Tour]] [[1972 год в музыке|1972 года]]. Концерт этого тура в Детройте вдохновил его 14-летнюю фанатку Мадонну Чикконе, будущего «хамелеона поп-музыки»{{sfn|О’Брайен|2009|с = 149}}{{cite web|url=https://www.youtube.com/watch?v=lnBwJQnHH8o|title=Madonna's Tribute To David Bowie|publisher=Дополнительный источник [[YouTube]] — официальный канал Madonna|date=2016-01-13|accessdate=2017-09-23}}.
 |Photo-Column-3.jpg|текст3=[[Крисси Хайнд]] из группы [[The Pretenders|Pretenders]] сильно повлияла на Мадонну в начале карьеры{{sfn|О’Брайен|2009|с = 70}}.
 |Photo-Column-4.jpg|текст4=[[Мэй Уэст]], комедийная актриса и сценарист, с которой часто сравнивали имидж Мадонны в начале карьеры — за сочетание сексуальности, юмора, нарочитой вульгарности и острословия{{cite web|url=http://articles.latimes.com/1993-01-10/entertainment/ca-1343_1_mae-west|title=The Mae in Madonna|publisher=[[Los Angeles Times]]|date=1993-01-10|accessdate=2017-12-06|lang=en}}{{sfn|Андерсен|1992|loc=Глава 12|c=80}}.}}
+
 [[Файл:File_with_spaces_here_and_underscores_in_wikitext.jpg|thumb|right]]
 [[Файл:File with underscores here and spaces in wikitext.jpg|thumb|left]]
+
+{multiple image
+ | align = left
+ | direction = vertical
+ | width = 200
+ | header = [[Portable Network Graphics|PNG]] transparency demonstration
+ | image1 = Multiple-Image-1.jpg
+ | alt1 = Colored dice with white background
+ | caption1 = A PNG image with an 8-bit transparency layer...
+ | image2 = Multiple-Image-2.jpg
+ | alt2 = Colored dice with checkered background
+ | caption2 = ...here overlaying a checkered background.
+ | image3 = Multiple-Image-3.jpg
+ | alt3 = Final alt here.
+ | caption3 = Final caption here.
+}}
 Some fake text here.
 
 == Комментарии ==
