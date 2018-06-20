@@ -8,7 +8,7 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class WikitextTest extends TestCase
 {
     /** @test */
-    public function is_has_plain_method_for_converting_wikitext_to_plain_text()
+    public function it_has_plain_method_for_converting_wikitext_to_plain_text()
     {
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.sanitized.txt');
