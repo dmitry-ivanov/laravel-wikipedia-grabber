@@ -819,7 +819,7 @@ Some fake text line with audio template {{Audio-IPA|De-Ludwig_van_Beethoven.ogg|
 [[Файл:File_with_spaces_here_and_underscores_in_wikitext.jpg|thumb|right]]
 [[Файл:File with underscores here and spaces in wikitext.jpg|thumb|left]]
 
-{multiple image
+{{multiple image
  | align = left
  | direction = vertical
  | width = 200
