@@ -8,7 +8,7 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class DoubleImageTemplateTest extends TestCase
 {
     /** @test */
-    public function is_has_extract_method_which_works_for_the_case_of_single_description()
+    public function it_has_extract_method_which_works_for_the_case_of_single_description()
     {
         $template = new DoubleImageTemplate('{{double image|right|Yellow card.svg|60|Red card.svg|60|Single description||Yellow|Red}}');
 
@@ -55,7 +55,7 @@ class DoubleImageTemplateTest extends TestCase
     }
 
     /** @test */
-    public function is_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch()
+    public function it_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch()
     {
         $template = new DoubleImageTemplate('{{double image|left|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
 
@@ -64,7 +64,7 @@ class DoubleImageTemplateTest extends TestCase
     }
 
     /** @test */
-    public function is_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch_2()
+    public function it_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch_2()
     {
         $template = new DoubleImageTemplate('{{double image|left|Yellow_card.svg|60|Red_card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
 
