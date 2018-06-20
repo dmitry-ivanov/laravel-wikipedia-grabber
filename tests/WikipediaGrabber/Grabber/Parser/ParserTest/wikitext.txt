@@ -834,6 +834,23 @@ Some fake text line with audio template {{Audio-IPA|De-Ludwig_van_Beethoven.ogg|
  | alt3 = Final alt here.
  | caption3 = Final caption here.
 }}
+
+{{Кратное изображение
+ |зона        = left
+ |направление = vertical
+ |заголовок   = Демонстрация прозрачности формата [[PNG]]
+ |ширина      = 200
+
+ |изобр1      = Multiple-Image-Ru-1.jpg
+ |подпись1    = PNG-картинка с 8-битным слоем прозрачности…
+
+ |изобр2      = Multiple-Image-Ru-2.jpg
+ |подпись2    = …здесь наложена на фон в клетку.
+
+ |изобр3      = Multiple-Image-Ru-3.jpg
+ |подпись3    = Финальная подпись.
+}}
+
 Some fake text here.
 
 == Комментарии ==
