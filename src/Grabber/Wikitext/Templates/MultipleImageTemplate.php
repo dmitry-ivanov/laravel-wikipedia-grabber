@@ -22,7 +22,7 @@ class MultipleImageTemplate
         $extract = collect();
 
         $parts = $this->explode();
-        $index = $this->getIndex($file, $parts);
+        $index = $this->getIndex($parts, $file);
         foreach ($parts as $part) {
             if ($this->isExtractingPart($part, $index)) {
                 $part = $this->removeIndex($part, $index);
@@ -44,7 +44,7 @@ class MultipleImageTemplate
         return array_map('trim', explode('|', $body));
     }
 
-    protected function getIndex($file, array $parts)
+    protected function getIndex(array $parts, $file)
     {
         $index = 1;
 
