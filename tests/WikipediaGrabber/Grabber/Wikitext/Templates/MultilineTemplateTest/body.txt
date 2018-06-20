@@ -97,4 +97,22 @@ Case with css image crop ru template.
  | цвет_фона = AliceBlue
 }}
 
+Case with multiple image template.
+{{multiple image
+ | width = 60
+ | image1 = Yellow card.svg
+ | alt1 = Yellow cartouche
+ | image2 = Red card.svg
+ | alt2 = Red cartouche
+ | footer = Players are cautioned with a yellow card and sent off with a red card.
+}}
+
+Case with multiple image ru template.
+{{Кратное изображение
+ |подпись = Игроки предупреждаются…
+ |ширина  = 60
+ |изобр1  = Yellow card.svg
+ |изобр2  = Red card.svg
+}}
+
 More text here.

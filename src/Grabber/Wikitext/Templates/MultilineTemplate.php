@@ -40,6 +40,7 @@ class MultilineTemplate
         $templates = [
             'annotated image', 'описанное изображение',
             'css image crop', 'часть изображения',
+            'multiple image', 'кратное изображение',
             'listen',
         ];
         foreach ($templates as $template) {
