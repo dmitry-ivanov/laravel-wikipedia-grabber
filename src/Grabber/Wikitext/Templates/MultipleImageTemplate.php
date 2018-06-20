@@ -86,14 +86,10 @@ class MultipleImageTemplate
             return $part;
         }
 
-        $parts = collect(explode('=', $part))->map(function ($item) {
-            return trim($item);
-        });
+        $parts = array_map('trim', explode('=', $part));
+        $parts[0] = str_replace_last((string) $index, '', $parts[0]);
 
-        $index = (string) $index;
-        $parts[0] = str_replace_last($index, '', $parts[0]);
-
-        return $parts->implode('=');
+        return implode('=', $parts);
     }
 
     protected function isSomeParameter($string)
