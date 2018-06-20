@@ -42,6 +42,7 @@ class MultilineTemplate
             'css image crop', 'часть изображения',
             'multiple image', 'кратное изображение',
             'фоторяд', 'фотоколонка',
+            'wide image', 'панорама',
             'listen',
         ];
         foreach ($templates as $template) {

@@ -51,4 +51,10 @@ Case with multiple image row ru template.
 Case with multiple image column ru template.
 {{Фотоколонка|ф1.jpg|ф2.jpg|ф3.jpg|текст=Адокса…|ш=210|align=left}}
 
+Case with wide image template.
+{{wide image|Helsinki z00.jpg|1800px||alt=Panorama of city with mixture of five to ten story buildings}}
+
+Case with wide image ru template.
+{{Панорама|AlsterPanorama.jpg|900px|Панорама центральной части Гамбурга|text-align=center}}
+
 More text here.
