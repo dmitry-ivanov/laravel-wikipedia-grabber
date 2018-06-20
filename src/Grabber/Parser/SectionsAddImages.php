@@ -253,7 +253,7 @@ class SectionsAddImages
     {
         $line = mb_strtolower($line, 'utf-8');
 
-        return starts_with($line, ['{{multiple image', '{{кратное изображение', '{{фотоколонка'])
+        return starts_with($line, ['{{multiple image', '{{кратное изображение', '{{фотоколонка', '{{listen'])
             && ends_with($line, '}}');
     }
 

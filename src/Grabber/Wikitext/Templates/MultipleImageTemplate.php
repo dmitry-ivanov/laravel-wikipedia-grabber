@@ -9,6 +9,7 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
  * @see https://ru.wikipedia.org/wiki/Шаблон:Кратное_изображение
  * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка
  * @see https://ru.wikipedia.org/wiki/Шаблон:Фотоколонка+
+ * @see https://en.wikipedia.org/wiki/Template:Listen
  */
 class MultipleImageTemplate
 {
