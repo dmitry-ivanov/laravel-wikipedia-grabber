@@ -241,12 +241,7 @@ class SectionsAddImages
     protected function isDoubleImageTemplate($line)
     {
         $line = mb_strtolower($line, 'utf-8');
-
-        $templates = collect(['double image', 'сдвоенное изображение'])->map(function ($template) {
-            return "{{{$template}";
-        })->toArray();
-
-        return starts_with($line, $templates) && ends_with($line, '}}');
+        return starts_with($line, ['{{double image', '{{сдвоенное изображение']) && ends_with($line, '}}');
     }
 
     protected function isAudioTemplate($line, array $image, &$matches)
