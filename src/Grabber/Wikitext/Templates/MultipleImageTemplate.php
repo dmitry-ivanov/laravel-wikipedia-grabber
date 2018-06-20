@@ -29,6 +29,11 @@ class MultipleImageTemplate
         foreach ($parts as $part) {
             if ($this->isExtractingPart($part, $index)) {
                 $part = $this->removeIndex($part, $index);
+                $part = $this->extractPosition($part);
+                if (empty($part)) {
+                    continue;
+                }
+
                 $extract->push($part);
             }
         }
@@ -93,6 +98,16 @@ class MultipleImageTemplate
         $parts[0] = str_replace_last((string) $index, '', $parts[0]);
 
         return implode('=', $parts);
+    }
+
+    protected function extractPosition($part)
+    {
+        $part = str_replace_first('align=', '', $part);
+        $part = str_replace_first('pos=', '', $part);
+        $part = str_replace_first('float=', '', $part);
+        $part = str_replace_first('зона=', '', $part);
+
+        return $part;
     }
 
     protected function isSomeParameter($string)
