@@ -115,4 +115,18 @@ Case with multiple image ru template.
  |изобр2  = Red card.svg
 }}
 
+Case with multiple image row ru template.
+{{Фоторяд|ф1.jpg
+|ф2.jpg
+|ф3.jpg
+|ф4.jpg
+|текст=Адокса…
+|color=#BBDD99}}
+
+Case with multiple image column ru template.
+{{Фотоколонка|ф1.jpg|ф2.jpg
+|ф3.jpg
+|текст=Адокса…
+|ш=210|align=left}}
+
 More text here.
