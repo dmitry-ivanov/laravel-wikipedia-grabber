@@ -1062,4 +1062,58 @@ return [
             ],
         ],
     ],
+    59 => [
+        'ns' => 6,
+        'title' => 'Файл:Multiple-Image-Ru-1.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1030x1030',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Multiple-Image-Ru-1.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    60 => [
+        'ns' => 6,
+        'title' => 'Файл:Multiple-Image-Ru-2.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1031x1031',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Multiple-Image-Ru-2.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
+    61 => [
+        'ns' => 6,
+        'title' => 'Файл:Multiple-Image-Ru-3.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1032x1032',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:Multiple-Image-Ru-3.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
