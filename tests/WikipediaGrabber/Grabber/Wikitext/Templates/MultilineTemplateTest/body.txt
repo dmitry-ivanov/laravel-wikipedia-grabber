@@ -138,7 +138,7 @@ Case with wide image ru template.
 900px|
 Панорама центральной части Гамбурга|text-align=center}}
 
-Case with photomontage template.
+Case with photo montage template.
 {{Photomontage
 | photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg
 | photo2a = Torredelorotyteatrolamaestranza.JPG
@@ -149,7 +149,7 @@ Case with photomontage template.
 | position = center
 }}
 
-Case with wide photomontage ru template.
+Case with wide photo montage ru template.
 {{Фотомонтаж
 | photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg
 | photo2a = Torredelorotyteatrolamaestranza.JPG
@@ -158,5 +158,21 @@ Case with wide photomontage ru template.
 | photo3b = Real Alcazares Sevilla Spain.JPG
 | photo4a = Pont Triana.jpg
 }}
+
+Case with image frame template.
+{{Image frame
+  |Ширина = 200
+  |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]
+  |Заголовок = Пример использования
+  |Ссылка = Hello world
+  |Выравнивание = center}}
+
+Case with wide image frame ru template.
+{{Рамка в стиле миниатюры
+  |Ширина = 200
+  |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]
+  |Заголовок = Пример использования
+  |Ссылка = Hello world
+  |Выравнивание = center}}
 
 More text here.
