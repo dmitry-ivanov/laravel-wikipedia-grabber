@@ -30,11 +30,9 @@ class MultipleImageTemplate
             if ($this->isExtractingPart($part, $index)) {
                 $part = $this->removeIndex($part, $index);
                 $part = $this->transformPosition($part);
-                if (empty($part)) {
-                    continue;
+                if (!empty($part)) {
+                    $extract->push($part);
                 }
-
-                $extract->push($part);
             }
         }
 
