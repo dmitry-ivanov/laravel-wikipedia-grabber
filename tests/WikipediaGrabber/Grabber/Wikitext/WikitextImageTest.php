@@ -394,8 +394,8 @@ class WikitextImageTest extends TestCase
     /** @test */
     public function it_can_parse_template_listen_ru_wikitext()
     {
-        $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России]]}}');
-        $this->assertSame($image->getCaption(), 'Гимн России');
+        $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России Описание]]}}');
+        $this->assertSame($image->getCaption(), 'Гимн России Описание');
     }
 
     /** @test */
