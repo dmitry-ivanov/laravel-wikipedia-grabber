@@ -90,4 +90,15 @@ class MultipleImageTemplateTest extends TestCase
             (new MultipleImageTemplate($line))->extract('Brahms-waltz15.ogg')
         );
     }
+
+    /** @test */
+    public function it_can_extract_required_data_for_listen_ru_template()
+    {
+        $line = "{{Listen | Имя_файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]]}}";
+
+        $this->assertEquals(
+            '{{Listen|Имя_файла=Russian Anthem chorus.ogg|left|Название=Гимн России|Описание=Гимн России}}',
+            (new MultipleImageTemplate($line))->extract('Russian Anthem chorus.ogg')
+        );
+    }
 }
