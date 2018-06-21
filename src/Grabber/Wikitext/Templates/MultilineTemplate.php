@@ -45,8 +45,7 @@ class MultilineTemplate
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
             'image frame', 'рамка в стиле миниатюры',
-            'listen',
-            'sample', 'музыкальный отрывок стиля', 'семпл', 'музос',
+            'listen', 'sample', 'музыкальный отрывок стиля', 'семпл', 'музос',
         ];
         foreach ($templates as $template) {
             if (!str_contains($line, "{{{$template}")) {
