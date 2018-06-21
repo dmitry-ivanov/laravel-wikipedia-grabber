@@ -331,7 +331,7 @@ class WikitextImage extends Wikitext
      * @see https://en.wikipedia.org/wiki/Template:Image_frame - caption
      * @see https://ru.wikipedia.org/wiki/Шаблон:Image_frame - заголовок
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Рамка_в_стиле_миниатюры&redirect=no - заголовок
-     * @see https://en.wikipedia.org/wiki/Template:Listen - description
+     * @see https://en.wikipedia.org/wiki/Template:Listen - title, description
      * @see https://ru.wikipedia.org/wiki/Шаблон:Listen - название
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:Sample&redirect=no - пояснения
      * @see https://ru.wikipedia.org/wiki/Шаблон:Музыкальный_отрывок_стиля - пояснения
@@ -344,7 +344,7 @@ class WikitextImage extends Wikitext
             || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
             || preg_match('/^footer(\s*)=(.+?)/', $string) || preg_match('/^название(\s*)=(.+?)/', $string)
             || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string)
-            || preg_match('/^пояснения(\s*)=(.+?)/', $string);
+            || preg_match('/^title(\s*)=(.+?)/', $string) || preg_match('/^пояснения(\s*)=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)

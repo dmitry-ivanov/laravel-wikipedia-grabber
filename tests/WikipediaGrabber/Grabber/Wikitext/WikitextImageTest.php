@@ -382,6 +382,16 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_template_listen_wikitext_without_description()
+    {
+        $image = new WikitextImage(
+            '{{Listen|header=Recordings of this phrase:|type=speech|filename=Frase de Neil Armstrong.ogg|title="One small step for a man..."}}'
+        );
+
+        $this->assertSame($image->getCaption(), '"One small step for a man..."');
+    }
+
+    /** @test */
     public function it_can_parse_template_listen_ru_wikitext()
     {
         $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России|Описание=[[Гимн России]]}}');
