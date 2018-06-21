@@ -132,9 +132,7 @@ class PlainFormatter extends Formatter
 
         $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
         $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
-        $desc = !empty($description)
-            ? "<div class='wiki-media-desc'>{$description}</div>"
-            : '';
+        $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
 
         if ($isGallery) {
             return "<div class='wiki-media'>{$link}{$desc}</div>";
@@ -156,9 +154,7 @@ class PlainFormatter extends Formatter
         }
 
         $audio = "<audio controls>{$source->implode('')}</audio>";
-        $desc = !empty($description)
-            ? "<div class='wiki-media-desc'>{$description}</div>"
-            : '';
+        $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
 
         if ($isGallery) {
             return "<div class='wiki-media audio'>{$audio}{$desc}</div>";
