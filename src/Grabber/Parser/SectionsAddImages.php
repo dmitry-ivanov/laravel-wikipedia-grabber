@@ -246,7 +246,9 @@ class SectionsAddImages
     protected function isDoubleImageTemplate($line)
     {
         $line = mb_strtolower($line, 'utf-8');
-        return starts_with($line, ['{{double image', '{{сдвоенное изображение']) && ends_with($line, '}}');
+
+        return starts_with($line, ['{{double image', '{{сдвоенное изображение'])
+            && ends_with($line, '}}');
     }
 
     protected function isMultipleImageTemplate($line)
