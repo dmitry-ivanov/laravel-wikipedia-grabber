@@ -399,6 +399,13 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_template_listen_ru_wikitext_without_description()
+    {
+        $image = new WikitextImage('{{Listen|Имя_файла=Russian Anthem chorus.ogg|Название=Гимн России}}');
+        $this->assertSame($image->getCaption(), 'Гимн России');
+    }
+
+    /** @test */
     public function it_can_parse_template_audio_wikitext()
     {
         $image = new WikitextImage('{{Audio|en-us-Alabama.ogg|pronunciation of "Alabama"|help=no}}');
