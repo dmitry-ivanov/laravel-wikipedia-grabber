@@ -341,11 +341,11 @@ class WikitextImage extends Wikitext
     protected function isTextParameter($string)
     {
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
-            || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
-            || preg_match('/^footer(\s*)=(.+?)/', $string) || preg_match('/^название(\s*)=(.+?)/', $string)
             || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string)
-            || preg_match('/^title(\s*)=(.+?)/', $string) || preg_match('/^пояснения(\s*)=(.+?)/', $string)
-            || preg_match('/^описание(\s*)=(.+?)/', $string);
+            || preg_match('/^title(\s*)=(.+?)/', $string) || preg_match('/^название(\s*)=(.+?)/', $string)
+            || preg_match('/^description(\s*)=(.+?)/', $string) || preg_match('/^описание(\s*)=(.+?)/', $string)
+            || preg_match('/^footer(\s*)=(.+?)/', $string) || preg_match('/^подпись(\s*)=(.+?)/', $string)
+            || preg_match('/^пояснения(\s*)=(.+?)/', $string);
     }
 
     protected function isSomeParameter($string)
