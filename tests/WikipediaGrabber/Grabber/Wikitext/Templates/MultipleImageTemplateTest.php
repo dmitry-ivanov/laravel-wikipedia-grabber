@@ -10,20 +10,20 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_multiple_image_template()
     {
-        $line = '{{multiple image | width = 60 | image1 = Yellow card.svg | alt1 = Yellow cartouche | image2 = Red card.svg | alt2 = Red cartouche | footer = Players are cautioned with a yellow card and sent off with a red card.}}';
+        $line = '{{multiple image | width = 60 |align = right | image1 = Yellow card.svg | alt1 = Yellow cartouche | image2 = Red card.svg | alt2 = Red cartouche | footer = Players are cautioned with a yellow card and sent off with a red card.}}';
 
         $this->assertEquals(
-            '{{multiple image|width=60|image=Yellow card.svg|alt=Yellow cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
+            '{{multiple image|width=60|right|image=Yellow card.svg|alt=Yellow cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
             (new MultipleImageTemplate($line))->extract('Yellow_card.svg')
         );
 
         $this->assertEquals(
-            '{{multiple image|width=60|image=Red card.svg|alt=Red cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
+            '{{multiple image|width=60|right|image=Red card.svg|alt=Red cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
             (new MultipleImageTemplate($line))->extract('Red_card.svg')
         );
 
         $this->assertEquals(
-            '{{multiple image|width=60|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
+            '{{multiple image|width=60|right|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
             (new MultipleImageTemplate($line))->extract('Fake image.svg')
         );
     }
@@ -31,20 +31,20 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_multiple_image_ru_template()
     {
-        $line = '{{Кратное изображение |подпись = Игроки предупреждаются… |ширина  = 60 |изобр1  = Yellow card.svg |изобр2  = Red card.svg}}';
+        $line = '{{Кратное изображение |зона=left|подпись = Игроки предупреждаются… |ширина  = 60 |изобр1  = Yellow card.svg |изобр2  = Red card.svg}}';
 
         $this->assertEquals(
-            '{{Кратное изображение|подпись=Игроки предупреждаются…|ширина=60|изобр=Yellow card.svg}}',
+            '{{Кратное изображение|left|подпись=Игроки предупреждаются…|ширина=60|изобр=Yellow card.svg}}',
             (new MultipleImageTemplate($line))->extract('Yellow card.svg')
         );
 
         $this->assertEquals(
-            '{{Кратное изображение|подпись=Игроки предупреждаются…|ширина=60|изобр=Red card.svg}}',
+            '{{Кратное изображение|left|подпись=Игроки предупреждаются…|ширина=60|изобр=Red card.svg}}',
             (new MultipleImageTemplate($line))->extract('Red card.svg')
         );
 
         $this->assertEquals(
-            '{{Кратное изображение|подпись=Игроки предупреждаются…|ширина=60}}',
+            '{{Кратное изображение|left|подпись=Игроки предупреждаются…|ширина=60}}',
             (new MultipleImageTemplate($line))->extract('Fake image.svg')
         );
     }
@@ -73,20 +73,20 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_listen_template()
     {
-        $line = "{{Listen|type=music|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename2=Moonlight.ogg|title2=''Moonlight Sonata''|description2=[[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]]|filename3=Brahms-waltz15.ogg|title3=Waltz No. 15|description3=From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
+        $line = "{{Listen|type=music|pos=right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename2=Moonlight.ogg|title2=''Moonlight Sonata''|description2=[[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]]|filename3=Brahms-waltz15.ogg|title3=Waltz No. 15|description3=From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
 
         $this->assertEquals(
-            '{{Listen|type=music|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion}}',
+            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion}}',
             (new MultipleImageTemplate($line))->extract('Accordion chords-01.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|type=music|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Moonlight.ogg|title=Moonlight Sonata|description=Beethoven\'s Sonata in C-sharp minor}}',
+            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Moonlight.ogg|title=Moonlight Sonata|description=Beethoven\'s Sonata in C-sharp minor}}',
             (new MultipleImageTemplate($line))->extract('Moonlight.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|type=music|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Brahms-waltz15.ogg|title=Waltz No. 15|description=From Sixteen Waltzes, Op. 39 by Brahms}}',
+            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Brahms-waltz15.ogg|title=Waltz No. 15|description=From Sixteen Waltzes, Op. 39 by Brahms}}',
             (new MultipleImageTemplate($line))->extract('Brahms-waltz15.ogg')
         );
     }
