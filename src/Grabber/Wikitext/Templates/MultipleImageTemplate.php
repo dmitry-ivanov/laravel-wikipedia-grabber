@@ -22,7 +22,7 @@ class MultipleImageTemplate
 
     public function extract($file)
     {
-        $extract = collect();
+        $result = collect();
 
         $parts = $this->explode();
         $index = $this->getIndex($parts, $file);
@@ -37,10 +37,10 @@ class MultipleImageTemplate
                 continue;
             }
 
-            $extract->push($part);
+            $result->push($part);
         }
 
-        return "{{{$extract->implode('|')}}}";
+        return "{{{$result->implode('|')}}}";
     }
 
     protected function explode()
