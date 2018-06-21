@@ -27,13 +27,17 @@ class MultipleImageTemplate
         $parts = $this->explode();
         $index = $this->getIndex($parts, $file);
         foreach ($parts as $part) {
-            if ($this->isExtractingPart($part, $index)) {
-                $part = $this->removeIndex($part, $index);
-                $part = $this->transformPosition($part);
-                if (!empty($part)) {
-                    $extract->push($part);
-                }
+            if (!$this->isExtractingPart($part, $index)) {
+                continue;
             }
+
+            $part = $this->removeIndex($part, $index);
+            $part = $this->transformPosition($part);
+            if (empty($part)) {
+                continue;
+            }
+
+            $extract->push($part);
         }
 
         return "{{{$extract->implode('|')}}}";
