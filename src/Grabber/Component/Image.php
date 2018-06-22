@@ -149,4 +149,24 @@ class Image
 
         return "{$matches[1]}/transcoded/{$matches[2]}/{$name}.mp3";
     }
+
+    public function getTranscodedWebmUrls()
+    {
+        $originalUrl = $this->getOriginalUrl();
+
+        if (!$this->isVideo()) {
+            return false;
+        }
+
+        $start = preg_quote('://upload.wikimedia.org/wikipedia', '/');
+        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/", $originalUrl, $matches)) {
+            return false;
+        }
+
+        $name = basename($originalUrl);
+
+        return collect(['160p', '240p', '360p', '480p', '720p'])->map(function ($quality) use ($matches, $name) {
+            return "{$matches[1]}/transcoded/{$matches[2]}/{$name}.{$quality}.webm";
+        });
+    }
 }

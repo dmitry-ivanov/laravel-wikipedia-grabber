@@ -175,4 +175,69 @@ class ImageTest extends TestCase
         $notWikipediaImage = new Image('thumb-url', 100, 200, 'https://example.com/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
         $this->assertFalse($notWikipediaImage->getTranscodedMp3Url());
     }
+
+    /** @test */
+    public function it_has_get_transcoded_webm_urls()
+    {
+        $ogv = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.ogv');
+
+        $this->assertEquals(
+            collect([
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.160p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.720p.webm',
+            ]),
+            $ogv->getTranscodedWebmUrls()
+        );
+    }
+
+    /** @test */
+    public function which_also_works_with_russian_file_names_too()
+    {
+        $ogv = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Филипп_Киркоров_-_Атлантида.ogv');
+
+        $this->assertEquals(
+            collect([
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.160p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.720p.webm',
+            ]),
+            $ogv->getTranscodedWebmUrls()
+        );
+    }
+
+    /** @test */
+    public function which_returns_false_for_not_video_files()
+    {
+        $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
+        $this->assertFalse($oga->getTranscodedWebmUrls());
+    }
+
+    /** @test */
+    public function which_works_for_already_webm_files()
+    {
+        $webm = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.webm');
+
+        $this->assertEquals(
+            collect([
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.160p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.720p.webm',
+            ]),
+            $webm->getTranscodedWebmUrls()
+        );
+    }
+
+    /** @test */
+    public function and_it_will_also_return_false_for_not_wikimedia_urls()
+    {
+        $notWikipediaImage = new Image('thumb-url', 100, 200, 'https://example.com/wikipedia/commons/2/26/Filipp_Kirkorov_voice.ogv');
+        $this->assertFalse($notWikipediaImage->getTranscodedWebmUrls());
+    }
 }
