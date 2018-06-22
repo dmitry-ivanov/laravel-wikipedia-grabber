@@ -42,6 +42,10 @@ class PlainFormatter extends Formatter
 
     public function tableOfContents()
     {
+        if ($this->tocSections->isEmpty()) {
+            return '';
+        }
+
         $items = $this->tocSections->map(function (Section $section) {
             $title = $section->getTitle();
             $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
