@@ -187,6 +187,26 @@ class PlainFormatter extends Formatter
 
     protected function video(Image $image, $isGallery = false)
     {
-        dd('video media');
+        $url = $image->getUrl();
+        $mime = $image->getMime();
+        $position = $image->getPosition();
+        $description = $image->getDescription();
+        $originalUrl = $image->getOriginalUrl();
+
+        $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
+        if ($transcoded = $image->getTranscodedWebmUrls()) {
+            $transcoded->each(function ($webm) use ($source) {
+                $source->push("<source src='{$webm}' type='video/webm'>");
+            });
+        }
+
+        $video = "<video poster='{$url}' controls>{$source->implode('')}</video>";
+        $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
+
+        if ($isGallery) {
+            return "<div class='wiki-media video'>{$video}{$desc}</div>";
+        }
+
+        return "<div class='wiki-media video {$position}'>{$video}{$desc}</div>";
     }
 }
