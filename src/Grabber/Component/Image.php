@@ -165,7 +165,7 @@ class Image
 
         $name = basename($originalUrl);
 
-        return collect(['160p', '240p', '360p', '480p', '720p'])->map(function ($quality) use ($matches, $name) {
+        return collect(['720p', '480p', '360p', '240p', '160p'])->map(function ($quality) use ($matches, $name) {
             return "{$matches[1]}/transcoded/{$matches[2]}/{$name}.{$quality}.webm";
         });
     }
