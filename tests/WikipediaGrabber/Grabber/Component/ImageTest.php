@@ -183,11 +183,11 @@ class ImageTest extends TestCase
 
         $this->assertEquals(
             collect([
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.160p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.240p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.360p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.480p.webm',
                 'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.720p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.ogv/Filipp_Kirkorov_voice.ogv.160p.webm',
             ]),
             $ogv->getTranscodedWebmUrls()
         );
@@ -200,11 +200,11 @@ class ImageTest extends TestCase
 
         $this->assertEquals(
             collect([
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.160p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.240p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.360p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.480p.webm',
                 'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.720p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Филипп_Киркоров_-_Атлантида.ogv/Филипп_Киркоров_-_Атлантида.ogv.160p.webm',
             ]),
             $ogv->getTranscodedWebmUrls()
         );
@@ -224,11 +224,11 @@ class ImageTest extends TestCase
 
         $this->assertEquals(
             collect([
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.160p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.240p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.360p.webm',
-                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.480p.webm',
                 'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.720p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.480p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.360p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.240p.webm',
+                'https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/Filipp_Kirkorov_voice.webm/Filipp_Kirkorov_voice.webm.160p.webm',
             ]),
             $webm->getTranscodedWebmUrls()
         );
