@@ -49,6 +49,10 @@ class PlainFormatter extends Formatter
             ]));
         }
 
+        if ($styles->isEmpty()) {
+            return;
+        }
+
         $styles = $styles->implode("\n");
 
         return "<style>\n{$styles}\n</style>\n\n";
