@@ -9,31 +9,45 @@ class PlainFormatter extends Formatter
 {
     public function style()
     {
-        $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
-        $galleryHeight = $galleryWidth + 5;
+        $styles = collect();
 
-        $styles = collect([
-            '.wiki-toc {padding:20px 0px}',
-            '.wiki-toc-item {display:block}',
-            '.wiki-section-title.has-gallery {clear:both}',
-            '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
-            ".wiki-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
-            ".wiki-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
-            '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
-            '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
-            '.wiki-media.left {float:left; clear:left; margin-right:16px}',
-            '.wiki-media.right {float:right; clear:right; margin-left:16px}',
-            '.wiki-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
-            '.wiki-media.audio {width:275px; padding:5px 5px 3px 5px}',
-            '.wiki-media audio {width:100%}',
-        ]);
+        if ($this->hasTableOfContents()) {
+            $styles = $styles->merge(
+                collect([
+                    '.wiki-toc {padding:20px 0px}',
+                    '.wiki-toc-item {display:block}',
+                ])->merge(
+                    $this->getLevels()->map(function ($level) {
+                        $padding = ($level - 1) * 20;
+                        return ".wiki-toc-item.level-{$level} {padding-left:{$padding}px}";
+                    })
+                )
+            );
+        }
 
-        $styles = $styles->merge(
-            collect($this->getLevels())->map(function ($level) {
-                $padding = ($level - 1) * 20;
-                return ".wiki-toc-item.level-{$level} {padding-left:{$padding}px}";
-            })
-        );
+        if ($this->hasGallery) {
+            $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
+            $galleryHeight = $galleryWidth + 5;
+
+            $styles = $styles->merge(collect([
+                '.wiki-section-title.has-gallery {clear:both}',
+                '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
+                ".wiki-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
+                ".wiki-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
+            ]));
+        }
+
+        if ($this->hasMedia) {
+            $styles = $styles->merge(collect([
+                '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+                '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
+                '.wiki-media.left {float:left; clear:left; margin-right:16px}',
+                '.wiki-media.right {float:right; clear:right; margin-left:16px}',
+                '.wiki-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
+                '.wiki-media.audio {width:275px; padding:5px 5px 3px 5px}',
+                '.wiki-media audio {width:100%}',
+            ]));
+        }
 
         $styles = $styles->implode("\n");
 
