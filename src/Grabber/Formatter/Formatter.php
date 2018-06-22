@@ -7,6 +7,8 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class Formatter
 {
+    protected $hasMedia;
+    protected $hasGallery;
     protected $tocSections;
 
     public static function factory($format, Collection $sections)
@@ -23,6 +25,14 @@ abstract class Formatter
 
     public function __construct(Collection $sections)
     {
+        $this->hasMedia = (bool) $sections->first(function (Section $section) {
+            return $section->hasImages();
+        });
+
+        $this->hasGallery = (bool) $sections->first(function (Section $section) {
+            return $section->hasGallery();
+        });
+
         $this->tocSections = $sections->filter(function (Section $section) {
             return !$section->isMain();
         });
@@ -30,14 +40,14 @@ abstract class Formatter
 
     abstract public function style();
 
+    abstract public function tableOfContents();
+
+    abstract public function section(Section $section);
+
     protected function hasTableOfContents()
     {
         return $this->tocSections->isNotEmpty();
     }
-
-    abstract public function tableOfContents();
-
-    abstract public function section(Section $section);
 
     protected function sectionId($title)
     {
