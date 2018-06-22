@@ -42,8 +42,8 @@ class PlainFormatter extends Formatter
 
     public function tableOfContents()
     {
-        if ($this->tocSections->isEmpty()) {
-            return '';
+        if (!$this->hasTableOfContents()) {
+            return;
         }
 
         $items = $this->tocSections->map(function (Section $section) {

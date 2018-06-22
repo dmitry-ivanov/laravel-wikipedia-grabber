@@ -30,6 +30,11 @@ abstract class Formatter
 
     abstract public function style();
 
+    protected function hasTableOfContents()
+    {
+        return $this->tocSections->isNotEmpty();
+    }
+
     abstract public function tableOfContents();
 
     abstract public function section(Section $section);
