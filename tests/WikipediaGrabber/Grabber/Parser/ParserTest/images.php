@@ -1278,4 +1278,22 @@ return [
             ],
         ],
     ],
+    71 => [
+        'ns' => 6,
+        'title' => 'File:President Trump Gives a Statement on the Infrastructure Discussion.webm',
+        'missing' => '',
+        'known' => '',
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/President_Trump_Gives_a_Statement_on_the_Infrastructure_Discussion.webm/300px--President_Trump_Gives_a_Statement_on_the_Infrastructure_Discussion.webm.jpg',
+                'thumbwidth' => 300,
+                'thumbheight' => 169,
+                'url' => 'https://upload.wikimedia.org/wikipedia/commons/1/14/President_Trump_Gives_a_Statement_on_the_Infrastructure_Discussion.webm',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/File:President_Trump_Gives_a_Statement_on_the_Infrastructure_Discussion.webm',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=61708081',
+                'mime' => 'video/webm',
+            ],
+        ],
+    ],
 ];
