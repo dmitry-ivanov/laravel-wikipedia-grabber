@@ -41,7 +41,7 @@ class SectionsAddImages
         }
 
         foreach ($this->sections as $section) {
-            if ($section->isMain()) {
+            if ($section->isMain() && !empty($this->mainImage)) {
                 $section->setImages($this->createMainObject());
             }
 
