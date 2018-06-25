@@ -96,7 +96,7 @@ class Wikitext
         $body = $body ?? $this->body;
 
         $body = preg_replace('/<br.*?>/', ' ', $body);
-        $body = preg_replace('/<ref.*?>.*?<\/ref>/', '', $body);
+        $body = preg_replace('/<ref.*?\/(ref){0,1}>/', '', $body);
 
         return strip_tags($body);
     }
