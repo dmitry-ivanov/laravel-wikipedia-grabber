@@ -175,6 +175,9 @@ class SectionsAddImages
         $title = $image['title'];
         $file = last(explode(':', $title));
 
+        $title = str_replace('Файл:', 'File:', $title);
+        $wikitextSection->setBody(str_replace('Файл:', 'File:', $wikitextSection->getBody()));
+
         $line = $this->getImageWikitextLine($wikitextSection->getBody(), $title, $file);
 
         $openTag = "[[{$title}";
