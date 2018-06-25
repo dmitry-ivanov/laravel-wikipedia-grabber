@@ -1386,4 +1386,22 @@ return [
             ],
         ],
     ],
+    77 => [
+        'ns' => 6,
+        'title' => 'Файл:Автограф Юрия Куклачёва.jpg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/1077x1077',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/Файл:Автограф Юрия Куклачёва.jpg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpeg',
+            ],
+        ],
+    ],
 ];
