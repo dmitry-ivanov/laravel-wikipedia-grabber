@@ -101,7 +101,7 @@ class WikitextTest extends TestCase
     public function it_can_remove_templates_from_wikitext()
     {
         $this->assertEquals(
-            'Some Text',
+            ' Some Text',
             (new Wikitext('{{nobr|Some Text}}'))->removeTemplates()
         );
     }
@@ -110,7 +110,7 @@ class WikitextTest extends TestCase
     public function it_has_an_optional_param_to_pass_wikitext_body_into_the_remove_templates_method()
     {
         $this->assertEquals(
-            'Some Passed Text',
+            ' Some Passed Text',
             (new Wikitext('{{nobr|Some Text}}'))->removeTemplates('{{nobr|Some Passed Text}}')
         );
     }
@@ -119,7 +119,7 @@ class WikitextTest extends TestCase
     public function which_works_for_simple_templates_too()
     {
         $this->assertEquals(
-            'simple',
+            ' simple',
             (new Wikitext('{{simple}}'))->removeTemplates()
         );
     }
@@ -128,7 +128,7 @@ class WikitextTest extends TestCase
     public function which_works_for_multiple_templates_too()
     {
         $this->assertEquals(
-            'This is Template1, and this is Template2, and foo!',
+            'This is  Template1, and this is  Template2, and  foo!',
             (new Wikitext('This is {{nobr|Template1}}, and this is {{nowrap|Template2}}, and {{foo}}!'))->removeTemplates()
         );
     }
