@@ -79,7 +79,7 @@ class Wikitext
 
             if ($isIgnored) {
                 $replace = '';
-            } else if ($isSpace) {
+            } elseif ($isSpace) {
                 $replace = ' ';
             } else {
                 $replace = last(explode('|', $templateBody));
