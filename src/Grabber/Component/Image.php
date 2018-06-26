@@ -141,7 +141,7 @@ class Image
         }
 
         $start = preg_quote('://upload.wikimedia.org/wikipedia', '/');
-        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/", $originalUrl, $matches)) {
+        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/i", $originalUrl, $matches)) {
             return false;
         }
 
@@ -159,7 +159,7 @@ class Image
         }
 
         $start = preg_quote('://upload.wikimedia.org/wikipedia', '/');
-        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/", $originalUrl, $matches)) {
+        if (!preg_match("/(.*?{$start}\/.*?)\/(.*)/i", $originalUrl, $matches)) {
             return false;
         }
 
