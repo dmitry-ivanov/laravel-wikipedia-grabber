@@ -18,7 +18,7 @@ class SectionTest extends TestCase
     public function it_transform_passed_wikitext_to_plain_for_title()
     {
         $section = new Section("'''Title''' [[Url|With Link]] {{nobr|And Template}}<ref foo>bar</ref>", 'Body', 1);
-        $this->assertEquals('Title With Link And Template', $section->getTitle());
+        $this->assertEquals('Title With Link  And Template', $section->getTitle());
     }
 
     /** @test */
