@@ -141,7 +141,7 @@ class SectionsAddImages
             $collection->push($this->createObject($wikitext, $image));
         }
 
-        $validated = (new GalleryValidator($objects['gallery']))->validate();
+        $validated = (new GalleryValidator)->validate($objects['gallery']);
         $objects['gallery'] = $validated['gallery'];
         $objects['images'] = $objects['images']->merge($validated['not_gallery']);
 

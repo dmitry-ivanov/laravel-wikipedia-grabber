@@ -6,21 +6,13 @@ use Illuminate\Support\Collection;
 
 class GalleryValidator
 {
-    protected $gallery;
-    protected $minCount = 4;
-
-    public function __construct(Collection $gallery)
+    public function validate(Collection $gallery)
     {
-        $this->gallery = $gallery;
-    }
+        $validated = ['gallery' => $gallery, 'not_gallery' => collect()];
 
-    public function validate()
-    {
-        $validated = ['gallery' => $this->gallery, 'not_gallery' => collect()];
-
-        if ($validated['gallery']->count() < $this->minCount) {
+        if ($validated['gallery']->count() < 4) {
             $validated['gallery'] = collect();
-            $validated['not_gallery'] = $this->gallery;
+            $validated['not_gallery'] = $gallery;
         }
 
         return $validated;
