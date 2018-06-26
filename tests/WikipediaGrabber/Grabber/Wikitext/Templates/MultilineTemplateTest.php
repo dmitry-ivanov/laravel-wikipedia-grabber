@@ -15,6 +15,6 @@ class MultilineTemplateTest extends TestCase
         $section = new Section('Title', $body, 2);
 
         $flatten = trim(file_get_contents(__DIR__ . '/MultilineTemplateTest/flatten.txt'));
-        $this->assertEquals($flatten, (new MultilineTemplate($section))->flatten());
+        $this->assertEquals($flatten, (new MultilineTemplate)->flatten($section));
     }
 }

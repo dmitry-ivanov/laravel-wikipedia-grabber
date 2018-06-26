@@ -7,19 +7,12 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineTemplate
 {
-    protected $section;
-
-    public function __construct(Section $section)
-    {
-        $this->section = $section;
-    }
-
-    public function flatten()
+    public function flatten(Section $section)
     {
         $flatten = collect();
 
         $isTemplateOpened = false;
-        $lines = preg_split("/\r\n|\n|\r/", $this->section->getBody());
+        $lines = preg_split("/\r\n|\n|\r/", $section->getBody());
         foreach ($lines as $line) {
             if ($isTemplateOpened) {
                 $flatten->push($flatten->pop() . $line);

@@ -315,7 +315,7 @@ class SectionsAddImages
             $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
             $this->wikitextSections = $parser->sections();
             $this->wikitextSections->each(function (Section $section) {
-                $section->setBody((new MultilineTemplate($section))->flatten());
+                $section->setBody((new MultilineTemplate)->flatten($section));
             });
         }
 
