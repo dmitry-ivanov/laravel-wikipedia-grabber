@@ -113,7 +113,7 @@ class SectionsAddImages
                 return ends_with($image['title'], ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']);
             }
 
-            return !ends_with($image['title'], 'svg');
+            return true;
         })->toArray();
     }
 
