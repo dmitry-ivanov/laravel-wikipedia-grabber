@@ -123,6 +123,8 @@ class MultipleImageTemplate
      */
     protected function isFileName($part)
     {
+        $part = mb_strtolower($part, 'utf-8');
+
         $extensions = collect([
             'jpg', 'jpeg', 'png', 'gif', 'svg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm',
         ])->map(function ($ext) {
