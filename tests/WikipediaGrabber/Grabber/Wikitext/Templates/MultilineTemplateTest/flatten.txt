@@ -13,72 +13,72 @@ Case with listen template in one line, surrounded by text from both sides.
 Some text here {{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}} and some text here.
 
 Case with listen template on multiple lines.
-{{Listen | Имя_файла = Филипп_Киркоров_-_Атлантида.oga | Название = Отрывок из песни "Атлантида" | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005 | float=}}
+{{Listen  | Имя_файла = Филипп_Киркоров_-_Атлантида.oga  | Название = Отрывок из песни "Атлантида"  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005  | float= }}
 
 Case with listen template on multiple lines, with text on open tag:
-Some text here {{Listen | Имя_файла = Филипп_Киркоров_-_Атлантида.oga | Название = Отрывок из песни "Атлантида" | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005 | float=}}
+Some text here {{Listen  | Имя_файла = Филипп_Киркоров_-_Атлантида.oga  | Название = Отрывок из песни "Атлантида"  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005  | float= }}
 
 Case with listen template on multiple lines, with text on open tag and params:
-Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga | Название = Отрывок из песни "Атлантида" | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005 | float=}}
+Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga  | Название = Отрывок из песни "Атлантида"  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005  | float= }}
 
 Case with listen template on multiple lines, with text on open tag and params:
-Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga | Название = Отрывок из песни "Атлантида" | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005 | float=}}
+Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga  | Название = Отрывок из песни "Атлантида"  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005  | float=}}
 
 Case with listen template on multiple lines, with text on open tag and params and inline template:
-Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga | Название = Отрывок из песни "Атлантида" {{ref|here}} | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005}}
+Some text here {{Listen|Имя_файла = Филипп_Киркоров_-_Атлантида.oga  | Название = Отрывок из песни "Атлантида" {{ref|here}}  | Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005}}
 
 Case with annotated image template.
-{{Annotated image| image = Mona Lisa color restoration2.jpg| image-width = 2000  <!-- choose any width, as you like it. It doesn't matter the factual width of the image-->| image-left = -850   <!-- crop the left part. Be aware of the "-" minus symbol  -->| image-top = -800    <!-- crop the upper part. Be aware of the "-" minus symbol  -->| width =  250        <!-- crop the right part. That will be the width of the image in the article -->| height =  250       <!-- crop the below part. That will be the height of the image in the article -->| float = left| annotations =       <!-- empty or not, this parameter must be included -->| caption = Cropped Mona Lisa from a 2000 pixel image}}
+{{Annotated image | image = Mona Lisa color restoration2.jpg | image-width = 2000  <!-- choose any width, as you like it. It doesn't matter the factual width of the image--> | image-left = -850   <!-- crop the left part. Be aware of the "-" minus symbol  --> | image-top = -800    <!-- crop the upper part. Be aware of the "-" minus symbol  --> | width =  250        <!-- crop the right part. That will be the width of the image in the article --> | height =  250       <!-- crop the below part. That will be the height of the image in the article --> | float = left | annotations =       <!-- empty or not, this parameter must be included --> | caption = Cropped Mona Lisa from a 2000 pixel image }}
 
 Case with annotated image ru template.
-{{Описанное изображение| image = Mona Lisa color restoration2.jpg| image-width = 2000  <!-- choose any width, as you like it. It doesn't matter the factual width of the image-->| image-left = -850   <!-- crop the left part. Be aware of the "-" minus symbol  -->| image-top = -800    <!-- crop the upper part. Be aware of the "-" minus symbol  -->| width =  250        <!-- crop the right part. That will be the width of the image in the article -->| height =  250       <!-- crop the below part. That will be the height of the image in the article -->| float = left| annotations =       <!-- empty or not, this parameter must be included -->| caption = Cropped Mona Lisa from a 2000 pixel image}}
+{{Описанное изображение | image = Mona Lisa color restoration2.jpg | image-width = 2000  <!-- choose any width, as you like it. It doesn't matter the factual width of the image--> | image-left = -850   <!-- crop the left part. Be aware of the "-" minus symbol  --> | image-top = -800    <!-- crop the upper part. Be aware of the "-" minus symbol  --> | width =  250        <!-- crop the right part. That will be the width of the image in the article --> | height =  250       <!-- crop the below part. That will be the height of the image in the article --> | float = left | annotations =       <!-- empty or not, this parameter must be included --> | caption = Cropped Mona Lisa from a 2000 pixel image }}
 
 Case with css image crop template.
-{{CSS image crop|Image = Dew on grass Luc Viatour.jpg|bSize = 400|cWidth = 100|cHeight = 100|oTop = 180|oLeft = 60}}
+{{CSS image crop |Image = Dew on grass Luc Viatour.jpg |bSize = 400 |cWidth = 100 |cHeight = 100 |oTop = 180 |oLeft = 60 }}
 
 Case with css image crop ru template.
-{{часть изображения | изобр = Stepanov vs Grot 031111.jpeg | позиция = right | подпись = В матче КХЛ 3 ноября 2011 года | позиция_подписи = center | ширина = 270 | общая = 460 | верх = 65 | право = 160 | низ = 35 | лево = 30 | цвет_фона = AliceBlue}}
+{{часть изображения  | изобр = Stepanov vs Grot 031111.jpeg  | позиция = right  | подпись = В матче КХЛ 3 ноября 2011 года  | позиция_подписи = center  | ширина = 270  | общая = 460  | верх = 65  | право = 160  | низ = 35  | лево = 30  | цвет_фона = AliceBlue }}
 
 Case with multiple image template.
-{{multiple image | width = 60 | image1 = Yellow card.svg | alt1 = Yellow cartouche | image2 = Red card.svg | alt2 = Red cartouche | footer = Players are cautioned with a yellow card and sent off with a red card.}}
+{{multiple image  | width = 60  | image1 = Yellow card.svg  | alt1 = Yellow cartouche  | image2 = Red card.svg  | alt2 = Red cartouche  | footer = Players are cautioned with a yellow card and sent off with a red card. }}
 
 Case with multiple image ru template.
-{{Кратное изображение |подпись = Игроки предупреждаются… |ширина  = 60 |изобр1  = Yellow card.svg |изобр2  = Red card.svg}}
+{{Кратное изображение  |подпись = Игроки предупреждаются…  |ширина  = 60  |изобр1  = Yellow card.svg  |изобр2  = Red card.svg }}
 
 Case with multiple image row ru template.
-{{Фоторяд|ф1.jpg|ф2.jpg|ф3.jpg|ф4.jpg|текст=Адокса…|color=#BBDD99}}
+{{Фоторяд|ф1.jpg |ф2.jpg |ф3.jpg |ф4.jpg |текст=Адокса… |color=#BBDD99}}
 
 Case with multiple image column ru template.
-{{Фотоколонка|ф1.jpg|ф2.jpg|ф3.jpg|текст=Адокса…|ш=210|align=left}}
+{{Фотоколонка|ф1.jpg|ф2.jpg |ф3.jpg |текст=Адокса… |ш=210|align=left}}
 
 Case with wide image template.
-{{wide image|Helsinki z00.jpg|1800px||alt=Panorama of city with mixture of five to ten story buildings}}
+{{wide image|Helsinki z00.jpg|1800px| |alt=Panorama of city with mixture of five to ten story buildings}}
 
 Case with wide image ru template.
-{{Панорама|AlsterPanorama.jpg|900px|Панорама центральной части Гамбурга|text-align=center}}
+{{Панорама|AlsterPanorama.jpg| 900px| Панорама центральной части Гамбурга|text-align=center}}
 
 Case with photo montage template.
-{{Photomontage| photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg| photo2a = Torredelorotyteatrolamaestranza.JPG| photo2b = Sevila10.JPG| photo3a = Alcaz archiv sev.jpg| photo3b = Real Alcazares Sevilla Spain.JPG| photo4a = Pont Triana.jpg| position = center}}
+{{Photomontage | photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg | photo2a = Torredelorotyteatrolamaestranza.JPG | photo2b = Sevila10.JPG | photo3a = Alcaz archiv sev.jpg | photo3b = Real Alcazares Sevilla Spain.JPG | photo4a = Pont Triana.jpg | position = center }}
 
 Case with wide photo montage ru template.
-{{Фотомонтаж| photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg| photo2a = Torredelorotyteatrolamaestranza.JPG| photo2b = Sevila10.JPG| photo3a = Alcaz archiv sev.jpg| photo3b = Real Alcazares Sevilla Spain.JPG| photo4a = Pont Triana.jpg}}
+{{Фотомонтаж | photo1a = Sevilla Plaza de España 19-03-2011 13-36-19.jpg | photo2a = Torredelorotyteatrolamaestranza.JPG | photo2b = Sevila10.JPG | photo3a = Alcaz archiv sev.jpg | photo3b = Real Alcazares Sevilla Spain.JPG | photo4a = Pont Triana.jpg }}
 
 Case with image frame template.
-{{Image frame  |Ширина = 200  |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]  |Заголовок = Пример использования  |Ссылка = Hello world  |Выравнивание = center}}
+{{Image frame   |Ширина = 200   |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]   |Заголовок = Пример использования   |Ссылка = Hello world   |Выравнивание = center}}
 
 Case with wide image frame ru template.
-{{Рамка в стиле миниатюры  |Ширина = 200  |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]  |Заголовок = Пример использования  |Ссылка = Hello world  |Выравнивание = center}}
+{{Рамка в стиле миниатюры   |Ширина = 200   |Содержание = [[Image:PNG transparency demonstration 1.png|100px]][[Image:White Stars 3.svg|100px]]   |Заголовок = Пример использования   |Ссылка = Hello world   |Выравнивание = center}}
 
 Case with sample template.
-{{Sample |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+{{Sample  |название=Ninjah Lab — Sobotni Dub  |файл=Sobotni Dub.ogg  |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с  |пояснения= }}
 
 Case with sample ru template.
-{{Музыкальный отрывок стиля |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+{{Музыкальный отрывок стиля  |название=Ninjah Lab — Sobotni Dub  |файл=Sobotni Dub.ogg  |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с  |пояснения= }}
 
 Case with sample ru2 template.
-{{Семпл |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+{{Семпл  |название=Ninjah Lab — Sobotni Dub  |файл=Sobotni Dub.ogg  |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с  |пояснения= }}
 
 Case with sample ru3 template.
-{{МузОС |название=Ninjah Lab — Sobotni Dub |файл=Sobotni Dub.ogg |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с |пояснения=}}
+{{МузОС  |название=Ninjah Lab — Sobotni Dub  |файл=Sobotni Dub.ogg  |формат=[[Ogg Vorbis]], 3 мин 30 с, 101 Кб/с  |пояснения= }}
 
 More text here.

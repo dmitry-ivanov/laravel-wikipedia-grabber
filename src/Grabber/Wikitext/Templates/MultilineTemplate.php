@@ -15,7 +15,7 @@ class MultilineTemplate
         $lines = preg_split("/\r\n|\n|\r/", $section->getBody());
         foreach ($lines as $line) {
             if ($isTemplateOpened) {
-                $flatten->push($flatten->pop() . $line);
+                $flatten->push($flatten->pop() . ' ' . $line);
                 $isTemplateOpened = !$this->isTemplateClosed($line);
             } else {
                 $flatten->push($line);
