@@ -285,7 +285,7 @@ class SectionsAddImages
 
     protected function isGrayTable($line)
     {
-        return preg_match('/^(\s*\|\s*)width(\s*)=/', $line) || preg_match('/^(\s*\|\s*)align(\s*)=/', $line);
+        return preg_match('/^(\s*\|\s*)width(\s*)=/i', $line) || preg_match('/^(\s*\|\s*)align(\s*)=/i', $line);
     }
 
     protected function freeUsedImages(array $usedImages)
