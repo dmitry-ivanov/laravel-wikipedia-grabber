@@ -7,6 +7,7 @@ use Illuminated\Wikipedia\Grabber\Component\GalleryValidator;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultilineTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
@@ -315,6 +316,7 @@ class SectionsAddImages
             $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
             $this->wikitextSections = $parser->sections();
             $this->wikitextSections->each(function (Section $section) {
+                $section->setBody((new MultilineFile)->flatten($section));
                 $section->setBody((new MultilineTemplate)->flatten($section));
             });
         }
