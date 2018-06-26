@@ -106,15 +106,15 @@ class SectionsAddImages
             || str_contains($wikitext, $fileWithUnderscores);
     }
 
-    protected function filterByExtensions($wikitextSection, array $images)
+    protected function filterByExtensions(Section $wikitextSection, array $images)
     {
-        return collect($images)->filter(function (array $image) use ($wikitextSection) {
-            if ($wikitextSection->isMain()) {
-                $title = mb_strtolower($image['title'], 'utf-8');
-                return ends_with($title, ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']);
-            }
+        if (!$wikitextSection->isMain()) {
+            return $images;
+        }
 
-            return true;
+        return collect($images)->filter(function (array $image) {
+            $title = mb_strtolower($image['title'], 'utf-8');
+            return ends_with($title, ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']);
         })->toArray();
     }
 
