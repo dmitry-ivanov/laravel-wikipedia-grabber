@@ -41,7 +41,7 @@ class MultilineFile
 
     protected function isFileClosed($line)
     {
-        $line = (new Wikitext($line))->plain();
+        $line = (new Wikitext($line))->removeLinks();
         return str_contains($line, ']]');
     }
 }
