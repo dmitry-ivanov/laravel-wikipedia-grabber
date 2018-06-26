@@ -135,8 +135,9 @@ class Image
     public function getTranscodedMp3Url()
     {
         $originalUrl = $this->getOriginalUrl();
+        $originalUrlLowercased = mb_strtolower($originalUrl, 'utf-8');
 
-        if (!$this->isAudio() || ends_with($originalUrl, 'mp3')) {
+        if (!$this->isAudio() || ends_with($originalUrlLowercased, 'mp3')) {
             return false;
         }
 
