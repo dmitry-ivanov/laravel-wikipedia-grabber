@@ -456,4 +456,95 @@ class WikitextImageTest extends TestCase
         $image = new WikitextImage('{{МузОС|название=«Lucky Star» (1984)|файл=Madonna-lucky star.ogg|формат=[[Ogg Vorbis]], 29 с, 62 Кб/с|пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas\'s Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).}}');
         $this->assertSame($image->getCaption(), 'Четвёртый сингл «Lucky Star» с дебютного альбома занял 4-е место в чарте Billboard Hot 100 и стал первым хитом Мадонны, попавшим в «первую пятёрку». Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «Borderline» в «первую десятку»).');
     }
+
+    /** @test */
+    public function it_has_is_icon_method_which_returns_false_for_wikitext_without_size()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_returns_false_for_string_size()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|Upright]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_returns_false_for_string_size_2()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|Upright=222]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_returns_false_for_images_with_size_more_than_50()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|51px]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_returns_true_for_images_with_size_equals_to_50()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|50px]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_returns_true_for_images_with_size_less_than_50()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|49px]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_with_height_sizes()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|x100px]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_with_height_sizes_2()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|x30px]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_with_dimension_sizes()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|100x30px]]');
+        $this->assertFalse($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_with_dimension_sizes_2()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|30x40px]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_for_ru_sizes()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|49пкс]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_for_ru_sizes_2()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|50пкс]]');
+        $this->assertTrue($image->isIcon());
+    }
+
+    /** @test */
+    public function and_it_works_for_ru_sizes_3()
+    {
+        $image = new WikitextImage('[[File:Name.jpg|thumb|left|51пкс]]');
+        $this->assertFalse($image->isIcon());
+    }
 }

@@ -24,6 +24,18 @@ class WikitextImage extends Wikitext
         $this->parse();
     }
 
+    public function isIcon()
+    {
+        $size = $this->getSize();
+        if (empty($size) || str_contains($size, 'upright') || !preg_match('/\d+/', $size, $matches)) {
+            return false;
+        }
+
+        $size = (int) head($matches);
+
+        return ($size <= 50);
+    }
+
     /**
      * @see https://www.mediawiki.org/wiki/Help:Images#Syntax
      * @see https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax
