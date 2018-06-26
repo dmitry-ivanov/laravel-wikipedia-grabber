@@ -1,0 +1,16 @@
+Some Text here.
+
+[[File:George W Bush approval ratings.svg|thumb|right|{{legend|#4A7EBB|approve}} {{legend|#BE4B48|disapprove}} {{legend|#98B954|unsure}} [[Gallup poll|Gallup]]/''[[USA Today]]'' Bush public opinion polling from February 2001 to January 2009]]
+
+[[File:Pushkin Alexander, 1831 by Sokolov P..jpg |left |thumb |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831) ]]
+
+[[File:Pushkin Alexander, 1831 by Sokolov P..jpg |left|thumb |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831)]]
+
+[[File:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831)]]
+
+[[File:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831) ]]
+
+Файл:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb
+|А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831)
+
+More text here.
