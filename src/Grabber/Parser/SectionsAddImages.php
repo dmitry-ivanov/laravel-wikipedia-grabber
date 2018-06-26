@@ -196,7 +196,7 @@ class SectionsAddImages
 
         $placeholder = '/!! IWG_TITLE !!/';
         $line = str_replace_first($openTag, $placeholder, $line);
-        $line = (new Wikitext($line))->plain();
+        $line = (new Wikitext($line))->removeLinks();
         $line = str_replace_first($placeholder, $openTag, $line);
 
         $title = preg_quote($title, '/');
