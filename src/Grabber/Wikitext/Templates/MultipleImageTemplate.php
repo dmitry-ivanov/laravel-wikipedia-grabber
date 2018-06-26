@@ -104,12 +104,12 @@ class MultipleImageTemplate
 
     protected function transformPosition($part)
     {
-        $part = str_replace_first('align=', '', $part);
-        $part = str_replace_first('pos=', '', $part);
-        $part = str_replace_first('float=', '', $part);
-        $part = str_replace_first('зона=', '', $part);
+        $lowercased = mb_strtolower($part, 'utf-8');
+        if (!preg_match('/^(align|pos|float|зона)=/', $lowercased)) {
+            return $part;
+        }
 
-        return $part;
+        return last(explode('=', $part));
     }
 
     protected function isSomeParameter($string)
