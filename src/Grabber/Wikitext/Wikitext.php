@@ -79,10 +79,11 @@ class Wikitext
 
             if ($isIgnored) {
                 $replace = '';
-            } elseif ($isSpace) {
+            } else if ($isSpace) {
                 $replace = ' ';
             } else {
                 $replace = last(explode('|', $templateBody));
+                $replace = " {$replace}";
             }
 
             $body = str_replace_first($template, $replace, $body);
