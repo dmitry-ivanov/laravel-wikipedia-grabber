@@ -1404,4 +1404,22 @@ return [
             ],
         ],
     ],
+    78 => [
+        'ns' => 6,
+        'title' => 'Файл:George W Bush approval ratings.svg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/Thumb George W Bush approval ratings.svg',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/George W Bush approval ratings.svg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/Файл:George W Bush approval ratings.svg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/svg',
+            ],
+        ],
+    ],
 ];
