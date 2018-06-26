@@ -3,6 +3,7 @@
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminate\Support\Collection;
+use Illuminated\Wikipedia\Grabber\Component\GalleryValidator;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
@@ -132,23 +133,17 @@ class SectionsAddImages
 
     protected function createObjects(Section $wikitextSection, array $images)
     {
-        $objects = ['all' => collect(), 'images' => collect(), 'gallery' => collect()];
+        $objects = ['gallery' => collect(), 'images' => collect()];
 
         foreach ($images as $image) {
             $wikitext = $this->getImageWikitext($wikitextSection, $image);
-            $object = $this->createObject($wikitext, $image);
-
             $collection = $this->isGalleryImage($wikitext) ? $objects['gallery'] : $objects['images'];
-            $collection->push($object);
-
-            $objects['all']->push($object);
+            $collection->push($this->createObject($wikitext, $image));
         }
 
-        $minCount = 4;
-        if ($objects['gallery']->count() < $minCount) {
-            $objects['gallery'] = collect();
-            $objects['images'] = $objects['all'];
-        }
+        $validated = (new GalleryValidator($objects['gallery']))->validate();
+        $objects['gallery'] = $validated['gallery'];
+        $objects['images'] = $objects['images']->merge($validated['not_gallery']);
 
         return $objects;
     }
