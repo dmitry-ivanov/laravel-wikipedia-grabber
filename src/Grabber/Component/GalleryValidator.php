@@ -8,24 +8,24 @@ class GalleryValidator
 {
     public function validate(Collection $gallery)
     {
-        $validated = ['gallery' => $gallery, 'not_gallery' => collect()];
+        $pure = ['gallery' => $gallery, 'not_gallery' => collect()];
 
         $byTypes = $this->byTypes($gallery);
         $main = $this->getMainType($byTypes);
 
-        $validated['gallery'] = $byTypes[$main];
+        $pure['gallery'] = $byTypes[$main];
         foreach ($byTypes as $type => $collection) {
             if ($type != $main) {
-                $validated['not_gallery'] = $validated['not_gallery']->merge($collection);
+                $pure['not_gallery'] = $pure['not_gallery']->merge($collection);
             }
         }
 
-        if ($validated['gallery']->count() < 4) {
-            $validated['gallery'] = collect();
-            $validated['not_gallery'] = $gallery;
+        if ($pure['gallery']->count() < 4) {
+            $pure['gallery'] = collect();
+            $pure['not_gallery'] = $gallery;
         }
 
-        return $validated;
+        return $pure;
     }
 
     protected function byTypes(Collection $images)
