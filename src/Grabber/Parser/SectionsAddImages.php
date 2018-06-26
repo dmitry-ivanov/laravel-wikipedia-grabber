@@ -220,7 +220,7 @@ class SectionsAddImages
                 $wikitext = $this->forceGalleryDisplaying($wikitext);
             }
 
-            return $wikitext;
+            $line = $wikitext;
         }
 
         return $line;
