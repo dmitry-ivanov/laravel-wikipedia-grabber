@@ -23,20 +23,6 @@
 |group="~"}}.
 
 [[Файл:Aquote2.png|thumb|right]]
-[[Файл:Another-Main-Section-Image.jpg|thumb|left|Another image with almost the same name.]]
-[[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here with single quote ' and also double quote ".]] Some text at the same line [[here]].
-
-{{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}}
-{{Listen
- | Имя_файла = Филипп_Киркоров_-_Атлантида.oga
- | Название = Отрывок из песни "Атлантида"
-}}
-{{Музыкальный отрывок стиля
- |название=«Lucky Star» (1984)
- |файл=Madonna-lucky star.ogg
- |формат=[[Ogg Vorbis]], 29 с, 62 Кб/с
- |пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas's Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).
-}}
 
 == Биография ==
 
@@ -115,6 +101,21 @@ File:Video-Gallery-5.webm|thumb|start=07:19|Video Gallery 5 Description
 }}</ref>.
 
 === На юге (1820—1824) ===
+[[Файл:Another-Main-Section-Image.jpg|thumb|left|Another image with almost the same name.]]
+[[Файл:Main-Section-Image.jpg|thumb|left|Image Caption with [[Link]]. More '''formatted''' text here with single quote ' and also double quote ".]] Some text at the same line [[here]].
+
+{{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}}
+{{Listen
+ | Имя_файла = Филипп_Киркоров_-_Атлантида.oga
+ | Название = Отрывок из песни "Атлантида"
+}}
+{{Музыкальный отрывок стиля
+ |название=«Lucky Star» (1984)
+ |файл=Madonna-lucky star.ogg
+ |формат=[[Ogg Vorbis]], 29 с, 62 Кб/с
+ |пояснения=Четвёртый сингл «[[Lucky Star (песня Мадонны)|Lucky Star]]» с дебютного альбома занял 4-е место в чарте [[Billboard Hot 100]] и стал первым хитом Мадонны, попавшим в «первую пятёрку»{{cite web|url=http://www.billboard.com/music/madonna/chart-history/hot-100/song/333472|title=Madonna Chart History - Lucky Star - Hot 100|publisher=Billboard|lang=en|accessdate=2017-10-07}}. Этот сингл был издан повторно в том же 1984 году после попадания пятого сингла «[[Borderline (песня Мадонны)|Borderline]]» в «первую десятку»{{cite web|url=http://reggielucas.com/index.php/awards|title=Hits, Awards and Milestones in Reggie Lucas's Career|lang=en|publisher=Reggielucal.com|accessdate=2017-12-05}}{{cite news|title = The Ultimate Ranking Of Pop Stardom|url = http://time.com/music-ranking|website = Time|accessdate=March 10, 2016|lang=en}}).
+}}
+
 Весной [[1820 год]]а Пушкина вызвали к военному [[генерал-губернатор]]у [[Петербург]]а графу [[Милорадович, Михаил Андреевич|М. А. Милорадовичу]] для объяснения по поводу содержания его стихотворений (в том числе эпиграмм на [[Эпиграммы Пушкина на Аракчеева|Аракчеева]], [[Фотий (Спасский)|архимандрита Фотия]] и самого Александра I), несовместимых со статусом государственного чиновника. Шла речь о его высылке в Сибирь или заточении в Соловецкий монастырь. Лишь благодаря хлопотам друзей, прежде всего [[Карамзин, Николай Михайлович|Карамзина]], удалось добиться смягчения наказания. Его перевели из столицы на юг в [[кишинёв]]скую канцелярию [[Инзов, Иван Никитич|И. Н. Инзова]]{{sfn|Лотман|1995|с=55—56}}.
 
 По пути к новому месту службы Александр Сергеевич заболевает [[Воспаление лёгких|воспалением лёгких]], искупавшись в [[Днепр]]е. Для поправления здоровья [[Раевские]] вывозят в конце мая [[1820 год]]а больного поэта с собой на [[Кавказ]] и в [[Крым]]{{sfn|Лотман|1995|с=60}}.
