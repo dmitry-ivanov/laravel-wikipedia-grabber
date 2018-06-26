@@ -104,7 +104,7 @@ class Image
 
     public function isAudio()
     {
-        $originalUrl = $this->getOriginalUrl();
+        $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
         if (ends_with($originalUrl, ['oga', 'mp3', 'wav'])) {
             return true;
@@ -119,7 +119,7 @@ class Image
 
     public function isVideo()
     {
-        $originalUrl = $this->getOriginalUrl();
+        $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
         if (ends_with($originalUrl, ['ogv', 'mp4', 'webm'])) {
             return true;
