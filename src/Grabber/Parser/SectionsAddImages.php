@@ -137,8 +137,13 @@ class SectionsAddImages
 
         foreach ($images as $image) {
             $wikitext = $this->getImageWikitext($wikitextSection, $image);
+            $object = $this->createObject($wikitext, $image);
+            if (empty($object)) {
+                continue;
+            }
+
             $collection = $this->isGalleryImage($wikitext) ? $objects['gallery'] : $objects['images'];
-            $collection->push($this->createObject($wikitext, $image));
+            $collection->push($object);
         }
 
         if ($objects['gallery']->isNotEmpty()) {
@@ -163,6 +168,10 @@ class SectionsAddImages
         $image = new WikitextImage($imageWikitext);
         $position = $image->getLocation();
         $description = $image->getDescription();
+
+        if ($image->isIcon()) {
+            return false;
+        }
 
         return new Image($url, $width, $height, $originalUrl, $position, $description, $mime);
     }
