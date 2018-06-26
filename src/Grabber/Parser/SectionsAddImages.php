@@ -113,8 +113,10 @@ class SectionsAddImages
         }
 
         return collect($images)->filter(function (array $image) {
-            $title = mb_strtolower($image['title'], 'utf-8');
-            return ends_with($title, ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']);
+            return ends_with(
+                mb_strtolower($image['title'], 'utf-8'),
+                ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']
+            );
         })->toArray();
     }
 
