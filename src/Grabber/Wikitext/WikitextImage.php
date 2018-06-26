@@ -73,7 +73,7 @@ class WikitextImage extends Wikitext
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
             'image frame', 'рамка в стиле миниатюры',
-            'listen', 'audio', 'pronunciation',
+            'listen', 'spoken', 'audio', 'pronunciation',
             'sample', 'музыкальный отрывок стиля', 'семпл', 'музос',
         ])->map(function ($template) {
             return "{{{$template}";

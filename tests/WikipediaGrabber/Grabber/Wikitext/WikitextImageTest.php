@@ -406,6 +406,16 @@ class WikitextImageTest extends TestCase
     }
 
     /** @test */
+    public function it_can_parse_template_spoken_wikipedia_wikitext()
+    {
+        $image = new WikitextImage(
+            '{{Spoken Wikipedia|Bill Clinton (spoken article).ogg|2012-06-04}}'
+        );
+
+        $this->assertSame($image->getCaption(), '2012-06-04');
+    }
+
+    /** @test */
     public function it_can_parse_template_audio_wikitext()
     {
         $image = new WikitextImage('{{Audio|en-us-Alabama.ogg|pronunciation of "Alabama"|help=no}}');
