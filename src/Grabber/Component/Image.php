@@ -111,7 +111,7 @@ class Image
         }
 
         if (ends_with($originalUrl, 'ogg')) {
-            return !str_contains($this->getMime(), 'video');
+            return (bool) !preg_match('/video/i', $this->getMime());
         }
 
         return false;
@@ -126,7 +126,7 @@ class Image
         }
 
         if (ends_with($originalUrl, 'ogg')) {
-            return str_contains($this->getMime(), 'video');
+            return (bool) preg_match('/video/i', $this->getMime());
         }
 
         return false;
