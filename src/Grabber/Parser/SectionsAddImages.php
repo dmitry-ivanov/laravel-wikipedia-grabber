@@ -32,9 +32,7 @@ class SectionsAddImages
 
         $this->wikitext = $imagesResponseData['wikitext'];
         $this->mainImage = $imagesResponseData['main_image'];
-        $this->images = $this->skipMainImage(
-            $this->getUsedImages($this->wikitext, $imagesResponseData['images'])
-        );
+        $this->images = $this->imagesFromResponse($imagesResponseData['images']);
     }
 
     public function filter()
@@ -78,16 +76,28 @@ class SectionsAddImages
         return empty($this->mainImage) && empty($this->images);
     }
 
-    protected function skipMainImage(array $images)
+    protected function imagesFromResponse(array $imagesFromResponse)
     {
-        return collect($images)->filter(function (array $image) {
-            return !$this->isMainImage($image);
+        $images = $this->getUsedImages($this->wikitext, $imagesFromResponse);
+        $images = $this->skipMainImage($images);
+        $images = $this->normalizeImages($images);
+
+        return $images;
+    }
+
+    protected function normalizeImages(array $images)
+    {
+        return collect($images)->map(function ($image) {
+            $image['title'] = (new LocaleFile)->normalize($image['title']);
+            return $image;
         })->toArray();
     }
 
-    protected function isMainImage(array $image)
+    protected function skipMainImage(array $images)
     {
-        return (array_get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
+        return collect($images)->filter(function (array $image) {
+            return !(array_get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
+        })->toArray();
     }
 
     protected function getUsedImages($wikitext, array $images)
@@ -185,8 +195,6 @@ class SectionsAddImages
     {
         $title = $image['title'];
         $file = last(explode(':', $title));
-
-        $title = str_replace('Файл:', 'File:', $title); ////////////////////////////////////////////////////////////////
 
         $line = $this->getImageWikitextLine($wikitextSection->getBody(), $title, $file);
 
