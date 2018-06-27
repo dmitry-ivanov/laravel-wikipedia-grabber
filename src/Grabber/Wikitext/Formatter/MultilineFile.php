@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
+namespace Illuminated\Wikipedia\Grabber\Wikitext\Formatter;
 
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
