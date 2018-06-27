@@ -316,13 +316,22 @@ class SectionsAddImages
             $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
             $this->wikitextSections = $parser->sections();
             $this->wikitextSections->each(function (Section $section) {
-                $section->setBody((new LocaleFile)->normalize($section));
-                $section->setBody((new MultilineFile)->flatten($section));
-                $section->setBody((new MultilineTemplate)->flatten($section));
+                $this->normalize($section);
             });
         }
 
         return $this->wikitextSections;
+    }
+
+    protected function normalize(Section $section)
+    {
+        $body = $section->getBody();
+
+        $body = (new LocaleFile)->normalize($body);
+        $body = (new MultilineFile)->flatten($body);
+        $body = (new MultilineTemplate)->flatten($body);
+
+        $section->setBody($body);
     }
 
     protected function getMainSection()

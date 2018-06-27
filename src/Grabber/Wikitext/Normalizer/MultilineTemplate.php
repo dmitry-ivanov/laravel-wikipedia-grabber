@@ -2,17 +2,16 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Normalizer;
 
-use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineTemplate
 {
-    public function flatten(Section $section)
+    public function flatten($wikitext)
     {
         $flatten = collect();
 
         $isTemplateOpened = false;
-        $lines = preg_split("/\r\n|\n|\r/", $section->getBody());
+        $lines = preg_split("/\r\n|\n|\r/", $wikitext);
         foreach ($lines as $line) {
             if ($isTemplateOpened) {
                 $flatten->push($flatten->pop() . ' ' . $line);
