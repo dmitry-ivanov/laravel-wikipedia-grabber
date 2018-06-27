@@ -11,10 +11,8 @@ class MultilineFile
     {
         $flatten = collect();
 
-        $body = str_replace('[[Файл:', '[[File:', $section->getBody());
-
         $isFileOpened = false;
-        $lines = preg_split("/\r\n|\n|\r/", $body);
+        $lines = preg_split("/\r\n|\n|\r/", $section->getBody());
         foreach ($lines as $line) {
             if ($isFileOpened) {
                 $flatten->push($flatten->pop() . ' ' . $line);
