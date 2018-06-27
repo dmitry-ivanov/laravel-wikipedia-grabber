@@ -3,9 +3,9 @@
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminate\Support\Collection;
-use Illuminated\Wikipedia\Grabber\Component\GalleryValidator;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
+use Illuminated\Wikipedia\Grabber\Component\SectionGalleryValidator;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultilineTemplate;
@@ -151,7 +151,7 @@ class SectionsAddImages
         }
 
         if ($objects['gallery']->isNotEmpty()) {
-            $pure = (new GalleryValidator)->validate($objects['gallery']);
+            $pure = (new SectionGalleryValidator)->validate($objects['gallery']);
             $objects['gallery'] = $pure['gallery'];
             $objects['images'] = $objects['images']->merge($pure['not_gallery']);
         }

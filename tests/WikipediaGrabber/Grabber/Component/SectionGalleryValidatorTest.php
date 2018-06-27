@@ -2,11 +2,11 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Component;
 
-use Illuminated\Wikipedia\Grabber\Component\GalleryValidator;
 use Illuminated\Wikipedia\Grabber\Component\Image;
+use Illuminated\Wikipedia\Grabber\Component\SectionGalleryValidator;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 
-class GalleryValidatorTest extends TestCase
+class SectionGalleryValidatorTest extends TestCase
 {
     /** @test */
     public function it_has_validate_method_which_checks_min_items_count_for_gallery()
@@ -19,7 +19,7 @@ class GalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => collect(), 'not_gallery' => $collection],
-            (new GalleryValidator)->validate($collection)
+            (new SectionGalleryValidator)->validate($collection)
         );
     }
 
@@ -35,7 +35,7 @@ class GalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $collection, 'not_gallery' => collect()],
-            (new GalleryValidator)->validate($collection)
+            (new SectionGalleryValidator)->validate($collection)
         );
     }
 
@@ -51,7 +51,7 @@ class GalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => collect(), 'not_gallery' => $collection],
-            (new GalleryValidator)->validate($collection)
+            (new SectionGalleryValidator)->validate($collection)
         );
     }
 
@@ -81,7 +81,7 @@ class GalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $video, 'not_gallery' => $audio->merge($images)],
-            (new GalleryValidator)->validate($collection)
+            (new SectionGalleryValidator)->validate($collection)
         );
     }
 
@@ -114,7 +114,7 @@ class GalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $audio, 'not_gallery' => $video->merge($images)],
-            (new GalleryValidator)->validate($collection)
+            (new SectionGalleryValidator)->validate($collection)
         );
     }
 }
