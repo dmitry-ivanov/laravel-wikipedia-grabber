@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Component;
+namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Component\Section;
 
 use Illuminated\Wikipedia\Grabber\Component\Image;
-use Illuminated\Wikipedia\Grabber\Component\SectionGalleryValidator;
+use Illuminated\Wikipedia\Grabber\Component\Section\GalleryValidator;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 
-class SectionGalleryValidatorTest extends TestCase
+class GalleryValidatorTest extends TestCase
 {
     /** @test */
     public function it_has_validate_method_which_checks_min_items_count_for_gallery()
@@ -19,7 +19,7 @@ class SectionGalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => collect(), 'not_gallery' => $collection],
-            (new SectionGalleryValidator)->validate($collection)
+            (new GalleryValidator)->validate($collection)
         );
     }
 
@@ -35,7 +35,7 @@ class SectionGalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $collection, 'not_gallery' => collect()],
-            (new SectionGalleryValidator)->validate($collection)
+            (new GalleryValidator)->validate($collection)
         );
     }
 
@@ -51,7 +51,7 @@ class SectionGalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => collect(), 'not_gallery' => $collection],
-            (new SectionGalleryValidator)->validate($collection)
+            (new GalleryValidator)->validate($collection)
         );
     }
 
@@ -81,7 +81,7 @@ class SectionGalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $video, 'not_gallery' => $audio->merge($images)],
-            (new SectionGalleryValidator)->validate($collection)
+            (new GalleryValidator)->validate($collection)
         );
     }
 
@@ -114,7 +114,7 @@ class SectionGalleryValidatorTest extends TestCase
 
         $this->assertEquals(
             ['gallery' => $audio, 'not_gallery' => $video->merge($images)],
-            (new SectionGalleryValidator)->validate($collection)
+            (new GalleryValidator)->validate($collection)
         );
     }
 }

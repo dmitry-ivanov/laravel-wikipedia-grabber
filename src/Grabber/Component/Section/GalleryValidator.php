@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Component;
+namespace Illuminated\Wikipedia\Grabber\Component\Section;
 
 use Illuminate\Support\Collection;
 
-class SectionGalleryValidator
+class GalleryValidator
 {
     public function validate(Collection $gallery)
     {
