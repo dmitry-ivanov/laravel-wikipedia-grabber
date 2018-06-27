@@ -10,7 +10,7 @@ Some Text here.
 
 [[File:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831) ]]
 
-Файл:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb
+File:Pushkin Alexander, 1831 by Sokolov P..jpg|left|thumb
 |А. С. Пушкин. Портрет работы [[Соколов, Пётр Фёдорович|П. Ф. Соколова]] (1831)
 
 More text here.
