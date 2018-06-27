@@ -85,11 +85,11 @@ class SectionsAddImages
         return $images;
     }
 
-    protected function normalizeImages(array $images)
+    protected function getUsedImages($wikitext, array $images)
     {
-        return collect($images)->map(function ($image) {
-            $image['title'] = (new LocaleFile)->normalize($image['title']);
-            return $image;
+        return collect($images)->filter(function (array $image) use ($wikitext) {
+            $file = last(explode(':', $image['title']));
+            return $this->isFileUsed($wikitext, $file);
         })->toArray();
     }
 
@@ -100,11 +100,11 @@ class SectionsAddImages
         })->toArray();
     }
 
-    protected function getUsedImages($wikitext, array $images)
+    protected function normalizeImages(array $images)
     {
-        return collect($images)->filter(function (array $image) use ($wikitext) {
-            $file = last(explode(':', $image['title']));
-            return $this->isFileUsed($wikitext, $file);
+        return collect($images)->map(function ($image) {
+            $image['title'] = (new LocaleFile)->normalize($image['title']);
+            return $image;
         })->toArray();
     }
 
