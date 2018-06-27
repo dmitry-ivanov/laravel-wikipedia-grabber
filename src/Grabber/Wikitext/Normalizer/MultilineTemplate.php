@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Wikitext\Formatter;
+namespace Illuminated\Wikipedia\Grabber\Wikitext\Normalizer;
 
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;

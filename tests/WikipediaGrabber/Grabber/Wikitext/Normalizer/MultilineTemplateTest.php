@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Wikitext\Formatter;
+namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Wikitext\Normalizer;
 
 use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Wikitext\Formatter\MultilineTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 
 class MultilineTemplateTest extends TestCase
