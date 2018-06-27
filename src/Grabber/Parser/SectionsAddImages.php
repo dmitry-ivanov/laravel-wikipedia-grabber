@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Component\SectionGalleryValidator;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
@@ -185,8 +186,7 @@ class SectionsAddImages
         $title = $image['title'];
         $file = last(explode(':', $title));
 
-        $title = str_replace('Файл:', 'File:', $title);
-        $wikitextSection->setBody(str_replace('Файл:', 'File:', $wikitextSection->getBody()));
+        $title = str_replace('Файл:', 'File:', $title); ////////////////////////////////////////////////////////////////
 
         $line = $this->getImageWikitextLine($wikitextSection->getBody(), $title, $file);
 
@@ -316,6 +316,7 @@ class SectionsAddImages
             $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
             $this->wikitextSections = $parser->sections();
             $this->wikitextSections->each(function (Section $section) {
+                $section->setBody((new LocaleFile)->normalize($section));
                 $section->setBody((new MultilineFile)->flatten($section));
                 $section->setBody((new MultilineTemplate)->flatten($section));
             });
