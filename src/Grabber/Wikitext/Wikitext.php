@@ -50,7 +50,15 @@ class Wikitext
         }
 
         $body = str_replace($placeholder, '[[File:', $body);
-        $body = preg_replace('/\[\[File:.*?\]\]/', '', $body);
+        preg_match_all('/\[\[File:.*?\]\]/', $body, $matches, PREG_SET_ORDER);
+        foreach ($matches as $match) {
+            $file = $match[0];
+            if (str_contains($file, '/!! IWG_')) {
+                continue;
+            }
+
+            $body = str_replace_first($file, '', $body);
+        }
 
         return $body;
     }

@@ -116,6 +116,15 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function which_works_with_mixed_links_and_few_file_blocks_inside()
+    {
+        $this->assertEquals(
+            'This is Link1, and this is  file skipped  twice, and Link3',
+            (new Wikitext('This is [[Super Link|Link1]], and this is [[File:Test.jpg|thumb|Alt=Some [[Link]] in alt!]] file skipped [[File:Test2.jpg|thumb|Alt=Some [[Link2]] in alt2!]] twice, and [[Link3]]'))->removeLinks()
+        );
+    }
+
+    /** @test */
     public function it_can_remove_templates_from_wikitext()
     {
         $this->assertEquals(
