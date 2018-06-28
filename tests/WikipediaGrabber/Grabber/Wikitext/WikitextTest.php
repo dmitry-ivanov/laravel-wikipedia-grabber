@@ -98,6 +98,24 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function which_works_with_file_blocks_inside()
+    {
+        $this->assertEquals(
+            'Wikitext with  File block!',
+            (new Wikitext('Wikitext with [[File:Test.jpg|thumb|Simple File]] File block!'))->removeLinks()
+        );
+    }
+
+    /** @test */
+    public function which_works_with_mixed_links_and_file_blocks_inside()
+    {
+        $this->assertEquals(
+            'This is Link1, and this is  file skipped, and Link3',
+            (new Wikitext('This is [[Super Link|Link1]], and this is [[File:Test.jpg|thumb|Alt=Some [[Link]] in alt!]] file skipped, and [[Link3]]'))->removeLinks()
+        );
+    }
+
+    /** @test */
     public function it_can_remove_templates_from_wikitext()
     {
         $this->assertEquals(
