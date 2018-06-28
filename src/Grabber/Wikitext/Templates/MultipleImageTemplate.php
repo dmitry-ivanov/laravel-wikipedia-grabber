@@ -31,6 +31,12 @@ class MultipleImageTemplate
                 continue;
             }
 
+            $lowercased = mb_strtolower($part, 'utf-8');
+            $params = ['filename=', 'title=', 'description=', 'название=', 'описание=', 'имя_файла='];
+            if (($index > 1) && starts_with($lowercased, $params)) {
+                continue;
+            }
+
             $part = $this->removeIndex($part, $index);
             $part = $this->transformPosition($part);
             if (empty($part)) {

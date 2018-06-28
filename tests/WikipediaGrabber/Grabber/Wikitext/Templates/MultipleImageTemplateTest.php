@@ -81,12 +81,12 @@ class MultipleImageTemplateTest extends TestCase
         );
 
         $this->assertEquals(
-            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Moonlight.ogg|title=Moonlight Sonata|description=Beethoven\'s Sonata in C-sharp minor}}',
+            "{{Listen|type=music|right|filename=Moonlight.ogg|title=Moonlight Sonata|description=Beethoven's Sonata in C-sharp minor}}",
             (new MultipleImageTemplate($line))->extract('Moonlight.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename=Brahms-waltz15.ogg|title=Waltz No. 15|description=From Sixteen Waltzes, Op. 39 by Brahms}}',
+            '{{Listen|type=music|right|filename=Brahms-waltz15.ogg|title=Waltz No. 15|description=From Sixteen Waltzes, Op. 39 by Brahms}}',
             (new MultipleImageTemplate($line))->extract('Brahms-waltz15.ogg')
         );
     }
