@@ -33,10 +33,6 @@ class MultipleImageTemplate
                 continue;
             }
 
-            if ($this->isListen && $this->isNotIndexed($part) && ($index > 1)) {
-                continue;
-            }
-
             $part = $this->removeIndex($part, $index);
             $part = $this->transformPosition($part);
             if (empty($part)) {
@@ -49,6 +45,11 @@ class MultipleImageTemplate
         return "{{{$result->implode('|')}}}";
     }
 
+    protected function isListen()
+    {
+        return starts_with(mb_strtolower($this->body, 'utf-8'), '{{listen');
+    }
+
     protected function explode()
     {
         $body = $this->body;
@@ -58,20 +59,6 @@ class MultipleImageTemplate
         $body = (new Wikitext($body))->plain();
 
         return array_map('trim', explode('|', $body));
-    }
-
-    protected function isListen()
-    {
-        return starts_with(mb_strtolower($this->body, 'utf-8'), '{{listen');
-    }
-
-    protected function isNotIndexed($part)
-    {
-        $part = mb_strtolower($part, 'utf-8');
-
-        return preg_match('/^filename(\s*)=(.+?)/', $part) || preg_match('/^имя_файла(\s*)=(.+?)/', $part)
-            || preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part)
-            || preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
     protected function getIndex(array $parts, $file)
@@ -107,7 +94,20 @@ class MultipleImageTemplate
             return true;
         }
 
+        if ($this->isListen && $this->isNotIndexed($part) && ($index > 1)) {
+            return false;
+        }
+
         return preg_match("/[^\d\s]+({$index}){0,1}(\s*?)=/", $part);
+    }
+
+    protected function isNotIndexed($part)
+    {
+        $part = mb_strtolower($part, 'utf-8');
+
+        return preg_match('/^filename(\s*)=(.+?)/', $part) || preg_match('/^имя_файла(\s*)=(.+?)/', $part)
+            || preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part)
+            || preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
     protected function removeIndex($part, $index)
