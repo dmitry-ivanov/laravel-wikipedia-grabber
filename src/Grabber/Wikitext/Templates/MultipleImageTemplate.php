@@ -14,10 +14,12 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 class MultipleImageTemplate
 {
     protected $body;
+    protected $isListen;
 
     public function __construct($body)
     {
         $this->body = $body;
+        $this->isListen = $this->isListen();
     }
 
     public function extract($file)
@@ -31,7 +33,7 @@ class MultipleImageTemplate
                 continue;
             }
 
-            if ($this->isListen() && $this->isNotIndexed($part) && ($index > 1)) {
+            if ($this->isListen && $this->isNotIndexed($part) && ($index > 1)) {
                 continue;
             }
 
