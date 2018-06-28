@@ -1422,4 +1422,40 @@ return [
             ],
         ],
     ],
+    79 => [
+        'ns' => 6,
+        'title' => 'Файл:CHopin SIgnature.svg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/CHopin SIgnature.svg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/Файл:CHopin SIgnature.svg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/svg',
+            ],
+        ],
+    ],
+    80 => [
+        'ns' => 6,
+        'title' => 'Файл:Frederic Chopin photo.jpeg',
+        'missing' => true,
+        'known' => true,
+        'imagerepository' => 'shared',
+        'imageinfo' => [
+            0 => [
+                'thumburl' => 'http://via.placeholder.com/300x280',
+                'thumbwidth' => 300,
+                'thumbheight' => 280,
+                'url' => 'http://via.placeholder.com/Frederic Chopin photo.jpeg',
+                'descriptionurl' => 'https://commons.wikimedia.org/wiki/Файл:Frederic Chopin photo.jpeg',
+                'descriptionshorturl' => 'https://commons.wikimedia.org/w/index.php?curid=14207961',
+                'mime' => 'image/jpg',
+            ],
+        ],
+    ],
 ];
