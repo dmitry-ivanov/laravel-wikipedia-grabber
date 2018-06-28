@@ -39,15 +39,18 @@ class Wikitext
     {
         $body = $body ?? $this->body;
 
-        if (!preg_match_all('/\[\[(.*?)\]\]/', $body, $matches, PREG_SET_ORDER)) {
-            return $body;
-        }
+        $placeholder = '/!! IWG_FILE_IN_FILE !!/';
+        $body = str_replace('[[File:', $placeholder, $body);
 
+        preg_match_all('/\[\[(.*?)\]\]/', $body, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             $link = $match[0];
             $title = last(explode('|', $match[1]));
             $body = str_replace_first($link, $title, $body);
         }
+
+        $body = str_replace($placeholder, '[[File:', $body);
+        $body = preg_replace('/\[\[File:.*?\]\]/', '', $body);
 
         return $body;
     }
