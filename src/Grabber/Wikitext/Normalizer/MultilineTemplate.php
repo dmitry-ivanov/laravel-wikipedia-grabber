@@ -44,7 +44,7 @@ class MultilineTemplate
                 continue;
             }
 
-            $line = str_replace("{{{$template}", '/!! IWG_TEMPLATE !!/', $line);
+            $line = str_replace("{{{$template}", '/!! IWG_MULTILINE_TEMPLATE !!/', $line);
 
             return !$this->isTemplateClosed($line);
         }

@@ -215,7 +215,7 @@ class SectionsAddImages
             return $line;
         }
 
-        $placeholder = '/!! IWG_TITLE !!/';
+        $placeholder = '/!! IWG_FILE_TITLE !!/';
         $line = str_replace_first($openTag, $placeholder, $line);
         $line = (new Wikitext($line))->removeLinks();
         $line = str_replace_first($placeholder, $openTag, $line);
