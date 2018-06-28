@@ -73,20 +73,20 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_listen_template()
     {
-        $line = "{{Listen | type = music | pos = right | filename = Accordion chords-01.ogg | title = Accordion chords | description = Chords being played on an accordion | filename2 = Moonlight.ogg | title2 = ''Moonlight Sonata'' | description2 = [[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]] | filename3 = Brahms-waltz15.ogg | title3 = Waltz No. 15 | description3 = From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
+        $line = "{{Listen | type = music | pos = right | Filename = Accordion chords-01.ogg | Title = Accordion chords | Description = Chords being played on an accordion | Filename2 = Moonlight.ogg | Title2 = ''Moonlight Sonata'' | Description2 = [[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]] | Filename3 = Brahms-waltz15.ogg | Title3 = Waltz No. 15 | Description3 = From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
 
         $this->assertEquals(
-            '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion}}',
+            '{{Listen|type=music|right|Filename=Accordion chords-01.ogg|Title=Accordion chords|Description=Chords being played on an accordion}}',
             (new MultipleImageTemplate($line))->extract('Accordion chords-01.ogg')
         );
 
         $this->assertEquals(
-            "{{Listen|type=music|right|filename=Moonlight.ogg|title=Moonlight Sonata|description=Beethoven's Sonata in C-sharp minor}}",
+            "{{Listen|type=music|right|Filename=Moonlight.ogg|Title=Moonlight Sonata|Description=Beethoven's Sonata in C-sharp minor}}",
             (new MultipleImageTemplate($line))->extract('Moonlight.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|type=music|right|filename=Brahms-waltz15.ogg|title=Waltz No. 15|description=From Sixteen Waltzes, Op. 39 by Brahms}}',
+            '{{Listen|type=music|right|Filename=Brahms-waltz15.ogg|Title=Waltz No. 15|Description=From Sixteen Waltzes, Op. 39 by Brahms}}',
             (new MultipleImageTemplate($line))->extract('Brahms-waltz15.ogg')
         );
     }
@@ -94,11 +94,21 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_listen_ru_template()
     {
-        $line = '{{Listen | Имя_файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]]}}';
+        $line = '{{Listen | Имя_файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]] | Имя_файла2 = File2.ogg| Название2 = Файл 2| Описание2 = Описание 2 | Имя_файла3 = File3.ogg| Название3 = Файл 3| Описание3 = Описание 3}}';
 
         $this->assertEquals(
             '{{Listen|Имя_файла=Russian Anthem chorus.ogg|left|Название=Гимн России|Описание=Гимн России}}',
             (new MultipleImageTemplate($line))->extract('Russian Anthem chorus.ogg')
+        );
+
+        $this->assertEquals(
+            '{{Listen|left|Имя_файла=File2.ogg|Название=Файл 2|Описание=Описание 2}}',
+            (new MultipleImageTemplate($line))->extract('File2.ogg')
+        );
+
+        $this->assertEquals(
+            '{{Listen|left|Имя_файла=File3.ogg|Название=Файл 3|Описание=Описание 3}}',
+            (new MultipleImageTemplate($line))->extract('File3.ogg')
         );
     }
 }
