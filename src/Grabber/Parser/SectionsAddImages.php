@@ -266,18 +266,18 @@ class SectionsAddImages
 
     protected function isDoubleImageTemplate($line)
     {
-        $line = mb_strtolower($line, 'utf-8');
-
-        return starts_with($line, ['{{double image', '{{сдвоенное изображение'])
-            && ends_with($line, '}}');
+        return starts_with(
+            mb_strtolower($line, 'utf-8'),
+            ['{{double image', '{{сдвоенное изображение']
+        );
     }
 
     protected function isMultipleImageTemplate($line)
     {
-        $line = mb_strtolower($line, 'utf-8');
-
-        return starts_with($line, ['{{multiple image', '{{кратное изображение', '{{фотоколонка', '{{listen'])
-            && ends_with($line, '}}');
+        return starts_with(
+            mb_strtolower($line, 'utf-8'),
+            ['{{multiple image', '{{кратное изображение', '{{фотоколонка', '{{listen']
+        );
     }
 
     protected function isAudioTemplate($line, array $image, &$matches)
