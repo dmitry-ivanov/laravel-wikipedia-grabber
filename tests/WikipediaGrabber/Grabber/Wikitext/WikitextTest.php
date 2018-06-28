@@ -125,6 +125,24 @@ class WikitextTest extends TestCase
     }
 
     /** @test */
+    public function which_works_with_file_in_file_cases()
+    {
+        $this->assertEquals(
+            '/!! IWG_TITLE !!/|thumb|File with Link and  File Block!]]',
+            (new Wikitext('/!! IWG_TITLE !!/|thumb|File with [[Link]] and [[File:Inner.jpg|thumb|Some [[Link]] here too]] File Block!]]'))->removeLinks()
+        );
+    }
+
+    /** @test */
+    public function which_works_with_file_in_file_cases_2()
+    {
+        $this->assertEquals(
+            '[[File:Test.jpg|thumb|File with Link and /!! IWG_TITLE !!/|thumb|Some Link here too]] File Block!]]',
+            (new Wikitext('[[File:Test.jpg|thumb|File with [[Link]] and /!! IWG_TITLE !!/|thumb|Some [[Link]] here too]] File Block!]]'))->removeLinks()
+        );
+    }
+
+    /** @test */
     public function it_can_remove_templates_from_wikitext()
     {
         $this->assertEquals(
