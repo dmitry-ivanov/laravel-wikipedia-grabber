@@ -52,7 +52,7 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_image_column_ru_template()
     {
-        $line = "{{Фотоколонка+|align=left|Mammillaria prolifera20100407 076.jpg|текст1=''[[Mammillaria prolifera]]''|Tussilago farfara20100409 07.jpg|текст2=''[[Tussilago farfara]]''|Succisa pratensis20090811 088.jpg|текст3=''[[Succisa pratensis]]''}}";
+        $line = "{{Фотоколонка+ | align=left | Mammillaria prolifera20100407 076.jpg | текст1 = ''[[Mammillaria prolifera]]'' | Tussilago farfara20100409 07.jpg | текст2 = ''[[Tussilago farfara]]'' | Succisa pratensis20090811 088.jpg | текст3 = ''[[Succisa pratensis]]''}}";
 
         $this->assertEquals(
             '{{Фотоколонка+|left|Mammillaria prolifera20100407 076.jpg|текст=Mammillaria prolifera|Tussilago farfara20100409 07.jpg|Succisa pratensis20090811 088.jpg}}',
