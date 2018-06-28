@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Component\Section;
 
 use Illuminate\Support\Collection;
 
-class GalleryValidator
+class Gallery
 {
     public function validate(Collection $gallery)
     {
