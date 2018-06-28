@@ -45,11 +45,15 @@ class ListenTemplate
 
     protected function isTitle($part)
     {
+        $part = mb_strtolower($part, 'utf-8');
+
         return preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part);
     }
 
     protected function isDescription($part)
     {
+        $part = mb_strtolower($part, 'utf-8');
+
         return preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
