@@ -53,7 +53,8 @@ class Wikitext
         preg_match_all('/\[\[File:.*?\]\]/', $body, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             $file = $match[0];
-            if (str_contains($file, '/!! IWG_')) {
+            $isInProcessing = str_contains($file, '/!! IWG_');
+            if ($isInProcessing) {
                 continue;
             }
 
