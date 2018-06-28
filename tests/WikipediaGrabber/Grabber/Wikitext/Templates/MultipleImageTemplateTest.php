@@ -73,7 +73,7 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_listen_template()
     {
-        $line = "{{Listen|type=music|pos=right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion|filename2=Moonlight.ogg|title2=''Moonlight Sonata''|description2=[[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]]|filename3=Brahms-waltz15.ogg|title3=Waltz No. 15|description3=From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
+        $line = "{{Listen | type = music | pos = right | filename = Accordion chords-01.ogg | title = Accordion chords | description = Chords being played on an accordion | filename2 = Moonlight.ogg | title2 = ''Moonlight Sonata'' | description2 = [[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]] | filename3 = Brahms-waltz15.ogg | title3 = Waltz No. 15 | description3 = From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
 
         $this->assertEquals(
             '{{Listen|type=music|right|filename=Accordion chords-01.ogg|title=Accordion chords|description=Chords being played on an accordion}}',

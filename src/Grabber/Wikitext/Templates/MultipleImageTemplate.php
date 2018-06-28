@@ -31,9 +31,7 @@ class MultipleImageTemplate
                 continue;
             }
 
-            $lowercased = mb_strtolower($part, 'utf-8');
-            $params = ['filename=', 'title=', 'description=', 'название=', 'описание=', 'имя_файла='];
-            if (($index > 1) && starts_with($lowercased, $params)) {
+            if ($this->isListen() && $this->isNotIndexed($part) && ($index > 1)) {
                 continue;
             }
 
@@ -58,6 +56,20 @@ class MultipleImageTemplate
         $body = (new Wikitext($body))->plain();
 
         return array_map('trim', explode('|', $body));
+    }
+
+    protected function isListen()
+    {
+        return starts_with(mb_strtolower($this->body, 'utf-8'), '{{listen');
+    }
+
+    protected function isNotIndexed($part)
+    {
+        $part = mb_strtolower($part, 'utf-8');
+
+        return preg_match('/^filename(\s*)=(.+?)/', $part) || preg_match('/^имя_файла(\s*)=(.+?)/', $part)
+            || preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part)
+            || preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
     protected function getIndex(array $parts, $file)
