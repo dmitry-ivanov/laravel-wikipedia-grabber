@@ -10,6 +10,7 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
@@ -205,7 +206,12 @@ class SectionsAddImages
             }
 
             if ($this->isMultipleImageTemplate($line)) {
-                return (new MultipleImageTemplate($line))->extract($file);
+                $line = (new MultipleImageTemplate($line))->extract($file);
+                if ($this->isListenTemplate($line)) {
+                    $line = (new ListenTemplate($line))->transform();
+                }
+
+                return $line;
             }
 
             if ($this->isAudioTemplate($line, $image, $matches)) {
@@ -270,6 +276,11 @@ class SectionsAddImages
             mb_strtolower($line, 'utf-8'),
             ['{{double image', '{{сдвоенное изображение']
         );
+    }
+
+    protected function isListenTemplate($line)
+    {
+        return starts_with(mb_strtolower($line, 'utf-8'), '{{listen');
     }
 
     protected function isMultipleImageTemplate($line)
