@@ -115,6 +115,32 @@ Case with multiple image ru template.
  |изобр2  = Red card.svg
 }}
 
+Case with double image template.
+{{double image
+|право
+|Yellow card.svg
+|60
+|Red card.svg
+|60
+|Игроки должны быть осторожны … круглой.
+|
+|Жёлтая карточка
+|Красная карточка
+}}
+
+Case with double image ru template.
+{{сдвоенное изображение
+|право
+|Yellow card.svg
+|60
+|Red card.svg
+|60
+|Игроки должны быть осторожны … круглой.
+|
+|Жёлтая карточка
+|Красная карточка
+}}
+
 Case with multiple image row ru template.
 {{Фоторяд|ф1.jpg
 |ф2.jpg

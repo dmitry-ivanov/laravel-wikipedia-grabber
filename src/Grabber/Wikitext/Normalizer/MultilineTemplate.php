@@ -33,6 +33,7 @@ class MultilineTemplate
             'annotated image', 'описанное изображение',
             'css image crop', 'часть изображения',
             'multiple image', 'кратное изображение',
+            'double image', 'сдвоенное изображение',
             'фоторяд', 'фотоколонка',
             'wide image', 'панорама',
             'photomontage', 'фотомонтаж',
