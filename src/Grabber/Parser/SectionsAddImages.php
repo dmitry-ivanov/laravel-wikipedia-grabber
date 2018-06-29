@@ -336,14 +336,14 @@ class SectionsAddImages
             $parser = new SectionsParser($this->getMainSection()->getTitle(), $this->wikitext);
             $this->wikitextSections = $parser->sections();
             $this->wikitextSections->each(function (Section $section) {
-                $this->normalize($section);
+                $this->normalizeSection($section);
             });
         }
 
         return $this->wikitextSections;
     }
 
-    protected function normalize(Section $section)
+    protected function normalizeSection(Section $section)
     {
         $body = $section->getBody();
 
