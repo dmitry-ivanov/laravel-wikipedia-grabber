@@ -66,7 +66,7 @@ class MultipleImageTemplate
         $index = 1;
 
         foreach ($parts as $part) {
-            if ($this->isMatch($part, $file)) {
+            if (str_contains($part, $file)) {
                 return $index;
             }
 
@@ -76,16 +76,6 @@ class MultipleImageTemplate
         }
 
         return 0;
-    }
-
-    protected function isMatch($part, $file)
-    {
-        $fileWithSpaces = str_replace('_', ' ', $file);
-        $fileWithUnderscores = str_replace(' ', '_', $file);
-
-        return str_contains($part, $file)
-            || str_contains($part, $fileWithSpaces)
-            || str_contains($part, $fileWithUnderscores);
     }
 
     protected function isExtractingPart($part, $index)

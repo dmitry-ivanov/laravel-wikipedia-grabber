@@ -14,12 +14,12 @@ class MultipleImageTemplateTest extends TestCase
 
         $this->assertEquals(
             '{{multiple image|width=60|right|image=Yellow card.svg|alt=Yellow cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
-            (new MultipleImageTemplate($line))->extract('Yellow_card.svg')
+            (new MultipleImageTemplate($line))->extract('Yellow card.svg')
         );
 
         $this->assertEquals(
             '{{multiple image|width=60|right|image=Red card.svg|alt=Red cartouche|footer=Players are cautioned with a yellow card and sent off with a red card.}}',
-            (new MultipleImageTemplate($line))->extract('Red_card.svg')
+            (new MultipleImageTemplate($line))->extract('Red card.svg')
         );
 
         $this->assertEquals(
