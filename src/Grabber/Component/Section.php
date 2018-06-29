@@ -30,8 +30,10 @@ class Section
     public function setTitle($title)
     {
         $title = $this->removeSpecialChars($title);
+        $title = (new Wikitext($title))->plain();
+        $title = preg_replace('/\s{2,}/', ' ', trim($title));
 
-        $this->title = trim((new Wikitext($title))->plain());
+        $this->title = $title;
     }
 
     public function getBody()
