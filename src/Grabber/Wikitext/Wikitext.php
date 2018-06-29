@@ -101,6 +101,8 @@ class Wikitext
             $body = str_replace_first($template, $replace, $body);
         }
 
+        $body = $this->removeMultipleSpaces($body);
+
         return $body;
     }
 
@@ -111,6 +113,14 @@ class Wikitext
         $body = preg_replace('/<br.*?>/', ' ', $body);
         $body = preg_replace('/<ref.*?\/(ref){0,1}>/', '', $body);
 
-        return strip_tags($body);
+        $body = strip_tags($body);
+        $body = $this->removeMultipleSpaces($body);
+
+        return $body;
+    }
+
+    protected function removeMultipleSpaces($body)
+    {
+        return preg_replace('/ {2,}/', ' ', $body);
     }
 }
