@@ -9,6 +9,7 @@ use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\Underscores;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
@@ -347,6 +348,7 @@ class SectionsAddImages
         $body = $section->getBody();
 
         $body = (new LocaleFile)->normalize($body);
+        $body = (new Underscores)->normalize($body);
         $body = (new MultilineFile)->flatten($body);
         $body = (new MultilineTemplate)->flatten($body);
 

@@ -94,20 +94,20 @@ class MultipleImageTemplateTest extends TestCase
     /** @test */
     public function it_can_extract_required_data_for_listen_ru_template()
     {
-        $line = '{{Listen | Имя_файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]] | Имя_файла2 = File2.ogg| Название2 = Файл 2| Описание2 = Описание 2 | Имя_файла3 = File3.ogg| Название3 = Файл 3| Описание3 = Описание 3}}';
+        $line = '{{Listen | Имя файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]] | Имя файла2 = File2.ogg| Название2 = Файл 2| Описание2 = Описание 2 | Имя файла3 = File3.ogg| Название3 = Файл 3| Описание3 = Описание 3}}';
 
         $this->assertEquals(
-            '{{Listen|Имя_файла=Russian Anthem chorus.ogg|left|Название=Гимн России|Описание=Гимн России}}',
+            '{{Listen|Имя файла=Russian Anthem chorus.ogg|left|Название=Гимн России|Описание=Гимн России}}',
             (new MultipleImageTemplate($line))->extract('Russian Anthem chorus.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|left|Имя_файла=File2.ogg|Название=Файл 2|Описание=Описание 2}}',
+            '{{Listen|left|Имя файла=File2.ogg|Название=Файл 2|Описание=Описание 2}}',
             (new MultipleImageTemplate($line))->extract('File2.ogg')
         );
 
         $this->assertEquals(
-            '{{Listen|left|Имя_файла=File3.ogg|Название=Файл 3|Описание=Описание 3}}',
+            '{{Listen|left|Имя файла=File3.ogg|Название=Файл 3|Описание=Описание 3}}',
             (new MultipleImageTemplate($line))->extract('File3.ogg')
         );
     }

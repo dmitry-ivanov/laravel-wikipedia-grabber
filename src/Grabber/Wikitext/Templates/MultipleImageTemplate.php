@@ -105,7 +105,7 @@ class MultipleImageTemplate
     {
         $part = mb_strtolower($part, 'utf-8');
 
-        return preg_match('/^filename(\s*)=(.+?)/', $part) || preg_match('/^имя_файла(\s*)=(.+?)/', $part)
+        return preg_match('/^filename(\s*)=(.+?)/', $part) || preg_match('/^имя файла(\s*)=(.+?)/', $part)
             || preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part)
             || preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
