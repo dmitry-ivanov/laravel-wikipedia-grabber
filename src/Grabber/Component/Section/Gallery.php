@@ -20,7 +20,7 @@ class Gallery
             }
         }
 
-        if ($pure['gallery']->count() < 4) {
+        if ($pure['gallery']->count() < 3) {
             $pure['gallery'] = collect();
             $pure['not_gallery'] = $gallery;
         }

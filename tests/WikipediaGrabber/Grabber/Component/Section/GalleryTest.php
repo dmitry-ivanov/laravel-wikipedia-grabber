@@ -14,7 +14,6 @@ class GalleryTest extends TestCase
         $collection = collect([
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
-            new Image('thumb', 200, 200, 'http://example.com/file.oga'),
         ]);
 
         $this->assertEquals(
@@ -24,10 +23,9 @@ class GalleryTest extends TestCase
     }
 
     /** @test */
-    public function min_count_for_gallery_is_4()
+    public function min_count_for_gallery_is_3()
     {
         $collection = collect([
-            new Image('thumb', 200, 200, 'http://example.com/file.oga'),
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
