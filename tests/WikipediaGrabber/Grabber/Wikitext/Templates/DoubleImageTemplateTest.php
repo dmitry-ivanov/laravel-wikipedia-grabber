@@ -53,22 +53,4 @@ class DoubleImageTemplateTest extends TestCase
             '{{double image|right|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}'
         );
     }
-
-    /** @test */
-    public function it_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch()
-    {
-        $template = new DoubleImageTemplate('{{double image|left|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
-
-        $this->assertEquals($template->extract('Yellow_card.svg'), 'Yellow_card.svg|left|Caption of Yellow');
-        $this->assertEquals($template->extract('Red_card.svg'), 'Red_card.svg|left|Caption of Red');
-    }
-
-    /** @test */
-    public function it_also_works_for_the_case_of_file_names_spaces_vs_underscores_mismatch_2()
-    {
-        $template = new DoubleImageTemplate('{{double image|left|Yellow_card.svg|60|Red_card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
-
-        $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|left|Caption of Yellow');
-        $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|left|Caption of Red');
-    }
 }

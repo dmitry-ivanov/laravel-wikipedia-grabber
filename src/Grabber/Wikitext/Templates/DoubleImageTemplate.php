@@ -9,8 +9,6 @@ namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 class DoubleImageTemplate
 {
     protected $body;
-    protected $left;
-    protected $right;
 
     public function __construct($body)
     {
@@ -25,8 +23,8 @@ class DoubleImageTemplate
 
         $parts = explode('|', $body);
         $position = array_get($parts, 1);
-        $this->left = array_get($parts, 2);
-        $this->right = array_get($parts, 4);
+        $left = array_get($parts, 2);
+        $right = array_get($parts, 4);
         $leftCaption = array_get($parts, 6);
         $rightCaption = array_get($parts, 7);
 
@@ -38,34 +36,14 @@ class DoubleImageTemplate
             $rightCaption = $leftCaption;
         }
 
-        if ($this->isLeft($file)) {
+        if ($file == $left) {
             return "{$file}|{$position}|{$leftCaption}";
         }
 
-        if ($this->isRight($file)) {
+        if ($file == $right) {
             return "{$file}|{$position}|{$rightCaption}";
         }
 
         return $this->body;
-    }
-
-    protected function isLeft($file)
-    {
-        $fileWithSpaces = str_replace('_', ' ', $file);
-        $fileWithUnderscores = str_replace(' ', '_', $file);
-
-        return ($file == $this->left)
-            || ($fileWithSpaces == $this->left)
-            || ($fileWithUnderscores == $this->left);
-    }
-
-    protected function isRight($file)
-    {
-        $fileWithSpaces = str_replace('_', ' ', $file);
-        $fileWithUnderscores = str_replace(' ', '_', $file);
-
-        return ($file == $this->right)
-            || ($fileWithSpaces == $this->right)
-            || ($fileWithUnderscores == $this->right);
     }
 }
