@@ -30,13 +30,21 @@ class ConvertTemplate
         foreach ($parts as $part) {
             if ($unit = $this->toUnit($part)) {
                 $result->push(str_plural($unit));
-                break;
+                return $result->implode(' ');
             }
 
             $result->push($part);
         }
 
-        return $result->implode(' ');
+        return $this->handleUnknownUnit($parts);
+    }
+
+    protected function handleUnknownUnit(array $parts)
+    {
+        $value = $parts[0];
+        $unit = str_plural($parts[1]);
+
+        return "{$value} {$unit}";
     }
 
     protected function toUnit($unit)
