@@ -282,16 +282,9 @@ class SectionsAddImages
     protected function isAudioTemplate($line, array $image, &$matches)
     {
         $file = last(explode(':', $image['title']));
-        $fileWithSpaces = str_replace('_', ' ', $file);
-        $fileWithUnderscores = str_replace(' ', '_', $file);
-
         $file = preg_quote($file, '/');
-        $fileWithSpaces = preg_quote($fileWithSpaces, '/');
-        $fileWithUnderscores = preg_quote($fileWithUnderscores, '/');
 
-        return preg_match("/\{\{(audio|pronunciation).*?\|{$file}\|.*?\}\}/i", $line, $matches)
-            || preg_match("/\{\{(audio|pronunciation).*?\|{$fileWithSpaces}\|.*?\}\}/i", $line, $matches)
-            || preg_match("/\{\{(audio|pronunciation).*?\|{$fileWithUnderscores}\|.*?\}\}/i", $line, $matches);
+        return preg_match("/\{\{(audio|pronunciation).*?\|{$file}\|.*?\}\}/i", $line, $matches);
     }
 
     protected function isGrayTable($line)
