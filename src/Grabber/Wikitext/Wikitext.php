@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ConvertTemplate;
+
 /**
  * @see https://en.wikipedia.org/wiki/Help:Link
  * @see https://en.wikipedia.org/wiki/Help:Template
@@ -77,22 +79,21 @@ class Wikitext
             $templateBody = $match[1];
             $bodyInLowercase = mb_strtolower($templateBody, 'utf-8');
 
-            $isSpace = starts_with($bodyInLowercase, [
-                'nbsp', 'space',
-                'clear', 'clr', '-',
-            ]);
-
             $isIgnored = starts_with($bodyInLowercase, [
                 'sfn', 'cite',
                 'section link', 'anchor', 'якорь',
                 'see below', 'below', 'см. ниже', 'ниже',
                 'see above', 'above', 'see at', 'см. выше', 'выше', 'переход',
             ]);
+            $isConvert = starts_with($bodyInLowercase, 'convert');
+            $isSpace = starts_with($bodyInLowercase, ['nbsp', 'space', 'clear', 'clr', '-']);
 
             if ($isIgnored) {
                 $replace = '';
             } elseif ($isSpace) {
                 $replace = ' ';
+            } elseif ($isConvert) {
+                $replace = (new ConvertTemplate($template))->extract();
             } else {
                 $replace = last(explode('|', $templateBody));
                 $replace = " {$replace}";
