@@ -31,7 +31,7 @@ class MultilineFile
             return false;
         }
 
-        $line = str_replace('[[File:', '/!! IWG_MULTILINE_FILE !!/', $line);
+        $line = str_replace('[[File:', '/!! IWG-MULTILINE-FILE !!/', $line);
 
         return !$this->isFileClosed($line);
     }

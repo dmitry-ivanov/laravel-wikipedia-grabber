@@ -41,7 +41,7 @@ class Wikitext
     {
         $body = $body ?? $this->body;
 
-        $placeholder = '/!! IWG_FILE_IN_FILE !!/';
+        $placeholder = '/!! IWG-FILE-IN-FILE !!/';
         $body = str_replace('[[File:', $placeholder, $body);
 
         preg_match_all('/\[\[(.*?)\]\]/', $body, $matches, PREG_SET_ORDER);
@@ -55,7 +55,7 @@ class Wikitext
         preg_match_all('/\[\[File:.*?\]\]/', $body, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             $file = $match[0];
-            $isInProcessing = str_contains($file, '/!! IWG_');
+            $isInProcessing = str_contains($file, '/!! IWG-');
             if ($isInProcessing) {
                 continue;
             }
