@@ -31,9 +31,8 @@ class Section
     {
         $title = $this->removeSpecialChars($title);
         $title = (new Wikitext($title))->plain();
-        $title = preg_replace('/\s{2,}/', ' ', trim($title));
 
-        $this->title = $title;
+        $this->title = trim($title);
     }
 
     public function getBody()
