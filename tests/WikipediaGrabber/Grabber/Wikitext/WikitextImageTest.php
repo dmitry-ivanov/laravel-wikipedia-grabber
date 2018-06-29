@@ -80,7 +80,7 @@ class WikitextImageTest extends TestCase
         $this->assertSame($image->getLangtag(), null);
         $this->assertSame($image->getPage(), null);
         $this->assertSame($image->getClass(), null);
-        $this->assertSame($image->getCaption(), "Image caption with Link and  Template with Another Link and Formatting with q'otes!");
+        $this->assertSame($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
     }
 
     /** @test */
@@ -248,7 +248,7 @@ class WikitextImageTest extends TestCase
             '{{CSS Image crop|Image=Robert Lefèvre 001.jpg|Location=|Description=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|cWidth=150|oTop=9|oLeft=10}}'
         );
 
-        $this->assertSame($image->getCaption(), 'Летиция Рамолино.  Лефевр (1813)');
+        $this->assertSame($image->getCaption(), 'Летиция Рамолино. Лефевр (1813)');
     }
 
     /** @test */
@@ -258,7 +258,7 @@ class WikitextImageTest extends TestCase
             '{{Часть Изображения|изобр=Robert Lefèvre 001.jpg|позиция=|Подпись=[[Летиция Рамолино]]. {{iw|Лефевр, Роберт|Лефевр}} (1813)|ширина=150|общая=168|верх=9}}'
         );
 
-        $this->assertSame($image->getCaption(), 'Летиция Рамолино.  Лефевр (1813)');
+        $this->assertSame($image->getCaption(), 'Летиция Рамолино. Лефевр (1813)');
     }
 
     /** @test */
