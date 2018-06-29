@@ -32,7 +32,7 @@ class SectionsAddImages
             return;
         }
 
-        $this->wikitext = $imagesResponseData['wikitext'];
+        $this->wikitext = $this->normalizeWikitext($imagesResponseData['wikitext']);
         $this->mainImage = $imagesResponseData['main_image'];
         $this->images = $this->imagesFromResponse($imagesResponseData['images']);
     }
@@ -350,12 +350,18 @@ class SectionsAddImages
         return $image;
     }
 
+    protected function normalizeWikitext($wikitext)
+    {
+        $wikitext = (new LocaleFile)->normalize($wikitext);
+        $wikitext = (new Underscores)->normalize($wikitext);
+
+        return $wikitext;
+    }
+
     protected function normalizeSection(Section $section)
     {
         $body = $section->getBody();
 
-        $body = (new LocaleFile)->normalize($body);
-        $body = (new Underscores)->normalize($body);
         $body = (new MultilineFile)->flatten($body);
         $body = (new MultilineTemplate)->flatten($body);
 
