@@ -1,3 +1,3 @@
-This is  Template1, and this is  Template2, and  foo!
-This is  Template4 and  Template2, and  foo.
-Previous line had duplicates of templates from line 1!  Template5.
+This is Template1, and this is Template2, and foo!
+This is Template4 and Template2, and foo.
+Previous line had duplicates of templates from line 1! Template5.
