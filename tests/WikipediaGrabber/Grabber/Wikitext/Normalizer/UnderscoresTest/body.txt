@@ -1,0 +1,43 @@
+Some fake text line with audio template {{Audio-IPA|De-Ludwig_van_Beethoven.ogg|[ˈluːtvɪç fan ˈbeːt.hoːfən]}} and | to kill the logic.
+
+{{Listen|Имя_файла=Filipp Kirkorov voice.oga|Название = Запись голоса Ф.Б. Киркорова|Описание = Из интервью «[[Эхо Москвы]]» 16 апреля 2005|float=}}
+{{Listen
+ | Имя_файла = Филипп_Киркоров_-_Атлантида.oga
+ | Название = Отрывок из песни "Атлантида"
+}}
+
+{|
+|-valign="top"
+|
+{{Listen
+| Имя_файла = Audio-Gallery-1.ogg
+| Название = «Ода к радости» - финальный хор из 9-й симфонии на текст Шиллера (гимн Евросоюза)
+| Описание = небольшой фрагмент в фортепианном исполнении
+}}
+|
+{{Listen
+| Имя_файла = Audio-Gallery-2.ogg
+| Название = Симфония № 5 до минор , часть 1 - Allegro con brio
+| Описание =
+}}
+|
+{{Listen
+| Имя_файла = Audio-Gallery-3.ogg
+| Название = К Элизе (Багатель №25)
+| Описание =
+}}
+|}
+{|
+|-valign="top"
+|
+{{Listen
+| Имя_файла = Audio-Gallery-4.ogg
+| Название = Соната для фортепиано №14 «Лунная», часть 1 - Adagio sostenuto
+| Описание =
+}}
+|
+|{{Listen|filename=Audio-Gallery-5.wav|title=Бетховен Людвиг Ван - Соната 8 для ф-но Патетическая в до миноре, Op. 13 - 2. Adagio cantabile}}
+|}
+
+[[Файл:File_with_spaces_here_and_underscores_in_wikitext.jpg|thumb|right]]
+[[Файл:File with underscores here and spaces in wikitext.jpg|thumb|left]]
