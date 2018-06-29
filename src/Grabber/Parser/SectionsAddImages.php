@@ -80,9 +80,9 @@ class SectionsAddImages
 
     protected function imagesFromResponse(array $imagesFromResponse)
     {
-        $images = $this->getUsedImages($this->wikitext, $imagesFromResponse);
+        $images = $this->normalizeImages($imagesFromResponse);
+        $images = $this->getUsedImages($this->wikitext, $images);
         $images = $this->skipMainImage($images);
-        $images = $this->normalizeImages($images);
 
         return $images;
     }
