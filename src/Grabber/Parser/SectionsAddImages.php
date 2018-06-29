@@ -102,14 +102,6 @@ class SectionsAddImages
         })->toArray();
     }
 
-    protected function normalizeImages(array $images)
-    {
-        return collect($images)->map(function ($image) {
-            $image['title'] = (new LocaleFile)->normalize($image['title']);
-            return $image;
-        })->toArray();
-    }
-
     protected function isFileUsed($wikitext, $file)
     {
         $fileWithSpaces = str_replace('_', ' ', $file);
@@ -341,6 +333,21 @@ class SectionsAddImages
         }
 
         return $this->wikitextSections;
+    }
+
+    protected function normalizeImages(array $images)
+    {
+        return collect($images)->map(function ($image) {
+            return $this->normalizeImage($image);
+        })->toArray();
+    }
+
+    protected function normalizeImage(array $image)
+    {
+        $image['title'] = (new LocaleFile)->normalize($image['title']);
+        $image['title'] = (new Underscores)->normalize($image['title']);
+
+        return $image;
     }
 
     protected function normalizeSection(Section $section)
