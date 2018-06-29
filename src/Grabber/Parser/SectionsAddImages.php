@@ -104,12 +104,7 @@ class SectionsAddImages
 
     protected function isFileUsed($wikitext, $file)
     {
-        $fileWithSpaces = str_replace('_', ' ', $file);
-        $fileWithUnderscores = str_replace(' ', '_', $file);
-
-        return str_contains($wikitext, $file)
-            || str_contains($wikitext, $fileWithSpaces)
-            || str_contains($wikitext, $fileWithUnderscores);
+        return str_contains($wikitext, $file);
     }
 
     protected function filterByExtensions(Section $wikitextSection, array $images)
