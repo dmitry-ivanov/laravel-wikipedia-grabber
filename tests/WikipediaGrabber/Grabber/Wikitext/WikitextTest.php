@@ -173,7 +173,7 @@ class WikitextTest extends TestCase
     public function which_works_for_multiple_templates_too()
     {
         $this->assertEquals(
-            'This is  Template1, and this is  Template2, and  foo!',
+            'This is Template1, and this is Template2, and foo!',
             (new Wikitext('This is {{nobr|Template1}}, and this is {{nowrap|Template2}}, and {{foo}}!'))->removeTemplates()
         );
     }
