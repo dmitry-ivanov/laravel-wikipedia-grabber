@@ -81,12 +81,12 @@ abstract class EntitySingular extends Entity
         return $this->getParser()->parse($this->format);
     }
 
-    private function getMissingBody()
+    protected function getMissingBody()
     {
         return "The page `{$this->target}` does not exist.";
     }
 
-    private function getInvalidBody()
+    protected function getInvalidBody()
     {
         $reason = !empty($this->response['invalidreason'])
             ? "\n{$this->response['invalidreason']}"
@@ -107,7 +107,7 @@ abstract class EntitySingular extends Entity
         return $this->getParser()->getSections();
     }
 
-    private function getParser()
+    protected function getParser()
     {
         if (empty($this->parser)) {
             $imagesResponseData = null;
