@@ -13,10 +13,13 @@ class Parser
 
     public function __construct($title, $body, array $images = null)
     {
-        $this->sections = (new SectionsParser($title, $body))->sections();
-        $this->sections = (new SectionsAddImages($this->sections, $images))->pipe();
-        $this->sections = (new SectionsRemoveEmpty($this->sections))->pipe();
-        $this->sections = (new SectionsRemoveBoring($this->sections))->pipe();
+        $sections = (new SectionsParser($title, $body))->sections();
+
+        $sections = (new SectionsAddImages($sections, $images))->pipe();
+        $sections = (new SectionsRemoveEmpty($sections))->pipe();
+        $sections = (new SectionsRemoveBoring($sections))->pipe();
+
+        $this->sections = $sections;
     }
 
     public function parse($format)
