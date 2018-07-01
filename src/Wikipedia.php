@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia;
 
 class Wikipedia extends Grabber
 {
-    private $lang;
+    protected $lang;
 
     public function __construct($lang = 'en')
     {

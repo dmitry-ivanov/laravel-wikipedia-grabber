@@ -16,7 +16,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ], 'config');
     }
 
-    private function getConfigPath()
+    protected function getConfigPath()
     {
         return __DIR__ . '/../config/wikipedia-grabber.php';
     }

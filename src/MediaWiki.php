@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia;
 
 class MediaWiki extends Grabber
 {
-    private $url;
+    protected $url;
 
     public function __construct($url)
     {
