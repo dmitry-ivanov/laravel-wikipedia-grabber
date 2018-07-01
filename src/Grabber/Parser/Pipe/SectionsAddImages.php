@@ -38,7 +38,7 @@ class SectionsAddImages
         $this->images = $this->imagesFromResponse($imagesResponseData['images']);
     }
 
-    public function filter()
+    public function pipe()
     {
         if ($this->noImages()) {
             return $this->sections;

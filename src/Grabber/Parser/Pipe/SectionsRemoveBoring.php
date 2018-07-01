@@ -18,7 +18,7 @@ class SectionsRemoveBoring
         );
     }
 
-    public function filter()
+    public function pipe()
     {
         $filtered = collect();
 

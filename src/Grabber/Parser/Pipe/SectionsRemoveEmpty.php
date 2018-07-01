@@ -13,7 +13,7 @@ class SectionsRemoveEmpty
         $this->sections = $sections;
     }
 
-    public function filter()
+    public function pipe()
     {
         do {
             $filtered = $this->iteration();
