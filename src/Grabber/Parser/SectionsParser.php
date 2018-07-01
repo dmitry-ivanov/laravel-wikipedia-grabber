@@ -27,17 +27,17 @@ class SectionsParser
         return $this->sections;
     }
 
-    private function mainSection()
+    protected function mainSection()
     {
         return $this->section($this->title, 1);
     }
 
-    private function section($title, $level)
+    protected function section($title, $level)
     {
         return new Section($title, null, $level);
     }
 
-    private function splitByTitles()
+    protected function splitByTitles()
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -46,7 +46,7 @@ class SectionsParser
         return preg_split($pattern, $this->body, -1, PREG_SPLIT_DELIM_CAPTURE);
     }
 
-    private function handleItem($item)
+    protected function handleItem($item)
     {
         if ($this->isTitle($item)) {
             return $this->sections->push(
@@ -59,7 +59,7 @@ class SectionsParser
         $this->sections->push($last);
     }
 
-    private function isTitle($item)
+    protected function isTitle($item)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -68,7 +68,7 @@ class SectionsParser
         return preg_match($pattern, $item);
     }
 
-    private function title($titleItem)
+    protected function title($titleItem)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -79,7 +79,7 @@ class SectionsParser
         return $matches[1];
     }
 
-    private function level($titleItem)
+    protected function level($titleItem)
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
