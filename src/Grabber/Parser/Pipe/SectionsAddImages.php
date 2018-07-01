@@ -1,11 +1,12 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Parser;
+namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
+use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;

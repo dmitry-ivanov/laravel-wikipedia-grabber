@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminated\Wikipedia\Grabber\Parser;
+namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
 use Illuminate\Support\Collection;
 
