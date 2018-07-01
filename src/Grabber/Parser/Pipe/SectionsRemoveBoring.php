@@ -31,7 +31,7 @@ class SectionsRemoveBoring
         return $filtered;
     }
 
-    private function isBoring(Section $section)
+    protected function isBoring(Section $section)
     {
         return in_array($section->getTitle(), $this->boring);
     }

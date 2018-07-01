@@ -382,7 +382,7 @@ class WikitextImage extends Wikitext
         return ends_with($string, $extensions);
     }
 
-    private function normalize($value, array $map)
+    protected function normalize($value, array $map)
     {
         return array_key_exists($value, $map) ? $map[$value] : $value;
     }

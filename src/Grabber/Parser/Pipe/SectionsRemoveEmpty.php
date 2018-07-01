@@ -24,7 +24,7 @@ class SectionsRemoveEmpty
         return $this->sections;
     }
 
-    private function iteration()
+    protected function iteration()
     {
         $filtered = collect();
 
