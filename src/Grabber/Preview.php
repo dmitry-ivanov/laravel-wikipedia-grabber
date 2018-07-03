@@ -8,7 +8,7 @@ class Preview extends EntitySingular
     {
         $this->response = head($this->request($this->params())['query']['pages']);
 
-        if ($this->isSuccess() && $this->images) {
+        if ($this->isSuccess() && $this->withImages) {
             $this->response['main_image'] = $this->getMainImage();
         }
     }
@@ -45,7 +45,7 @@ class Preview extends EntitySingular
         $params->put('exintro', true);
         $params->put('explaintext', true);
 
-        if ($this->images) {
+        if ($this->withImages) {
             $prop->push('pageimages');
             $params->put('piprop', 'thumbnail|original');
             $params->put('pithumbsize', $this->imageSize + 50);

@@ -111,7 +111,7 @@ abstract class EntitySingular extends Entity
     {
         if (empty($this->parser)) {
             $imagesResponseData = null;
-            if ($this->images) {
+            if ($this->withImages) {
                 $imagesResponseData = [
                     'wikitext' => head($this->response['revisions'])['content'],
                     'main_image' => $this->response['main_image'],
