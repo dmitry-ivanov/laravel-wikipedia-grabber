@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Parser;
 
 use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsAddImages;
-use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsPreview;
+use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsCheckForPreview;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsRemoveBoring;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsRemoveEmpty;
 
@@ -16,7 +16,7 @@ class Parser
     {
         $sections = (new SectionsParser($title, $body))->sections();
 
-        $sections = (new SectionsPreview($sections, $images))->pipe();
+        $sections = (new SectionsCheckForPreview($sections, $images))->pipe();
         $sections = (new SectionsAddImages($sections, $images))->pipe();
         $sections = (new SectionsRemoveEmpty($sections))->pipe();
         $sections = (new SectionsRemoveBoring($sections))->pipe();
