@@ -214,18 +214,18 @@ class PreviewTest extends TestCase
         );
     }
 
-    // /** @test */
-    // public function real_page_test_with_images_enabled_and_page_has_them()
-    // {
-    //     config(['wikipedia-grabber.images' => true]);
-    //
-    //     $page = (new Wikipedia)->page('Table_(furniture)');
-    //
-    //     $this->assertTrue($page->isSuccess());
-    //     $this->assertEquals('Table (furniture)', $page->getTitle());
-    //     $this->assertEquals(
-    //         trim(file_get_contents(__DIR__ . '/PageTest/page-with-images.txt')),
-    //         trim($page->plain())
-    //     );
-    // }
+    /** @test */
+    public function real_preview_test_with_images_enabled_and_preview_has_them()
+    {
+        config(['wikipedia-grabber.images' => true]);
+
+        $preview = (new Wikipedia)->preview('Table_(furniture)');
+
+        $this->assertTrue($preview->isSuccess());
+        $this->assertEquals('Table (furniture)', $preview->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/PreviewTest/preview-with-images.txt')),
+            trim($preview->plain())
+        );
+    }
 }
