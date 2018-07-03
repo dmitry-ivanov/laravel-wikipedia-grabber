@@ -165,8 +165,8 @@ class PreviewTest extends TestCase
     {
         $this->mockWikipediaQuery();
 
-        $page = (new Wikipedia)->preview('Mocked Page');
-        $page->getSections()
+        $preview = (new Wikipedia)->preview('Mocked Page');
+        $preview->getSections()
             ->push(new Section('Appended title 1', 'Appended body 1', 2))
             ->push(new Section('Appended title 1.1', 'Appended body 1.1', 3))
             ->push(new Section('Appended title 1.2', 'Appended body 1.2', 3));
@@ -176,7 +176,7 @@ class PreviewTest extends TestCase
             new Section('Appended title 1', 'Appended body 1', 2),
             new Section('Appended title 1.1', 'Appended body 1.1', 3),
             new Section('Appended title 1.2', 'Appended body 1.2', 3),
-        ]), $page->getSections());
+        ]), $preview->getSections());
     }
 
     /**
