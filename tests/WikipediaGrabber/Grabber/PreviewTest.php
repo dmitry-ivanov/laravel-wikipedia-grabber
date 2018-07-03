@@ -87,36 +87,36 @@ class PreviewTest extends TestCase
         (new Wikipedia)->preview('Mocked Page')->getBody();
     }
 
-    // /**
-    //  * @test
-    //  * @runInSeparateProcess
-    //  * @preserveGlobalState disabled
-    //  */
-    // public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
-    // {
-    //     $this->mockWikipediaQuery();
-    //
-    //     $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-    //     $parser->expects()->parse('plain');
-    //
-    //     (new Wikipedia)->page('Mocked Page')->plain();
-    // }
-    //
-    // /**
-    //  * @test
-    //  * @runInSeparateProcess
-    //  * @preserveGlobalState disabled
-    //  */
-    // public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
-    // {
-    //     $this->mockWikipediaQuery();
-    //
-    //     $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-    //     $parser->expects()->parse('bulma');
-    //
-    //     (new Wikipedia)->page('Mocked Page')->bulma();
-    // }
-    //
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
+    {
+        $this->mockWikipediaQuery();
+
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
+        $parser->expects()->parse('plain');
+
+        (new Wikipedia)->preview('Mocked Page')->plain();
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
+    {
+        $this->mockWikipediaQuery();
+
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
+        $parser->expects()->parse('bulma');
+
+        (new Wikipedia)->preview('Mocked Page')->bulma();
+    }
+
     // /**
     //  * @test
     //  * @runInSeparateProcess
