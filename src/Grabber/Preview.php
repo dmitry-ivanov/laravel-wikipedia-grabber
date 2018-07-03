@@ -9,9 +9,9 @@ class Preview extends EntitySingular
         $this->response = head($this->request($this->params())['query']['pages']);
 
         if ($this->isSuccess() && $this->withImages) {
-            $this->response['iwg_wikitext'] = '';
-            $this->response['iwg_images_info'] = [];
+            $this->response['iwg_wikitext'] = '/// IWG-PREVIEW ///';
             $this->response['iwg_main_image'] = $this->getMainImage();
+            $this->response['iwg_images_info'] = [];
         }
     }
 
