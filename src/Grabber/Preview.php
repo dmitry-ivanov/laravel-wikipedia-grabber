@@ -50,7 +50,7 @@ class Preview extends EntitySingular
         if ($this->withImages) {
             $prop->push('pageimages');
             $params->put('piprop', 'thumbnail|original');
-            $params->put('pithumbsize', $this->imageSize + 50);
+            $params->put('pithumbsize', $this->imageSizeOnPreview);
         }
 
         return [
