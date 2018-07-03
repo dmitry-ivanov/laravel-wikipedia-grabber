@@ -72,21 +72,21 @@ class PreviewTest extends TestCase
         $this->assertFalse($preview->isMissing());
     }
 
-    // /**
-    //  * @test
-    //  * @runInSeparateProcess
-    //  * @preserveGlobalState disabled
-    //  */
-    // public function it_is_returned_in_specified_in_config_format_by_default()
-    // {
-    //     $this->mockWikipediaQuery();
-    //
-    //     $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-    //     $parser->expects()->parse('bulma');
-    //
-    //     (new Wikipedia)->page('Mocked Page')->getBody();
-    // }
-    //
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function it_is_returned_in_specified_in_config_format_by_default()
+    {
+        $this->mockWikipediaQuery();
+
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
+        $parser->expects()->parse('bulma');
+
+        (new Wikipedia)->preview('Mocked Page')->getBody();
+    }
+
     // /**
     //  * @test
     //  * @runInSeparateProcess
