@@ -179,26 +179,26 @@ class PreviewTest extends TestCase
         ]), $page->getSections());
     }
 
-    // /**
-    //  * @test
-    //  * @runInSeparateProcess
-    //  * @preserveGlobalState disabled
-    //  */
-    // public function mocked_page_test_with_images_enabled_but_page_does_not_have_any_images()
-    // {
-    //     $this->mockWikipediaQuery();
-    //     config(['wikipedia-grabber.images' => true]);
-    //
-    //     $page = (new Wikipedia)->page('Mocked Page');
-    //
-    //     $this->assertTrue($page->isSuccess());
-    //     $this->assertEquals('Mocked Page', $page->getTitle());
-    //     $this->assertEquals(
-    //         trim(file_get_contents(__DIR__ . '/PageTest/mocked-page-without-images.txt')),
-    //         trim($page->plain())
-    //     );
-    // }
-    //
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function mocked_preview_test_with_images_enabled_but_preview_does_not_have_any_images()
+    {
+        $this->mockWikipediaQuery();
+        config(['wikipedia-grabber.images' => true]);
+
+        $preview = (new Wikipedia)->preview('Mocked Page');
+
+        $this->assertTrue($preview->isSuccess());
+        $this->assertEquals('Mocked Page', $preview->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/PreviewTest/mocked-preview-without-images.txt')),
+            trim($preview->plain())
+        );
+    }
+
     // /** @test */
     // public function real_page_test_with_images_enabled_but_page_does_not_have_any()
     // {

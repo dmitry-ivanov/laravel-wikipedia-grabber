@@ -9,6 +9,7 @@ class Preview extends EntitySingular
         $this->response = head($this->request($this->params())['query']['pages']);
 
         if ($this->isSuccess() && $this->withImages) {
+            $this->response['images_info'] = [];
             $this->response['main_image'] = $this->getMainImage();
         }
     }
