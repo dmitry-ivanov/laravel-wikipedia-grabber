@@ -34,6 +34,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                     'pageid' => 1234567,
                     'title' => 'Mocked Page',
                     'extract' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    'revisions' => [[
+                        'contentformat' => 'text/x-wiki',
+                        'contentmodel' => 'wikitext',
+                        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                    ]],
                 ]],
             ],
         ]);
