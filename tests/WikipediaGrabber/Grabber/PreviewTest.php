@@ -31,21 +31,21 @@ class PreviewTest extends TestCase
         $this->assertEquals('Пушкин, Александр Сергеевич', $preview->getTitle());
     }
 
-    // /** @test */
-    // public function some_can_be_marked_as_missed()
-    // {
-    //     $page = (new Wikipedia)->page('Fake-Not-Existing-Page');
-    //
-    //     $this->assertTrue($page->isMissing());
-    //     $this->assertFalse($page->isSuccess());
-    //     $this->assertFalse($page->isDisambiguation());
-    //     $this->assertFalse($page->isInvalid());
-    //     $this->assertNull($page->getId());
-    //     $this->assertNull($page->getTitle());
-    //     $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $page);
-    //     $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $page->getBody());
-    // }
-    //
+    /** @test */
+    public function some_can_be_marked_as_missed()
+    {
+        $preview = (new Wikipedia)->preview('Fake-Not-Existing-Page');
+
+        $this->assertTrue($preview->isMissing());
+        $this->assertFalse($preview->isSuccess());
+        $this->assertFalse($preview->isDisambiguation());
+        $this->assertFalse($preview->isInvalid());
+        $this->assertNull($preview->getId());
+        $this->assertNull($preview->getTitle());
+        $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $preview);
+        $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $preview->getBody());
+    }
+
     // /** @test */
     // public function some_can_be_marked_as_invalid()
     // {
