@@ -91,13 +91,13 @@ class PlainFormatter extends Formatter
         }
         $class = $class->implode(' ');
 
-        $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
+        $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>\n" : '';
         $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if ($section->isEmpty()) {
             $bodyHtml = "\n";
         }
 
-        return "{$titleHtml}\n{$bodyHtml}";
+        return "{$titleHtml}{$bodyHtml}";
     }
 
     protected function gallery(Section $section)
