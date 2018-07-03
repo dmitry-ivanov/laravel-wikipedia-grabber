@@ -234,4 +234,19 @@ class WikipediaTest extends TestCase
             trim($page->plain())
         );
     }
+
+    /** @test */
+    public function real_page_test_with_images_enabled_and_page_has_it()
+    {
+        config(['wikipedia-grabber.images' => true]);
+
+        $page = (new Wikipedia)->page('Table_(furniture)');
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals('Table (furniture)', $page->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/WikipediaTest/page-with-images.txt')),
+            trim($page->plain())
+        );
+    }
 }
