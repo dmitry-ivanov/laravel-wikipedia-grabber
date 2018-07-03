@@ -4,6 +4,7 @@ namespace Illuminated\Wikipedia;
 
 use GuzzleHttp\Client;
 use Illuminated\Wikipedia\Grabber\Page;
+use Illuminated\Wikipedia\Grabber\Preview;
 
 abstract class Grabber
 {
@@ -31,7 +32,7 @@ abstract class Grabber
 
     public function preview($title)
     {
-        dd($title);
+        return new Preview($this->client, $title);
     }
 
     abstract protected function baseUri();
