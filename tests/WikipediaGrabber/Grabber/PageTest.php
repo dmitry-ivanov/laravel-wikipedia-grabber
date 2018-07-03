@@ -10,7 +10,7 @@ use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 class PageTest extends TestCase
 {
     /** @test */
-    public function page_can_be_retrieved_by_title()
+    public function it_can_be_retrieved_by_title()
     {
         $page = (new Wikipedia('ru'))->page('Пушкин');
 
@@ -22,7 +22,7 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function or_page_can_be_retrieved_by_id_if_integer_passed()
+    public function it_can_be_retrieved_by_id_if_integer_passed()
     {
         $page = (new Wikipedia('ru'))->page(537);
 
@@ -33,7 +33,7 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function some_pages_can_be_marked_as_missed()
+    public function some_can_be_marked_as_missed()
     {
         $page = (new Wikipedia)->page('Fake-Not-Existing-Page');
 
@@ -48,7 +48,7 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function some_pages_can_be_marked_as_invalid()
+    public function some_can_be_marked_as_invalid()
     {
         $page = (new Wikipedia)->page('Talk:');
 
@@ -63,7 +63,7 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function some_pages_can_be_marked_as_disambiguation()
+    public function some_can_be_marked_as_disambiguation()
     {
         $page = (new Wikipedia)->page('David Taylor');
 
@@ -78,7 +78,7 @@ class PageTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function page_is_returned_in_specified_in_config_format_by_default()
+    public function it_is_returned_in_specified_in_config_format_by_default()
     {
         $this->mockWikipediaQuery();
 
@@ -215,7 +215,7 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function real_page_test_with_images_enabled_and_page_has_it()
+    public function real_page_test_with_images_enabled_and_page_has_them()
     {
         config(['wikipedia-grabber.images' => true]);
 
