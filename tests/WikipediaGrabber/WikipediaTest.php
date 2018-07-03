@@ -56,7 +56,7 @@ class WikipediaTest extends TestCase
     /** @test */
     public function some_pages_can_be_marked_as_missed()
     {
-        $page = (new Wikipedia)->page('Fake-Unexisting-Page');
+        $page = (new Wikipedia)->page('Fake-Not-Existing-Page');
 
         $this->assertTrue($page->isMissing());
         $this->assertFalse($page->isSuccess());
@@ -64,8 +64,8 @@ class WikipediaTest extends TestCase
         $this->assertFalse($page->isInvalid());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
-        $this->assertEquals('The page `Fake-Unexisting-Page` does not exist.', $page);
-        $this->assertEquals('The page `Fake-Unexisting-Page` does not exist.', $page->getBody());
+        $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $page);
+        $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $page->getBody());
     }
 
     /** @test */
