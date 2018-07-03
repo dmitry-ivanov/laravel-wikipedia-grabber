@@ -61,17 +61,17 @@ class PreviewTest extends TestCase
         $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $preview->getBody());
     }
 
-    // /** @test */
-    // public function some_can_be_marked_as_disambiguation()
-    // {
-    //     $page = (new Wikipedia)->page('David Taylor');
-    //
-    //     $this->assertTrue($page->isDisambiguation());
-    //     $this->assertTrue($page->isSuccess());
-    //     $this->assertFalse($page->isInvalid());
-    //     $this->assertFalse($page->isMissing());
-    // }
-    //
+    /** @test */
+    public function some_can_be_marked_as_disambiguation()
+    {
+        $preview = (new Wikipedia)->preview('David Taylor');
+
+        $this->assertTrue($preview->isDisambiguation());
+        $this->assertTrue($preview->isSuccess());
+        $this->assertFalse($preview->isInvalid());
+        $this->assertFalse($preview->isMissing());
+    }
+
     // /**
     //  * @test
     //  * @runInSeparateProcess
