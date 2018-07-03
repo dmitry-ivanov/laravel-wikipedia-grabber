@@ -199,21 +199,21 @@ class PreviewTest extends TestCase
         );
     }
 
-    // /** @test */
-    // public function real_page_test_with_images_enabled_but_page_does_not_have_any()
-    // {
-    //     config(['wikipedia-grabber.images' => true]);
-    //
-    //     $page = (new Wikipedia('ru'))->page('Иванов, Иван (богослов)');
-    //
-    //     $this->assertTrue($page->isSuccess());
-    //     $this->assertEquals('Иванов, Иван (богослов)', $page->getTitle());
-    //     $this->assertEquals(
-    //         trim(file_get_contents(__DIR__ . '/PageTest/page-without-images.txt')),
-    //         trim($page->plain())
-    //     );
-    // }
-    //
+    /** @test */
+    public function real_preview_test_with_images_enabled_but_preview_does_not_have_any()
+    {
+        config(['wikipedia-grabber.images' => true]);
+
+        $page = (new Wikipedia('ru'))->page('Иванов, Иван (богослов)');
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals('Иванов, Иван (богослов)', $page->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/PreviewTest/preview-without-images.txt')),
+            trim($page->plain())
+        );
+    }
+
     // /** @test */
     // public function real_page_test_with_images_enabled_and_page_has_them()
     // {
