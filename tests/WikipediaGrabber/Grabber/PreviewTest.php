@@ -20,17 +20,17 @@ class PreviewTest extends TestCase
         $this->assertEquals('Пушкин, Александр Сергеевич', $preview->getTitle());
     }
 
-    // /** @test */
-    // public function it_can_be_retrieved_by_id_if_integer_passed()
-    // {
-    //     $page = (new Wikipedia('ru'))->page(537);
-    //
-    //     $this->assertTrue($page->isSuccess());
-    //     $this->assertFalse($page->isDisambiguation());
-    //     $this->assertEquals(537, $page->getId());
-    //     $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
-    // }
-    //
+    /** @test */
+    public function it_can_be_retrieved_by_id_if_integer_passed()
+    {
+        $preview = (new Wikipedia('ru'))->preview(537);
+
+        $this->assertTrue($preview->isSuccess());
+        $this->assertFalse($preview->isDisambiguation());
+        $this->assertEquals(537, $preview->getId());
+        $this->assertEquals('Пушкин, Александр Сергеевич', $preview->getTitle());
+    }
+
     // /** @test */
     // public function some_can_be_marked_as_missed()
     // {
