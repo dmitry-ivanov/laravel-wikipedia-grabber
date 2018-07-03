@@ -46,21 +46,21 @@ class PreviewTest extends TestCase
         $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $preview->getBody());
     }
 
-    // /** @test */
-    // public function some_can_be_marked_as_invalid()
-    // {
-    //     $page = (new Wikipedia)->page('Talk:');
-    //
-    //     $this->assertTrue($page->isInvalid());
-    //     $this->assertFalse($page->isSuccess());
-    //     $this->assertFalse($page->isDisambiguation());
-    //     $this->assertFalse($page->isMissing());
-    //     $this->assertNull($page->getId());
-    //     $this->assertNull($page->getTitle());
-    //     $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $page);
-    //     $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $page->getBody());
-    // }
-    //
+    /** @test */
+    public function some_can_be_marked_as_invalid()
+    {
+        $preview = (new Wikipedia)->preview('Talk:');
+
+        $this->assertTrue($preview->isInvalid());
+        $this->assertFalse($preview->isSuccess());
+        $this->assertFalse($preview->isDisambiguation());
+        $this->assertFalse($preview->isMissing());
+        $this->assertNull($preview->getId());
+        $this->assertNull($preview->getTitle());
+        $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $preview);
+        $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $preview->getBody());
+    }
+
     // /** @test */
     // public function some_can_be_marked_as_disambiguation()
     // {
