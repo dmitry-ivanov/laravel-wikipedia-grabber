@@ -7,12 +7,12 @@ use Illuminate\Support\Collection;
 class SectionsInPreview
 {
     protected $sections;
-    protected $imagesResponseData;
+    protected $response;
 
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
         $this->sections = $sections;
-        $this->imagesResponseData = $imagesResponseData;
+        $this->response = $imagesResponseData;
     }
 
     public function pipe()
@@ -28,8 +28,8 @@ class SectionsInPreview
 
     protected function isPreview()
     {
-        return !empty($this->imagesResponseData['wikitext'])
-            && ($this->imagesResponseData['wikitext'] == '/// IWG-PREVIEW ///')
+        return !empty($this->response['wikitext'])
+            && ($this->response['wikitext'] == '/// IWG-PREVIEW ///')
             && ($this->sections->count() == 1);
     }
 }
