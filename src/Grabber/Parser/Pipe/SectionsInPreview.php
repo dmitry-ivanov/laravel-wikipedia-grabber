@@ -17,11 +17,9 @@ class SectionsInPreview
 
     public function pipe()
     {
-        if (!$this->isPreview()) {
-            return $this->sections;
+        if ($this->isPreview()) {
+            $this->sections->first()->setTitle('');
         }
-
-        $this->sections->first()->setTitle('');
 
         return $this->sections;
     }
