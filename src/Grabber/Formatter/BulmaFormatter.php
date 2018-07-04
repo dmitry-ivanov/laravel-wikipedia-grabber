@@ -79,7 +79,8 @@ class BulmaFormatter extends Formatter
     {
         $title = $section->getTitle();
         $id = $this->sectionId($title);
-        $tag = "h{$section->getHtmlLevel()}";
+        $htmlLevel = $section->getHtmlLevel();
+        $tag = "h{$htmlLevel}";
 
         // $gallery = $this->gallery($section);
         // $images = $this->images($section);
@@ -87,14 +88,14 @@ class BulmaFormatter extends Formatter
         $images = ''; //////////////////////////////////////////////////////////////////////////////////////////////////
         $body = $this->sectionBody($section);
 
-        $class = collect(['wiki-section-title']);
+        $class = collect(['wiki-section-title', 'title', "is-{$htmlLevel}"]);
         // if ($section->hasGallery()) {
         //     $class->push('has-gallery');
         // }
         $class = $class->implode(' ');
 
         $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>\n" : '';
-        $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
+        $bodyHtml = "<div class='wiki-section content'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if ($section->isEmpty()) {
             $bodyHtml = "\n";
         }
