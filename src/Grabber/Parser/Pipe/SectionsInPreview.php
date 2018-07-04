@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
 use Illuminate\Support\Collection;
 
-class SectionsCheckForPreview
+class SectionsInPreview
 {
     protected $sections;
     protected $imagesResponseData;
