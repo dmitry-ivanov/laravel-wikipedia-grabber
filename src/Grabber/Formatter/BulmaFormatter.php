@@ -70,7 +70,7 @@ class BulmaFormatter extends Formatter
             $id = $this->sectionId($title);
             $htmlLevel = $section->getHtmlLevel();
             $tag = "h{$htmlLevel}";
-            $class = $section->hasGallery() ? "iwg-section-title title is-{$htmlLevel} has-gallery" : "iwg-section-title title is-{$htmlLevel}";
+            $class = "iwg-section-title title is-{$htmlLevel}" . ($section->hasGallery() ? ' has-gallery' : '');
             $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         }
 
