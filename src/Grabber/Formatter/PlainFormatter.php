@@ -98,7 +98,7 @@ class PlainFormatter extends Formatter
             return $this->media($image, true);
         });
 
-        return $this->htmlInnerBlock("<div class='iwg-gallery'>", $gallery, '</div>');
+        return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
     protected function images(Section $section)
@@ -111,7 +111,7 @@ class PlainFormatter extends Formatter
             return $this->media($image);
         });
 
-        return $this->htmlInnerItems($images);
+        return $this->htmlBlock(null, $images, null);
     }
 
     protected function media(Image $image, $isGallery = false)

@@ -77,7 +77,7 @@ abstract class Formatter
         return (int) ($size / 1.35);
     }
 
-    protected function htmlBlock($open, Collection $items, $close)
+    protected function htmlBlock($open = null, Collection $items, $close = null)
     {
         $items = $items->filter();
 
@@ -85,16 +85,9 @@ abstract class Formatter
             return;
         }
 
-        return "{$open}\n{$items->implode("\n")}\n{$close}\n\n";
-    }
+        $open = !empty($open) ? "{$open}\n" : '';
+        $close = !empty($close) ? "{$close}\n" : '';
 
-    protected function htmlInnerBlock($open, Collection $items, $close)
-    {
-        return "{$open}\n" . $this->htmlInnerItems($items) . "{$close}\n";
-    }
-
-    protected function htmlInnerItems(Collection $items)
-    {
-        return $items->implode("\n") . "\n";
+        return "{$open}{$items->implode("\n")}\n{$close}\n";
     }
 }
