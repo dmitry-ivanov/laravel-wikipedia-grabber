@@ -56,7 +56,13 @@ abstract class Formatter
 
     protected function sectionBody(Section $section)
     {
-        return preg_replace('/(\s*<br.*?>\s*){3,}/m', '$1$1', nl2br($section->getBody()));
+        $body = $section->getBody();
+
+        if (!empty($body)) {
+            $body = preg_replace('/(\s*<br.*?>\s*){3,}/m', '$1$1', nl2br($body)) . "\n";
+        }
+
+        return $body;
     }
 
     protected function getLevels()

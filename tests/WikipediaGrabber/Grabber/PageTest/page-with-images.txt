@@ -127,7 +127,6 @@ Refectory tables first appeared at least as early as the 17th century, as an adv
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/d/da/2008-05-30_Glass_table_with_chairs_on_patio.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/2008-05-30_Glass_table_with_chairs_on_patio.jpg/250px-2008-05-30_Glass_table_with_chairs_on_patio.jpg' width='185' height='122' alt='Solid glass tabletop on an outdoors patio' /></a><div class='iwg-media-desc'>Solid glass tabletop on an outdoors patio</div></div>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/5/5c/000_Roman_Table_foot_MNIR_IMG_6329.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/000_Roman_Table_foot_MNIR_IMG_6329.JPG/110px-000_Roman_Table_foot_MNIR_IMG_6329.JPG' width='81' height='185' alt='Roman richly ornate table leg' /></a><div class='iwg-media-desc'>Roman richly ornate table leg</div></div>
 </div>
-
 </div>
 
 <h3 id='pedestal-tables' class='iwg-section-title has-gallery'>Pedestal tables</h3>
@@ -139,5 +138,4 @@ Refectory tables first appeared at least as early as the 17th century, as an adv
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/7/7d/Biblioth%C3%A8que_Royale_de_l%27H%C3%B4tel_de_Bourvallais_005.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Biblioth%C3%A8que_Royale_de_l%27H%C3%B4tel_de_Bourvallais_005.JPG/165px-Biblioth%C3%A8que_Royale_de_l%27H%C3%B4tel_de_Bourvallais_005.JPG' width='122' height='185' alt='Oval single pedestal' /></a><div class='iwg-media-desc'>Oval single pedestal</div></div>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/7/78/BLW_Table.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/BLW_Table.jpg/250px-BLW_Table.jpg' width='185' height='139' alt='Multiple pedestal' /></a><div class='iwg-media-desc'>Multiple pedestal</div></div>
 </div>
-
 </div>
