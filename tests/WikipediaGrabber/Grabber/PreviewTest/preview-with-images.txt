@@ -1,15 +1,15 @@
 <style>
-.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}
-.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}
-.wiki-media.left {float:left; clear:left; margin-right:16px}
-.wiki-media.right {float:right; clear:right; margin-left:16px}
+.iwg-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}
+.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}
+.iwg-media.left {float:left; clear:left; margin-right:16px}
+.iwg-media.right {float:right; clear:right; margin-left:16px}
 .iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}
-.wiki-media.audio, .wiki-media.video {width:275px; padding:5px 5px 3px 5px}
-.wiki-media audio, .wiki-media video {width:100%}
+.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}
+.iwg-media audio, .iwg-media video {width:100%}
 </style>
 
 <div class='iwg-section'>
-<div class='wiki-media right' style='width:125px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/cc/Tablebasicstructure.png' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tablebasicstructure.png/125px-Tablebasicstructure.png' width='125' height='125' alt='' /></a></div>
+<div class='iwg-media right' style='width:125px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/cc/Tablebasicstructure.png' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tablebasicstructure.png/125px-Tablebasicstructure.png' width='125' height='125' alt='' /></a></div>
 A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables.<br />
 Common design elements include:<br />
 top surfaces of various shapes, including rectangular, square, rounded, semi-circular or oval<br />

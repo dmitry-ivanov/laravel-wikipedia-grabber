@@ -32,20 +32,20 @@ class BulmaFormatter extends Formatter
         //     $styles = $styles->merge(collect([
         //         '.iwg-section-title.has-gallery {clear:both}',
         //         '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
-        //         ".iwg-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
-        //         ".iwg-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
+        //         ".iwg-gallery .iwg-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
+        //         ".iwg-gallery .iwg-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
         //     ]));
         // }
         //
         // if ($this->hasMedia) {
         //     $styles = $styles->merge(collect([
-        //         '.wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
-        //         '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
-        //         '.wiki-media.left {float:left; clear:left; margin-right:16px}',
-        //         '.wiki-media.right {float:right; clear:right; margin-left:16px}',
+        //         '.iwg-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+        //         '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
+        //         '.iwg-media.left {float:left; clear:left; margin-right:16px}',
+        //         '.iwg-media.right {float:right; clear:right; margin-left:16px}',
         //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
-        //         '.wiki-media.audio, .wiki-media.video {width:275px; padding:5px 5px 3px 5px}',
-        //         '.wiki-media audio, .wiki-media video {width:100%}',
+        //         '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
+        //         '.iwg-media audio, .iwg-media video {width:100%}',
         //     ]));
         // }
         //
@@ -160,10 +160,10 @@ class BulmaFormatter extends Formatter
         // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
-        //     return "<div class='wiki-media'>{$link}{$desc}</div>";
+        //     return "<div class='iwg-media'>{$link}{$desc}</div>";
         // }
         //
-        // return "<div class='wiki-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
+        // return "<div class='iwg-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
     }
 
     protected function audio(Image $image, $isGallery = false)
@@ -182,10 +182,10 @@ class BulmaFormatter extends Formatter
         // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
-        //     return "<div class='wiki-media audio'>{$audio}{$desc}</div>";
+        //     return "<div class='iwg-media audio'>{$audio}{$desc}</div>";
         // }
         //
-        // return "<div class='wiki-media audio {$position}'>{$audio}{$desc}</div>";
+        // return "<div class='iwg-media audio {$position}'>{$audio}{$desc}</div>";
     }
 
     protected function video(Image $image, $isGallery = false)
@@ -207,9 +207,9 @@ class BulmaFormatter extends Formatter
         // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
-        //     return "<div class='wiki-media video'>{$video}{$desc}</div>";
+        //     return "<div class='iwg-media video'>{$video}{$desc}</div>";
         // }
         //
-        // return "<div class='wiki-media video {$position}'>{$video}{$desc}</div>";
+        // return "<div class='iwg-media video {$position}'>{$video}{$desc}</div>";
     }
 }
