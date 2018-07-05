@@ -53,9 +53,7 @@ class BulmaFormatter extends Formatter
         //     return;
         // }
         //
-        // $styles = $styles->implode("\n");
-        //
-        // return "<style>\n{$styles}\n</style>\n\n";
+        // return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
     public function tableOfContents()
@@ -70,9 +68,7 @@ class BulmaFormatter extends Formatter
         //     return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
         // });
         //
-        // $items = $items->implode("\n");
-        //
-        // return "<div class='iwg-toc'>\n{$items}\n</div>\n\n";
+        // return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
     }
 
     public function section(Section $section)
@@ -111,9 +107,9 @@ class BulmaFormatter extends Formatter
         //
         // $gallery = $section->getGallery()->map(function (Image $image) {
         //     return $this->media($image, true);
-        // })->implode("\n");
+        // });
         //
-        // return  "<div class='iwg-gallery'>\n{$gallery}\n</div>\n";
+        // return $this->htmlInnerBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
     protected function images(Section $section)
@@ -122,9 +118,11 @@ class BulmaFormatter extends Formatter
         //     return;
         // }
         //
-        // return $section->getImages()->map(function (Image $image) {
+        // $images = $section->getImages()->map(function (Image $image) {
         //     return $this->media($image);
-        // })->implode("\n") . "\n";
+        // });
+        //
+        // return $this->htmlInnerItems($images);
     }
 
     protected function media(Image $image, $isGallery = false)
