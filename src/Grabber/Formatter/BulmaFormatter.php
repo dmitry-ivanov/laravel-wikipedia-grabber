@@ -43,9 +43,9 @@ class BulmaFormatter extends Formatter
         //         '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
         //         '.iwg-media.left {float:left; clear:left; margin-right:16px}',
         //         '.iwg-media.right {float:right; clear:right; margin-left:16px}',
-        //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
         //         '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
         //         '.iwg-media audio, .iwg-media video {width:100%}',
+        //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
         //     ]));
         // }
         //
