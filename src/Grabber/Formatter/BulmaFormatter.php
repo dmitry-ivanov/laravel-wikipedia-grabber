@@ -31,9 +31,9 @@ class BulmaFormatter extends Formatter
         //
         //     $styles = $styles->merge(collect([
         //         '.iwg-section-title.has-gallery {clear:both}',
-        //         '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
-        //         ".wiki-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
-        //         ".wiki-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
+        //         '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
+        //         ".iwg-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
+        //         ".iwg-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
         //     ]));
         // }
         //
@@ -113,7 +113,7 @@ class BulmaFormatter extends Formatter
         //     return $this->media($image, true);
         // })->implode("\n");
         //
-        // return  "<div class='wiki-gallery'>\n{$gallery}\n</div>\n";
+        // return  "<div class='iwg-gallery'>\n{$gallery}\n</div>\n";
     }
 
     protected function images(Section $section)

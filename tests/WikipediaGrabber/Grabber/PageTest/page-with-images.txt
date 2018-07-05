@@ -4,9 +4,9 @@
 .iwg-toc-item.level-2 {padding-left:20px}
 .iwg-toc-item.level-3 {padding-left:40px}
 .iwg-section-title.has-gallery {clear:both}
-.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}
-.wiki-gallery .wiki-media {width:185px; margin:8px; text-align:center}
-.wiki-gallery .wiki-media a {display:table-cell; width:185px; height:190px; vertical-align:middle}
+.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}
+.iwg-gallery .wiki-media {width:185px; margin:8px; text-align:center}
+.iwg-gallery .wiki-media a {display:table-cell; width:185px; height:190px; vertical-align:middle}
 .wiki-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}
 .wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}
 .wiki-media.left {float:left; clear:left; margin-right:16px}
@@ -113,7 +113,7 @@ Refectory tables first appeared at least as early as the 17th century, as an adv
 
 <h2 id='gallery' class='iwg-section-title has-gallery'>Gallery</h2>
 <div class='iwg-section'>
-<div class='wiki-gallery'>
+<div class='iwg-gallery'>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/e/ec/Tables_%287006831253%29.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tables_%287006831253%29.jpg/250px-Tables_%287006831253%29.jpg' width='185' height='139' alt='A pedestal table surface can be folded down in a passenger train' /></a><div class='wiki-media-desc'>A pedestal table surface can be folded down in a passenger train</div></div>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/6/6b/TableFranzMayer02.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/TableFranzMayer02.jpg/250px-TableFranzMayer02.jpg' width='185' height='132' alt='Carved wooden table from unknown century at the Franz Mayer Museum in Mexico City' /></a><div class='wiki-media-desc'>Carved wooden table from unknown century at the Franz Mayer Museum in Mexico City</div></div>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/0/03/Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG/250px-Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG' width='185' height='123' alt='A modern Brazilian stainless steel table made with FSC-certified eucalyptus' /></a><div class='wiki-media-desc'>A modern Brazilian stainless steel table made with FSC-certified eucalyptus</div></div>
@@ -132,7 +132,7 @@ Refectory tables first appeared at least as early as the 17th century, as an adv
 
 <h3 id='pedestal-tables' class='iwg-section-title has-gallery'>Pedestal tables</h3>
 <div class='iwg-section'>
-<div class='wiki-gallery'>
+<div class='iwg-gallery'>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/4/48/Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG/250px-Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG' width='185' height='108' alt='Dropleaf single pedestal' /></a><div class='wiki-media-desc'>Dropleaf single pedestal</div></div>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/7/7d/Pedestal_Table%2C_c._1810%2C_England%2C_mahogany_with_ebony_and_metal_inlays%2C_gilt_bronze_-_Art_Institute_of_Chicago_-_DSC09906.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Pedestal_Table%2C_c._1810%2C_England%2C_mahogany_with_ebony_and_metal_inlays%2C_gilt_bronze_-_Art_Institute_of_Chicago_-_DSC09906.JPG/250px-Pedestal_Table%2C_c._1810%2C_England%2C_mahogany_with_ebony_and_metal_inlays%2C_gilt_bronze_-_Art_Institute_of_Chicago_-_DSC09906.JPG' width='185' height='151' alt='Single pedestal' /></a><div class='wiki-media-desc'>Single pedestal</div></div>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/b/b4/English_tilt-top_table%2C_c._1820%2C_penwork_on_wood%2C_Honolulu_Academy_of_Arts.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/English_tilt-top_table%2C_c._1820%2C_penwork_on_wood%2C_Honolulu_Academy_of_Arts.JPG/192px-English_tilt-top_table%2C_c._1820%2C_penwork_on_wood%2C_Honolulu_Academy_of_Arts.JPG' width='142' height='185' alt='Small single pedestal' /></a><div class='wiki-media-desc'>Small single pedestal</div></div>
