@@ -73,7 +73,11 @@ class PlainFormatter extends Formatter
             $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         }
 
-        $items = collect([$this->gallery($section), $this->images($section), $this->sectionBody($section)]);
+        $items = collect([
+            $this->gallery($section),
+            $this->images($section),
+            $this->sectionBody($section),
+        ]);
         $bodyHtml = $this->htmlBlock("<div class='iwg-section'>", $items, '</div>');
 
         return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
