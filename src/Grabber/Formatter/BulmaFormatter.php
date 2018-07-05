@@ -15,11 +15,11 @@ class BulmaFormatter extends Formatter
         //     $styles = $styles->merge(
         //         collect([
         //             '.wiki-toc {padding:20px 0px}',
-        //             '.wiki-toc-item {display:block}',
+        //             '.iwg-toc-item {display:block}',
         //         ])->merge(
         //             $this->getLevels()->map(function ($level) {
         //                 $padding = ($level - 1) * 20;
-        //                 return ".wiki-toc-item.level-{$level} {padding-left:{$padding}px}";
+        //                 return ".iwg-toc-item.level-{$level} {padding-left:{$padding}px}";
         //             })
         //         )
         //     );
@@ -67,7 +67,7 @@ class BulmaFormatter extends Formatter
         // $items = $this->tocSections->map(function (Section $section) {
         //     $title = $section->getTitle();
         //     $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
-        //     return "<div class='wiki-toc-item level-{$section->getLevel()}'>{$link}</div>";
+        //     return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
         // });
         //
         // $items = $items->implode("\n");
