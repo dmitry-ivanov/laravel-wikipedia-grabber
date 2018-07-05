@@ -79,7 +79,13 @@ abstract class Formatter
 
     protected function htmlBlock($open, Collection $items, $close)
     {
-        return $this->htmlInnerBlock($open, $items, $close) . "\n";
+        $items = $items->filter();
+
+        if ($items->isEmpty()) {
+            return;
+        }
+
+        return "{$open}\n{$items->implode("\n")}\n{$close}\n\n";
     }
 
     protected function htmlInnerBlock($open, Collection $items, $close)

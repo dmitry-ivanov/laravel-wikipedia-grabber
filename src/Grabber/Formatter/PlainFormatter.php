@@ -49,19 +49,11 @@ class PlainFormatter extends Formatter
             ]));
         }
 
-        if ($styles->isEmpty()) {
-            return;
-        }
-
         return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
     public function tableOfContents()
     {
-        if (!$this->hasTableOfContents()) {
-            return;
-        }
-
         $items = $this->tocSections->map(function (Section $section) {
             $title = $section->getTitle();
             $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
