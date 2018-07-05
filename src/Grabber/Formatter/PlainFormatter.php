@@ -14,7 +14,7 @@ class PlainFormatter extends Formatter
         if ($this->hasTableOfContents()) {
             $styles = $styles->merge(
                 collect([
-                    '.wiki-toc {padding:20px 0px}',
+                    '.iwg-toc {padding:20px 0px}',
                     '.iwg-toc-item {display:block}',
                 ])->merge(
                     $this->getLevels()->map(function ($level) {
@@ -72,7 +72,7 @@ class PlainFormatter extends Formatter
 
         $items = $items->implode("\n");
 
-        return "<div class='wiki-toc'>\n{$items}\n</div>\n\n";
+        return "<div class='iwg-toc'>\n{$items}\n</div>\n\n";
     }
 
     public function section(Section $section)
