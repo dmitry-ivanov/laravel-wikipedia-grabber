@@ -49,19 +49,11 @@ class BulmaFormatter extends Formatter
         //     ]));
         // }
         //
-        // if ($styles->isEmpty()) {
-        //     return;
-        // }
-        //
         // return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
     public function tableOfContents()
     {
-        // if (!$this->hasTableOfContents()) {
-        //     return;
-        // }
-        //
         // $items = $this->tocSections->map(function (Section $section) {
         //     $title = $section->getTitle();
         //     $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
@@ -73,30 +65,23 @@ class BulmaFormatter extends Formatter
 
     public function section(Section $section)
     {
-        $title = $section->getTitle();
-        $id = $this->sectionId($title);
-        $htmlLevel = $section->getHtmlLevel();
-        $tag = "h{$htmlLevel}";
-
-        // $gallery = $this->gallery($section);
-        // $images = $this->images($section);
-        $gallery = ''; /////////////////////////////////////////////////////////////////////////////////////////////////
-        $images = ''; //////////////////////////////////////////////////////////////////////////////////////////////////
-        $body = $this->sectionBody($section);
-
-        $class = collect(['iwg-section-title', 'title', "is-{$htmlLevel}"]);
-        // if ($section->hasGallery()) {
-        //     $class->push('has-gallery');
-        // }
-        $class = $class->implode(' ');
-
-        $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>\n" : '';
-        $bodyHtml = "<div class='iwg-section content'>\n{$gallery}{$images}{$body}</div>\n\n";
-        if ($section->isEmpty()) {
-            $bodyHtml = "\n";
+        $titleHtml = '';
+        if ($title = $section->getTitle()) {
+            $id = $this->sectionId($title);
+            $htmlLevel = $section->getHtmlLevel();
+            $tag = "h{$htmlLevel}";
+            $class = $section->hasGallery() ? "iwg-section-title title is-{$htmlLevel} has-gallery" : "iwg-section-title title is-{$htmlLevel}";
+            $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         }
 
-        return "{$titleHtml}{$bodyHtml}";
+        $items = collect([
+            $this->gallery($section),
+            $this->images($section),
+            $this->sectionBody($section),
+        ]);
+        $bodyHtml = $this->htmlBlock("<div class='iwg-section content'>", $items, '</div>');
+
+        return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
     }
 
     protected function gallery(Section $section)
@@ -109,7 +94,7 @@ class BulmaFormatter extends Formatter
         //     return $this->media($image, true);
         // });
         //
-        // return $this->htmlInnerBlock("<div class='iwg-gallery'>", $gallery, '</div>');
+        // return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
     protected function images(Section $section)
@@ -122,7 +107,7 @@ class BulmaFormatter extends Formatter
         //     return $this->media($image);
         // });
         //
-        // return $this->htmlInnerItems($images);
+        // return $this->htmlBlock(null, $images, null);
     }
 
     protected function media(Image $image, $isGallery = false)
