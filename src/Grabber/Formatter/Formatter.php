@@ -77,7 +77,7 @@ abstract class Formatter
         return (int) ($size / 1.35);
     }
 
-    protected function htmlBlock($open = null, Collection $items, $close = null)
+    protected function htmlBlock($open, Collection $items, $close)
     {
         $items = collect(array_map('trim', $items->toArray()))->filter();
         if ($items->isEmpty()) {
