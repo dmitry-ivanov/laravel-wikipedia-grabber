@@ -68,13 +68,7 @@ class PlainFormatter extends Formatter
         $title = $section->getTitle();
         $id = $this->sectionId($title);
         $tag = "h{$section->getHtmlLevel()}";
-
-        $class = collect(['iwg-section-title']);
-        if ($section->hasGallery()) {
-            $class->push('has-gallery');
-        }
-        $class = $class->implode(' ');
-
+        $class = $section->hasGallery() ? 'iwg-section-title has-gallery' : 'iwg-section-title';
         $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>" : '';
 
         $items = collect([$this->gallery($section), $this->images($section), $this->sectionBody($section)]);
