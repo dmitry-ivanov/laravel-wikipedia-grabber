@@ -92,7 +92,7 @@ class PlainFormatter extends Formatter
         $class = $class->implode(' ');
 
         $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>\n" : '';
-        $bodyHtml = "<div class='wiki-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
+        $bodyHtml = "<div class='iwg-section'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if ($section->isEmpty()) {
             $bodyHtml = "\n";
         }

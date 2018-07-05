@@ -1,4 +1,4 @@
 <h1 id='mocked-page' class='iwg-section-title'>Mocked Page</h1>
-<div class='wiki-section'>
+<div class='iwg-section'>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </div>

@@ -95,7 +95,7 @@ class BulmaFormatter extends Formatter
         $class = $class->implode(' ');
 
         $titleHtml = !empty($title) ? "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>\n" : '';
-        $bodyHtml = "<div class='wiki-section content'>\n{$gallery}{$images}{$body}\n</div>\n\n";
+        $bodyHtml = "<div class='iwg-section content'>\n{$gallery}{$images}{$body}\n</div>\n\n";
         if ($section->isEmpty()) {
             $bodyHtml = "\n";
         }
