@@ -79,7 +79,9 @@ abstract class Formatter
 
     protected function htmlBlock($open = null, Collection $items, $close = null)
     {
-        $items = $items->filter();
+        $items = $items->map(function ($item) {
+            return trim($item);
+        })->filter();
 
         if ($items->isEmpty()) {
             return;
