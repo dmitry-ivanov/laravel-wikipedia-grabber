@@ -30,7 +30,7 @@ class PlainFormatter extends Formatter
             $galleryHeight = $galleryWidth + 5;
 
             $styles = $styles->merge(collect([
-                '.wiki-section-title.has-gallery {clear:both}',
+                '.iwg-section-title.has-gallery {clear:both}',
                 '.wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
                 ".wiki-gallery .wiki-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
                 ".wiki-gallery .wiki-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
@@ -85,7 +85,7 @@ class PlainFormatter extends Formatter
         $images = $this->images($section);
         $body = $this->sectionBody($section);
 
-        $class = collect(['wiki-section-title']);
+        $class = collect(['iwg-section-title']);
         if ($section->hasGallery()) {
             $class->push('has-gallery');
         }

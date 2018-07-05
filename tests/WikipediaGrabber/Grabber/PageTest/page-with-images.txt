@@ -3,7 +3,7 @@
 .iwg-toc-item {display:block}
 .iwg-toc-item.level-2 {padding-left:20px}
 .iwg-toc-item.level-3 {padding-left:40px}
-.wiki-section-title.has-gallery {clear:both}
+.iwg-section-title.has-gallery {clear:both}
 .wiki-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}
 .wiki-gallery .wiki-media {width:185px; margin:8px; text-align:center}
 .wiki-gallery .wiki-media a {display:table-cell; width:185px; height:190px; vertical-align:middle}
@@ -16,7 +16,7 @@
 .wiki-media audio, .wiki-media video {width:100%}
 </style>
 
-<h1 id='table-furniture' class='wiki-section-title'>Table (furniture)</h1>
+<h1 id='table-furniture' class='iwg-section-title'>Table (furniture)</h1>
 <div class='wiki-section'>
 <div class='wiki-media right' style='width:300px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/cc/Tablebasicstructure.png' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tablebasicstructure.png/300px-Tablebasicstructure.png' width='300' height='300' alt='Table (furniture)' /></a><div class='wiki-media-desc'>Table (furniture)</div></div>
 A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables.<br />
@@ -41,12 +41,12 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 <div class='iwg-toc-item level-3'><a href='#pedestal-tables'>Pedestal tables</a></div>
 </div>
 
-<h2 id='etymology' class='wiki-section-title'>Etymology</h2>
+<h2 id='etymology' class='iwg-section-title'>Etymology</h2>
 <div class='wiki-section'>
 The term table is derived from a merger of French table and Old English tabele, both ultimately from the Latin word tabula, "a board, plank, flat top piece". In Late Latin, tabula took over the meaning previously reserved to mensa (preserved in Spanish and Portuguese mesa "table"). In Old English, the word was bord, replaced by table for this meaning.
 </div>
 
-<h2 id='shape-height-and-function' class='wiki-section-title'>Shape, height, and function</h2>
+<h2 id='shape-height-and-function' class='iwg-section-title'>Shape, height, and function</h2>
 <div class='wiki-section'>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/b/bd/Dinner_table_and_chairs.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dinner_table_and_chairs.jpg/250px-Dinner_table_and_chairs.jpg' width='250' height='189' alt='Dinner table and chairs' /></a><div class='wiki-media-desc'>Dinner table and chairs</div></div>
 Tables come in a wide variety of materials, shapes, and heights dependent upon their origin, style, intended use and cost. Many tables are made of wood or wood-based products; some are made of other materials including metal and glass. Most tables are composed of a flat surface and one or more supports (legs). A table with a single, central foot is a pedestal table. Long tables often have extra legs for support.<br />
@@ -56,7 +56,7 @@ Many tables have tops that can be adjusted to change their height, position, sha
 Tables can be freestanding or designed for placement against a wall. Tables designed to be placed against a wall are known as Pier tables or console tables (French: console, "support bracket") and may be bracket-mounted (traditionally), like a shelf, or have legs, which sometimes imitate the look of a bracket-mounted table.
 </div>
 
-<h2 id='types' class='wiki-section-title'>Types</h2>
+<h2 id='types' class='iwg-section-title'>Types</h2>
 <div class='wiki-section'>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/2/28/Tischbank.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Tischbank.jpg/250px-Tischbank.jpg' width='250' height='183' alt='A combination of a table with two benches (picnic table) as often seen at camping sites and other outdoor facilities' /></a><div class='wiki-media-desc'>A combination of a table with two benches (picnic table) as often seen at camping sites and other outdoor facilities</div></div>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/c0/Meissen-Porcelain-Table.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Meissen-Porcelain-Table.JPG/250px-Meissen-Porcelain-Table.JPG' width='250' height='188' alt='A formally laid table, set with a dinner service' /></a><div class='wiki-media-desc'>A formally laid table, set with a dinner service</div></div>
@@ -71,7 +71,7 @@ Workbenches are sturdy tables, often elevated for use with a high stool or while
 Nested tables are a set of small tables of graduated size that can be stacked together, each fitting within the one immediately larger. They are for occasional use (such as a tea party), hence the stackable design.
 </div>
 
-<h2 id='specialized-types' class='wiki-section-title'>Specialized types</h2>
+<h2 id='specialized-types' class='iwg-section-title'>Specialized types</h2>
 <div class='wiki-section'>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/7/7b/Table_%C3%A9chiquier_-_134.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Table_%C3%A9chiquier_-_134.jpg/250px-Table_%C3%A9chiquier_-_134.jpg' width='250' height='167' alt='Chess Table' /></a><div class='wiki-media-desc'>Chess Table</div></div>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/7/74/Poker_Table.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Poker_Table.jpg/250px-Poker_Table.jpg' width='250' height='188' alt='Poker Table' /></a><div class='wiki-media-desc'>Poker Table</div></div>
@@ -92,7 +92,7 @@ Table tennis tables are usually masonite or a similar wood, layered with a smoot
 Poker tables or card tables are used to play poker or other card games.
 </div>
 
-<h2 id='standards-for-design-functionality-and-safety' class='wiki-section-title'>Standards for design, functionality and safety</h2>
+<h2 id='standards-for-design-functionality-and-safety' class='iwg-section-title'>Standards for design, functionality and safety</h2>
 <div class='wiki-section'>
 EN 527 Office furniture - Work tables and desks<br />
 EN 581 Outdoor furniture - Seating and tables for camping, domestic and contract use<br />
@@ -101,7 +101,7 @@ EN 13150 Workbenches for laboratories - Safety requirements and test methods<br 
 BS 4875 Furniture. Strength and stability of furniture. Methods for determination of stability of non-domestic storage furniture (British Standard)
 </div>
 
-<h2 id='history' class='wiki-section-title'>History</h2>
+<h2 id='history' class='iwg-section-title'>History</h2>
 <div class='wiki-section'>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/8/85/Folding_and_Drawing_Table.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Folding_and_Drawing_Table.jpg/250px-Folding_and_Drawing_Table.jpg' width='250' height='212' alt='Large 17th-century English folding tables' /></a><div class='wiki-media-desc'>Large 17th-century English folding tables</div></div>
 <div class='wiki-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/a/a4/Diocletian%27s_Mensa%2C_City_Museum%2C_Split.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Diocletian%27s_Mensa%2C_City_Museum%2C_Split.jpg/250px-Diocletian%27s_Mensa%2C_City_Museum%2C_Split.jpg' width='250' height='188' alt='Roman dining table: mensa lunata' /></a><div class='wiki-media-desc'>Roman dining table: mensa lunata</div></div>
@@ -111,7 +111,7 @@ Furniture during the Middle Ages is not as well known as that of earlier or late
 Refectory tables first appeared at least as early as the 17th century, as an advancement of the trestle table; these tables were typically quite long and wide and capable of supporting a sizeable banquet in the great hall or other reception room of a castle.
 </div>
 
-<h2 id='gallery' class='wiki-section-title has-gallery'>Gallery</h2>
+<h2 id='gallery' class='iwg-section-title has-gallery'>Gallery</h2>
 <div class='wiki-section'>
 <div class='wiki-gallery'>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/e/ec/Tables_%287006831253%29.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tables_%287006831253%29.jpg/250px-Tables_%287006831253%29.jpg' width='185' height='139' alt='A pedestal table surface can be folded down in a passenger train' /></a><div class='wiki-media-desc'>A pedestal table surface can be folded down in a passenger train</div></div>
@@ -130,7 +130,7 @@ Refectory tables first appeared at least as early as the 17th century, as an adv
 
 </div>
 
-<h3 id='pedestal-tables' class='wiki-section-title has-gallery'>Pedestal tables</h3>
+<h3 id='pedestal-tables' class='iwg-section-title has-gallery'>Pedestal tables</h3>
 <div class='wiki-section'>
 <div class='wiki-gallery'>
 <div class='wiki-media'><a href='https://upload.wikimedia.org/wikipedia/commons/4/48/Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG/250px-Rectangular_pedestal_dining_room_table_attributed_to_Gabriel_Quervelle_of_Philadelphia%2C_c._1820-1830%2C_mahogany%2C_HAA.JPG' width='185' height='108' alt='Dropleaf single pedestal' /></a><div class='wiki-media-desc'>Dropleaf single pedestal</div></div>
