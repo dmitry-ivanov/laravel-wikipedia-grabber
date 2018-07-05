@@ -43,7 +43,7 @@ class BulmaFormatter extends Formatter
         //         '.wiki-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
         //         '.wiki-media.left {float:left; clear:left; margin-right:16px}',
         //         '.wiki-media.right {float:right; clear:right; margin-left:16px}',
-        //         '.wiki-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
+        //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
         //         '.wiki-media.audio, .wiki-media.video {width:275px; padding:5px 5px 3px 5px}',
         //         '.wiki-media audio, .wiki-media video {width:100%}',
         //     ]));
@@ -157,7 +157,7 @@ class BulmaFormatter extends Formatter
         //
         // $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
         // $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
-        // $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
+        // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
         //     return "<div class='wiki-media'>{$link}{$desc}</div>";
@@ -179,7 +179,7 @@ class BulmaFormatter extends Formatter
         // }
         //
         // $audio = "<audio controls>{$source->implode('')}</audio>";
-        // $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
+        // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
         //     return "<div class='wiki-media audio'>{$audio}{$desc}</div>";
@@ -204,7 +204,7 @@ class BulmaFormatter extends Formatter
         // }
         //
         // $video = "<video poster='{$url}' controls>{$source->implode('')}</video>";
-        // $desc = !empty($description) ? "<div class='wiki-media-desc'>{$description}</div>" : '';
+        // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
         //
         // if ($isGallery) {
         //     return "<div class='wiki-media video'>{$video}{$desc}</div>";
