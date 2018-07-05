@@ -76,4 +76,19 @@ abstract class Formatter
     {
         return (int) ($size / 1.35);
     }
+
+    protected function htmlBlock($open, Collection $items, $close)
+    {
+        return $this->htmlInnerBlock($open, $items, $close) . "\n";
+    }
+
+    protected function htmlInnerBlock($open, Collection $items, $close)
+    {
+        return "{$open}\n" . $this->htmlInnerItems($items) . "{$close}\n";
+    }
+
+    protected function htmlInnerItems(Collection $items)
+    {
+        return $items->implode("\n") . "\n";
+    }
 }
