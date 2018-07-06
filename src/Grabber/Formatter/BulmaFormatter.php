@@ -35,7 +35,7 @@ class BulmaFormatter extends Formatter
 
         if ($this->hasMedia) {
             $styles = $styles->merge(collect([
-                // '.iwg-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+                // '.iwg-media {color:#757575; margin-bottom:16px; padding:3px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
                 // '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
                 '.iwg-media.left {float:left; clear:left; margin-right:1rem}',
                 '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
