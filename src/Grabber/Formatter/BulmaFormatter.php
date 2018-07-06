@@ -32,18 +32,18 @@ class BulmaFormatter extends Formatter
         //         ".iwg-gallery .iwg-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
         //     ]));
         // }
-        //
-        // if ($this->hasMedia) {
-        //     $styles = $styles->merge(collect([
-        //         '.iwg-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
-        //         '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
-        //         '.iwg-media.left {float:left; clear:left; margin-right:1rem}',
-        //         '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
-        //         '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
-        //         '.iwg-media audio, .iwg-media video {width:100%}',
-        //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
-        //     ]));
-        // }
+
+        if ($this->hasMedia) {
+            $styles = $styles->merge(collect([
+                // '.iwg-media {color:#757575; padding:3px; margin-bottom:16px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
+                // '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
+                '.iwg-media.left {float:left; clear:left; margin-right:1rem}',
+                '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
+                // '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
+                // '.iwg-media audio, .iwg-media video {width:100%}',
+                // '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
+            ]));
+        }
 
         return $this->htmlBlock('<style>', $styles, '</style>');
     }
