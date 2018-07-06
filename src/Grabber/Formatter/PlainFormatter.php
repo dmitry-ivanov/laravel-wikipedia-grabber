@@ -12,13 +12,12 @@ class PlainFormatter extends Formatter
         $styles = collect();
 
         if ($this->hasTableOfContents()) {
+            $styles->push('.iwg-toc {margin-top:1.5rem}');
             $styles = $styles->merge(
-                collect(['.iwg-toc {padding:20px 0px}'])->merge(
-                    $this->tocLevels()->map(function ($level) {
-                        $padding = ($level - 2) * 20;
-                        return ".iwg-toc-item.level-{$level} {padding-left:{$padding}px}";
-                    })
-                )
+                $this->tocLevels()->map(function ($level) {
+                    $margin = ($level - 2) * 1.5;
+                    return ".iwg-toc-item.level-{$level} {margin-left:{$margin}rem}";
+                })
             );
         }
 
