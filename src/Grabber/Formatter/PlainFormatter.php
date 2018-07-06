@@ -35,8 +35,8 @@ class PlainFormatter extends Formatter
 
         if ($this->hasMedia) {
             $styles = $styles->merge(collect([
-                '.iwg-media {color:#757575; margin-bottom:16px; padding:3px; box-shadow:0 4px 8px 0 #BDBDBD; transition:0.3s}',
-                '.iwg-media:hover {box-shadow:0 8px 16px 0 #BDBDBD}',
+                '.iwg-media {color:#757575; margin-bottom:1rem; padding:3px; box-shadow:0 .25rem .5rem 0 #BDBDBD; transition:.3s}',
+                '.iwg-media:hover {box-shadow:0 .5rem 1rem 0 #BDBDBD}',
                 '.iwg-media.left {float:left; clear:left; margin-right:1rem}',
                 '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
                 '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
