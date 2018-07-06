@@ -78,8 +78,8 @@ abstract class Formatter
             return;
         }
 
-        $open = !empty($open) ? "{$open}\n" : '';
-        $close = !empty($close) ? "{$close}\n" : '';
+        $open .= !empty($open) ? "\n" : '';
+        $close .= !empty($close) ? "\n" : '';
 
         return "{$open}{$items->implode("\n")}\n{$close}\n";
     }
