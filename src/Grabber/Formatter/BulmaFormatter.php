@@ -51,13 +51,13 @@ class BulmaFormatter extends Formatter
 
     public function tableOfContents()
     {
-        // $items = $this->tocSections->map(function (Section $section) {
-        //     $title = $section->getTitle();
-        //     $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
-        //     return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
-        // });
-        //
-        // return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
+        $items = $this->tocSections->map(function (Section $section) {
+            $title = $section->getTitle();
+            $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
+            return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
+        });
+
+        return $this->htmlBlock("<div class='iwg-toc content'>", $items, '</div>');
     }
 
     public function section(Section $section)
