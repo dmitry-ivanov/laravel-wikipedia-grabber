@@ -9,19 +9,18 @@ class BulmaFormatter extends Formatter
 {
     public function style()
     {
-        // $styles = collect();
-        //
-        // if ($this->hasTableOfContents()) {
-        //     $styles = $styles->merge(
-        //         collect(['.iwg-toc {padding:20px 0px}'])->merge(
-        //             $this->tocLevels()->map(function ($level) {
-        //                 $padding = ($level - 2) * 20;
-        //                 return ".iwg-toc-item.level-{$level} {padding-left:{$padding}px}";
-        //             })
-        //         )
-        //     );
-        // }
-        //
+        $styles = collect();
+
+        if ($this->hasTableOfContents()) {
+            // $styles->push('.iwg-toc {margin-top:1.5rem}');
+            $styles = $styles->merge(
+                $this->tocLevels()->map(function ($level) {
+                    $margin = ($level - 2) * 1.5;
+                    return ".iwg-toc-item.level-{$level} {margin-left:{$margin}rem}";
+                })
+            );
+        }
+
         // if ($this->hasGallery) {
         //     $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
         //     $galleryHeight = $galleryWidth + 5;
@@ -45,8 +44,8 @@ class BulmaFormatter extends Formatter
         //         '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
         //     ]));
         // }
-        //
-        // return $this->htmlBlock('<style>', $styles, '</style>');
+
+        return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
     public function tableOfContents()
