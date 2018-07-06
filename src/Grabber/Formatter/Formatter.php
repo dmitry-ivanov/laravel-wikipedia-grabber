@@ -49,6 +49,13 @@ abstract class Formatter
         return $this->tocSections->isNotEmpty();
     }
 
+    protected function getLevels()
+    {
+        return $this->tocSections->map(function (Section $section) {
+            return $section->getLevel();
+        })->unique()->sort();
+    }
+
     protected function sectionId($title)
     {
         return str_slug($title);
@@ -57,13 +64,6 @@ abstract class Formatter
     protected function sectionBody(Section $section)
     {
         return preg_replace('/(\s*<br.*?>\s*){3,}/m', '$1$1', nl2br($section->getBody()));
-    }
-
-    protected function getLevels()
-    {
-        return $this->tocSections->map(function (Section $section) {
-            return $section->getLevel();
-        })->unique()->sort();
     }
 
     protected function toGallerySize($size)
