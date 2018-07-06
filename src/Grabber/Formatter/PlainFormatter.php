@@ -15,7 +15,7 @@ class PlainFormatter extends Formatter
             $styles = $styles->merge(
                 collect(['.iwg-toc {padding:20px 0px}'])->merge(
                     $this->tocLevels()->map(function ($level) {
-                        $padding = ($level - 1) * 20;
+                        $padding = ($level - 2) * 20;
                         return ".iwg-toc-item.level-{$level} {padding-left:{$padding}px}";
                     })
                 )
