@@ -32,19 +32,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Image Size On Preview
-    |--------------------------------------------------------------------------
-    |
-    | Here you can specify the size of image thumbnail in the preview mode.
-    | According to proportions, it would be used for the width or height.
-    | In most cases, default value is fine. Change it, if you need it.
-    |
-    */
-
-    'image_size_on_preview' => 125,
-
-    /*
-    |--------------------------------------------------------------------------
     | Image Size
     |--------------------------------------------------------------------------
     |
@@ -55,6 +42,19 @@ return [
     */
 
     'image_size' => 250,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Image Size On Preview
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify the size of image thumbnail in the preview mode.
+    | According to proportions, it would be used for the width or height.
+    | In most cases, default value is fine. Change it, if you need it.
+    |
+    */
+
+    'image_size_on_preview' => 125,
 
     /*
     |--------------------------------------------------------------------------
