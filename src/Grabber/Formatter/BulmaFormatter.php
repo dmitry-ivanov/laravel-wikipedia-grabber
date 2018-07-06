@@ -95,54 +95,54 @@ class BulmaFormatter extends Formatter
 
     protected function images(Section $section)
     {
-        // if (!$section->hasImages()) {
-        //     return;
-        // }
-        //
-        // $images = $section->getImages()->map(function (Image $image) {
-        //     return $this->media($image);
-        // });
-        //
-        // return $this->htmlBlock(null, $images, null);
+        if (!$section->hasImages()) {
+            return;
+        }
+
+        $images = $section->getImages()->map(function (Image $image) {
+            return $this->media($image);
+        });
+
+        return $this->htmlBlock(null, $images, null);
     }
 
     protected function media(Image $image, $isGallery = false)
     {
-        // if ($image->isAudio()) {
-        //     return $this->audio($image, $isGallery);
-        // }
-        //
-        // if ($image->isVideo()) {
-        //     return $this->video($image, $isGallery);
-        // }
-        //
-        // return $this->image($image, $isGallery);
+        if ($image->isAudio()) {
+            return $this->audio($image, $isGallery);
+        }
+
+        if ($image->isVideo()) {
+            return $this->video($image, $isGallery);
+        }
+
+        return $this->image($image, $isGallery);
     }
 
     protected function image(Image $image, $isGallery = false)
     {
-        // $url = $image->getUrl();
-        // $alt = $image->getAlt();
-        // $width = $image->getWidth();
-        // $height = $image->getHeight();
-        // $position = $image->getPosition();
-        // $description = $image->getDescription();
-        // $originalUrl = $image->getOriginalUrl();
-        //
-        // if ($isGallery) {
-        //     $width = $this->toGallerySize($width);
-        //     $height = $this->toGallerySize($height);
-        // }
-        //
-        // $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
-        // $link = "<a class='card-image' href='{$originalUrl}' target='_blank'>{$img}</a>";
-        // $desc = !empty($description) ? "<div class='iwg-media-desc card-content'>{$description}</div>" : '';
-        //
-        // if ($isGallery) {
-        //     return "<div class='iwg-media card'>{$link}{$desc}</div>";
-        // }
-        //
-        // return "<div class='iwg-media {$position} card' style='width:{$width}px'>{$link}{$desc}</div>";
+        $url = $image->getUrl();
+        $alt = $image->getAlt();
+        $width = $image->getWidth();
+        $height = $image->getHeight();
+        $position = $image->getPosition();
+        $description = $image->getDescription();
+        $originalUrl = $image->getOriginalUrl();
+
+        if ($isGallery) {
+            $width = $this->toGallerySize($width);
+            $height = $this->toGallerySize($height);
+        }
+
+        $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
+        $link = "<a class='card-image' href='{$originalUrl}' target='_blank'>{$img}</a>";
+        $desc = !empty($description) ? "<div class='iwg-media-desc card-content'>{$description}</div>" : '';
+
+        if ($isGallery) {
+            return "<div class='iwg-media card'>{$link}{$desc}</div>";
+        }
+
+        return "<div class='iwg-media {$position} card' style='width:{$width}px'>{$link}{$desc}</div>";
     }
 
     protected function audio(Image $image, $isGallery = false)
