@@ -49,7 +49,7 @@ abstract class Formatter
         return $this->tocSections->isNotEmpty();
     }
 
-    protected function getLevels()
+    protected function tocLevels()
     {
         return $this->tocSections->map(function (Section $section) {
             return $section->getLevel();
