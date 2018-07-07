@@ -58,8 +58,8 @@ class PreviewTest extends TestCase
         $this->assertFalse($preview->isMissing());
         $this->assertNull($preview->getId());
         $this->assertNull($preview->getTitle());
-        $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $preview);
-        $this->assertEquals("The page `Talk:` is invalid.\nThe requested page title is empty or contains only the name of a namespace.", $preview->getBody());
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $preview);
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $preview->getBody());
     }
 
     /** @test */

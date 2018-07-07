@@ -88,11 +88,9 @@ abstract class EntitySingular extends Entity
 
     protected function getInvalidBody()
     {
-        $reason = !empty($this->response['invalidreason'])
-            ? "\n{$this->response['invalidreason']}"
-            : '';
+        $reason = array_get($this->response, 'invalidreason');
 
-        return "The page `{$this->target}` is invalid.{$reason}";
+        return "The page `{$this->target}` is invalid. {$reason}";
     }
 
     public function append($title, $body, $level = 2)
