@@ -41,7 +41,7 @@ class PlainFormatter extends Formatter
                 '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
                 '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
                 '.iwg-media audio, .iwg-media video {width:100%}',
-                '.iwg-media-desc {padding:10px 16px; font-size:0.95rem; word-wrap:break-word}',
+                '.iwg-media-desc {padding:.625rem 1rem; font-size:0.95rem; word-wrap:break-word}',
             ]));
         }
 
