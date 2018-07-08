@@ -39,7 +39,7 @@ class BulmaFormatter extends Formatter
                 '.iwg-media:hover {box-shadow:0 .5rem 1rem 0 #BDBDBD}',
                 '.iwg-media.left {float:left; clear:left; margin-right:1rem}',
                 '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
-                // '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px 5px 3px 5px}',
+                // '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px}',
                 // '.iwg-media audio, .iwg-media video {width:100%}',
                 '.iwg-media-desc {padding:.625rem 1rem; font-size:0.95rem; word-wrap:break-word}',
             ]));
