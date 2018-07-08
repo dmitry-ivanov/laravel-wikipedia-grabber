@@ -3,8 +3,8 @@
 .iwg-toc-item.level-2 {margin-left:0rem}
 .iwg-toc-item.level-3 {margin-left:1.5rem}
 .iwg-section-title.has-gallery {clear:both}
-.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}
-.iwg-gallery .iwg-media {width:185px; margin:8px; text-align:center}
+.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -.5rem 1rem -.5rem}
+.iwg-gallery .iwg-media {width:185px; margin:.5rem; text-align:center}
 .iwg-gallery .iwg-media a {display:table-cell; width:185px; height:190px; vertical-align:middle}
 .iwg-media {color:#757575; margin-bottom:1rem; padding:3px; box-shadow:0 .25rem .5rem 0 #BDBDBD; transition:.3s}
 .iwg-media:hover {box-shadow:0 .5rem 1rem 0 #BDBDBD}

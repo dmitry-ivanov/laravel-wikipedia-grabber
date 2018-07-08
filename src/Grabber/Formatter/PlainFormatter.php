@@ -27,8 +27,8 @@ class PlainFormatter extends Formatter
 
             $styles = $styles->merge(collect([
                 '.iwg-section-title.has-gallery {clear:both}',
-                '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -8px 16px -8px}',
-                ".iwg-gallery .iwg-media {width:{$galleryWidth}px; margin:8px; text-align:center}",
+                '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -.5rem 1rem -.5rem}',
+                ".iwg-gallery .iwg-media {width:{$galleryWidth}px; margin:.5rem; text-align:center}",
                 ".iwg-gallery .iwg-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
             ]));
         }
