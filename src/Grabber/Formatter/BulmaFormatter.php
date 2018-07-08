@@ -135,14 +135,14 @@ class BulmaFormatter extends Formatter
         }
 
         $img = "<img src='{$url}' width='{$width}' height='{$height}' alt='{$alt}' />";
-        $link = "<a class='card-image' href='{$originalUrl}' target='_blank'>{$img}</a>";
-        $desc = !empty($description) ? "<div class='iwg-media-desc card-content'>{$description}</div>" : '';
+        $link = "<a href='{$originalUrl}' target='_blank'>{$img}</a>";
+        $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
 
         if ($isGallery) {
-            return "<div class='iwg-media card'>{$link}{$desc}</div>";
+            return "<div class='iwg-media'>{$link}{$desc}</div>";
         }
 
-        return "<div class='iwg-media {$position} card' style='width:{$width}px'>{$link}{$desc}</div>";
+        return "<div class='iwg-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
     }
 
     protected function audio(Image $image, $isGallery = false)
