@@ -147,24 +147,24 @@ class BulmaFormatter extends Formatter
 
     protected function audio(Image $image, $isGallery = false)
     {
-        // $mime = $image->getMime();
-        // $position = $image->getPosition();
-        // $description = $image->getDescription();
-        // $originalUrl = $image->getOriginalUrl();
-        //
-        // $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
-        // if ($mp3 = $image->getTranscodedMp3Url()) {
-        //     $source->push("<source src='{$mp3}' type='audio/mpeg'>");
-        // }
-        //
-        // $audio = "<audio controls>{$source->implode('')}</audio>";
-        // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
-        //
-        // if ($isGallery) {
-        //     return "<div class='iwg-media audio'>{$audio}{$desc}</div>";
-        // }
-        //
-        // return "<div class='iwg-media audio {$position}'>{$audio}{$desc}</div>";
+        $mime = $image->getMime();
+        $position = $image->getPosition();
+        $description = $image->getDescription();
+        $originalUrl = $image->getOriginalUrl();
+
+        $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
+        if ($mp3 = $image->getTranscodedMp3Url()) {
+            $source->push("<source src='{$mp3}' type='audio/mpeg'>");
+        }
+
+        $audio = "<audio controls>{$source->implode('')}</audio>";
+        $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
+
+        if ($isGallery) {
+            return "<div class='iwg-media audio'>{$audio}{$desc}</div>";
+        }
+
+        return "<div class='iwg-media audio {$position}'>{$audio}{$desc}</div>";
     }
 
     protected function video(Image $image, $isGallery = false)
