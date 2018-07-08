@@ -82,15 +82,15 @@ class BulmaFormatter extends Formatter
 
     protected function gallery(Section $section)
     {
-        // if (!$section->hasGallery()) {
-        //     return;
-        // }
-        //
-        // $gallery = $section->getGallery()->map(function (Image $image) {
-        //     return $this->media($image, true);
-        // });
-        //
-        // return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
+        if (!$section->hasGallery()) {
+            return;
+        }
+
+        $gallery = $section->getGallery()->map(function (Image $image) {
+            return $this->media($image, true);
+        });
+
+        return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
     protected function images(Section $section)
