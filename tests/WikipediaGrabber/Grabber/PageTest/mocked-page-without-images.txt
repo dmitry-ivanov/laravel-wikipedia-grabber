@@ -1,3 +1,7 @@
+<style>
+.iwg-section-title, .iwg-section {margin-bottom:1.5rem}
+</style>
+
 <h1 id='mocked-page' class='iwg-section-title'>Mocked Page</h1>
 <div class='iwg-section'>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

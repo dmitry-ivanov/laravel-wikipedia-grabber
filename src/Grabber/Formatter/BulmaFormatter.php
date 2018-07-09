@@ -9,10 +9,10 @@ class BulmaFormatter extends Formatter
 {
     public function style()
     {
-        $styles = collect();
+        $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);
 
         if ($this->hasTableOfContents()) {
-            // $styles->push('.iwg-toc {margin-top:1.5rem}');
+            $styles->push('.iwg-toc {margin-bottom:1.5rem}');
             $styles = $styles->merge(
                 $this->tocLevels()->map(function ($level) {
                     $margin = ($level - 2) * 1.5;
