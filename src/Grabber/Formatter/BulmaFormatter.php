@@ -56,7 +56,7 @@ class BulmaFormatter extends Formatter
             return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
         });
 
-        return $this->htmlBlock("<div class='iwg-toc content'>", $items, '</div>');
+        return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
     }
 
     public function section(Section $section)
@@ -74,7 +74,7 @@ class BulmaFormatter extends Formatter
             $this->images($section),
             $this->sectionBody($section),
         ]);
-        $bodyHtml = $this->htmlBlock("<div class='iwg-section content'>", $items, '</div>');
+        $bodyHtml = $this->htmlBlock("<div class='iwg-section'>", $items, '</div>');
 
         return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
     }
