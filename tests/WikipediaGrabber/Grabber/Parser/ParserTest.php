@@ -13,8 +13,8 @@ class ParserTest extends TestCase
         $body = file_get_contents(__DIR__ . '/ParserTest/extract.txt');
         $imagesResponseData = [
             'wikitext' => file_get_contents(__DIR__ . '/ParserTest/wikitext.txt'),
-            'main_image' => require_once __DIR__ . '/ParserTest/main_image.php',
-            'images' => require_once __DIR__ . '/ParserTest/images.php',
+            'main_image' => require __DIR__ . '/ParserTest/main_image.php',
+            'images' => require __DIR__ . '/ParserTest/images.php',
         ];
 
         $parsed = (new Parser('Александр Сергеевич Пушкин', $body, $imagesResponseData))->parse('plain');
@@ -29,8 +29,8 @@ class ParserTest extends TestCase
         $body = file_get_contents(__DIR__ . '/ParserTest/extract.txt');
         $imagesResponseData = [
             'wikitext' => file_get_contents(__DIR__ . '/ParserTest/wikitext.txt'),
-            'main_image' => require_once __DIR__ . '/ParserTest/main_image.php',
-            'images' => require_once __DIR__ . '/ParserTest/images.php',
+            'main_image' => require __DIR__ . '/ParserTest/main_image.php',
+            'images' => require __DIR__ . '/ParserTest/images.php',
         ];
 
         $parsed = (new Parser('Александр Сергеевич Пушкин', $body, $imagesResponseData))->parse('bulma');

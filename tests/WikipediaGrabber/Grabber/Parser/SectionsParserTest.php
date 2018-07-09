@@ -16,7 +16,7 @@ class SectionsParserTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $sections);
 
-        $expected = require_once __DIR__ . '/SectionsParserTest/sections.php';
+        $expected = require __DIR__ . '/SectionsParserTest/sections.php';
         $this->assertEquals($expected, $sections->toArray());
     }
 }
