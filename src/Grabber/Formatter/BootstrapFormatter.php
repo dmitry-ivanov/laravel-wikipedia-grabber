@@ -168,26 +168,26 @@ class BootstrapFormatter extends Formatter
 
     protected function video(Image $image, $isGallery = false)
     {
-        // $url = $image->getUrl();
-        // $mime = $image->getMime();
-        // $position = $image->getPosition();
-        // $description = $image->getDescription();
-        // $originalUrl = $image->getOriginalUrl();
-        //
-        // $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
-        // if ($transcoded = $image->getTranscodedWebmUrls()) {
-        //     $transcoded->each(function ($webm) use ($source) {
-        //         $source->push("<source src='{$webm}' type='video/webm'>");
-        //     });
-        // }
-        //
-        // $video = "<video poster='{$url}' controls>{$source->implode('')}</video>";
-        // $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
-        //
-        // if ($isGallery) {
-        //     return "<div class='iwg-media video'>{$video}{$desc}</div>";
-        // }
-        //
-        // return "<div class='iwg-media video {$position}'>{$video}{$desc}</div>";
+        $url = $image->getUrl();
+        $mime = $image->getMime();
+        $position = $image->getPosition();
+        $description = $image->getDescription();
+        $originalUrl = $image->getOriginalUrl();
+
+        $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
+        if ($transcoded = $image->getTranscodedWebmUrls()) {
+            $transcoded->each(function ($webm) use ($source) {
+                $source->push("<source src='{$webm}' type='video/webm'>");
+            });
+        }
+
+        $video = "<video poster='{$url}' controls>{$source->implode('')}</video>";
+        $desc = !empty($description) ? "<div class='iwg-media-desc'>{$description}</div>" : '';
+
+        if ($isGallery) {
+            return "<div class='iwg-media video'>{$video}{$desc}</div>";
+        }
+
+        return "<div class='iwg-media video {$position}'>{$video}{$desc}</div>";
     }
 }
