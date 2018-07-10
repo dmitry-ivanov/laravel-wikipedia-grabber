@@ -2,11 +2,31 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class IlluminatedFormatter extends Formatter
 {
+    protected $hasMedia;
+    protected $hasGallery;
+    protected $tocSections;
+
+    public function __construct(Collection $sections)
+    {
+        $this->hasMedia = (bool) $sections->first(function (Section $section) {
+            return $section->hasImages();
+        });
+
+        $this->hasGallery = (bool) $sections->first(function (Section $section) {
+            return $section->hasGallery();
+        });
+
+        $this->tocSections = $sections->filter(function (Section $section) {
+            return !$section->isMain();
+        });
+    }
+
     public function style()
     {
         $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);

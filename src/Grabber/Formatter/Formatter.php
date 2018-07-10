@@ -7,10 +7,6 @@ use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class Formatter
 {
-    protected $hasMedia;
-    protected $hasGallery;
-    protected $tocSections;
-
     public static function factory($format, Collection $sections)
     {
         switch ($format) {
@@ -24,21 +20,6 @@ abstract class Formatter
             default:
                 return new PlainFormatter($sections);
         }
-    }
-
-    public function __construct(Collection $sections)
-    {
-        $this->hasMedia = (bool) $sections->first(function (Section $section) {
-            return $section->hasImages();
-        });
-
-        $this->hasGallery = (bool) $sections->first(function (Section $section) {
-            return $section->hasGallery();
-        });
-
-        $this->tocSections = $sections->filter(function (Section $section) {
-            return !$section->isMain();
-        });
     }
 
     abstract public function style();
