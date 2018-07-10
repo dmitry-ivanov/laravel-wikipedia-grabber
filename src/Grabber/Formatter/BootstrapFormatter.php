@@ -11,16 +11,16 @@ class BootstrapFormatter extends Formatter
     {
         $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);
 
-        // if ($this->hasTableOfContents()) {
-        //     $styles->push('.iwg-toc {margin-bottom:1.5rem}');
-        //     $styles = $styles->merge(
-        //         $this->tocLevels()->map(function ($level) {
-        //             $margin = ($level - 2) * 1.5;
-        //             return ".iwg-toc-item.level-{$level} {margin-left:{$margin}rem}";
-        //         })
-        //     );
-        // }
-        //
+        if ($this->hasTableOfContents()) {
+            $styles->push('.iwg-toc {margin-bottom:1.5rem}');
+            $styles = $styles->merge(
+                $this->tocLevels()->map(function ($level) {
+                    $margin = ($level - 2) * 1.5;
+                    return ".iwg-toc-item.level-{$level} {margin-left:{$margin}rem}";
+                })
+            );
+        }
+
         // if ($this->hasGallery) {
         //     $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
         //     $galleryHeight = $galleryWidth + 5;
@@ -50,13 +50,13 @@ class BootstrapFormatter extends Formatter
 
     public function tableOfContents()
     {
-        // $items = $this->tocSections->map(function (Section $section) {
-        //     $title = $section->getTitle();
-        //     $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
-        //     return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
-        // });
-        //
-        // return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
+        $items = $this->tocSections->map(function (Section $section) {
+            $title = $section->getTitle();
+            $link = "<a href='#{$this->sectionId($title)}'>{$title}</a>";
+            return "<div class='iwg-toc-item level-{$section->getLevel()}'>{$link}</div>";
+        });
+
+        return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
     }
 
     public function section(Section $section)
