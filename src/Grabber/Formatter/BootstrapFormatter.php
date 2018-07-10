@@ -9,8 +9,8 @@ class BootstrapFormatter extends Formatter
 {
     public function style()
     {
-        // $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);
-        //
+        $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);
+
         // if ($this->hasTableOfContents()) {
         //     $styles->push('.iwg-toc {margin-bottom:1.5rem}');
         //     $styles = $styles->merge(
@@ -44,8 +44,8 @@ class BootstrapFormatter extends Formatter
         //         '.iwg-media-desc {padding:.625rem 1rem; font-size:0.95rem; word-wrap:break-word}',
         //     ]));
         // }
-        //
-        // return $this->htmlBlock('<style>', $styles, '</style>');
+
+        return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
     public function tableOfContents()
@@ -61,22 +61,22 @@ class BootstrapFormatter extends Formatter
 
     public function section(Section $section)
     {
-        // $titleHtml = '';
-        // if ($title = $section->getTitle()) {
-        //     $id = $this->sectionId($title);
-        //     $htmlLevel = $section->getHtmlLevel();
-        //     $class = 'iwg-section-title' . ($section->hasGallery() ? ' has-gallery' : '');
-        //     $titleHtml = "<h{$htmlLevel} id='{$id}' class='{$class}'>{$title}</h{$htmlLevel}>";
-        // }
-        //
-        // $items = collect([
-        //     $this->gallery($section),
-        //     $this->images($section),
-        //     $this->sectionBody($section),
-        // ]);
-        // $bodyHtml = $this->htmlBlock("<div class='iwg-section'>", $items, '</div>');
-        //
-        // return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
+        $titleHtml = '';
+        if ($title = $section->getTitle()) {
+            $id = $this->sectionId($title);
+            $htmlLevel = $section->getHtmlLevel();
+            $class = 'iwg-section-title' . ($section->hasGallery() ? ' has-gallery' : '');
+            $titleHtml = "<h{$htmlLevel} id='{$id}' class='{$class}'>{$title}</h{$htmlLevel}>";
+        }
+
+        $items = collect([
+            $this->gallery($section),
+            $this->images($section),
+            $this->sectionBody($section),
+        ]);
+        $bodyHtml = $this->htmlBlock("<div class='iwg-section'>", $items, '</div>');
+
+        return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
     }
 
     protected function gallery(Section $section)
