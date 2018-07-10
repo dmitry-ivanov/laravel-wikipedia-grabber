@@ -11,7 +11,7 @@ return [
     | It defines html decoration for headings, sections and other elements.
     | Default format is plain, which is not using any of css frameworks.
     |
-    | Supported: "plain", "bulma".
+    | Supported: "plain", "bootstrap", "bulma".
     |
     */
 
