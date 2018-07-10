@@ -2,6 +2,6 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-class BootstrapFormatter extends BaseFormatter
+class BootstrapFormatter extends BasicFormatter
 {
 }

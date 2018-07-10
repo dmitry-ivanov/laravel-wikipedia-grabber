@@ -4,7 +4,7 @@ namespace Illuminated\Wikipedia\Grabber\Formatter;
 
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
-class BulmaFormatter extends BaseFormatter
+class BulmaFormatter extends BasicFormatter
 {
     protected function sectionTitleClass(Section $section)
     {
