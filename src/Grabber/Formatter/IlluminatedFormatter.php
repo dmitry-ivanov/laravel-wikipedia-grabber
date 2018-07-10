@@ -84,9 +84,9 @@ class IlluminatedFormatter extends Formatter
         $titleHtml = '';
         if ($title = $section->getTitle()) {
             $id = $this->sectionId($title);
-            $htmlLevel = $section->getHtmlLevel();
-            $class = 'iwg-section-title' . ($section->hasGallery() ? ' has-gallery' : '');
-            $titleHtml = "<h{$htmlLevel} id='{$id}' class='{$class}'>{$title}</h{$htmlLevel}>";
+            $tag = "h{$section->getHtmlLevel()}";
+            $class = $this->sectionTitleClass($section);
+            $titleHtml = "<{$tag} id='{$id}' class='{$class}'>{$title}</{$tag}>";
         }
 
         $items = collect([
@@ -221,6 +221,11 @@ class IlluminatedFormatter extends Formatter
         return $this->tocSections->map(function (Section $section) {
             return $section->getLevel();
         })->unique()->sort();
+    }
+
+    protected function sectionTitleClass(Section $section)
+    {
+        return 'iwg-section-title' . ($section->hasGallery() ? ' has-gallery' : '');
     }
 
     protected function sectionId($title)
