@@ -17,6 +17,9 @@ abstract class Formatter
             case 'bulma':
                 return new BulmaFormatter($sections);
 
+            case 'bootstrap':
+                return new BootstrapFormatter($sections);
+
             case 'plain':
             default:
                 return new PlainFormatter($sections);
