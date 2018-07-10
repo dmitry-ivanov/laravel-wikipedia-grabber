@@ -41,7 +41,7 @@ class BootstrapFormatter extends Formatter
                 '.iwg-media.right {float:right; clear:right; margin-left:1rem}',
                 // '.iwg-media.audio, .iwg-media.video {width:275px; padding:5px}',
                 // '.iwg-media audio, .iwg-media video {width:100%}',
-                '.iwg-media-desc {padding:.625rem 1rem; font-size:0.95rem; word-wrap:break-word}',
+                '.iwg-media-desc {padding:.625rem 1rem; font-size:0.95em; word-wrap:break-word}',
             ]));
         }
 
