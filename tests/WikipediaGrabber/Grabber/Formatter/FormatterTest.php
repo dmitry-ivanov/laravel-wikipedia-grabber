@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Formatter;
 
+use Illuminated\Wikipedia\Grabber\Formatter\BootstrapFormatter;
 use Illuminated\Wikipedia\Grabber\Formatter\BulmaFormatter;
 use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
 use Illuminated\Wikipedia\Grabber\Formatter\PlainFormatter;
@@ -25,5 +26,11 @@ class FormatterTest extends TestCase
     public function and_it_returns_bulma_formatter_if_asked()
     {
         $this->assertInstanceOf(BulmaFormatter::class, Formatter::factory('bulma', collect()));
+    }
+
+    /** @test */
+    public function and_it_returns_bootstrap_formatter_if_asked()
+    {
+        $this->assertInstanceOf(BootstrapFormatter::class, Formatter::factory('bootstrap', collect()));
     }
 }
