@@ -21,17 +21,17 @@ class BootstrapFormatter extends Formatter
             );
         }
 
-        // if ($this->hasGallery) {
-        //     $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
-        //     $galleryHeight = $galleryWidth + 5;
-        //
-        //     $styles = $styles->merge(collect([
-        //         '.iwg-section-title.has-gallery {clear:both}',
-        //         '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -.5rem 1rem -.5rem}',
-        //         ".iwg-gallery .iwg-media {width:{$galleryWidth}px; margin:.5rem; text-align:center}",
-        //         ".iwg-gallery .iwg-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
-        //     ]));
-        // }
+        if ($this->hasGallery) {
+            $galleryWidth = $this->toGallerySize(config('wikipedia-grabber.image_size'));
+            $galleryHeight = $galleryWidth + 5;
+
+            $styles = $styles->merge(collect([
+                '.iwg-section-title.has-gallery {clear:both}',
+                '.iwg-gallery {display:flex; flex-wrap:wrap; margin:0 -.5rem 1rem -.5rem}',
+                ".iwg-gallery .iwg-media {width:{$galleryWidth}px; margin:.5rem; text-align:center}",
+                ".iwg-gallery .iwg-media a {display:table-cell; width:{$galleryWidth}px; height:{$galleryHeight}px; vertical-align:middle}",
+            ]));
+        }
 
         if ($this->hasMedia) {
             $styles = $styles->merge(collect([
@@ -81,15 +81,15 @@ class BootstrapFormatter extends Formatter
 
     protected function gallery(Section $section)
     {
-        // if (!$section->hasGallery()) {
-        //     return;
-        // }
-        //
-        // $gallery = $section->getGallery()->map(function (Image $image) {
-        //     return $this->media($image, true);
-        // });
-        //
-        // return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
+        if (!$section->hasGallery()) {
+            return;
+        }
+
+        $gallery = $section->getGallery()->map(function (Image $image) {
+            return $this->media($image, true);
+        });
+
+        return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
     protected function images(Section $section)
