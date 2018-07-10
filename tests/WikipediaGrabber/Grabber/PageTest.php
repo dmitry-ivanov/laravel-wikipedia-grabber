@@ -123,6 +123,21 @@ class PageTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
+    public function there_is_also_bootstrap_helper_method_to_change_format_on_the_fly()
+    {
+        $this->mockWikipediaQuery();
+
+        $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
+        $parser->expects()->parse('bootstrap');
+
+        (new Wikipedia)->page('Mocked Page')->bootstrap();
+    }
+
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function custom_section_can_be_appended_to_the_page_and_default_level_is_2()
     {
         $this->mockWikipediaQuery();
