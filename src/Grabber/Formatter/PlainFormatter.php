@@ -2,6 +2,6 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-class PlainFormatter extends IwgFormatter
+class PlainFormatter extends BaseFormatter
 {
 }

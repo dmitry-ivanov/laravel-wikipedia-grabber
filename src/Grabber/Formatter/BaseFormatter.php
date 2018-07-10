@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
-class IwgFormatter extends Formatter
+class BaseFormatter extends Formatter
 {
     protected $hasMedia;
     protected $hasGallery;
