@@ -68,6 +68,13 @@ abstract class EntitySingular extends Entity
         return $this->getBody();
     }
 
+    public function bootstrap()
+    {
+        $this->format = 'bootstrap';
+
+        return $this->getBody();
+    }
+
     public function getBody()
     {
         if ($this->isMissing()) {
