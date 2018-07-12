@@ -7,28 +7,20 @@ use Illuminate\Support\Collection;
 class SectionsInPreview
 {
     protected $sections;
-    protected $response;
+    protected $isPreview;
 
-    public function __construct(Collection $sections, array $imagesResponseData = null)
+    public function __construct(Collection $sections, $isPreview)
     {
-        dd('should be refactored!!');
         $this->sections = $sections;
-        $this->response = $imagesResponseData;
+        $this->isPreview = $isPreview;
     }
 
     public function pipe()
     {
-        if ($this->isPreview()) {
+        if ($this->isPreview) {
             $this->sections->first()->setTitle('');
         }
 
         return $this->sections;
-    }
-
-    protected function isPreview()
-    {
-        return !empty($this->response['wikitext'])
-            && ($this->response['wikitext'] == '/// IWG-PREVIEW ///')
-            && ($this->sections->count() == 1);
     }
 }

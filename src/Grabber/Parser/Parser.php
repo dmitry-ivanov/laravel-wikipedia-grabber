@@ -16,7 +16,7 @@ class Parser
     {
         $sections = (new SectionsParser($title, $body))->sections();
 
-        $sections = (new SectionsInPreview($sections, $images))->pipe();
+        $sections = (new SectionsInPreview($sections, $isPreview))->pipe();
         $sections = (new SectionsAddImages($sections, $images))->pipe();
         $sections = (new SectionsRemoveEmpty($sections))->pipe();
         $sections = (new SectionsRemoveBoring($sections))->pipe();
