@@ -239,7 +239,22 @@ class PreviewTest extends TestCase
         $this->assertTrue($preview->isSuccess());
         $this->assertEquals('Table (furniture)', $preview->getTitle());
         $this->assertEquals(
-            trim(file_get_contents(__DIR__ . '/PreviewTest/preview-with-images.txt')),
+            trim(file_get_contents(__DIR__ . '/PreviewTest/preview-with-images-when-enabled.txt')),
+            trim($preview->plain())
+        );
+    }
+
+    /** @test */
+    public function real_preview_test_with_images_disabled_and_preview_has_them()
+    {
+        config(['wikipedia-grabber.images' => false]);
+
+        $preview = (new Wikipedia)->preview('Table_(furniture)');
+
+        $this->assertTrue($preview->isSuccess());
+        $this->assertEquals('Table (furniture)', $preview->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/PreviewTest/preview-with-images-when-disabled.txt')),
             trim($preview->plain())
         );
     }
