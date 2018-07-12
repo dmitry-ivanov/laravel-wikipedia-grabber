@@ -60,12 +60,19 @@ These formats are supported now:
 - `bulma`
 - `bootstrap`
 
-You can change format in config (see [Configuration](#configuration)):
+You can change format in your config (see [Configuration](#configuration)):
 
 ```php
 return [
 
-    'format' => 'plain',
+    'format' => 'bulma',
 
 ];
 ```
+
+Or on the fly:
+
+```php
+echo (new Wikipedia)->page('Michael Jackson')->bootstrap();
+```
+
