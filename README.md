@@ -37,7 +37,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 2. Use `Wikipedia` class:
 
     ```php
-    echo (new Wikipedia)->page('Michael Jackson');
+    echo (new Wikipedia)->page('Donald Trump');
     ```
 
     Live demo would be added here soon.
@@ -49,7 +49,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 Default language is English. However, you can change it:
 
 ```php
-echo (new Wikipedia('ru'))->page('Майкл Джексон');
+echo (new Wikipedia('ru'))->page('Donald Trump');
 ```
 
 ## Formats
@@ -73,7 +73,7 @@ return [
 Or on the fly:
 
 ```php
-echo (new Wikipedia)->page('Michael Jackson')->plain();
-echo (new Wikipedia)->page('Michael Jackson')->bulma();
-echo (new Wikipedia)->page('Michael Jackson')->bootstrap();
+echo (new Wikipedia)->page('Donald Trump')->plain();
+echo (new Wikipedia)->page('Donald Trump')->bulma();
+echo (new Wikipedia)->page('Donald Trump')->bootstrap();
 ```
