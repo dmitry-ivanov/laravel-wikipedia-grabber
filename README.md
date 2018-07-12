@@ -15,8 +15,6 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 | ------- | :--------------------------------------------------------------------------: |
 | 5.5.*   | [5.5.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.5) |
 
-Live demo would be added here soon.
-
 ## Table of contents
 
 - [Usage](#usage)
@@ -26,3 +24,19 @@ Live demo would be added here soon.
 - [Advanced](#advanced)
   - [MediaWiki](#mediawiki)
   - [Add custom sections](#add-custom-sections)
+
+## Usage
+
+1. Install package through `composer`:
+
+    ```shell
+    composer require illuminated/wikipedia-grabber
+    ```
+
+2. Use `Wikipedia` class:
+
+    ```php
+    echo (new Wikipedia)->page('Michael Jackson');
+    ```
+
+    Live demo would be added here soon.
