@@ -17,6 +17,12 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 Live demo would be added here soon.
 
-## Under Construction!
+## Table of contents
 
-This package is in development now.
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Formats](#formats)
+- [Methods](#methods)
+- [MediaWiki](#mediawiki)
+- [Advanced](#advanced)
+  - [Add custom sections](#add-custom-sections)
