@@ -138,67 +138,6 @@ class PreviewTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function custom_section_can_be_appended_to_the_preview_and_default_level_is_2()
-    {
-        $this->mockWikipediaQuery();
-
-        $sections = (new Wikipedia)->preview('Mocked Page')
-            ->append('Appended title', 'Appended body')
-            ->getSections();
-
-        $this->assertEquals(collect([
-            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
-            new Section('Appended title', 'Appended body', 2),
-        ]), $sections);
-    }
-
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function however_level_of_appended_section_can_be_set_manually()
-    {
-        $this->mockWikipediaQuery();
-
-        $sections = (new Wikipedia)->preview('Mocked Page')
-            ->append('Appended title', 'Appended body', 5)
-            ->getSections();
-
-        $this->assertEquals(collect([
-            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
-            new Section('Appended title', 'Appended body', 5),
-        ]), $sections);
-    }
-
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function preview_sections_can_be_massaged_in_any_way_through_the_get_sections_method()
-    {
-        $this->mockWikipediaQuery();
-
-        $preview = (new Wikipedia)->preview('Mocked Page');
-        $preview->getSections()
-            ->push(new Section('Appended title 1', 'Appended body 1', 2))
-            ->push(new Section('Appended title 1.1', 'Appended body 1.1', 3))
-            ->push(new Section('Appended title 1.2', 'Appended body 1.2', 3));
-
-        $this->assertEquals(collect([
-            new Section('Mocked Page', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 1),
-            new Section('Appended title 1', 'Appended body 1', 2),
-            new Section('Appended title 1.1', 'Appended body 1.1', 3),
-            new Section('Appended title 1.2', 'Appended body 1.2', 3),
-        ]), $preview->getSections());
-    }
-
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
     public function mocked_preview_test_with_images_enabled_but_preview_does_not_have_any_images()
     {
         $this->mockWikipediaQuery();
