@@ -90,4 +90,12 @@ Let's take a look on available methods:
 
 - `isSuccess()`:
 
-    Returns true, if page was grabbed successfully.
+    Shows if page was grabbed successfully.
+
+- `isMissing()`:
+
+    Shows if page was not found.
+
+- `isInvalid()`:
+
+    Shows if page request was invalid.
