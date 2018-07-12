@@ -18,6 +18,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 ## Table of contents
 
 - [Usage](#usage)
+- [Languages](#languages)
 - [Configuration](#configuration)
 - [Formats](#formats)
 - [Methods](#methods)
@@ -40,3 +41,11 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
     ```
 
     Live demo would be added here soon.
+
+## Languages
+
+By default, `en` Wikipedia page would be grabbed. However, you can change it easily:
+
+```php
+echo (new Wikipedia('ru'))->page('Майкл Джексон');
+```
