@@ -48,4 +48,5 @@ By default, an English Wikipedia page would be grabbed. However, you can change 
 
     ```php
     echo (new Wikipedia('ru'))->page('Майкл Джексон');
+    // test
     ```
