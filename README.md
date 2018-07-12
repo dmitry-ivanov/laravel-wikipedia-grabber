@@ -105,3 +105,13 @@ $page->isInvalid(); // false
 $page->isMissing(); // false
 $page->isDisambiguation(); // true
 ```
+
+Also, you can get page information:
+
+```php
+$page = (new Wikipedia)->page('Donald Trump');
+
+$page->getId(); // 4848272
+$page->getTitle(); // Donald Trump
+$page->getBody(); // Page html in default format
+```
