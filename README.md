@@ -46,7 +46,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 > Only `en` and `ru` languages are supported now.
 
-Default language is English. However, you can change it:
+English is default language. However, you can change it:
 
 ```php
 echo (new Wikipedia('ru'))->page('Donald Trump');
