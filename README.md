@@ -82,6 +82,9 @@ $page = (new Wikipedia)->page('President Trump');
 if ($page->isSuccess()) {
     echo $page->getId(); // 4848272
     echo $page->getTitle(); // Donald Trump
+
+    echo $page;
+    echo $page->getBody(); // Those two are equal
 }
 ```
 
