@@ -11,6 +11,7 @@ class SectionsInPreview
 
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
+        dd('should be refactored!!');
         $this->sections = $sections;
         $this->response = $imagesResponseData;
     }
