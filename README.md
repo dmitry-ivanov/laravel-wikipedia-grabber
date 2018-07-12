@@ -91,7 +91,7 @@ Here is the group of methods, which indicates the state of the grabbed page:
 - `isSuccess()`: Shows if page was grabbed successfully;
 - `isMissing()`: Shows if page was not found;
 - `isInvalid()`: Shows if page request was invalid;
-- 'isDisambiguation()': Shows if page request is disambiguation;
+- `isDisambiguation()`: Shows if page request is disambiguation;
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
