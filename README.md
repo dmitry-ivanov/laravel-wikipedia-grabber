@@ -53,11 +53,7 @@ These formats are supported now:
 You can change format in your config (see [Configuration](#configuration)):
 
 ```php
-return [
-
-    'format' => 'bulma',
-
-];
+'format' => 'bulma',
 ```
 
 Or on the fly:
