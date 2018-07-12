@@ -23,6 +23,6 @@ Live demo would be added here soon.
 - [Configuration](#configuration)
 - [Formats](#formats)
 - [Methods](#methods)
-- [MediaWiki](#mediawiki)
 - [Advanced](#advanced)
+  - [MediaWiki](#mediawiki)
   - [Add custom sections](#add-custom-sections)
