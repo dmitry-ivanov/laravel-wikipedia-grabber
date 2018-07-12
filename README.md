@@ -77,10 +77,11 @@ echo (new Wikipedia('ru'))->page('Donald Trump');
 Page method returns an object. Basic example of usage:
 
 ```php
-$page = (new Wikipedia)->page('Donald Trump');
+$page = (new Wikipedia)->page('President Trump');
 
 if ($page->isSuccess()) {
     echo $page->getId(); // 4848272
+    echo $page->getTitle(); // Donald Trump
 }
 ```
 
@@ -102,14 +103,4 @@ $page->isSuccess(); // true
 $page->isInvalid(); // false
 $page->isMissing(); // false
 $page->isDisambiguation(); // true
-```
-
-Also, you can get page information:
-
-```php
-$page = (new Wikipedia)->page('Donald Trump');
-
-$page->getId(); // 4848272
-$page->getTitle(); // Donald Trump
-$page->getBody(); // Page html in default format
 ```
