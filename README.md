@@ -76,7 +76,7 @@ echo (new Wikipedia('ru'))->page('Donald Trump');
 
 ## Methods
 
-Page method returns an object. Here is the basic example of usage:
+Page method returns an object. Basic example of usage:
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
