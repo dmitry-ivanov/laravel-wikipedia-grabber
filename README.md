@@ -57,7 +57,7 @@ echo (new Wikipedia('ru'))->page('Майкл Джексон');
 These formats are supported now:
 
 - `plain` (default)
-- `bulma`
+- `bulma` (see [Bulma](https://bulma.io))
 - `bootstrap`
 
 You can change format in your config (see [Configuration](#configuration)):
