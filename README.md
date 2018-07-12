@@ -44,7 +44,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 ## Languages
 
-> Only `en` and `ru` languages are fully supported now.
+> Only `en` and `ru` languages are supported now.
 
 Default language is English. However, you can change it easily:
 
