@@ -1,0 +1,88 @@
+<style>
+.iwg-section-title, .iwg-section {margin-bottom:1.5rem}
+.iwg-toc {margin-bottom:1.5rem}
+.iwg-toc-item.level-2 {margin-left:0rem}
+</style>
+
+<h1 id='table-furniture' class='iwg-section-title'>Table (furniture)</h1>
+<div class='iwg-section'>
+A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables. <br />
+Common design elements include: <br />
+<br />
+top surfaces of various shapes, including rectangular, square, rounded, semi-circular or oval<br />
+legs arranged in two or more similar pairs. It usually has four legs. However, some tables have three legs, use a single heavy pedestal, or are attached to a wall.<br />
+several geometries of folding table that can be collapsed into a smaller volume (e.g., a TV tray, which is a portable, folding table on a stand)<br />
+heights ranging up and down from the most common 18–30 inches (46–76 cm) range, often reflecting the height of chairs or bar stools used as seating for people making use of a table, as for eating or performing various manipulations of objects resting on a table<br />
+a huge range of sizes, from small bedside tables to large dining room tables and huge conference room tables<br />
+presence or absence of drawers, shelves or other areas for storing items<br />
+expansion of the table surface by insertion of leaves or locking hinged drop leaf sections into a horizontal position (this is particularly common for dining tables)
+</div>
+
+<div class='iwg-toc'>
+<div class='iwg-toc-item level-2'><a href='#etymology'>Etymology</a></div>
+<div class='iwg-toc-item level-2'><a href='#shape-height-and-function'>Shape, height, and function</a></div>
+<div class='iwg-toc-item level-2'><a href='#types'>Types</a></div>
+<div class='iwg-toc-item level-2'><a href='#specialized-types'>Specialized types</a></div>
+<div class='iwg-toc-item level-2'><a href='#standards-for-design-functionality-and-safety'>Standards for design, functionality and safety</a></div>
+<div class='iwg-toc-item level-2'><a href='#history'>History</a></div>
+</div>
+
+<h2 id='etymology' class='iwg-section-title'>Etymology</h2>
+<div class='iwg-section'>
+The term table is derived from a merger of French table and Old English tabele, both ultimately from the Latin word tabula, "a board, plank, flat top piece". In Late Latin, tabula took over the meaning previously reserved to mensa (preserved in Spanish and Portuguese mesa "table"). In Old English, the word was bord, replaced by table for this meaning.
+</div>
+
+<h2 id='shape-height-and-function' class='iwg-section-title'>Shape, height, and function</h2>
+<div class='iwg-section'>
+Tables come in a wide variety of materials, shapes, and heights dependent upon their origin, style, intended use and cost. Many tables are made of wood or wood-based products; some are made of other materials including metal and glass. Most tables are composed of a flat surface and one or more supports (legs). A table with a single, central foot is a pedestal table. Long tables often have extra legs for support.<br />
+Table tops can be in virtually any shape, although rectangular, square, round (e.g. the round table), and oval tops are the most frequent. Others have higher surfaces for personal use while either standing or sitting on a tall stool.<br />
+Many tables have tops that can be adjusted to change their height, position, shape, or size, either with foldable, sliding or extensions parts that can alter the shape of the top. Some tables are entirely foldable for easy transportation, e.g. camping or storage, e.g., TV trays. Small tables in trains and aircraft may be fixed or foldable, although they are sometimes considered as simply convenient shelves rather than tables.<br />
+Tables can be freestanding or designed for placement against a wall. Tables designed to be placed against a wall are known as Pier tables or console tables (French: console, "support bracket") and may be bracket-mounted (traditionally), like a shelf, or have legs, which sometimes imitate the look of a bracket-mounted table.
+</div>
+
+<h2 id='types' class='iwg-section-title'>Types</h2>
+<div class='iwg-section'>
+Tables of various shapes, heights, and sizes are designed for specific uses:<br />
+<br />
+Dining room tables are designed to be used for formal dining.<br />
+Bedside tables, nightstands, or  night tables are small tables used in a bedroom. They are often used for convenient placement of a small lamp, alarm clock, glasses, or other personal items.<br />
+Gateleg tables have one or two hinged leaves supported by hinged legs.<br />
+Coffee tables are low tables designed for use in a living room, in front of a sofa, for convenient placement of drinks, books, or other personal items.<br />
+Refectory tables are long tables designed to seat many people for meals.<br />
+Drafting tables usually have a top that can be tilted for making a large or technical drawing. They may also have a ruler or similar element integrated.<br />
+Workbenches are sturdy tables, often elevated for use with a high stool or while standing, which are used for assembly, repairs, or other precision handwork.<br />
+Nested tables are a set of small tables of graduated size that can be stacked together, each fitting within the one immediately larger. They are for occasional use (such as a tea party), hence the stackable design.
+</div>
+
+<h2 id='specialized-types' class='iwg-section-title'>Specialized types</h2>
+<div class='iwg-section'>
+Historically, various types of tables have been popular for other uses:<br />
+<br />
+Loo tables were very popular in the 18th and 19th centuries as candlestands, tea tables, or small dining tables, although they were originally made for the popular card game called loo or lanterloo. Their typically round or oval tops have a tilting mechanism, which enables them to be stored out of the way (e.g. in room corners) when not in use. A further development in this direction was the "birdcage" table, the top of which could both revolve and tilt.<br />
+Pembroke tables were first introduced during the 18th century and were popular throughout the 19th century. Their main characteristic was a rectangular or oval top with folding or drop leaves on each side. Most examples have one or more drawers and four legs sometimes connected by stretchers. Their design meant they could easily be stored or moved about and conveniently opened for serving tea, dining, writing, or other occasional uses.<br />
+Sofa tables are similar to Pembroke tables and usually have longer and narrower tops. They were specifically designed for placement directly in front of sofas for serving tea, writing, dining, or other convenient uses. Generally speaking, a sofa table is a tall, narrow table used behind a sofa to hold lamps or decorative objects.<br />
+Work tables were small tables designed to hold sewing materials and implements, providing a convenient work place for women who sewed. They appeared during the 18th century and were popular throughout the 19th century. Most examples have rectangular tops, sometimes with folding leaves, and usually one or more drawers fitted with partitions. Early examples typically have four legs, often standing on casters, while later examples sometimes have turned columns or other forms of support.<br />
+Drum tables are round tables introduced for writing, with drawers around the platform.<br />
+End tables are small tables typically placed beside couches or armchairs. Often lamps will be placed on an end table.<br />
+Billiards tables are bounded tables on which billiards-type games are played. All provide a flat surface, usually composed of slate and covered with cloth, elevated above the ground.<br />
+Chess tables are a type of games table that integrates a chessboard.<br />
+Table tennis tables are usually masonite or a similar wood, layered with a smooth low-friction coating. they are divided into two halves by a low net, which separates opposing players.<br />
+Poker tables or card tables are used to play poker or other card games.
+</div>
+
+<h2 id='standards-for-design-functionality-and-safety' class='iwg-section-title'>Standards for design, functionality and safety</h2>
+<div class='iwg-section'>
+EN 527 Office furniture - Work tables and desks<br />
+EN 581 Outdoor furniture - Seating and tables for camping, domestic and contract use<br />
+EN 1730 Furniture - Tables - Test methods for the determination of stability, strength and durability<br />
+EN 13150 Workbenches for laboratories - Safety requirements and test methods<br />
+BS 4875 Furniture. Strength and stability of furniture. Methods for determination of stability of non-domestic storage furniture (British Standard)
+</div>
+
+<h2 id='history' class='iwg-section-title'>History</h2>
+<div class='iwg-section'>
+Some very early tables were made and used by the Egyptians, and were little more than stone platforms used to keep objects off the floor. They were not used for seating people.  Food and drinks were usually put on large plates deposed on a pedestal for eating. The Egyptians made use of various small tables and elevated playing boards.  The Chinese also created very early tables in order to pursue the arts of writing and painting.<br />
+The Greeks and Romans made more frequent use of tables, notably for eating, although Greek tables were pushed under a bed after use. The Greeks invented a piece of furniture very similar to the guéridon. Tables were made of marble or wood and metal (typically bronze or silver alloys), sometimes with richly ornate legs. Later, the larger rectangular tables were made of separate platforms and pillars. The Romans also introduced a large, semicircular table to Italy, the mensa lunata.<br />
+Furniture during the Middle Ages is not as well known as that of earlier or later periods, and most sources show the types used by the nobility. In the Eastern Roman Empire, tables were made of metal or wood, usually with four feet and frequently linked by x-shaped stretchers. Tables for eating were large and often round or semicircular. A combination of a small round table and a lectern seemed very popular as a writing table. In western Europe, the invasions and internecine wars caused most of the knowledge inherited from the classical era to be lost. As a result of the necessary movability, most tables were simple trestle tables, although small round tables made from joinery reappeared during the 15th century and onward. In the Gothic era, the chest became widespread and was often used as a table.<br />
+Refectory tables first appeared at least as early as the 17th century, as an advancement of the trestle table; these tables were typically quite long and wide and capable of supporting a sizeable banquet in the great hall or other reception room of a castle.
+</div>
