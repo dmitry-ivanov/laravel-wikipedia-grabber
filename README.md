@@ -59,8 +59,6 @@ You can change format in your config (see [Configuration](#configuration)):
 Or on the fly:
 
 ```php
-echo (new Wikipedia)->page('Donald Trump')->plain();
-echo (new Wikipedia)->page('Donald Trump')->bulma();
 echo (new Wikipedia)->page('Donald Trump')->bootstrap();
 ```
 
