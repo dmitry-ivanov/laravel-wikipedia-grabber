@@ -84,7 +84,7 @@ if ($page->isSuccess()) {
     echo $page->getTitle(); // Donald Trump
 
     echo $page;
-    echo $page->getBody(); // Those two are equal
+    echo $page->getBody(); // These two are equal
 }
 ```
 
