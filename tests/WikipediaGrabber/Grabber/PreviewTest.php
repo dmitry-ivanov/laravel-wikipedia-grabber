@@ -2,7 +2,6 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber;
 
-use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Preview;
 use Illuminated\Wikipedia\Wikipedia;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
