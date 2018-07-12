@@ -73,3 +73,21 @@ English is default language. However, you can change it:
 ```php
 echo (new Wikipedia('ru'))->page('Donald Trump');
 ```
+
+## Methods
+
+Page method returns an object. Here is the basic example of usage:
+
+```php
+$page = (new Wikipedia)->page('Donald Trump');
+
+if ($page->isSuccess()) {
+    echo $page->getId(); // 4848272
+}
+```
+
+Let's take a look on available methods:
+
+- `isSuccess()`:
+
+    Returns true, if page was grabbed successfully.
