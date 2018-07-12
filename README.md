@@ -58,7 +58,7 @@ These formats are supported now:
 
 - `plain` (default)
 - `bulma` (see [Bulma](https://bulma.io))
-- `bootstrap`
+- `bootstrap` (see [Bootstrap 3](https://getbootstrap.com/docs/3.3/), [Bootstrap 4](https://getbootstrap.com))
 
 You can change format in your config (see [Configuration](#configuration)):
 
