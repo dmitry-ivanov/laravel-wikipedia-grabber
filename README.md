@@ -18,8 +18,8 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 ## Table of contents
 
 - [Usage](#usage)
-- [Languages](#languages)
 - [Formats](#formats)
+- [Languages](#languages)
 - [Methods](#methods)
 - [Advanced](#advanced)
   - [MediaWiki](#mediawiki)
@@ -41,16 +41,6 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
     ```
 
     Live demo would be added here soon.
-
-## Languages
-
-> Only `en` and `ru` languages are supported now.
-
-English is default language. However, you can change it:
-
-```php
-echo (new Wikipedia('ru'))->page('Donald Trump');
-```
 
 ## Formats
 
@@ -76,4 +66,14 @@ Or on the fly:
 echo (new Wikipedia)->page('Donald Trump')->plain();
 echo (new Wikipedia)->page('Donald Trump')->bulma();
 echo (new Wikipedia)->page('Donald Trump')->bootstrap();
+```
+
+## Languages
+
+> Only `en` and `ru` languages are supported now.
+
+English is default language. However, you can change it:
+
+```php
+echo (new Wikipedia('ru'))->page('Donald Trump');
 ```
