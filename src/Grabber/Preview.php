@@ -7,6 +7,7 @@ class Preview extends EntitySingular
     protected function grab()
     {
         $this->response = head($this->request($this->params())['query']['pages']);
+        $this->response['iwg_preview'] = true;
 
         if ($this->isSuccess() && $this->withImages) {
             $this->response['iwg_wikitext'] = '';

@@ -12,7 +12,7 @@ class Parser
 {
     protected $sections;
 
-    public function __construct($title, $body, array $images = null)
+    public function __construct($title, $body, array $images = null, $isPreview = false)
     {
         $sections = (new SectionsParser($title, $body))->sections();
 

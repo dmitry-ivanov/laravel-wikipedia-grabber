@@ -124,7 +124,9 @@ abstract class EntitySingular extends Entity
                 ];
             }
 
-            $this->parser = new Parser($this->getTitle(), $this->response['extract'], $imagesResponseData);
+            $isPreview = !empty($this->response['iwg_preview']);
+
+            $this->parser = new Parser($this->getTitle(), $this->response['extract'], $imagesResponseData, $isPreview);
         }
 
         return $this->parser;
