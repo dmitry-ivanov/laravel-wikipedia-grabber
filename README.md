@@ -46,8 +46,8 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 Default language is English. However, you can change it easily:
 
-    ```php
-    echo (new Wikipedia('ru'))->page('Майкл Джексон');
-    ```
+```php
+echo (new Wikipedia('ru'))->page('Майкл Джексон');
+```
 
-    > Only `en` and `ru` languages are fully supported now.
+> Only `en` and `ru` languages are fully supported now.
