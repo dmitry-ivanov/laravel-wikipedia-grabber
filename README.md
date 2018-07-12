@@ -19,11 +19,11 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 - [Usage](#usage)
 - [Languages](#languages)
-- [Configuration](#configuration)
 - [Formats](#formats)
 - [Methods](#methods)
 - [Advanced](#advanced)
   - [MediaWiki](#mediawiki)
+  - [Configuration](#configuration)
   - [Add custom sections](#add-custom-sections)
 
 ## Usage
@@ -50,4 +50,22 @@ Default language is English. However, you can change it:
 
 ```php
 echo (new Wikipedia('ru'))->page('Майкл Джексон');
+```
+
+## Formats
+
+These formats are supported now:
+
+- `plain` (default)
+- `bulma`
+- `bootstrap`
+
+You can change format in config (see [Configuration](#configuration)):
+
+```php
+return [
+
+    'format' => 'plain',
+
+];
 ```
