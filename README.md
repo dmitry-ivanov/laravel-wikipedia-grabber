@@ -98,7 +98,7 @@ $page->isDisambiguation(); // false
 ```
 
 ```php
-$page = (new Wikipedia)->page('David Taylor'); // Wikipedia has few pages with such title
+$page = (new Wikipedia)->page('David Taylor');
 
 $page->isSuccess(); // true
 $page->isInvalid(); // false
