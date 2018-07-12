@@ -86,7 +86,7 @@ if ($page->isSuccess()) {
 }
 ```
 
-Here is the group of "state" methods:
+You can check the state of the grabbed page:
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
