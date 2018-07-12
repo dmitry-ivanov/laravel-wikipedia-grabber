@@ -46,7 +46,6 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
 By default, an English Wikipedia page would be grabbed. However, you can change it easily:
 
-    ```php
-    echo (new Wikipedia('ru'))->page('Майкл Джексон');
-    // test
-    ```
+```php
+echo (new Wikipedia('ru'))->page('Майкл Джексон');
+```
