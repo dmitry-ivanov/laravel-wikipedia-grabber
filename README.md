@@ -73,6 +73,7 @@ return [
 Or on the fly:
 
 ```php
+echo (new Wikipedia)->page('Michael Jackson')->plain();
+echo (new Wikipedia)->page('Michael Jackson')->bulma();
 echo (new Wikipedia)->page('Michael Jackson')->bootstrap();
 ```
-
