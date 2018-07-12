@@ -86,16 +86,27 @@ if ($page->isSuccess()) {
 }
 ```
 
-Let's take a look on available methods:
+Here is the group of methods, which indicates the state of the grabbed page:
 
-- `isSuccess()`:
+- `isSuccess()`: Shows if page was grabbed successfully;
+- `isMissing()`: Shows if page was not found;
+- `isInvalid()`: Shows if page request was invalid;
+- 'isDisambiguation()': Shows if page request is disambiguation;
 
-    Shows if page was grabbed successfully.
+```php
+$page = (new Wikipedia)->page('Donald Trump');
 
-- `isMissing()`:
+$page->isSuccess(); // true
+$page->isMissing(); // false
+$page->isInvalid(); // false
+$page->isDisambiguation(); // false
+```
 
-    Shows if page was not found.
+```php
+$page = (new Wikipedia)->page('David Taylor');
 
-- `isInvalid()`:
-
-    Shows if page request was invalid.
+$page->isSuccess(); // true
+$page->isInvalid(); // false
+$page->isMissing(); // false
+$page->isDisambiguation(); // true
+```
