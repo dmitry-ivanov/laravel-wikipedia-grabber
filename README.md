@@ -11,6 +11,10 @@
 
 Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 
+| Laravel | Wikipedia Grabber                                                            |
+| ------- | :--------------------------------------------------------------------------: |
+| 5.5.*   | [5.5.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.5) |
+
 ## Under Construction!
 
 This package is in development now.
