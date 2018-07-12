@@ -230,21 +230,6 @@ class PageTest extends TestCase
     }
 
     /** @test */
-    public function real_page_test_with_images_disabled_and_page_has_them()
-    {
-        config(['wikipedia-grabber.images' => false]);
-
-        $page = (new Wikipedia)->page('Table_(furniture)');
-
-        $this->assertTrue($page->isSuccess());
-        $this->assertEquals('Table (furniture)', $page->getTitle());
-        $this->assertEquals(
-            trim(file_get_contents(__DIR__ . '/PageTest/page-with-images-when-disabled.txt')),
-            trim($page->plain())
-        );
-    }
-
-    /** @test */
     public function real_page_test_with_images_enabled_and_page_has_them()
     {
         config(['wikipedia-grabber.images' => true]);
@@ -255,6 +240,21 @@ class PageTest extends TestCase
         $this->assertEquals('Table (furniture)', $page->getTitle());
         $this->assertEquals(
             trim(file_get_contents(__DIR__ . '/PageTest/page-with-images-when-enabled.txt')),
+            trim($page->plain())
+        );
+    }
+
+    /** @test */
+    public function real_page_test_with_images_disabled_and_page_has_them()
+    {
+        config(['wikipedia-grabber.images' => false]);
+
+        $page = (new Wikipedia)->page('Table_(furniture)');
+
+        $this->assertTrue($page->isSuccess());
+        $this->assertEquals('Table (furniture)', $page->getTitle());
+        $this->assertEquals(
+            trim(file_get_contents(__DIR__ . '/PageTest/page-with-images-when-disabled.txt')),
             trim($page->plain())
         );
     }
