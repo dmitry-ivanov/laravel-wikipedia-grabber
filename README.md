@@ -116,7 +116,7 @@ $page->isDisambiguation();  // true
 
 ## Preview
 
-Preview consists of an intro section and the main image. It has the same API:
+The preview consists of an intro section and the main image. It has the same API:
 
 ```php
 echo (new Wikipedia)->preview('Donald Trump');
