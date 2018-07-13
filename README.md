@@ -21,9 +21,9 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Formats](#formats)
 - [Languages](#languages)
 - [Methods](#methods)
+- [Preview](#preview)
 - [Advanced](#advanced)
   - [Configuration](#configuration)
-  - [Preview](#preview)
   - [MediaWiki](#mediawiki)
   - [Use caching](#use-caching)
   - [Get page by id](#get-page-by-id)
@@ -112,6 +112,14 @@ $page->isSuccess();         // true
 $page->isInvalid();         // false
 $page->isMissing();         // false
 $page->isDisambiguation();  // true
+```
+
+## Preview
+
+Preview consists of an intro section and the main image.
+
+```php
+echo (new Wikipedia)->preview('Donald Trump');
 ```
 
 ## Advanced
