@@ -22,8 +22,11 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Languages](#languages)
 - [Methods](#methods)
 - [Advanced](#advanced)
+  - [Config](#config)
+  - [Preview](#preview)
   - [MediaWiki](#mediawiki)
-  - [Configuration](#configuration)
+  - [Use caching](#use-caching)
+  - [Get page by id](#get-page-by-id)
   - [Add custom sections](#add-custom-sections)
 
 ## Usage
@@ -108,3 +111,7 @@ $page->isInvalid();         // false
 $page->isMissing();         // false
 $page->isDisambiguation();  // true
 ```
+
+## Advanced
+
+### Config
