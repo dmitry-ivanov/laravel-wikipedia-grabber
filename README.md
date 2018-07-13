@@ -87,7 +87,7 @@ if ($page->isSuccess()) {
 }
 ```
 
-You can check the state of the grabbed page:
+Here is an example of successfully grabbed page:
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
@@ -97,6 +97,8 @@ $page->isMissing();         // false
 $page->isInvalid();         // false
 $page->isDisambiguation();  // false
 ```
+
+And here is an example of successfully grabbed disambiguation page:
 
 ```php
 $page = (new Wikipedia)->page('David Taylor');
