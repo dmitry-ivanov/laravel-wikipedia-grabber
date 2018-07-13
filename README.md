@@ -26,7 +26,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
   - [Configuration](#configuration)
   - [MediaWiki](#mediawiki)
   - [Get page by id](#get-page-by-id)
-  - [Add custom sections](#add-custom-sections)
+  - [Page modifications](#page-modifications)
   - [Caching, caching, caching](#caching-caching-caching)
 
 ## Usage
@@ -156,7 +156,7 @@ Just pass an integer to the method:
 echo (new Wikipedia)->page(4848272);
 ```
 
-### Add custom sections
+### Page modifications
 
 You can append section to the end:
 
