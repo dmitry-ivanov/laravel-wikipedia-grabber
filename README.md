@@ -71,7 +71,7 @@ echo (new Wikipedia)->page('Donald Trump')->bootstrap();
 
 > Only `en` and `ru` languages supported now.
 
-English is the default language. However, you can change it:
+English is the default language. But you can change it:
 
 ```php
 echo (new Wikipedia('ru'))->page('Donald Trump');
