@@ -124,7 +124,7 @@ You can publish config to override some settings:
 php artisan vendor:publish --provider="Illuminated\Wikipedia\ServiceProvider"
 ```
 
-It is highly recommended to override at least `user_agent`:
+It is highly recommended to override `user_agent`, at least:
 
 ```php
 'user_agent' => 'Application Name (http://example.com; foo@example.com)',
