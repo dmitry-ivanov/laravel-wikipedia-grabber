@@ -132,10 +132,10 @@ It is highly recommended to override `user_agent`, at least:
 
 ### MediaWiki
 
-Use `MediaWiki` class:
+You are not limited to Wikipedia. Grab pages from any MediaWiki site:
 
 ```php
 use MediaWiki;
 
-echo (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Donald Trump');
+echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
 ```
