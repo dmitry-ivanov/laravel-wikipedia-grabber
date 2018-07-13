@@ -118,7 +118,11 @@ $page->isDisambiguation();  // true
 
 ### Config
 
-In progress...
+You can publish config to override some settings:
+
+```shell
+php artisan vendor:publish --provider="Illuminated\Wikipedia\ServiceProvider"
+```
 
 ### MediaWiki
 
