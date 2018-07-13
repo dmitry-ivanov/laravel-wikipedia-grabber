@@ -49,7 +49,7 @@ Provides a convenient way to grab Wikipedia (or another MediaWiki) page.
 
 ## Formats
 
-These formats are supported now:
+Supported formats:
 
 - `plain` (default)
 - `bulma` (see [Bulma](https://bulma.io))
