@@ -61,7 +61,7 @@ Change format in your config (see [Configuration](#configuration)):
 'format' => 'bulma',
 ```
 
-Or on the fly:
+Or use proper helper methods on the fly:
 
 ```php
 echo (new Wikipedia)->page('Donald Trump')->bootstrap();
