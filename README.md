@@ -80,10 +80,10 @@ Page method returns an object. Basic example of usage:
 $page = (new Wikipedia)->page('President Trump');
 
 if ($page->isSuccess()) {
-    echo $page->getId(); // 4848272
+    echo $page->getId();    // 4848272
     echo $page->getTitle(); // Donald Trump
     echo $page;
-    echo $page->getBody(); // These two are equal
+    echo $page->getBody();  // These two are equal
 }
 ```
 
@@ -92,17 +92,17 @@ You can check the state of the grabbed page:
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
 
-$page->isSuccess(); // true
-$page->isMissing(); // false
-$page->isInvalid(); // false
+$page->isSuccess();        // true
+$page->isMissing();        // false
+$page->isInvalid();        // false
 $page->isDisambiguation(); // false
 ```
 
 ```php
 $page = (new Wikipedia)->page('David Taylor');
 
-$page->isSuccess(); // true
-$page->isInvalid(); // false
-$page->isMissing(); // false
+$page->isSuccess();        // true
+$page->isInvalid();        // false
+$page->isMissing();        // false
 $page->isDisambiguation(); // true
 ```
