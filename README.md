@@ -165,3 +165,13 @@ echo (new Wikipedia)
         ->page('Donald Trump')
         ->append('Hey!', 'Please, donate me $1M, Mr. Trump!');
 ```
+
+Or you can have a full control:
+
+```php
+$page = (new Wikipedia)->page('Donald Trump');
+
+$sections = $page->getSections();
+
+// ...
+```
