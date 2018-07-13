@@ -128,6 +128,12 @@ You can find your published config at `config/wikipedia-grabber.php`.
 
 It will be merged with the default config, so leave here only those settings, which you want to override.
 
+It is highly recommended to override `user_agent`:
+
+```php
+'user_agent' => 'Application Name (http://example.com; foo@example.com)',
+```
+
 ### MediaWiki
 
 Use `MediaWiki` class:
