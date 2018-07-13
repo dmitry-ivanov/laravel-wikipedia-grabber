@@ -55,7 +55,7 @@ Supported formats:
 - `bulma` (see [Bulma](https://bulma.io))
 - `bootstrap` (see [Bootstrap 3](https://getbootstrap.com/docs/3.3/), [Bootstrap 4](https://getbootstrap.com))
 
-You can change the format in your config (see [Configuration](#configuration)):
+Change format in your config (see [Configuration](#configuration)):
 
 ```php
 'format' => 'bulma',
