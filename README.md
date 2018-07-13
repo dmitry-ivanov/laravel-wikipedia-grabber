@@ -178,7 +178,7 @@ $sections = $page->getSections();
 
 ### Caching, caching, caching!
 
-> Each time you grab a page, real api calls are made!
+> Each time you grab a page, real API calls are made!
 
 Use caching to increase your application speed and reduce api load:
 
