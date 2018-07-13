@@ -117,3 +117,15 @@ $page->isDisambiguation();  // true
 ## Advanced
 
 ### Config
+
+In progress...
+
+### MediaWiki
+
+Use `MediaWiki` class:
+
+```php
+use MediaWiki;
+
+echo (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Donald Trump');
+```
