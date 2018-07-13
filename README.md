@@ -74,7 +74,7 @@ echo (new Wikipedia('ru'))->page('Donald Trump');
 
 ## Methods
 
-Note that you have an object returned, so you can do something like this:
+Note that you have an object returned, so:
 
 ```php
 $page = (new Wikipedia)->page('President Trump');
