@@ -162,5 +162,5 @@ You can append section to the end:
 
 ```php
 echo (new Wikipedia)->page('Donald Trump')
-                    ->append('Hey!', 'This is my appended section!');
+                    ->append('Hey!', 'Please, donate me $1M, mr. Donald!');
 ```
