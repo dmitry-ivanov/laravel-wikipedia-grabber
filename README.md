@@ -124,6 +124,10 @@ You can publish config to override some settings:
 php artisan vendor:publish --provider="Illuminated\Wikipedia\ServiceProvider"
 ```
 
+You can find your published config at `config/wikipedia-grabber.php`.
+
+It will be merged with the default config, so leave here only those settings, which you want to override.
+
 ### MediaWiki
 
 Use `MediaWiki` class:
