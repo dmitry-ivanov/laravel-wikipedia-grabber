@@ -1,8 +1,8 @@
 # Laravel Wikipedia Grabber
 
-[![StyleCI](https://styleci.io/repos/117998599/shield?branch=master&style=flat)](https://styleci.io/repos/117998599)
-[![Build Status](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=master)](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber)
-[![Coverage Status](https://coveralls.io/repos/github/dmitry-ivanov/laravel-wikipedia-grabber/badge.svg?branch=master)](https://coveralls.io/github/dmitry-ivanov/laravel-wikipedia-grabber?branch=master)
+[![StyleCI](https://styleci.io/repos/117998599/shield?branch=5.5&style=flat)](https://styleci.io/repos/117998599)
+[![Build Status](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=5.5)](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber)
+[![Coverage Status](https://coveralls.io/repos/github/dmitry-ivanov/laravel-wikipedia-grabber/badge.svg?branch=5.5)](https://coveralls.io/github/dmitry-ivanov/laravel-wikipedia-grabber?branch=5.5)
 
 [![Latest Stable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/stable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 [![Latest Unstable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/unstable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
@@ -34,7 +34,7 @@ Provides a convenient way to grab Wikipedia (or another MediaWiki) page.
 1. Install package through `composer`:
 
     ```shell
-    composer require illuminated/wikipedia-grabber
+    composer require "illuminated/wikipedia-grabber:5.5.*"
     ```
 
 2. Use `Wikipedia` class:
