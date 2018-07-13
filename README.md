@@ -92,17 +92,17 @@ You can check the state of the grabbed page:
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
 
-$page->isSuccess();        // true
-$page->isMissing();        // false
-$page->isInvalid();        // false
-$page->isDisambiguation(); // false
+$page->isSuccess();         // true
+$page->isMissing();         // false
+$page->isInvalid();         // false
+$page->isDisambiguation();  // false
 ```
 
 ```php
 $page = (new Wikipedia)->page('David Taylor');
 
-$page->isSuccess();        // true
-$page->isInvalid();        // false
-$page->isMissing();        // false
-$page->isDisambiguation(); // true
+$page->isSuccess();         // true
+$page->isInvalid();         // false
+$page->isMissing();         // false
+$page->isDisambiguation();  // true
 ```
