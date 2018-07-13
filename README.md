@@ -50,7 +50,8 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
     ```php
     use MediaWiki;
 
-    echo (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Donald Trump');
+    $url = 'https://en.wikipedia.org/w/api.php';
+    echo (new MediaWiki($url))->page('Donald Trump');
     ```
 
     Live demo would be added here soon.
