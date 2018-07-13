@@ -166,7 +166,7 @@ echo (new Wikipedia)
         ->append('Hey!', 'Please, donate me $1M, Mr. Trump!');
 ```
 
-Or you can have a full control:
+Or you can take a full control and change sections as you wish:
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
