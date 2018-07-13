@@ -183,7 +183,7 @@ $sections = $page->getSections();
 Use caching to increase your application speed and reduce api load:
 
 ```php
-$html = Cache::remember('wiki.donald-trump', $minutes, function () {
+$html = Cache::remember($key, $minutes, function () {
     return (new Wikipedia)->page('Donald Trump')->getBody();
 });
 ```
