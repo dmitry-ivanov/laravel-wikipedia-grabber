@@ -180,7 +180,7 @@ $sections = $page->getSections();
 
 > Each time you grab a page - real API calls made!
 
-Use caching to increase your application speed and reduce api load:
+Use caching to increase your application speed and reduce API load:
 
 ```php
 $html = Cache::remember($key, $minutes, function () {
