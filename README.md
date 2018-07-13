@@ -25,9 +25,9 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Advanced](#advanced)
   - [Configuration](#configuration)
   - [MediaWiki](#mediawiki)
-  - [Use caching](#use-caching)
   - [Get page by id](#get-page-by-id)
   - [Add custom sections](#add-custom-sections)
+  - [Caching, caching, caching](#caching-caching-caching)
 
 ## Usage
 
