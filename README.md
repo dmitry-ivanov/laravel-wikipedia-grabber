@@ -40,7 +40,17 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 2. Use `Wikipedia` class:
 
     ```php
+    use Wikipedia;
+
     echo (new Wikipedia)->page('Donald Trump');
+    ```
+
+    Or `MediaWiki` class:
+
+    ```php
+    use MediaWiki;
+
+    echo (new MediaWiki('https://en.wikipedia.org/w/api.php'))->page('Donald Trump');
     ```
 
     Live demo would be added here soon.
