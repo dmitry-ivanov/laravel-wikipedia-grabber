@@ -92,7 +92,7 @@ if ($page->isSuccess()) {
 }
 ```
 
-Here is an example of successfully grabbed page:
+Here is an example of the successfully grabbed page:
 
 ```php
 $page = (new Wikipedia)->page('Donald Trump');
@@ -103,7 +103,7 @@ $page->isInvalid();         // false
 $page->isDisambiguation();  // false
 ```
 
-And here is an example of successfully grabbed disambiguation page:
+And here is an example of the successfully grabbed disambiguation page:
 
 ```php
 $page = (new Wikipedia)->page('David Taylor');
