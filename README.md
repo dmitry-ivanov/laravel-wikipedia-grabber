@@ -22,7 +22,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Languages](#languages)
 - [Methods](#methods)
 - [Advanced](#advanced)
-  - [Config](#config)
+  - [Configuration](#configuration)
   - [Preview](#preview)
   - [MediaWiki](#mediawiki)
   - [Use caching](#use-caching)
@@ -116,7 +116,7 @@ $page->isDisambiguation();  // true
 
 ## Advanced
 
-### Config
+### Configuration
 
 You can publish config to override some settings:
 
