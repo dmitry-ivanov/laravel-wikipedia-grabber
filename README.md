@@ -147,3 +147,11 @@ use MediaWiki;
 
 echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
 ```
+
+### Get page by id
+
+Just pass an integer to the method:
+
+```php
+echo (new Wikipedia)->page(4848272);
+```
