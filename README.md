@@ -27,7 +27,7 @@ Provides convenient way to grab Wikipedia (or another MediaWiki) page.
   - [MediaWiki](#mediawiki)
   - [Get page by id](#get-page-by-id)
   - [Page modifications](#page-modifications)
-  - [Caching, caching, caching](#caching-caching-caching)
+  - [Caching, caching, caching!](#caching-caching-caching)
 
 ## Usage
 
@@ -175,3 +175,7 @@ $sections = $page->getSections();
 
 // ...
 ```
+
+### Caching, caching, caching!
+
+Use it.
