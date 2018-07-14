@@ -148,7 +148,7 @@ echo (new Wikipedia)->page(4848272);
 
 ### MediaWiki
 
-You are not limited to Wikipedia. Grab pages from any MediaWiki site:
+You are not limited to Wikipedia. Grab the pages from any MediaWiki site:
 
 ```php
 use MediaWiki;
