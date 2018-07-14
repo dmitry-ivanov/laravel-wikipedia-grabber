@@ -79,7 +79,7 @@ echo (new Wikipedia('ru'))->page('Donald Trump');
 
 ## Methods
 
-Note that you get an object returned, so:
+You get an object returned, so:
 
 ```php
 $page = (new Wikipedia)->page('President Trump');
@@ -148,7 +148,7 @@ echo (new Wikipedia)->page(4848272);
 
 ### MediaWiki
 
-You are not limited to Wikipedia. Grab pages from any MediaWiki site:
+You are not limited to Wikipedia. Grab the pages from any MediaWiki site:
 
 ```php
 use MediaWiki;
@@ -178,7 +178,7 @@ $sections = $page->getSections();
 
 ### Caching, caching, caching!
 
-> Each time you grab a page - you do real API calls!
+> Each time you grab a page - you do the real API calls!
 
 Use caching to increase your application speed and reduce API load:
 
