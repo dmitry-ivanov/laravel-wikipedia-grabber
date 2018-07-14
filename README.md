@@ -9,7 +9,7 @@
 [![Total Downloads](https://poser.pugx.org/illuminated/wikipedia-grabber/downloads)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 [![License](https://poser.pugx.org/illuminated/wikipedia-grabber/license)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 
-Provides a convenient way to grab Wikipedia (or another MediaWiki) page.
+A convenient way to grab Wikipedia (or another MediaWiki) page.
 
 | Laravel | Wikipedia Grabber                                                            |
 | ------- | :--------------------------------------------------------------------------: |
@@ -24,9 +24,9 @@ Provides a convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Preview](#preview)
 - [Advanced](#advanced)
   - [Configuration](#configuration)
+  - [Get by id](#get-by-id)
   - [MediaWiki](#mediawiki)
-  - [Get page by id](#get-page-by-id)
-  - [Page modifications](#page-modifications)
+  - [Modifications](#modifications)
   - [Caching, caching, caching!](#caching-caching-caching)
 
 ## Usage
@@ -45,7 +45,7 @@ Provides a convenient way to grab Wikipedia (or another MediaWiki) page.
     echo (new Wikipedia)->page('Donald Trump');
     ```
 
-    Live demo would be soon.
+    Live demo would be added soon.
 
 ## Formats
 
@@ -69,7 +69,7 @@ echo (new Wikipedia)->page('Donald Trump')->bootstrap();
 
 ## Languages
 
-> Only `en` and `ru` languages supported now.
+> Only `en` and `ru` languages are supported now.
 
 English is the default language. But you can change it:
 
@@ -79,7 +79,7 @@ echo (new Wikipedia('ru'))->page('Donald Trump');
 
 ## Methods
 
-Note that you got an object returned, so:
+Note that you get an object returned, so:
 
 ```php
 $page = (new Wikipedia)->page('President Trump');
@@ -87,8 +87,8 @@ $page = (new Wikipedia)->page('President Trump');
 if ($page->isSuccess()) {
     echo $page->getId();    // 4848272
     echo $page->getTitle(); // Donald Trump
-    echo $page;             // The same thing
-    echo $page->getBody();  // The same thing
+    echo $page;             // These two are the same
+    echo $page->getBody();  // These two are the same
 }
 ```
 
@@ -138,6 +138,14 @@ It is highly recommended to override `user_agent`, at least:
 'user_agent' => 'Application Name (http://example.com; foo@example.com)',
 ```
 
+### Get by id
+
+Just pass an integer to the method:
+
+```php
+echo (new Wikipedia)->page(4848272);
+```
+
 ### MediaWiki
 
 You are not limited to Wikipedia. Grab pages from any MediaWiki site:
@@ -148,15 +156,7 @@ use MediaWiki;
 echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
 ```
 
-### Get page by id
-
-Just pass an integer to the method:
-
-```php
-echo (new Wikipedia)->page(4848272);
-```
-
-### Page modifications
+### Modifications
 
 You can append section to the end:
 
@@ -178,7 +178,7 @@ $sections = $page->getSections();
 
 ### Caching, caching, caching!
 
-> Each time you grab a page - real API calls made!
+> Each time you grab a page - you do real API calls!
 
 Use caching to increase your application speed and reduce API load:
 
