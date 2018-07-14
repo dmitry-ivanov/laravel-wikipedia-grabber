@@ -69,7 +69,7 @@ echo (new Wikipedia)->page('Donald Trump')->bootstrap();
 
 ## Languages
 
-> Only `en` and `ru` languages supported now.
+> Only `en` and `ru` languages are supported now.
 
 English is the default language. But you can change it:
 
