@@ -24,8 +24,8 @@ A convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Preview](#preview)
 - [Advanced](#advanced)
   - [Configuration](#configuration)
-  - [MediaWiki](#mediawiki)
   - [Get by id](#get-by-id)
+  - [MediaWiki](#mediawiki)
   - [Modifications](#modifications)
   - [Caching, caching, caching!](#caching-caching-caching)
 
@@ -138,6 +138,14 @@ It is highly recommended to override `user_agent`, at least:
 'user_agent' => 'Application Name (http://example.com; foo@example.com)',
 ```
 
+### Get by id
+
+Just pass an integer to the method:
+
+```php
+echo (new Wikipedia)->page(4848272);
+```
+
 ### MediaWiki
 
 You are not limited to Wikipedia. Grab pages from any MediaWiki site:
@@ -146,14 +154,6 @@ You are not limited to Wikipedia. Grab pages from any MediaWiki site:
 use MediaWiki;
 
 echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
-```
-
-### Get by id
-
-Just pass an integer to the method:
-
-```php
-echo (new Wikipedia)->page(4848272);
 ```
 
 ### Modifications
