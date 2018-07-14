@@ -25,8 +25,8 @@ A convenient way to grab Wikipedia (or another MediaWiki) page.
 - [Advanced](#advanced)
   - [Configuration](#configuration)
   - [MediaWiki](#mediawiki)
-  - [Get page by id](#get-page-by-id)
-  - [Page modifications](#page-modifications)
+  - [Get by id](#get-by-id)
+  - [Modifications](#modifications)
   - [Caching, caching, caching!](#caching-caching-caching)
 
 ## Usage
@@ -148,7 +148,7 @@ use MediaWiki;
 echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
 ```
 
-### Get page by id
+### Get by id
 
 Just pass an integer to the method:
 
@@ -156,7 +156,7 @@ Just pass an integer to the method:
 echo (new Wikipedia)->page(4848272);
 ```
 
-### Page modifications
+### Modifications
 
 You can append section to the end:
 
