@@ -45,7 +45,7 @@ A convenient way to grab Wikipedia (or another MediaWiki) page.
     echo (new Wikipedia)->page('Donald Trump');
     ```
 
-    Live demo would be soon.
+    Live demo would be added soon.
 
 ## Formats
 
