@@ -9,7 +9,7 @@
 [![Total Downloads](https://poser.pugx.org/illuminated/wikipedia-grabber/downloads)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 [![License](https://poser.pugx.org/illuminated/wikipedia-grabber/license)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 
-A convenient way to grab Wikipedia (or another MediaWiki) page.
+Grab Wikipedia (or another MediaWiki) page in Laravel.
 
 | Laravel | Wikipedia Grabber                                                            |
 | ------- | :--------------------------------------------------------------------------: |

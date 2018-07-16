@@ -1,6 +1,6 @@
 {
     "name": "illuminated/wikipedia-grabber",
-    "description": "A convenient way to grab Wikipedia (or another MediaWiki) page.",
+    "description": "Grab Wikipedia (or another MediaWiki) page in Laravel.",
     "keywords": ["laravel", "wikipedia", "mediawiki", "wiki", "grabber", "parser"],
     "license": "MIT",
     "authors": [
