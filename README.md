@@ -46,7 +46,7 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
     echo (new Wikipedia)->page('Donald Trump');
     ```
 
-    Live demo would be added soon.
+    Check it out on a [live demo](http://illuminated.me/wikipedia-grabber) now.
 
 ## Formats
 
