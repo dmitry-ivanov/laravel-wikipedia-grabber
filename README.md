@@ -31,6 +31,7 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
   - [MediaWiki](#mediawiki)
   - [Modifications](#modifications)
   - [Caching, caching, caching!](#caching-caching-caching)
+- [License](#license)
 
 ## Usage
 
