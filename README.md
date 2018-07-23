@@ -194,6 +194,6 @@ $html = Cache::remember($key, $minutes, function () {
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License. Please see [License File](LICENSE) for more information.
 
 [<img src="https://user-images.githubusercontent.com/1286821/43086829-ff7c006e-8ea6-11e8-8b03-ecf97ca95b2e.png" alt="Support on Patreon" width="120" />](https://www.patreon.com/illuminated)
