@@ -1,6 +1,6 @@
 # Laravel Wikipedia Grabber
 
-[<img src="https://user-images.githubusercontent.com/1286821/43083173-8c916e16-8e9e-11e8-8721-ed537d5d99b3.png" alt="Become a Patron" />](https://www.patreon.com/illuminated)
+[<img src="https://user-images.githubusercontent.com/1286821/43083349-f5c63790-8e9e-11e8-81e9-551da525c25d.png" alt="Become a Patron" />](https://www.patreon.com/illuminated)
 
 [![StyleCI](https://styleci.io/repos/117998599/shield?branch=master&style=flat)](https://styleci.io/repos/117998599)
 [![Build Status](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=master)](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber)
