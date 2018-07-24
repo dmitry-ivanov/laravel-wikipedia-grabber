@@ -165,7 +165,7 @@ Just pass an integer to the method:
 echo (new Wikipedia)->page(4848272);
 ```
 
-The same is true for preview:
+The same is true for the preview method:
 
 ```php
 echo (new Wikipedia)->preview(4848272);
