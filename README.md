@@ -150,6 +150,12 @@ Just pass an integer to the method:
 echo (new Wikipedia)->page(4848272);
 ```
 
+The same is true for preview:
+
+```php
+echo (new Wikipedia)->preview(4848272);
+```
+
 ### MediaWiki
 
 You are not limited to Wikipedia. Grab the pages from any MediaWiki site:
