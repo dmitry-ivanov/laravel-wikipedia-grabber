@@ -129,13 +129,13 @@ echo (new Wikipedia)->preview('Donald Trump');
 
 ## Random
 
-You can grab random page:
+You can grab the random page:
 
 ```php
-echo (new Wikipedia)->random();
+echo (new Wikipedia)->randomPage();
 ```
 
-Or random preview:
+Or the random preview:
 
 ```php
 echo (new Wikipedia)->randomPreview();
