@@ -25,6 +25,7 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
 - [Languages](#languages)
 - [Methods](#methods)
 - [Preview](#preview)
+- [Random](#random)
 - [Advanced](#advanced)
   - [Configuration](#configuration)
   - [Get by id](#get-by-id)
@@ -124,6 +125,20 @@ The preview consists of an intro section and the main image. It has the same API
 
 ```php
 echo (new Wikipedia)->preview('Donald Trump');
+```
+
+## Random
+
+You can grab random page too:
+
+```php
+echo (new Wikipedia)->random();
+```
+
+Or random preview:
+
+```php
+echo (new Wikipedia)->randomPreview();
 ```
 
 ## Advanced
