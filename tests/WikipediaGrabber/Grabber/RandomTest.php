@@ -12,7 +12,7 @@ class RandomTest extends TestCase
     /** @test */
     public function it_can_grab_random_page_for_en()
     {
-        $page = (new Wikipedia)->random();
+        $page = (new Wikipedia)->randomPage();
 
         $this->assertInstanceOf(Page::class, $page);
         $this->assertTrue($page->isSuccess());
@@ -21,7 +21,7 @@ class RandomTest extends TestCase
     /** @test */
     public function it_can_grab_random_page_for_ru()
     {
-        $page = (new Wikipedia('ru'))->random();
+        $page = (new Wikipedia('ru'))->randomPage();
 
         $this->assertInstanceOf(Page::class, $page);
         $this->assertTrue($page->isSuccess());

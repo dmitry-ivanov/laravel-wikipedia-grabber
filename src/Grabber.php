@@ -36,7 +36,7 @@ abstract class Grabber
         return new Preview($this->client, $title);
     }
 
-    public function random()
+    public function randomPage()
     {
         return $this->page($this->randomTitle());
     }
