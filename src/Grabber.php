@@ -5,6 +5,7 @@ namespace Illuminated\Wikipedia;
 use GuzzleHttp\Client;
 use Illuminated\Wikipedia\Grabber\Page;
 use Illuminated\Wikipedia\Grabber\Preview;
+use Illuminated\Wikipedia\Grabber\Random;
 
 abstract class Grabber
 {
@@ -33,6 +34,21 @@ abstract class Grabber
     public function preview($title)
     {
         return new Preview($this->client, $title);
+    }
+
+    public function random()
+    {
+        return $this->page($this->randomTitle());
+    }
+
+    public function randomPreview()
+    {
+        return $this->preview($this->randomTitle());
+    }
+
+    protected function randomTitle()
+    {
+        return (new Random($this->client))->title();
     }
 
     abstract protected function baseUri();
