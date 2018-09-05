@@ -19,7 +19,7 @@ class Section
         $this->setBody($body);
         $this->setLevel($level);
         $this->setImages($images);
-        $this->setGallery();
+        $this->setGallery(null);
     }
 
     public function getTitle()
