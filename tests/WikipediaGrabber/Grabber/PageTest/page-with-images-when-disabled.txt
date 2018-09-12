@@ -20,16 +20,24 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 
 <div class='iwg-toc'>
 <div class='iwg-toc-item level-2'><a href='#etymology'>Etymology</a></div>
+<div class='iwg-toc-item level-2'><a href='#history'>History</a></div>
 <div class='iwg-toc-item level-2'><a href='#shape-height-and-function'>Shape, height, and function</a></div>
 <div class='iwg-toc-item level-2'><a href='#types'>Types</a></div>
 <div class='iwg-toc-item level-2'><a href='#specialized-types'>Specialized types</a></div>
 <div class='iwg-toc-item level-2'><a href='#standards-for-design-functionality-and-safety'>Standards for design, functionality and safety</a></div>
-<div class='iwg-toc-item level-2'><a href='#history'>History</a></div>
 </div>
 
 <h2 id='etymology' class='iwg-section-title'>Etymology</h2>
 <div class='iwg-section'>
-The term table is derived from a merger of French table and Old English tabele, both ultimately from the Latin word tabula, "a board, plank, flat top piece". In Late Latin, tabula took over the meaning previously reserved to mensa (preserved in Spanish and Portuguese mesa "table"). In Old English, the word was bord, replaced by table for this meaning.
+The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord ; its current spelling reflects the influence of the French table.
+</div>
+
+<h2 id='history' class='iwg-section-title'>History</h2>
+<div class='iwg-section'>
+Some very early tables were made and used by the Egyptians, and were little more than stone platforms used to keep objects off the floor. They were not used for seating people.  Food and drinks were usually put on large plates deposed on a pedestal for eating. The Egyptians made use of various small tables and elevated playing boards.  The Chinese also created very early tables in order to pursue the arts of writing and painting.<br />
+The Greeks and Romans made more frequent use of tables, notably for eating, although Greek tables were pushed under a bed after use. The Greeks invented a piece of furniture very similar to the guéridon. Tables were made of marble or wood and metal (typically bronze or silver alloys), sometimes with richly ornate legs. Later, the larger rectangular tables were made of separate platforms and pillars. The Romans also introduced a large, semicircular table to Italy, the mensa lunata.<br />
+Furniture during the Middle Ages is not as well known as that of earlier or later periods, and most sources show the types used by the nobility. In the Eastern Roman Empire, tables were made of metal or wood, usually with four feet and frequently linked by x-shaped stretchers. Tables for eating were large and often round or semicircular. A combination of a small round table and a lectern seemed very popular as a writing table. In western Europe, the invasions and internecine wars caused most of the knowledge inherited from the classical era to be lost. As a result of the necessary movability, most tables were simple trestle tables, although small round tables made from joinery reappeared during the 15th century and onward. In the Gothic era, the chest became widespread and was often used as a table.<br />
+Refectory tables first appeared at least as early as the 17th century, as an advancement of the trestle table; these tables were typically quite long and wide and capable of supporting a sizeable banquet in the great hall or other reception room of a castle.
 </div>
 
 <h2 id='shape-height-and-function' class='iwg-section-title'>Shape, height, and function</h2>
@@ -77,12 +85,4 @@ EN 581 Outdoor furniture - Seating and tables for camping, domestic and contract
 EN 1730 Furniture - Tables - Test methods for the determination of stability, strength and durability<br />
 EN 13150 Workbenches for laboratories - Safety requirements and test methods<br />
 BS 4875 Furniture. Strength and stability of furniture. Methods for determination of stability of non-domestic storage furniture (British Standard)
-</div>
-
-<h2 id='history' class='iwg-section-title'>History</h2>
-<div class='iwg-section'>
-Some very early tables were made and used by the Egyptians, and were little more than stone platforms used to keep objects off the floor. They were not used for seating people.  Food and drinks were usually put on large plates deposed on a pedestal for eating. The Egyptians made use of various small tables and elevated playing boards.  The Chinese also created very early tables in order to pursue the arts of writing and painting.<br />
-The Greeks and Romans made more frequent use of tables, notably for eating, although Greek tables were pushed under a bed after use. The Greeks invented a piece of furniture very similar to the guéridon. Tables were made of marble or wood and metal (typically bronze or silver alloys), sometimes with richly ornate legs. Later, the larger rectangular tables were made of separate platforms and pillars. The Romans also introduced a large, semicircular table to Italy, the mensa lunata.<br />
-Furniture during the Middle Ages is not as well known as that of earlier or later periods, and most sources show the types used by the nobility. In the Eastern Roman Empire, tables were made of metal or wood, usually with four feet and frequently linked by x-shaped stretchers. Tables for eating were large and often round or semicircular. A combination of a small round table and a lectern seemed very popular as a writing table. In western Europe, the invasions and internecine wars caused most of the knowledge inherited from the classical era to be lost. As a result of the necessary movability, most tables were simple trestle tables, although small round tables made from joinery reappeared during the 15th century and onward. In the Gothic era, the chest became widespread and was often used as a table.<br />
-Refectory tables first appeared at least as early as the 17th century, as an advancement of the trestle table; these tables were typically quite long and wide and capable of supporting a sizeable banquet in the great hall or other reception room of a castle.
 </div>

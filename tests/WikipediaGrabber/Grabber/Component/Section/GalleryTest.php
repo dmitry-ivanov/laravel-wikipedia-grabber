@@ -3,8 +3,8 @@
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber\Component\Section;
 
 use Illuminated\Wikipedia\Grabber\Component\Image;
-use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
+use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
 
 class GalleryTest extends TestCase
 {

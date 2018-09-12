@@ -4,8 +4,8 @@ namespace Illuminated\Wikipedia;
 
 use GuzzleHttp\Client;
 use Illuminated\Wikipedia\Grabber\Page;
-use Illuminated\Wikipedia\Grabber\Preview;
 use Illuminated\Wikipedia\Grabber\Random;
+use Illuminated\Wikipedia\Grabber\Preview;
 
 abstract class Grabber
 {

@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
-use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
+use Illuminated\Wikipedia\Grabber\Component\Section;
 
 abstract class EntitySingular extends Entity
 {
