@@ -5,17 +5,17 @@ namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
-use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
-use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
-use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
-use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
-use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\Underscores;
-use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
-use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
-use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
+use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
+use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\Underscores;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 
 class SectionsAddImages
 {

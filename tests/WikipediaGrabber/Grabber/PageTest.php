@@ -2,9 +2,9 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests\Grabber;
 
-use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Page;
 use Illuminated\Wikipedia\Wikipedia;
+use Illuminated\Wikipedia\Grabber\Page;
+use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\WikipediaGrabber\Tests\TestCase;
 
 class PageTest extends TestCase

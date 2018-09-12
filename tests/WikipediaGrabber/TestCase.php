@@ -2,10 +2,10 @@
 
 namespace Illuminated\Wikipedia\WikipediaGrabber\Tests;
 
+use Mockery;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Response;
 use Illuminated\Wikipedia\ServiceProvider;
-use Mockery;
 
 Mockery::globalHelpers();
 
