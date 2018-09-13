@@ -18,12 +18,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function resolveApplicationConfiguration($app)
     {
-        $orchestraConfig = $this->getBasePath() . '/config/wikipedia-grabber.php';
-        copy(__DIR__ . '/fixture/config/wikipedia-grabber.php', $orchestraConfig);
+        $fixturePath = __DIR__ . '/fixture/config/wikipedia-grabber.php';
+        $orchestraPath = $this->getBasePath() . '/config/wikipedia-grabber.php';
+        copy($fixturePath, $orchestraPath);
 
         parent::resolveApplicationConfiguration($app);
 
-        unlink($orchestraConfig);
+        unlink($orchestraPath);
     }
 
     protected function mockWikipediaQuery()
