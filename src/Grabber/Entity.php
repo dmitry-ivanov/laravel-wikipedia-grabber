@@ -40,9 +40,6 @@ abstract class Entity
 
     protected function request(array $params)
     {
-        return json_decode(
-            $this->client->get('', $params)->getBody(),
-            true
-        );
+        return json_decode($this->client->get('', $params)->getBody(), true);
     }
 }
