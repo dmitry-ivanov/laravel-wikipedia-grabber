@@ -37,7 +37,7 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
 
 ## Usage
 
-1. Install package through `composer`:
+1. Install the package via Composer:
 
     ```shell
     composer require illuminated/wikipedia-grabber
