@@ -462,16 +462,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.7.3",
+            "version": "v5.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "536a024e3ef6b93f55f4039a7f4568efa7e60aea"
+                "reference": "f6e8f6562120e0063313e81716666cfcd362569b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/536a024e3ef6b93f55f4039a7f4568efa7e60aea",
-                "reference": "536a024e3ef6b93f55f4039a7f4568efa7e60aea",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f6e8f6562120e0063313e81716666cfcd362569b",
+                "reference": "f6e8f6562120e0063313e81716666cfcd362569b",
                 "shasum": ""
             },
             "require": {
@@ -599,7 +599,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-09-11T13:42:55+00:00"
+            "time": "2018-09-18T13:34:05+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2437,21 +2437,21 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.7.0",
+            "version": "v3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "39582871eaa28d4d5fa844f58627acda402ce621"
+                "reference": "254f8f38dc777a914e3c27ee39c9f854db44a670"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/39582871eaa28d4d5fa844f58627acda402ce621",
-                "reference": "39582871eaa28d4d5fa844f58627acda402ce621",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/254f8f38dc777a914e3c27ee39c9f854db44a670",
+                "reference": "254f8f38dc777a914e3c27ee39c9f854db44a670",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.7.0",
-                "orchestra/testbench-core": "~3.7.0",
+                "laravel/framework": "~5.7.4",
+                "orchestra/testbench-core": "~3.7.3",
                 "php": ">=7.1",
                 "phpunit/phpunit": "^7.0"
             },
@@ -2485,7 +2485,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2018-08-23T02:31:13+00:00"
+            "time": "2018-09-13T10:35:30+00:00"
         },
         {
             "name": "orchestra/testbench-core",
