@@ -33,7 +33,7 @@ class WikitextImage extends Wikitext
 
         $size = (int) head($matches);
 
-        return ($size <= 50);
+        return $size <= 50;
     }
 
     /**
@@ -178,7 +178,7 @@ class WikitextImage extends Wikitext
 
     protected function isBorder($string)
     {
-        return ($string == 'border');
+        return $string == 'border';
     }
 
     public function getBorder()

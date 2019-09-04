@@ -83,7 +83,7 @@ class Section
 
     public function isMain()
     {
-        return ($this->level == 1);
+        return $this->level == 1;
     }
 
     public function isEmpty()
