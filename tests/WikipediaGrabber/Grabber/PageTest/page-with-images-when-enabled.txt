@@ -18,7 +18,7 @@
 
 <h1 id='table-furniture' class='iwg-section-title'>Table (furniture)</h1>
 <div class='iwg-section'>
-<div class='iwg-media right' style='width:300px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/cc/Tablebasicstructure.png' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tablebasicstructure.png/300px-Tablebasicstructure.png' width='300' height='300' alt='Table (furniture)' /></a><div class='iwg-media-desc'>Table (furniture)</div></div>
+<div class='iwg-media right' style='width:300px'><a href='https://upload.wikimedia.org/wikipedia/commons/e/ed/Writing_table_%28bureau_plat%29_MET_DP105403.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Writing_table_%28bureau_plat%29_MET_DP105403.jpg/300px-Writing_table_%28bureau_plat%29_MET_DP105403.jpg' width='300' height='232' alt='Table (furniture)' /></a><div class='iwg-media-desc'>Table (furniture)</div></div>
 A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables. <br />
 Common design elements include: <br />
 <br />
