@@ -15,10 +15,10 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
 
 | Laravel | Wikipedia Grabber                                                            |
 | ------- | :--------------------------------------------------------------------------: |
-| 5.5.*   | [5.5.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.5) |
-| 5.6.*   | [5.6.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.6) |
-| 5.7.*   | [5.7.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.7) |
 | 5.8.*   | [5.8.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.8) |
+| 5.7.*   | [5.7.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.7) |
+| 5.6.*   | [5.6.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.6) |
+| 5.5.*   | [5.5.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.5) |
 
 ## Table of contents
 
