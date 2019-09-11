@@ -1,8 +1,12 @@
 {
     "name": "illuminated/wikipedia-grabber",
     "description": "Grab Wikipedia (or another MediaWiki) page in Laravel.",
-    "keywords": ["laravel", "wikipedia", "mediawiki", "wiki", "grabber", "parser"],
+    "keywords": ["laravel", "wiki", "wikipedia", "mediawiki", "grabber", "parser"],
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/issues",
+        "source": "https://github.com/dmitry-ivanov/laravel-wikipedia-grabber"
+    },
     "authors": [{
         "name": "Dmitry Ivanov",
         "email": "dmitry.g.ivanov@gmail.com"
@@ -38,5 +42,10 @@
                 "MediaWiki": "Illuminated\\Wikipedia\\MediaWiki"
             }
         }
-    }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
