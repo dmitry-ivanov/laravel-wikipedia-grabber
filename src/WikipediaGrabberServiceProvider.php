@@ -2,7 +2,9 @@
 
 namespace Illuminated\Wikipedia;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+use Illuminate\Support\ServiceProvider;
+
+class WikipediaGrabberServiceProvider extends ServiceProvider
 {
     public function register()
     {

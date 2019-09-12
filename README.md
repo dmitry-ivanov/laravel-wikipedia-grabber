@@ -148,7 +148,7 @@ echo (new Wikipedia)->randomPreview();
 You can publish config to override some settings:
 
 ```shell
-php artisan vendor:publish --provider="Illuminated\Wikipedia\ServiceProvider"
+php artisan vendor:publish --provider="Illuminated\Wikipedia\WikipediaGrabberServiceProvider"
 ```
 
 It is highly recommended to override `user_agent`, at least:

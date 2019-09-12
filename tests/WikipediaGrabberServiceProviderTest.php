@@ -2,7 +2,7 @@
 
 namespace Illuminated\Wikipedia\Tests;
 
-class ServiceProviderTest extends TestCase
+class WikipediaGrabberServiceProviderTest extends TestCase
 {
     /** @test */
     public function it_merges_default_configuration_with_published_one()
