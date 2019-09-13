@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 /**
@@ -47,15 +48,15 @@ class MultipleImageTemplate
 
     protected function isListen()
     {
-        return starts_with(mb_strtolower($this->body, 'utf-8'), '{{listen');
+        return Str::startsWith(mb_strtolower($this->body, 'utf-8'), '{{listen');
     }
 
     protected function explode()
     {
         $body = $this->body;
 
-        $body = str_replace_first('{{', '', $body);
-        $body = str_replace_last('}}', '', $body);
+        $body = Str::replaceFirst('{{', '', $body);
+        $body = Str::replaceLast('}}', '', $body);
         $body = (new Wikitext($body))->plain();
 
         return array_map('trim', explode('|', $body));
@@ -66,7 +67,7 @@ class MultipleImageTemplate
         $index = 1;
 
         foreach ($parts as $part) {
-            if (str_contains($part, $file)) {
+            if (Str::contains($part, $file)) {
                 return $index;
             }
 
@@ -107,7 +108,7 @@ class MultipleImageTemplate
         }
 
         $parts = array_map('trim', explode('=', $part));
-        $parts[0] = str_replace_last((string) $index, '', $parts[0]);
+        $parts[0] = Str::replaceLast((string) $index, '', $parts[0]);
 
         return implode('=', $parts);
     }
@@ -141,6 +142,6 @@ class MultipleImageTemplate
             return ".{$ext}";
         })->toArray();
 
-        return ends_with($part, $extensions);
+        return Str::endsWith($part, $extensions);
     }
 }

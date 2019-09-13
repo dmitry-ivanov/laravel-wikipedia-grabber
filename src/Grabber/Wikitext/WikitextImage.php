@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
+use Illuminate\Support\Str;
+
 class WikitextImage extends Wikitext
 {
     protected $name;
@@ -27,7 +29,7 @@ class WikitextImage extends Wikitext
     public function isIcon()
     {
         $size = $this->getSize();
-        if (empty($size) || str_contains($size, 'upright') || !preg_match('/\d+/', $size, $matches)) {
+        if (empty($size) || Str::contains($size, 'upright') || !preg_match('/\d+/', $size, $matches)) {
             return false;
         }
 
@@ -60,14 +62,14 @@ class WikitextImage extends Wikitext
 
     protected function strip($body)
     {
-        if (starts_with($body, '[[') && ends_with($body, ']]')) {
-            $body = str_replace_first('[[', '', $body);
-            $body = str_replace_last(']]', '', $body);
+        if (Str::startsWith($body, '[[') && Str::endsWith($body, ']]')) {
+            $body = Str::replaceFirst('[[', '', $body);
+            $body = Str::replaceLast(']]', '', $body);
         }
 
         if ($this->isHandledTemplate($body)) {
-            $body = str_replace_first('{{', '', $body);
-            $body = str_replace_last('}}', '', $body);
+            $body = Str::replaceFirst('{{', '', $body);
+            $body = Str::replaceLast('}}', '', $body);
         }
 
         return $body;
@@ -91,7 +93,7 @@ class WikitextImage extends Wikitext
             return "{{{$template}";
         })->toArray();
 
-        return starts_with($body, $templates) && ends_with($body, '}}');
+        return Str::startsWith($body, $templates) && Str::endsWith($body, '}}');
     }
 
     protected function explode($body)
@@ -108,8 +110,8 @@ class WikitextImage extends Wikitext
 
         $fields = ['type', 'border', 'location', 'alignment', 'size', 'link', 'alt', 'langtag', 'page', 'class'];
         foreach ($fields as $field) {
-            $is = camel_case("is_{$field}");
-            $set = camel_case("set_{$field}");
+            $is = Str::camel("is_{$field}");
+            $set = Str::camel("set_{$field}");
             if ($this->{$is}($part)) {
                 $this->{$set}(
                     ($field == 'alt') ? $value : $part
@@ -379,7 +381,7 @@ class WikitextImage extends Wikitext
             return ".{$ext}";
         })->toArray();
 
-        return ends_with($string, $extensions);
+        return Str::endsWith($string, $extensions);
     }
 
     protected function normalize($value, array $map)

@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
@@ -230,7 +231,7 @@ class BasicFormatter extends Formatter
 
     protected function sectionId($title)
     {
-        return str_slug($title);
+        return Str::slug($title);
     }
 
     protected function sectionBody(Section $section)

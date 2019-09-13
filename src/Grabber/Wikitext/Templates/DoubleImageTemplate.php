@@ -2,6 +2,9 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
 /**
  * @see https://en.wikipedia.org/wiki/Template:Double_image
  * @see https://ru.wikipedia.org/wiki/Шаблон:Сдвоенное_изображение
@@ -18,15 +21,15 @@ class DoubleImageTemplate
     public function extract($file)
     {
         $body = $this->body;
-        $body = str_replace_first('{{', '', $body);
-        $body = str_replace_last('}}', '', $body);
+        $body = Str::replaceFirst('{{', '', $body);
+        $body = Str::replaceLast('}}', '', $body);
 
         $parts = explode('|', $body);
-        $position = array_get($parts, 1);
-        $left = array_get($parts, 2);
-        $right = array_get($parts, 4);
-        $leftCaption = array_get($parts, 6);
-        $rightCaption = array_get($parts, 7);
+        $position = Arr::get($parts, 1);
+        $left = Arr::get($parts, 2);
+        $right = Arr::get($parts, 4);
+        $leftCaption = Arr::get($parts, 6);
+        $rightCaption = Arr::get($parts, 7);
 
         if (empty($leftCaption) && !empty($rightCaption)) {
             $leftCaption = $rightCaption;

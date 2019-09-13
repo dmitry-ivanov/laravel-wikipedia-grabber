@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
@@ -13,7 +14,7 @@ class SectionsRemoveBoring
     public function __construct(Collection $sections)
     {
         $this->sections = $sections;
-        $this->boring = array_flatten(
+        $this->boring = Arr::flatten(
             (array) config('wikipedia-grabber.boring_sections')
         );
     }

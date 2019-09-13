@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext;
 
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ConvertTemplate;
 
 /**
@@ -48,19 +49,19 @@ class Wikitext
         foreach ($matches as $match) {
             $link = $match[0];
             $title = last(explode('|', $match[1]));
-            $body = str_replace_first($link, $title, $body);
+            $body = Str::replaceFirst($link, $title, $body);
         }
 
         $body = str_replace($placeholder, '[[File:', $body);
         preg_match_all('/\[\[File:.*?\]\]/', $body, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             $file = $match[0];
-            $isInProcessing = str_contains($file, '/!! IWG-');
+            $isInProcessing = Str::contains($file, '/!! IWG-');
             if ($isInProcessing) {
                 continue;
             }
 
-            $body = str_replace_first($file, '', $body);
+            $body = Str::replaceFirst($file, '', $body);
         }
 
         return $body;
@@ -79,14 +80,14 @@ class Wikitext
             $templateBody = $match[1];
             $bodyInLowercase = mb_strtolower($templateBody, 'utf-8');
 
-            $isIgnored = starts_with($bodyInLowercase, [
+            $isIgnored = Str::startsWith($bodyInLowercase, [
                 'sfn', 'cite',
                 'section link', 'anchor', 'якорь',
                 'see below', 'below', 'см. ниже', 'ниже',
                 'see above', 'above', 'see at', 'см. выше', 'выше', 'переход',
             ]);
-            $isConvert = starts_with($bodyInLowercase, 'convert');
-            $isSpace = starts_with($bodyInLowercase, ['nbsp', 'space', 'clear', 'clr', '-']);
+            $isConvert = Str::startsWith($bodyInLowercase, 'convert');
+            $isSpace = Str::startsWith($bodyInLowercase, ['nbsp', 'space', 'clear', 'clr', '-']);
 
             if ($isIgnored) {
                 $replace = '';
@@ -99,7 +100,7 @@ class Wikitext
                 $replace = " {$replace}";
             }
 
-            $body = str_replace_first($template, $replace, $body);
+            $body = Str::replaceFirst($template, $replace, $body);
         }
 
         $body = $this->removeMultipleSpaces($body);

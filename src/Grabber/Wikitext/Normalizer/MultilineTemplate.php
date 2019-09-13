@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Normalizer;
 
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineTemplate
@@ -41,7 +42,7 @@ class MultilineTemplate
             'listen', 'spoken', 'sample', 'музыкальный отрывок стиля', 'семпл', 'музос',
         ];
         foreach ($templates as $template) {
-            if (!str_contains($line, "{{{$template}")) {
+            if (!Str::contains($line, "{{{$template}")) {
                 continue;
             }
 
@@ -56,6 +57,6 @@ class MultilineTemplate
     protected function isTemplateClosed($line)
     {
         $line = (new Wikitext($line))->plain();
-        return str_contains($line, '}}');
+        return Str::contains($line, '}}');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Normalizer;
 
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineFile
@@ -27,7 +28,7 @@ class MultilineFile
 
     protected function isFileOpened($line)
     {
-        if (!str_contains($line, '[[File:')) {
+        if (!Str::contains($line, '[[File:')) {
             return false;
         }
 
@@ -39,6 +40,6 @@ class MultilineFile
     protected function isFileClosed($line)
     {
         $line = (new Wikitext($line))->removeLinks();
-        return str_contains($line, ']]');
+        return Str::contains($line, ']]');
     }
 }

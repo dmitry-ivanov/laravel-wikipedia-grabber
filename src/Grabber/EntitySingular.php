@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber;
 
+use Illuminate\Support\Arr;
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
@@ -95,7 +96,7 @@ abstract class EntitySingular extends Entity
 
     protected function getInvalidBody()
     {
-        $reason = array_get($this->response, 'invalidreason');
+        $reason = Arr::get($this->response, 'invalidreason');
 
         return "The page `{$this->target}` is invalid. {$reason}";
     }

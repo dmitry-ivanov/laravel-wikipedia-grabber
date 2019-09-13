@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
@@ -99,13 +101,13 @@ class SectionsAddImages
     protected function skipMainImage(array $images)
     {
         return collect($images)->filter(function (array $image) {
-            return !(array_get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
+            return !(Arr::get($image, 'imageinfo.0.url') == $this->mainImage['original']['source']);
         })->toArray();
     }
 
     protected function isFileUsed($wikitext, $file)
     {
-        return str_contains($wikitext, $file);
+        return Str::contains($wikitext, $file);
     }
 
     protected function filterByExtensions(Section $wikitextSection, array $images)
@@ -115,7 +117,7 @@ class SectionsAddImages
         }
 
         return collect($images)->filter(function (array $image) {
-            return ends_with(
+            return Str::endsWith(
                 mb_strtolower($image['title'], 'utf-8'),
                 ['jpg', 'jpeg', 'ogg', 'oga', 'ogv', 'pdf', 'djvu', 'tiff', 'mp3', 'wav', 'mp4', 'webm']
             );
@@ -189,7 +191,7 @@ class SectionsAddImages
         $line = $this->getImageWikitextLine($wikitextSection->getBody(), $title, $file);
 
         $openTag = "[[{$title}";
-        if (!str_contains($line, $openTag)) {
+        if (!Str::contains($line, $openTag)) {
             if ($this->isDoubleImageTemplate($line)) {
                 return (new DoubleImageTemplate($line))->extract($file);
             }
@@ -211,9 +213,9 @@ class SectionsAddImages
         }
 
         $placeholder = '/!! IWG-FILE-TITLE !!/';
-        $line = str_replace_first($openTag, $placeholder, $line);
+        $line = Str::replaceFirst($openTag, $placeholder, $line);
         $line = (new Wikitext($line))->removeLinks();
-        $line = str_replace_first($placeholder, $openTag, $line);
+        $line = Str::replaceFirst($placeholder, $openTag, $line);
 
         $title = preg_quote($title, '/');
         if (preg_match("/\[\[{$title}.*?\]\]/", $line, $matches)) {
@@ -248,20 +250,20 @@ class SectionsAddImages
 
     protected function isGalleryImage($imageWikitext)
     {
-        return !(starts_with($imageWikitext, '[[') && ends_with($imageWikitext, ']]'));
+        return !(Str::startsWith($imageWikitext, '[[') && Str::endsWith($imageWikitext, ']]'));
     }
 
     protected function forceGalleryDisplaying($imageWikitext)
     {
-        $imageWikitext = str_replace_first('[[', '', $imageWikitext);
-        $imageWikitext = str_replace_last(']]', '', $imageWikitext);
+        $imageWikitext = Str::replaceFirst('[[', '', $imageWikitext);
+        $imageWikitext = Str::replaceLast(']]', '', $imageWikitext);
 
         return $imageWikitext;
     }
 
     protected function isDoubleImageTemplate($line)
     {
-        return starts_with(
+        return Str::startsWith(
             mb_strtolower($line, 'utf-8'),
             ['{{double image', '{{сдвоенное изображение']
         );
@@ -269,12 +271,12 @@ class SectionsAddImages
 
     protected function isListenTemplate($line)
     {
-        return starts_with(mb_strtolower($line, 'utf-8'), '{{listen');
+        return Str::startsWith(mb_strtolower($line, 'utf-8'), '{{listen');
     }
 
     protected function isMultipleImageTemplate($line)
     {
-        return starts_with(
+        return Str::startsWith(
             mb_strtolower($line, 'utf-8'),
             ['{{multiple image', '{{кратное изображение', '{{фотоколонка', '{{listen']
         );
@@ -295,7 +297,7 @@ class SectionsAddImages
 
     protected function freeUsedImages(array $usedImages)
     {
-        $usedImages = array_pluck($usedImages, 'title');
+        $usedImages = Arr::pluck($usedImages, 'title');
         $this->images = collect($this->images)->filter(function (array $image) use ($usedImages) {
             return !in_array($image['title'], $usedImages);
         })->toArray();

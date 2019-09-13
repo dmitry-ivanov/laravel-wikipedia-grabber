@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 
+use Illuminate\Support\Str;
+
 /**
  * @see https://en.wikipedia.org/wiki/Template:Listen
  * @see https://ru.wikipedia.org/wiki/Шаблон:Listen
@@ -22,8 +24,8 @@ class ListenTemplate
         $transformed = collect();
 
         $body = $this->body;
-        $body = str_replace_first('{{', '', $body);
-        $body = str_replace_last('}}', '', $body);
+        $body = Str::replaceFirst('{{', '', $body);
+        $body = Str::replaceLast('}}', '', $body);
 
         $parts = array_map('trim', explode('|', $body));
         foreach ($parts as $part) {

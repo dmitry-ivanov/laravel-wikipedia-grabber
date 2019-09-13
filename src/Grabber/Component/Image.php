@@ -2,6 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Component;
 
+use Illuminate\Support\Str;
+
 class Image
 {
     protected $url;
@@ -106,12 +108,12 @@ class Image
     {
         $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
-        if (ends_with($originalUrl, ['oga', 'mp3', 'wav'])) {
+        if (Str::endsWith($originalUrl, ['oga', 'mp3', 'wav'])) {
             return true;
         }
 
-        if (ends_with($originalUrl, 'ogg')) {
-            return !str_contains($this->getMime(), 'video');
+        if (Str::endsWith($originalUrl, 'ogg')) {
+            return !Str::contains($this->getMime(), 'video');
         }
 
         return false;
@@ -121,12 +123,12 @@ class Image
     {
         $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
-        if (ends_with($originalUrl, ['ogv', 'mp4', 'webm'])) {
+        if (Str::endsWith($originalUrl, ['ogv', 'mp4', 'webm'])) {
             return true;
         }
 
-        if (ends_with($originalUrl, 'ogg')) {
-            return str_contains($this->getMime(), 'video');
+        if (Str::endsWith($originalUrl, 'ogg')) {
+            return Str::contains($this->getMime(), 'video');
         }
 
         return false;
@@ -137,7 +139,7 @@ class Image
         $originalUrl = $this->getOriginalUrl();
         $originalUrlLowercased = mb_strtolower($originalUrl, 'utf-8');
 
-        if (!$this->isAudio() || ends_with($originalUrlLowercased, 'mp3')) {
+        if (!$this->isAudio() || Str::endsWith($originalUrlLowercased, 'mp3')) {
             return false;
         }
 

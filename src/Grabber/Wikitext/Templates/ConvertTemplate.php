@@ -2,6 +2,9 @@
 
 namespace Illuminated\Wikipedia\Grabber\Wikitext\Templates;
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+
 /**
  * @see https://en.wikipedia.org/wiki/Template:Convert
  * @see https://ru.wikipedia.org/wiki/Шаблон:Convert
@@ -21,15 +24,15 @@ class ConvertTemplate
         $result = collect();
 
         $body = $this->body;
-        $body = str_replace_first('{{', '', $body);
-        $body = str_replace_last('}}', '', $body);
+        $body = Str::replaceFirst('{{', '', $body);
+        $body = Str::replaceLast('}}', '', $body);
 
         $parts = array_map('trim', explode('|', $body));
         array_shift($parts);
 
         foreach ($parts as $part) {
             if ($unit = $this->toUnit($part)) {
-                $result->push(str_plural($unit));
+                $result->push(Str::plural($unit));
                 return $result->implode(' ');
             }
 
@@ -42,14 +45,14 @@ class ConvertTemplate
     protected function handleUnknownUnit(array $parts)
     {
         $value = $parts[0];
-        $unit = str_plural($parts[1]);
+        $unit = Str::plural($parts[1]);
 
         return "{$value} {$unit}";
     }
 
     protected function toUnit($unit)
     {
-        return array_get($this->units(), $unit);
+        return Arr::get($this->units(), $unit);
     }
 
     /**
