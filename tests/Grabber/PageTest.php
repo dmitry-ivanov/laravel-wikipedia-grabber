@@ -219,10 +219,10 @@ class PageTest extends TestCase
     {
         config(['wikipedia-grabber.images' => true]);
 
-        $page = (new Wikipedia('ru'))->page('Иванов, Иван (богослов)');
+        $page = (new Wikipedia('ru'))->page('Иванов, Иван Иванович (священник)');
 
         $this->assertTrue($page->isSuccess());
-        $this->assertEquals('Иванов, Иван (богослов)', $page->getTitle());
+        $this->assertEquals('Иванов, Иван Иванович (священник)', $page->getTitle());
         $this->assertEquals(
             trim(file_get_contents(__DIR__ . '/PageTest/page-without-images.txt')),
             trim($page->plain())
