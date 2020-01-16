@@ -1,9 +1,20 @@
 <style>
 .iwg-section-title, .iwg-section {margin-bottom:1.5rem}
+.iwg-media {color:#757575; margin-bottom:1rem; padding:3px; box-sizing:initial; box-shadow:0 .25rem .5rem 0 #BDBDBD; transition:.3s}
+.iwg-media:hover {box-shadow:0 .5rem 1rem 0 #BDBDBD}
+.iwg-media.left {float:left; clear:left; margin-right:1rem}
+.iwg-media.right {float:right; clear:right; margin-left:1rem}
+.iwg-media.audio, .iwg-media.video {width:275px; padding:5px}
+.iwg-media audio, .iwg-media video {width:100%}
+.iwg-media-desc {padding:.625rem 1rem; font-size:0.95em; word-wrap:break-word}
 </style>
 
 <div class='iwg-section'>
-Иван Иванов (ум. 1843) — русский богослов.<br />
-Магистр (1817), протоиерей, профессор словесности в Санкт-Петербургской духовной академии. Был священником Спасо-Сенновской церкви в Санкт-Петербурге.<br />
-Напечатал «Опыт теории словесных наук, почерпнутых из лучших её источников» (СПб. 1832).
+<div class='iwg-media right' style='width:125px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg/125px-Perrot_View_of_Sennaya_Square_1841.jpg' width='125' height='77' alt='' /></a></div>
+Иван Иванович Иванов (1796—1848) — протоиерей Русской православной церкви.<br />
+<br />
+В 1814 году, до окончания курса Петербургской духовной семинарии был переведён в Петербургскую духовную академию, которую в 1817 году окончил в составе II курса магистром богословия. Оставлен в академии бакалавром; с 1828 года — ординарный профессор академии, сначала по кафедре общей словесности, затем — церковного красноречия (гомилетики) и с 1835 года — еврейского языка.<br />
+Был священником Петропавловского собора (с 1819), затем, в сане протоиерея, — настоятелем Спасо-Сенновской церкви (с 1831). Также он был членом Санкт-Петербургской духовной консистории.<br />
+Напечатал «Опыт теории словесных наук, почерпнутых из лучших её источников» (СПб.: тип. Байковой, 1832). Кроме этого в Христианском чтении было напечатано большое количество его переводов из сочинений Отцов Церкви.<br />
+Умер в Санкт-Петербурге от холеры 20 июня (2 июля) 1848 года. Похоронен на Смоленском православном кладбище.
 </div>

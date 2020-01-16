@@ -157,10 +157,10 @@ class PreviewTest extends TestCase
     {
         config(['wikipedia-grabber.images' => true]);
 
-        $preview = (new Wikipedia('ru'))->preview('Иванов, Иван (богослов)');
+        $preview = (new Wikipedia('ru'))->preview('Иванов, Иван Иванович (священник)');
 
         $this->assertTrue($preview->isSuccess());
-        $this->assertEquals('Иванов, Иван (богослов)', $preview->getTitle());
+        $this->assertEquals('Иванов, Иван Иванович (священник)', $preview->getTitle());
         $this->assertEquals(
             trim(file_get_contents(__DIR__ . '/PreviewTest/preview-without-images.txt')),
             trim($preview->plain())
