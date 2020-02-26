@@ -24,7 +24,6 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 <div class='iwg-toc-item level-2'><a href='#shape-height-and-function'>Shape, height, and function</a></div>
 <div class='iwg-toc-item level-2'><a href='#types'>Types</a></div>
 <div class='iwg-toc-item level-2'><a href='#specialized-types'>Specialized types</a></div>
-<div class='iwg-toc-item level-2'><a href='#standards-for-design-functionality-and-safety'>Standards for design, functionality and safety</a></div>
 </div>
 
 <h2 id='etymology' class='iwg-section-title'>Etymology</h2>
@@ -76,13 +75,4 @@ Billiards tables are bounded tables on which billiards-type games are played. Al
 Chess tables are a type of games table that integrates a chessboard.<br />
 Table tennis tables are usually masonite or a similar wood, layered with a smooth low-friction coating. they are divided into two halves by a low net, which separates opposing players.<br />
 Poker tables or card tables are used to play poker or other card games.
-</div>
-
-<h2 id='standards-for-design-functionality-and-safety' class='iwg-section-title'>Standards for design, functionality and safety</h2>
-<div class='iwg-section'>
-EN 527 Office furniture - Work tables and desks<br />
-EN 581 Outdoor furniture - Seating and tables for camping, domestic and contract use<br />
-EN 1730 Furniture - Tables - Test methods for the determination of stability, strength and durability<br />
-EN 13150 Workbenches for laboratories - Safety requirements and test methods<br />
-BS 4875 Furniture. Strength and stability of furniture. Methods for determination of stability of non-domestic storage furniture (British Standard)
 </div>
