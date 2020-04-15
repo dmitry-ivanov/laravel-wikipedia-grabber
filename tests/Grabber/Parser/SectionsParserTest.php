@@ -3,8 +3,8 @@
 namespace Illuminated\Wikipedia\Tests\Grabber\Parser;
 
 use Illuminate\Support\Collection;
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class SectionsParserTest extends TestCase
 {

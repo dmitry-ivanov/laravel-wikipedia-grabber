@@ -10,15 +10,43 @@ use Illuminate\Support\Str;
  */
 class ListenTemplate
 {
+    /**
+     * The body.
+     *
+     * @var string
+     */
     protected $body;
+
+    /**
+     * The title.
+     *
+     * @var string
+     */
     protected $title;
+
+    /**
+     * The description.
+     *
+     * @var string
+     */
     protected $description;
 
-    public function __construct($body)
+    /**
+     * Create a new instance of the template.
+     *
+     * @param string $body
+     * @return void
+     */
+    public function __construct(string $body)
     {
         $this->body = $body;
     }
 
+    /**
+     * Transform the template.
+     *
+     * @return string
+     */
     public function transform()
     {
         $transformed = collect();
@@ -45,20 +73,39 @@ class ListenTemplate
         return "{{{$transformed->implode('|')}}}";
     }
 
-    protected function isTitle($part)
+    /**
+     * Check whether the given part is title or not.
+     *
+     * @param string $part
+     * @return bool
+     */
+    protected function isTitle(string $part)
     {
         $part = mb_strtolower($part, 'utf-8');
 
-        return preg_match('/^title(\s*)=(.+?)/', $part) || preg_match('/^название(\s*)=(.+?)/', $part);
+        return preg_match('/^title(\s*)=(.+?)/', $part)
+            || preg_match('/^название(\s*)=(.+?)/', $part);
     }
 
-    protected function isDescription($part)
+    /**
+     * Check whether the given part is description or not.
+     *
+     * @param string $part
+     * @return bool
+     */
+    protected function isDescription(string $part)
     {
         $part = mb_strtolower($part, 'utf-8');
 
-        return preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
+        return preg_match('/^description(\s*)=(.+?)/', $part)
+            || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
+    /**
+     * Compose the title.
+     *
+     * @return string|false
+     */
     protected function composeTitle()
     {
         $composed = collect();

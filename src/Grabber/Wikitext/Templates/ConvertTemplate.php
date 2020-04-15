@@ -12,13 +12,29 @@ use Illuminate\Support\Str;
  */
 class ConvertTemplate
 {
+    /**
+     * The body.
+     *
+     * @var string
+     */
     protected $body;
 
-    public function __construct($body)
+    /**
+     * Create a new instance of the template.
+     *
+     * @param string $body
+     * @return void
+     */
+    public function __construct(string $body)
     {
         $this->body = $body;
     }
 
+    /**
+     * Extract from the template.
+     *
+     * @return string
+     */
     public function extract()
     {
         $result = collect();
@@ -42,6 +58,12 @@ class ConvertTemplate
         return $this->handleUnknownUnit($parts);
     }
 
+    /**
+     * Handle unknown unit.
+     *
+     * @param array $parts
+     * @return string
+     */
     protected function handleUnknownUnit(array $parts)
     {
         $value = $parts[0];
@@ -50,13 +72,23 @@ class ConvertTemplate
         return "{$value} {$unit}";
     }
 
-    protected function toUnit($unit)
+    /**
+     * Convert the given unit to its readable representation.
+     *
+     * @param string $unit
+     * @return string
+     */
+    protected function toUnit(string $unit)
     {
         return Arr::get($this->units(), $unit);
     }
 
     /**
+     * The list of supported units.
+     *
      * @see https://en.wikipedia.org/wiki/Help:Convert_units
+     *
+     * @return array
      */
     protected function units()
     {

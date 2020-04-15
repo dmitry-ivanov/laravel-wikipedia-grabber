@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class MultipleImageTemplateTest extends TestCase
 {

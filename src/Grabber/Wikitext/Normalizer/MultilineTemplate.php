@@ -7,7 +7,13 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineTemplate
 {
-    public function flatten($wikitext)
+    /**
+     * Flatten the multiline templates.
+     *
+     * @param string $wikitext
+     * @return string
+     */
+    public function flatten(string $wikitext)
     {
         $flatten = collect();
 
@@ -26,7 +32,13 @@ class MultilineTemplate
         return $flatten->implode("\n");
     }
 
-    protected function isTemplateOpened($line)
+    /**
+     * Determine whether the given line opens a multiline template or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isTemplateOpened(string $line)
     {
         $line = mb_strtolower($line, 'utf-8');
 
@@ -54,9 +66,16 @@ class MultilineTemplate
         return false;
     }
 
-    protected function isTemplateClosed($line)
+    /**
+     * Determine whether the given line closes a multiline template or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isTemplateClosed(string $line)
     {
         $line = (new Wikitext($line))->plain();
+
         return Str::contains($line, '}}');
     }
 }

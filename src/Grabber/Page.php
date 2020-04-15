@@ -6,6 +6,11 @@ use Illuminate\Support\Collection;
 
 class Page extends EntitySingular
 {
+    /**
+     * Grab the content.
+     *
+     * @return void
+     */
     protected function grab()
     {
         $this->response = head($this->request($this->params())['query']['pages']);
@@ -17,6 +22,11 @@ class Page extends EntitySingular
         }
     }
 
+    /**
+     * Get the main image.
+     *
+     * @return array|null
+     */
     protected function getMainImage()
     {
         if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
@@ -29,6 +39,11 @@ class Page extends EntitySingular
         ];
     }
 
+    /**
+     * Get images info.
+     *
+     * @return array
+     */
     protected function getImagesInfo()
     {
         if (empty($this->response['images'])) {
@@ -41,6 +56,8 @@ class Page extends EntitySingular
     }
 
     /**
+     * Get the params.
+     *
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs - FormatVersion
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - Disambiguation
      * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - List of pageprops
@@ -48,6 +65,8 @@ class Page extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Wikitext for images
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images list
+     *
+     * @return array
      */
     protected function params()
     {
@@ -87,7 +106,12 @@ class Page extends EntitySingular
     }
 
     /**
+     * Get params for getting image info.
+     *
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo
+     *
+     * @param \Illuminate\Support\Collection $images
+     * @return array
      */
     protected function imageInfoParams(Collection $images)
     {

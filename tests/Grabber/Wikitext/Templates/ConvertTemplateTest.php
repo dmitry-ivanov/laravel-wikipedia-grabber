@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ConvertTemplate;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class ConvertTemplateTest extends TestCase
 {

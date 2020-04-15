@@ -14,16 +14,39 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
  */
 class MultipleImageTemplate
 {
+    /**
+     * The body.
+     *
+     * @var string
+     */
     protected $body;
+
+    /**
+     * Indicates whether the given template is "Listen" or not.
+     *
+     * @var bool
+     */
     protected $isListen;
 
-    public function __construct($body)
+    /**
+     * Create a new instance of the template.
+     *
+     * @param string $body
+     * @return void
+     */
+    public function __construct(string $body)
     {
         $this->body = $body;
         $this->isListen = $this->isListen();
     }
 
-    public function extract($file)
+    /**
+     * Extract from the template.
+     *
+     * @param string $file
+     * @return string
+     */
+    public function extract(string $file)
     {
         $result = collect();
 
@@ -46,11 +69,21 @@ class MultipleImageTemplate
         return "{{{$result->implode('|')}}}";
     }
 
+    /**
+     * Check whether the given template is "Listen" or not.
+     *
+     * @return bool
+     */
     protected function isListen()
     {
         return Str::startsWith(mb_strtolower($this->body, 'utf-8'), '{{listen');
     }
 
+    /**
+     * Explode the body.
+     *
+     * @return array
+     */
     protected function explode()
     {
         $body = $this->body;
@@ -62,7 +95,14 @@ class MultipleImageTemplate
         return array_map('trim', explode('|', $body));
     }
 
-    protected function getIndex(array $parts, $file)
+    /**
+     * Get the index.
+     *
+     * @param array $parts
+     * @param string $file
+     * @return int
+     */
+    protected function getIndex(array $parts, string $file)
     {
         $index = 1;
 
@@ -79,7 +119,14 @@ class MultipleImageTemplate
         return 0;
     }
 
-    protected function isExtractingPart($part, $index)
+    /**
+     * Check whether the given part should be extracted or not.
+     *
+     * @param string $part
+     * @param int $index
+     * @return bool
+     */
+    protected function isExtractingPart(string $part, int $index)
     {
         if (!$this->isSomeParameter($part)) {
             return true;
@@ -89,10 +136,16 @@ class MultipleImageTemplate
             return false;
         }
 
-        return preg_match("/[^\d\s]+({$index}){0,1}(\s*?)=/", $part);
+        return (bool) preg_match("/[^\d\s]+({$index}){0,1}(\s*?)=/", $part);
     }
 
-    protected function isNotIndexed($part)
+    /**
+     * Check whether the given part is not indexed.
+     *
+     * @param string $part
+     * @return bool
+     */
+    protected function isNotIndexed(string $part)
     {
         $part = mb_strtolower($part, 'utf-8');
 
@@ -101,7 +154,14 @@ class MultipleImageTemplate
             || preg_match('/^description(\s*)=(.+?)/', $part) || preg_match('/^описание(\s*)=(.+?)/', $part);
     }
 
-    protected function removeIndex($part, $index)
+    /**
+     * Remove the index.
+     *
+     * @param string $part
+     * @param int $index
+     * @return string
+     */
+    protected function removeIndex(string $part, int $index)
     {
         if (!$this->isSomeParameter($part)) {
             return $part;
@@ -113,7 +173,13 @@ class MultipleImageTemplate
         return implode('=', $parts);
     }
 
-    protected function transformPosition($part)
+    /**
+     * Transform the position.
+     *
+     * @param string $part
+     * @return string
+     */
+    protected function transformPosition(string $part)
     {
         $lowercased = mb_strtolower($part, 'utf-8');
         if (!preg_match('/^(align|pos|float|зона)=/', $lowercased)) {
@@ -123,16 +189,27 @@ class MultipleImageTemplate
         return last(explode('=', $part));
     }
 
-    protected function isSomeParameter($string)
+    /**
+     * Check whether the given string is some parameter or not.
+     *
+     * @param string $string
+     * @return bool
+     */
+    protected function isSomeParameter(string $string)
     {
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
     }
 
     /**
+     * Check whether the given part is filename or not.
+     *
      * @see https://www.mediawiki.org/wiki/Help:Images#Supported_media_types_for_images
+     *
+     * @param string $part
+     * @return bool
      */
-    protected function isFileName($part)
+    protected function isFileName(string $part)
     {
         $part = mb_strtolower($part, 'utf-8');
 

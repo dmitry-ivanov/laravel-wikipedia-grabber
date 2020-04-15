@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class WikitextTest extends TestCase
 {
@@ -300,7 +300,7 @@ class WikitextTest extends TestCase
     {
         $this->assertEquals(
             'Multiple html tags!',
-            (new Wikitext(''))->removeHtmlTags('Multiple <s foo="bar" baz>html</s> tags<ref>ignored</ref>!<ref with="attr">ignored</ref>')
+            (new Wikitext(''))->removeHtmlTags('Multiple <s class="foo" autofocus>html</s> tags<ref>ignored</ref>!<ref with="attr">ignored</ref>')
         );
     }
 

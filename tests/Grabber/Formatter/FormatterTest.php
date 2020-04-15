@@ -2,11 +2,11 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Formatter;
 
-use Illuminated\Wikipedia\Tests\TestCase;
-use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
-use Illuminated\Wikipedia\Grabber\Formatter\BulmaFormatter;
-use Illuminated\Wikipedia\Grabber\Formatter\PlainFormatter;
 use Illuminated\Wikipedia\Grabber\Formatter\BootstrapFormatter;
+use Illuminated\Wikipedia\Grabber\Formatter\BulmaFormatter;
+use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
+use Illuminated\Wikipedia\Grabber\Formatter\PlainFormatter;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class FormatterTest extends TestCase
 {

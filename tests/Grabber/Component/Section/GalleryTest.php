@@ -2,9 +2,9 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Component\Section;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class GalleryTest extends TestCase
 {

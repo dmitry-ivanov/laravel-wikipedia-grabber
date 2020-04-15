@@ -4,6 +4,11 @@ namespace Illuminated\Wikipedia\Grabber;
 
 class Preview extends EntitySingular
 {
+    /**
+     * Grab the content.
+     *
+     * @return void
+     */
     protected function grab()
     {
         $this->response = head($this->request($this->params())['query']['pages']);
@@ -16,6 +21,11 @@ class Preview extends EntitySingular
         }
     }
 
+    /**
+     * Get the main image.
+     *
+     * @return array|null
+     */
     protected function getMainImage()
     {
         if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
@@ -29,11 +39,15 @@ class Preview extends EntitySingular
     }
 
     /**
+     * Get the params.
+     *
      * @see https://www.mediawiki.org/wiki/API:Query#Getting_a_list_of_page_IDs - FormatVersion
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageprops - Disambiguation
      * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - List of pageprops
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
+     *
+     * @return array
      */
     protected function params()
     {

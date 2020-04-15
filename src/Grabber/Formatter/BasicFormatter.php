@@ -2,17 +2,40 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class BasicFormatter extends Formatter
 {
+    /**
+     * Indicates whether the given sections have media or not.
+     *
+     * @var bool
+     */
     protected $hasMedia;
+
+    /**
+     * Indicates whether the given sections have gallery or not.
+     *
+     * @var bool
+     */
     protected $hasGallery;
+
+    /**
+     * Sections which should be included to the table of contents.
+     *
+     * @var \Illuminate\Support\Collection
+     */
     protected $tocSections;
 
+    /**
+     * Create a new instance of the BasicFormatter.
+     *
+     * @param \Illuminate\Support\Collection $sections
+     * @return void
+     */
     public function __construct(Collection $sections)
     {
         $this->hasMedia = (bool) $sections->first(function (Section $section) {
@@ -28,6 +51,11 @@ class BasicFormatter extends Formatter
         });
     }
 
+    /**
+     * Compose the style.
+     *
+     * @return string
+     */
     public function style()
     {
         $styles = collect(['.iwg-section-title, .iwg-section {margin-bottom:1.5rem}']);
@@ -69,6 +97,11 @@ class BasicFormatter extends Formatter
         return $this->htmlBlock('<style>', $styles, '</style>');
     }
 
+    /**
+     * Compose the table of contents.
+     *
+     * @return string
+     */
     public function tableOfContents()
     {
         $items = $this->tocSections->map(function (Section $section) {
@@ -80,6 +113,12 @@ class BasicFormatter extends Formatter
         return $this->htmlBlock("<div class='iwg-toc'>", $items, '</div>');
     }
 
+    /**
+     * Compose the section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return string
+     */
     public function section(Section $section)
     {
         $titleHtml = '';
@@ -97,13 +136,19 @@ class BasicFormatter extends Formatter
         ]);
         $bodyHtml = $this->htmlBlock("<div class='iwg-section'>", $items, '</div>');
 
-        return $this->htmlBlock(null, collect([$titleHtml, $bodyHtml]), null);
+        return $this->htmlBlock('', collect([$titleHtml, $bodyHtml]), '');
     }
 
+    /**
+     * Compose the gallery for the given section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return string
+     */
     protected function gallery(Section $section)
     {
         if (!$section->hasGallery()) {
-            return;
+            return '';
         }
 
         $gallery = $section->getGallery()->map(function (Image $image) {
@@ -113,20 +158,33 @@ class BasicFormatter extends Formatter
         return $this->htmlBlock("<div class='iwg-gallery'>", $gallery, '</div>');
     }
 
+    /**
+     * Compose the images for the given section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return string
+     */
     protected function images(Section $section)
     {
         if (!$section->hasImages()) {
-            return;
+            return '';
         }
 
         $images = $section->getImages()->map(function (Image $image) {
             return $this->media($image);
         });
 
-        return $this->htmlBlock(null, $images, null);
+        return $this->htmlBlock('', $images, '');
     }
 
-    protected function media(Image $image, $isGallery = false)
+    /**
+     * Compose the media.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Image $image
+     * @param bool $isGallery
+     * @return string
+     */
+    protected function media(Image $image, bool $isGallery = false)
     {
         if ($image->isAudio()) {
             return $this->audio($image, $isGallery);
@@ -139,15 +197,22 @@ class BasicFormatter extends Formatter
         return $this->image($image, $isGallery);
     }
 
-    protected function image(Image $image, $isGallery = false)
+    /**
+     * Compose the image.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Image $image
+     * @param bool $isGallery
+     * @return string
+     */
+    protected function image(Image $image, bool $isGallery = false)
     {
         $url = $image->getUrl();
-        $alt = $image->getAlt();
         $width = $image->getWidth();
         $height = $image->getHeight();
-        $position = $image->getPosition();
-        $description = $image->getDescription();
+        $alt = $image->getAlt();
         $originalUrl = $image->getOriginalUrl();
+        $description = $image->getDescription();
+        $position = $image->getPosition();
 
         if ($isGallery) {
             $width = $this->toGallerySize($width);
@@ -165,12 +230,19 @@ class BasicFormatter extends Formatter
         return "<div class='iwg-media {$position}' style='width:{$width}px'>{$link}{$desc}</div>";
     }
 
-    protected function audio(Image $image, $isGallery = false)
+    /**
+     * Compose an audio.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Image $image
+     * @param bool $isGallery
+     * @return string
+     */
+    protected function audio(Image $image, bool $isGallery = false)
     {
-        $mime = $image->getMime();
-        $position = $image->getPosition();
-        $description = $image->getDescription();
         $originalUrl = $image->getOriginalUrl();
+        $mime = $image->getMime();
+        $description = $image->getDescription();
+        $position = $image->getPosition();
 
         $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
         if ($mp3 = $image->getTranscodedMp3Url()) {
@@ -187,13 +259,20 @@ class BasicFormatter extends Formatter
         return "<div class='iwg-media audio {$position}'>{$audio}{$desc}</div>";
     }
 
-    protected function video(Image $image, $isGallery = false)
+    /**
+     * Compose the video.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Image $image
+     * @param bool $isGallery
+     * @return string
+     */
+    protected function video(Image $image, bool $isGallery = false)
     {
-        $url = $image->getUrl();
-        $mime = $image->getMime();
-        $position = $image->getPosition();
-        $description = $image->getDescription();
         $originalUrl = $image->getOriginalUrl();
+        $mime = $image->getMime();
+        $url = $image->getUrl();
+        $description = $image->getDescription();
+        $position = $image->getPosition();
 
         $source = collect(["<source src='{$originalUrl}' type='{$mime}'>"]);
         if ($transcoded = $image->getTranscodedWebmUrls()) {
@@ -212,11 +291,21 @@ class BasicFormatter extends Formatter
         return "<div class='iwg-media video {$position}'>{$video}{$desc}</div>";
     }
 
+    /**
+     * Check whether there is a table of contents.
+     *
+     * @return bool
+     */
     protected function hasTableOfContents()
     {
         return $this->tocSections->isNotEmpty();
     }
 
+    /**
+     * Compose the TOC levels.
+     *
+     * @return \Illuminate\Support\Collection
+     */
     protected function tocLevels()
     {
         return $this->tocSections->map(function (Section $section) {
@@ -224,31 +313,63 @@ class BasicFormatter extends Formatter
         })->unique()->sort();
     }
 
+    /**
+     * Compose the section's title `class` attribute.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return string
+     */
     protected function sectionTitleClass(Section $section)
     {
         return 'iwg-section-title' . ($section->hasGallery() ? ' has-gallery' : '');
     }
 
-    protected function sectionId($title)
+    /**
+     * Compose the section ID.
+     *
+     * @param string $title
+     * @return string
+     */
+    protected function sectionId(string $title)
     {
         return Str::slug($title);
     }
 
+    /**
+     * Compose the section body.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return string
+     */
     protected function sectionBody(Section $section)
     {
         return preg_replace('/(\s*<br.*?>\s*){3,}/m', '$1$1', nl2br($section->getBody()));
     }
 
-    protected function toGallerySize($size)
+    /**
+     * Convert the image size to the gallery size.
+     *
+     * @param int $size
+     * @return int
+     */
+    protected function toGallerySize(int $size)
     {
         return (int) ($size / 1.35);
     }
 
-    protected function htmlBlock($open, Collection $items, $close)
+    /**
+     * Compose the HTML block.
+     *
+     * @param string $open
+     * @param \Illuminate\Support\Collection $items
+     * @param string $close
+     * @return string
+     */
+    protected function htmlBlock(string $open, Collection $items, string $close)
     {
         $items = collect(array_map('trim', $items->toArray()))->filter();
         if ($items->isEmpty()) {
-            return;
+            return '';
         }
 
         $open .= !empty($open) ? "\n" : '';

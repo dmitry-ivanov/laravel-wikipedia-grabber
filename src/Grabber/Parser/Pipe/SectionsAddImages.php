@@ -3,30 +3,66 @@
 namespace Illuminated\Wikipedia\Grabber\Parser\Pipe;
 
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
-use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
-use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
+use Illuminated\Wikipedia\Grabber\Parser\SectionsParser;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\LocaleFile;
-use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\Underscores;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
-use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\Underscores;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
+use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
+use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
 
 class SectionsAddImages
 {
+    /**
+     * The sections.
+     *
+     * @var \Illuminate\Support\Collection
+     */
     protected $sections;
+
+    /**
+     * The wikitext.
+     *
+     * @var string
+     */
     protected $wikitext;
+
+    /**
+     * The main image data.
+     *
+     * @var array
+     */
     protected $mainImage;
+
+    /**
+     * The images.
+     *
+     * @var array
+     */
     protected $images;
+
+    /**
+     * The wikitext sections.
+     *
+     * @var \Illuminate\Support\Collection
+     */
     protected $wikitextSections;
 
+    /**
+     * Create a new instance of the pipe.
+     *
+     * @param \Illuminate\Support\Collection $sections
+     * @param array|null $imagesResponseData
+     * @return void
+     */
     public function __construct(Collection $sections, array $imagesResponseData = null)
     {
         $this->sections = $sections;
@@ -40,6 +76,11 @@ class SectionsAddImages
         $this->images = $this->imagesFromResponse($imagesResponseData['images']);
     }
 
+    /**
+     * Execute the pipe.
+     *
+     * @return \Illuminate\Support\Collection
+     */
     public function pipe()
     {
         if ($this->noImages()) {
@@ -76,11 +117,23 @@ class SectionsAddImages
         return $this->sections;
     }
 
+    /**
+     * Check whether there are no images.
+     *
+     * @return bool
+     */
     protected function noImages()
     {
-        return empty($this->mainImage) && empty($this->images);
+        return empty($this->mainImage)
+            && empty($this->images);
     }
 
+    /**
+     * Compose images from the response data.
+     *
+     * @param array $imagesFromResponse
+     * @return array
+     */
     protected function imagesFromResponse(array $imagesFromResponse)
     {
         $images = $this->normalizeImages($imagesFromResponse);
@@ -90,7 +143,14 @@ class SectionsAddImages
         return $images;
     }
 
-    protected function getUsedImages($wikitext, array $images)
+    /**
+     * Get used on the page images.
+     *
+     * @param string $wikitext
+     * @param array $images
+     * @return array
+     */
+    protected function getUsedImages(string $wikitext, array $images)
     {
         return collect($images)->filter(function (array $image) use ($wikitext) {
             $file = last(explode(':', $image['title']));
@@ -98,6 +158,12 @@ class SectionsAddImages
         })->toArray();
     }
 
+    /**
+     * Skip the main image.
+     *
+     * @param array $images
+     * @return array
+     */
     protected function skipMainImage(array $images)
     {
         return collect($images)->filter(function (array $image) {
@@ -105,11 +171,25 @@ class SectionsAddImages
         })->toArray();
     }
 
-    protected function isFileUsed($wikitext, $file)
+    /**
+     * Check whether the file is used or not.
+     *
+     * @param string $wikitext
+     * @param string $file
+     * @return bool
+     */
+    protected function isFileUsed(string $wikitext, string $file)
     {
         return Str::contains($wikitext, $file);
     }
 
+    /**
+     * Filter images according to supported extensions.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $wikitextSection
+     * @param array $images
+     * @return array
+     */
     protected function filterByExtensions(Section $wikitextSection, array $images)
     {
         if (!$wikitextSection->isMain()) {
@@ -124,6 +204,11 @@ class SectionsAddImages
         })->toArray();
     }
 
+    /**
+     * Create the main object.
+     *
+     * @return \Illuminate\Support\Collection
+     */
     protected function createMainObject()
     {
         return collect([
@@ -138,6 +223,13 @@ class SectionsAddImages
         ]);
     }
 
+    /**
+     * Create objects for the given section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $wikitextSection
+     * @param array $images
+     * @return array
+     */
     protected function createObjects(Section $wikitextSection, array $images)
     {
         $objects = ['gallery' => collect(), 'images' => collect()];
@@ -162,19 +254,26 @@ class SectionsAddImages
         return $objects;
     }
 
-    protected function createObject($imageWikitext, array $image)
+    /**
+     * Create an object.
+     *
+     * @param string $imageWikitext
+     * @param array $image
+     * @return \Illuminated\Wikipedia\Grabber\Component\Image|false
+     */
+    protected function createObject(string $imageWikitext, array $image)
     {
         $imageInfo = head($image['imageinfo']);
 
-        $mime = $imageInfo['mime'];
         $url = $imageInfo['thumburl'];
         $width = $imageInfo['thumbwidth'];
         $height = $imageInfo['thumbheight'];
         $originalUrl = $imageInfo['url'];
+        $mime = $imageInfo['mime'];
 
         $image = new WikitextImage($imageWikitext);
-        $position = $image->getLocation();
-        $description = $image->getDescription();
+        $position = (string) $image->getLocation();
+        $description = (string) $image->getDescription();
 
         if ($image->isIcon()) {
             return false;
@@ -183,6 +282,13 @@ class SectionsAddImages
         return new Image($url, $width, $height, $originalUrl, $position, $description, $mime);
     }
 
+    /**
+     * Get image wikitext.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $wikitextSection
+     * @param array $image
+     * @return string
+     */
     protected function getImageWikitext(Section $wikitextSection, array $image)
     {
         $title = $image['title'];
@@ -231,7 +337,15 @@ class SectionsAddImages
         return $line;
     }
 
-    protected function getImageWikitextLine($wikitext, $title, $file)
+    /**
+     * Get the image's wikitext line.
+     *
+     * @param string $wikitext
+     * @param string $title
+     * @param string $file
+     * @return string
+     */
+    protected function getImageWikitextLine(string $wikitext, string $title, string $file)
     {
         $lines = collect(preg_split("/\r\n|\n|\r/", $wikitext));
 
@@ -248,12 +362,24 @@ class SectionsAddImages
         });
     }
 
-    protected function isGalleryImage($imageWikitext)
+    /**
+     * Check whether the given image wikitext is a gallery image or not.
+     *
+     * @param string $imageWikitext
+     * @return bool
+     */
+    protected function isGalleryImage(string $imageWikitext)
     {
         return !(Str::startsWith($imageWikitext, '[[') && Str::endsWith($imageWikitext, ']]'));
     }
 
-    protected function forceGalleryDisplaying($imageWikitext)
+    /**
+     * Force gallery displaying for the given image wikitext.
+     *
+     * @param string $imageWikitext
+     * @return string
+     */
+    protected function forceGalleryDisplaying(string $imageWikitext)
     {
         $imageWikitext = Str::replaceFirst('[[', '', $imageWikitext);
         $imageWikitext = Str::replaceLast(']]', '', $imageWikitext);
@@ -261,7 +387,13 @@ class SectionsAddImages
         return $imageWikitext;
     }
 
-    protected function isDoubleImageTemplate($line)
+    /**
+     * Check whether the given line is a "double image" template or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isDoubleImageTemplate(string $line)
     {
         return Str::startsWith(
             mb_strtolower($line, 'utf-8'),
@@ -269,12 +401,24 @@ class SectionsAddImages
         );
     }
 
-    protected function isListenTemplate($line)
+    /**
+     * Check whether the given line is a "listen" template or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isListenTemplate(string $line)
     {
         return Str::startsWith(mb_strtolower($line, 'utf-8'), '{{listen');
     }
 
-    protected function isMultipleImageTemplate($line)
+    /**
+     * Check whether the given line is a "multiple image" template or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isMultipleImageTemplate(string $line)
     {
         return Str::startsWith(
             mb_strtolower($line, 'utf-8'),
@@ -282,19 +426,39 @@ class SectionsAddImages
         );
     }
 
-    protected function isAudioTemplate($line, array $image, &$matches)
+    /**
+     * Check whether the given line is an "audio" template or not.
+     *
+     * @param string $line
+     * @param array $image
+     * @param mixed $matches
+     * @return bool
+     */
+    protected function isAudioTemplate(string $line, array $image, &$matches)
     {
         $file = last(explode(':', $image['title']));
         $file = preg_quote($file, '/');
 
-        return preg_match("/\{\{(audio|pronunciation).*?\|{$file}\|.*?\}\}/i", $line, $matches);
+        return (bool) preg_match("/\{\{(audio|pronunciation).*?\|{$file}\|.*?\}\}/i", $line, $matches);
     }
 
-    protected function isGrayTable($line)
+    /**
+     * Check whether the given line is a "gray table" or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isGrayTable(string $line)
     {
-        return preg_match('/^(\s*\|\s*)width(\s*)=/i', $line) || preg_match('/^(\s*\|\s*)align(\s*)=/i', $line);
+        return (bool) preg_match('/^(\s*\|\s*)width(\s*)=/i', $line) || preg_match('/^(\s*\|\s*)align(\s*)=/i', $line);
     }
 
+    /**
+     * Free used images.
+     *
+     * @param array $usedImages
+     * @return void
+     */
     protected function freeUsedImages(array $usedImages)
     {
         $usedImages = Arr::pluck($usedImages, 'title');
@@ -303,6 +467,12 @@ class SectionsAddImages
         })->toArray();
     }
 
+    /**
+     * Get wikitext section for the given section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return \Illuminated\Wikipedia\Grabber\Component\Section|null
+     */
     protected function getWikitextSectionFor(Section $section)
     {
         $wikitextSections = $this->getWikitextSections();
@@ -313,6 +483,11 @@ class SectionsAddImages
         });
     }
 
+    /**
+     * Get wikitext sections.
+     *
+     * @return \Illuminate\Support\Collection
+     */
     protected function getWikitextSections()
     {
         if (empty($this->wikitextSections)) {
@@ -326,6 +501,12 @@ class SectionsAddImages
         return $this->wikitextSections;
     }
 
+    /**
+     * Normalize images.
+     *
+     * @param array $images
+     * @return array
+     */
     protected function normalizeImages(array $images)
     {
         return collect($images)->map(function ($image) {
@@ -333,6 +514,12 @@ class SectionsAddImages
         })->toArray();
     }
 
+    /**
+     * Normalize image.
+     *
+     * @param array $image
+     * @return array
+     */
     protected function normalizeImage(array $image)
     {
         $image['title'] = (new LocaleFile)->normalize($image['title']);
@@ -341,7 +528,13 @@ class SectionsAddImages
         return $image;
     }
 
-    protected function normalizeWikitext($wikitext)
+    /**
+     * Normalize wikitext.
+     *
+     * @param string $wikitext
+     * @return string
+     */
+    protected function normalizeWikitext(string $wikitext)
     {
         $wikitext = (new LocaleFile)->normalize($wikitext);
         $wikitext = (new Underscores)->normalize($wikitext);
@@ -349,6 +542,12 @@ class SectionsAddImages
         return $wikitext;
     }
 
+    /**
+     * Normalize section.
+     *
+     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
+     * @return void
+     */
     protected function normalizeSection(Section $section)
     {
         $body = $section->getBody();
@@ -359,8 +558,15 @@ class SectionsAddImages
         $section->setBody($body);
     }
 
+    /**
+     * Get the main section.
+     *
+     * @return \Illuminated\Wikipedia\Grabber\Component\Section
+     */
     protected function getMainSection()
     {
-        return $this->sections->first->isMain();
+        return $this->sections->first(function (Section $section) {
+            return $section->isMain();
+        });
     }
 }

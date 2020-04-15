@@ -11,14 +11,31 @@ use Illuminate\Support\Str;
  */
 class DoubleImageTemplate
 {
+    /**
+     * The body.
+     *
+     * @var string
+     */
     protected $body;
 
-    public function __construct($body)
+    /**
+     * Create a new instance of the template.
+     *
+     * @param string $body
+     * @return void
+     */
+    public function __construct(string $body)
     {
         $this->body = $body;
     }
 
-    public function extract($file)
+    /**
+     * Extract from the template.
+     *
+     * @param string $file
+     * @return string
+     */
+    public function extract(string $file)
     {
         $body = $this->body;
         $body = Str::replaceFirst('{{', '', $body);

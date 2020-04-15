@@ -2,9 +2,9 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber;
 
-use Illuminated\Wikipedia\Wikipedia;
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Preview;
+use Illuminated\Wikipedia\Tests\TestCase;
+use Illuminated\Wikipedia\Wikipedia;
 
 class PreviewTest extends TestCase
 {
@@ -82,7 +82,7 @@ class PreviewTest extends TestCase
         $this->mockWikipediaQuery();
 
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-        $parser->expects()->parse('bulma');
+        $parser->expects('parse')->withArgs(['bulma']);
 
         (new Wikipedia)->preview('Mocked Page')->getBody();
     }
@@ -97,7 +97,7 @@ class PreviewTest extends TestCase
         $this->mockWikipediaQuery();
 
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-        $parser->expects()->parse('plain');
+        $parser->expects('parse')->withArgs(['plain']);
 
         (new Wikipedia)->preview('Mocked Page')->plain();
     }
@@ -112,7 +112,7 @@ class PreviewTest extends TestCase
         $this->mockWikipediaQuery();
 
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-        $parser->expects()->parse('bulma');
+        $parser->expects('parse')->withArgs(['bulma']);
 
         (new Wikipedia)->preview('Mocked Page')->bulma();
     }
@@ -127,7 +127,7 @@ class PreviewTest extends TestCase
         $this->mockWikipediaQuery();
 
         $parser = mock('overload:Illuminated\Wikipedia\Grabber\Parser\Parser');
-        $parser->expects()->parse('bootstrap');
+        $parser->expects('parse')->withArgs(['bootstrap']);
 
         (new Wikipedia)->preview('Mocked Page')->bootstrap();
     }

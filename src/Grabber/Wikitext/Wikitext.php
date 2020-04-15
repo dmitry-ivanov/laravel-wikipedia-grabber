@@ -13,14 +13,31 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ConvertTemplate;
  */
 class Wikitext
 {
+    /**
+     * The body.
+     *
+     * @var string
+     */
     protected $body;
 
-    public function __construct($body)
+    /**
+     * Create a new instance of the Wikitext.
+     *
+     * @param string $body
+     * @return void
+     */
+    public function __construct(string $body)
     {
         $this->body = $body;
     }
 
-    public function plain($body = null)
+    /**
+     * Get plain wikitext.
+     *
+     * @param string|null $body
+     * @return string
+     */
+    public function plain(string $body = null)
     {
         $body = $body ?? $this->body;
 
@@ -32,13 +49,26 @@ class Wikitext
         return $body;
     }
 
-    public function removeFormatting($body = null)
+    /**
+     * Remove formatting.
+     *
+     * @param string|null $body
+     * @return string
+     */
+    public function removeFormatting(string $body = null)
     {
         $body = $body ?? $this->body;
+
         return preg_replace("/'{2,}/", '', $body);
     }
 
-    public function removeLinks($body = null)
+    /**
+     * Remove links.
+     *
+     * @param string|null $body
+     * @return string
+     */
+    public function removeLinks(string $body = null)
     {
         $body = $body ?? $this->body;
 
@@ -67,7 +97,13 @@ class Wikitext
         return $body;
     }
 
-    public function removeTemplates($body = null)
+    /**
+     * Remove templates.
+     *
+     * @param string|null $body
+     * @return string
+     */
+    public function removeTemplates(string $body = null)
     {
         $body = $body ?? $this->body;
 
@@ -108,7 +144,13 @@ class Wikitext
         return $body;
     }
 
-    public function removeHtmlTags($body = null)
+    /**
+     * Remove HTML tags.
+     *
+     * @param string|null $body
+     * @return string
+     */
+    public function removeHtmlTags(string $body = null)
     {
         $body = $body ?? $this->body;
 
@@ -121,7 +163,13 @@ class Wikitext
         return $body;
     }
 
-    protected function removeMultipleSpaces($body)
+    /**
+     * Remove multiple spaces.
+     *
+     * @param string $body
+     * @return string
+     */
+    protected function removeMultipleSpaces(string $body)
     {
         return preg_replace('/ {2,}/', ' ', $body);
     }

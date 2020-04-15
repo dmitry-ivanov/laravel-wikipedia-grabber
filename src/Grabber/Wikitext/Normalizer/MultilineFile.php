@@ -7,7 +7,13 @@ use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 
 class MultilineFile
 {
-    public function flatten($wikitext)
+    /**
+     * Flatten the multiline file elements.
+     *
+     * @param string $wikitext
+     * @return string
+     */
+    public function flatten(string $wikitext)
     {
         $flatten = collect();
 
@@ -26,7 +32,13 @@ class MultilineFile
         return $flatten->implode("\n");
     }
 
-    protected function isFileOpened($line)
+    /**
+     * Determine whether the given line opens a multiline file element or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isFileOpened(string $line)
     {
         if (!Str::contains($line, '[[File:')) {
             return false;
@@ -37,9 +49,16 @@ class MultilineFile
         return !$this->isFileClosed($line);
     }
 
-    protected function isFileClosed($line)
+    /**
+     * Determine whether the given line closes a multiline file element or not.
+     *
+     * @param string $line
+     * @return bool
+     */
+    protected function isFileClosed(string $line)
     {
         $line = (new Wikitext($line))->removeLinks();
+
         return Str::contains($line, ']]');
     }
 }

@@ -2,20 +2,32 @@
 
 namespace Illuminated\Wikipedia\Tests;
 
-use Mockery;
-use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Response;
 use Illuminated\Wikipedia\WikipediaGrabberServiceProvider;
+use Mockery;
+use function GuzzleHttp\Psr7\stream_for;
 
 Mockery::globalHelpers();
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    /**
+     * Get package providers.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return array
+     */
     protected function getPackageProviders($app)
     {
         return [WikipediaGrabberServiceProvider::class];
     }
 
+    /**
+     * Resolve application core configuration implementation.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return void
+     */
     protected function resolveApplicationConfiguration($app)
     {
         $fixturePath = __DIR__ . '/fixture/config/wikipedia-grabber.php';
@@ -27,6 +39,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         unlink($orchestraPath);
     }
 
+    /**
+     * Mock Wikipedia query.
+     *
+     * @return void
+     */
     protected function mockWikipediaQuery()
     {
         $body = json_encode([
@@ -43,9 +60,9 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 ]],
             ],
         ]);
-        $response = new Response(200, ['Content-Type' => 'application/json'], Psr7\stream_for($body));
+        $response = new Response(200, ['Content-Type' => 'application/json'], stream_for($body));
 
         $client = mock('overload:GuzzleHttp\Client');
-        $client->expects()->get('', Mockery::any())->andReturn($response);
+        $client->expects('get')->withArgs(['', Mockery::any()])->andReturn($response);
     }
 }

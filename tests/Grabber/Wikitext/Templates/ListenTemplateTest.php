@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class ListenTemplateTest extends TestCase
 {
@@ -13,8 +13,8 @@ class ListenTemplateTest extends TestCase
         $template = new ListenTemplate('{{Listen | type = music | filename = Accordion chords-01.ogg | footer = Some footer }}');
 
         $this->assertEquals(
-            $template->transform(),
-            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer}}'
+            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer}}',
+            $template->transform()
         );
     }
 
@@ -24,8 +24,8 @@ class ListenTemplateTest extends TestCase
         $template = new ListenTemplate('{{Listen | type = music | filename = Accordion chords-01.ogg | Title = Accordion chords | footer = Some footer }}');
 
         $this->assertEquals(
-            $template->transform(),
-            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Accordion chords}}'
+            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Accordion chords}}',
+            $template->transform()
         );
     }
 
@@ -35,8 +35,8 @@ class ListenTemplateTest extends TestCase
         $template = new ListenTemplate('{{Listen | type = music | filename = Accordion chords-01.ogg | Description = Chords being played on an accordion | footer = Some footer }}');
 
         $this->assertEquals(
-            $template->transform(),
-            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Chords being played on an accordion}}'
+            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Chords being played on an accordion}}',
+            $template->transform()
         );
     }
 
@@ -46,8 +46,8 @@ class ListenTemplateTest extends TestCase
         $template = new ListenTemplate('{{Listen | type = music | filename = Accordion chords-01.ogg | Title = Accordion chords | Description = Chords being played on an accordion | footer = Some footer }}');
 
         $this->assertEquals(
-            $template->transform(),
-            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Accordion chords - Chords being played on an accordion}}'
+            '{{Listen|type = music|filename = Accordion chords-01.ogg|footer = Some footer|title=Accordion chords - Chords being played on an accordion}}',
+            $template->transform()
         );
     }
 }

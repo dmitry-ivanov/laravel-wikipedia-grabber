@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\DoubleImageTemplate;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class DoubleImageTemplateTest extends TestCase
 {
@@ -12,8 +12,8 @@ class DoubleImageTemplateTest extends TestCase
     {
         $template = new DoubleImageTemplate('{{double image|right|Yellow card.svg|60|Red card.svg|60|Single description||Yellow|Red}}');
 
-        $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|right|Single description');
-        $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|right|Single description');
+        $this->assertEquals('Yellow card.svg|right|Single description', $template->extract('Yellow card.svg'));
+        $this->assertEquals('Red card.svg|right|Single description', $template->extract('Red card.svg'));
     }
 
     /** @test */
@@ -21,8 +21,8 @@ class DoubleImageTemplateTest extends TestCase
     {
         $template = new DoubleImageTemplate('{{сдвоенное изображение|право|Yellow card.svg|60|Red card.svg|60||Single description|Yellow|Red}}');
 
-        $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|право|Single description');
-        $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|право|Single description');
+        $this->assertEquals('Yellow card.svg|право|Single description', $template->extract('Yellow card.svg'));
+        $this->assertEquals('Red card.svg|право|Single description', $template->extract('Red card.svg'));
     }
 
     /** @test */
@@ -30,8 +30,8 @@ class DoubleImageTemplateTest extends TestCase
     {
         $template = new DoubleImageTemplate('{{double image|left|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
 
-        $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|left|Caption of Yellow');
-        $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|left|Caption of Red');
+        $this->assertEquals('Yellow card.svg|left|Caption of Yellow', $template->extract('Yellow card.svg'));
+        $this->assertEquals('Red card.svg|left|Caption of Red', $template->extract('Red card.svg'));
     }
 
     /** @test */
@@ -39,8 +39,8 @@ class DoubleImageTemplateTest extends TestCase
     {
         $template = new DoubleImageTemplate('{{сдвоенное изображение|лево|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
 
-        $this->assertEquals($template->extract('Yellow card.svg'), 'Yellow card.svg|лево|Caption of Yellow');
-        $this->assertEquals($template->extract('Red card.svg'), 'Red card.svg|лево|Caption of Red');
+        $this->assertEquals('Yellow card.svg|лево|Caption of Yellow', $template->extract('Yellow card.svg'));
+        $this->assertEquals('Red card.svg|лево|Caption of Red', $template->extract('Red card.svg'));
     }
 
     /** @test */
@@ -49,8 +49,8 @@ class DoubleImageTemplateTest extends TestCase
         $template = new DoubleImageTemplate('{{double image|right|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}');
 
         $this->assertEquals(
-            $template->extract('Blue card.svg'),
-            '{{double image|right|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}'
+            '{{double image|right|Yellow card.svg|60|Red card.svg|60|Caption of Yellow|Caption of Red|Yellow|Red}}',
+            $template->extract('Blue card.svg')
         );
     }
 }

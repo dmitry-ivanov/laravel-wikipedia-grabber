@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class WikitextImageTest extends TestCase
 {
@@ -13,17 +13,17 @@ class WikitextImageTest extends TestCase
         $image = new WikitextImage('[[File:Name.jpg]]');
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
-        $this->assertSame($image->getType(), null);
-        $this->assertSame($image->getBorder(), null);
-        $this->assertSame($image->getLocation(), null);
-        $this->assertSame($image->getAlignment(), null);
-        $this->assertSame($image->getSize(), null);
-        $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), null);
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
-        $this->assertSame($image->getCaption(), null);
+        $this->assertNull($image->getType());
+        $this->assertNull($image->getBorder());
+        $this->assertNull($image->getLocation());
+        $this->assertNull($image->getAlignment());
+        $this->assertNull($image->getSize());
+        $this->assertNull($image->getLink());
+        $this->assertNull($image->getAlt());
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
+        $this->assertNull($image->getCaption());
     }
 
     /** @test */
@@ -33,16 +33,16 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'left');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), '200px');
-        $this->assertSame($image->getLink(), null);
-        $this->assertSame($image->getAlt(), null);
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
-        $this->assertSame($image->getCaption(), null);
+        $this->assertNull($image->getLink());
+        $this->assertNull($image->getAlt());
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
+        $this->assertNull($image->getCaption());
     }
 
     /** @test */
@@ -71,15 +71,15 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'frame');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'right');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), 'x200px');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'alt=foo');
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getCaption(), "Image caption with Link and Template with Another Link and Formatting with q'otes!");
     }
 
@@ -90,15 +90,15 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'left');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), '200x200px');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'alt=foo');
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getCaption(), 'Image caption with Link');
     }
 
@@ -109,15 +109,15 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'File:Name.jpg');
         $this->assertSame($image->getType(), 'thumb=foo');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'none');
         $this->assertSame($image->getAlignment(), 'super');
         $this->assertSame($image->getSize(), '200 px');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'alt=foo');
-        $this->assertSame($image->getLangtag(), null);
+        $this->assertNull($image->getLangtag());
         $this->assertSame($image->getPage(), 'page=11');
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getCaption(), 'Image Caption');
     }
 
@@ -139,7 +139,7 @@ class WikitextImageTest extends TestCase
     public function which_will_return_null_if_caption_and_alt_are_both_empty()
     {
         $image = new WikitextImage('[[File:Name.jpg]]');
-        $this->assertSame($image->getDescription(), null);
+        $this->assertNull($image->getDescription());
     }
 
     /** @test */
@@ -149,15 +149,15 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumb');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'right');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), '200пкс');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
-        $this->assertSame($image->getLangtag(), null);
+        $this->assertNull($image->getLangtag());
         $this->assertSame($image->getPage(), 'page=11');
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getCaption(), 'Описание картинки');
     }
 
@@ -168,14 +168,14 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'left');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), '100x200пкс');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getCaption(), null);
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getCaption());
         $this->assertSame($image->getPage(), 'page=11');
         $this->assertSame($image->getClass(), 'class=foo');
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
@@ -188,16 +188,16 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'right');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), '200 пкс');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getCaption(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getCaption());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
 
@@ -208,16 +208,16 @@ class WikitextImageTest extends TestCase
 
         $this->assertSame($image->getName(), 'Файл:Name.jpg');
         $this->assertSame($image->getType(), 'thumbnail');
-        $this->assertSame($image->getBorder(), null);
+        $this->assertNull($image->getBorder());
         $this->assertSame($image->getLocation(), 'left');
-        $this->assertSame($image->getAlignment(), null);
+        $this->assertNull($image->getAlignment());
         $this->assertSame($image->getSize(), 'x200пкс');
-        $this->assertSame($image->getLink(), null);
+        $this->assertNull($image->getLink());
         $this->assertSame($image->getAlt(), 'альт=Альтернативный текст');
-        $this->assertSame($image->getLangtag(), null);
-        $this->assertSame($image->getCaption(), null);
-        $this->assertSame($image->getPage(), null);
-        $this->assertSame($image->getClass(), null);
+        $this->assertNull($image->getLangtag());
+        $this->assertNull($image->getCaption());
+        $this->assertNull($image->getPage());
+        $this->assertNull($image->getClass());
         $this->assertSame($image->getDescription(), 'Альтернативный текст');
     }
 

@@ -6,6 +6,12 @@ use Illuminate\Support\Collection;
 
 class Gallery
 {
+    /**
+     * Validate section gallery.
+     *
+     * @param \Illuminate\Support\Collection $gallery
+     * @return array
+     */
     public function validate(Collection $gallery)
     {
         $pure = ['gallery' => $gallery, 'not_gallery' => collect()];
@@ -28,6 +34,12 @@ class Gallery
         return $pure;
     }
 
+    /**
+     * Classify the given collection by types.
+     *
+     * @param \Illuminate\Support\Collection $images
+     * @return array
+     */
     protected function byTypes(Collection $images)
     {
         $result = ['video' => collect(), 'audio' => collect(), 'images' => collect()];
@@ -49,6 +61,12 @@ class Gallery
         return $result;
     }
 
+    /**
+     * Get the main type of the gallery.
+     *
+     * @param array $byTypes
+     * @return mixed
+     */
     protected function getMainType(array $byTypes)
     {
         $counts = collect($byTypes)->map(function (Collection $collection, $key) {

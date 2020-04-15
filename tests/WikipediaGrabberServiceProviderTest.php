@@ -8,8 +8,8 @@ class WikipediaGrabberServiceProviderTest extends TestCase
     public function it_merges_default_configuration_with_published_one()
     {
         $this->assertEquals(
-            config('wikipedia-grabber.user_agent'),
-            'Laravel Wikipedia Grabber (https://github.com/dmitry-ivanov/laravel-wikipedia-grabber; dmitry.g.ivanov@gmail.com)'
+            'Laravel Wikipedia Grabber (https://github.com/dmitry-ivanov/laravel-wikipedia-grabber; dmitry.g.ivanov@gmail.com)',
+            config('wikipedia-grabber.user_agent')
         );
     }
 }
