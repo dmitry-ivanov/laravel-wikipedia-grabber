@@ -3,9 +3,9 @@
 namespace Illuminated\Wikipedia\Tests;
 
 use GuzzleHttp\Psr7\Response;
+use function GuzzleHttp\Psr7\stream_for;
 use Illuminated\Wikipedia\WikipediaGrabberServiceProvider;
 use Mockery;
-use function GuzzleHttp\Psr7\stream_for;
 
 Mockery::globalHelpers();
 
