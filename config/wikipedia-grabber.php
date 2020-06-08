@@ -8,8 +8,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Specify here output format for the grabbed Wikipedia or MediaWiki pages.
-    | It defines html decoration for headings, sections and other elements.
-    | Default format is plain, which is not using any of css frameworks.
+    | It defines HTML decoration for headings, sections and other elements.
+    | Default format is plain, which does not use any of CSS frameworks.
     |
     | Supported: "plain", "bootstrap", "bulma".
     |
@@ -62,7 +62,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | MediaWiki API asks us to identify our client by specifying unique User-Agent.
-    | By default, the header will be composed from your application name and url.
+    | By default, the header will be composed from your application name and URL.
     | It's recommended to override it and specify some of your contacts also.
     |
     | Default: "Application Name (http://example.com)" (if null set)
