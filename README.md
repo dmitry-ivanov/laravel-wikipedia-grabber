@@ -76,7 +76,7 @@ echo (new Wikipedia)->page('Michael Jackson')->bulma();
 
 ## Available methods
 
-When you call the `page()` or `preview()` method, what you'll get is an instance of the proper object.
+When you call the `page()` or `preview()` method, you'll get an instance of the proper object.
 
 There are numerous methods available on these objects, for example:
 
