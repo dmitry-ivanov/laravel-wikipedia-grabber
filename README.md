@@ -11,7 +11,7 @@
 [![Total Downloads](https://poser.pugx.org/illuminated/wikipedia-grabber/downloads)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 [![License](https://poser.pugx.org/illuminated/wikipedia-grabber/license)](https://packagist.org/packages/illuminated/wikipedia-grabber)
 
-Grab Wikipedia (or another MediaWiki) page in Laravel.
+Wikipedia/MediaWiki Grabber for Laravel.
 
 | Laravel | Wikipedia Grabber                                                            |
 | ------- | :--------------------------------------------------------------------------: |
@@ -25,198 +25,111 @@ Grab Wikipedia (or another MediaWiki) page in Laravel.
 ## Table of contents
 
 - [Usage](#usage)
-- [Formats](#formats)
-- [Languages](#languages)
-- [Methods](#methods)
-- [Preview](#preview)
-- [Random](#random)
+- [Output formats](#output-formats)
+- [Available methods](#available-methods)
 - [Advanced](#advanced)
-  - [Configuration](#configuration)
-  - [Get by id](#get-by-id)
   - [MediaWiki](#mediawiki)
-  - [Modifications](#modifications)
-  - [Caching, caching, caching!](#caching-caching-caching)
+  - [Modify the grabbed page](#modify-the-grabbed-page)
 - [License](#license)
 
 ## Usage
 
 1. Install the package via Composer:
 
-    ```shell
+    ```shell script
     composer require "illuminated/wikipedia-grabber:^7.0"
     ```
 
-2. Use `Wikipedia` class:
+2. Publish the config:
+
+    ```shell script
+    php artisan vendor:publish --provider="Illuminated\Wikipedia\WikipediaGrabberServiceProvider"
+    ```
+
+3. Grab a full page or preview:
 
     ```php
     use Wikipedia;
 
-    echo (new Wikipedia)->page('Donald Trump');
+    echo (new Wikipedia)->page('Michael Jackson');
+    echo (new Wikipedia)->preview('Michael Jackson');
+
+    // Or
+
+    echo (new Wikipedia)->randomPage();
+    echo (new Wikipedia)->randomPreview();
     ```
 
-## Formats
+## Output formats
 
-Supported formats:
+Here's the list of supported output formats:
 
 - `plain` (default)
-- `bulma` (see [Bulma](https://bulma.io))
-- `bootstrap` (see [Bootstrap 3](https://getbootstrap.com/docs/3.3/), [Bootstrap 4](https://getbootstrap.com))
+- `bootstrap`
+- `bulma`
 
-Change format in your config (see [Configuration](#configuration)):
+Change the format in your config file, or specify it explicitly:
 
 ```php
-'format' => 'bulma',
+echo (new Wikipedia)->page('Michael Jackson')->bulma();
 ```
 
-Or use proper helper methods on the fly:
+## Available methods
+
+When you call the `page()` or `preview()` method, you'll get an instance of the proper object.
+
+There are numerous methods available on these objects, for example:
 
 ```php
-echo (new Wikipedia)->page('Donald Trump')->bootstrap();
-```
-
-## Languages
-
-> Only `en` and `ru` languages are supported now.
-
-English is the default language. But you can change it:
-
-```php
-echo (new Wikipedia('ru'))->page('Donald Trump');
-```
-
-## Methods
-
-You get an object returned, so:
-
-```php
-$page = (new Wikipedia)->page('President Trump');
-
-if ($page->isSuccess()) {
-    echo $page->getId();    // 4848272
-    echo $page->getTitle(); // Donald Trump
-    echo $page;             // These two are the same
-    echo $page->getBody();  // These two are the same
-}
-```
-
-Here is an example of the successfully grabbed page:
-
-```php
-$page = (new Wikipedia)->page('Donald Trump');
+$page = (new Wikipedia)->page('Michael Jackson');
 
 $page->isSuccess();         // true
 $page->isMissing();         // false
 $page->isInvalid();         // false
 $page->isDisambiguation();  // false
-```
 
-And here is an example of the successfully grabbed disambiguation page:
-
-```php
-$page = (new Wikipedia)->page('David Taylor');
-
-$page->isSuccess();         // true
-$page->isInvalid();         // false
-$page->isMissing();         // false
-$page->isDisambiguation();  // true
-```
-
-## Preview
-
-The preview consists of an intro section and the main image. It has the same API:
-
-```php
-echo (new Wikipedia)->preview('Donald Trump');
-```
-
-## Random
-
-You can grab the random page:
-
-```php
-echo (new Wikipedia)->randomPage();
-```
-
-Or the random preview:
-
-```php
-echo (new Wikipedia)->randomPreview();
+echo $page->getId();        // 14995351
+echo $page->getTitle();     // "Michael Jackson"
+echo $page->getBody();      // Same as `echo $page;`
 ```
 
 ## Advanced
 
-### Configuration
-
-You can publish config to override some settings:
-
-```shell
-php artisan vendor:publish --provider="Illuminated\Wikipedia\WikipediaGrabberServiceProvider"
-```
-
-It is highly recommended to override `user_agent`, at least:
-
-```php
-'user_agent' => 'Application Name (http://example.com; foo@example.com)',
-```
-
-### Get by id
-
-Just pass an integer to the method:
-
-```php
-echo (new Wikipedia)->page(4848272);
-```
-
-The same is true for the preview method:
-
-```php
-echo (new Wikipedia)->preview(4848272);
-```
-
 ### MediaWiki
 
-You are not limited to Wikipedia. Grab the pages from any MediaWiki site:
+Wikipedia uses the [MediaWiki API](https://mediawiki.org/wiki/API:Main_page) under the hood.
+
+Thus, you can grab pages from any MediaWiki website:
 
 ```php
 use MediaWiki;
 
-echo (new MediaWiki('https://foopedia.org/w/api.php'))->page('Donald Trump');
+echo (new MediaWiki($url))->page('Michael Jackson');
 ```
 
-### Modifications
+### Modify the grabbed page
 
-You can append section to the end:
+Sometimes it might be useful to append additional sections to the grabbed page:
 
 ```php
-echo (new Wikipedia)
-        ->page('Donald Trump')
-        ->append('Hey!', 'Please, donate me $1M, Mr. Trump!');
+$page = (new Wikipedia)->page('Michael Jackson');
+
+$page->append('Interesting Facts', 'He had two pet llamas on his ranch called Lola and Louis.');
 ```
 
-Or take the full control and change sections as you wish:
+Alternatively, you can get the sections collection and change it as needed:
 
 ```php
-$page = (new Wikipedia)->page('Donald Trump');
+$page = (new Wikipedia)->page('Michael Jackson');
 
 $sections = $page->getSections();
-
-// ...
-```
-
-### Caching, caching, caching!
-
-> Each time you grab a page - you do the real API calls!
-
-Use caching to improve your application speed and reduce API load:
-
-```php
-$html = Cache::remember($key, $minutes, function () {
-    return (new Wikipedia)->page('Donald Trump')->getBody();
-});
+$sections->push(
+    new Section('Interesting Facts', 'He had two pet llamas on his ranch called Lola and Louis.', $level = 2)
+);
 ```
 
 ## License
 
-The MIT License. Please see [License File](LICENSE.md) for more information.
+Laravel Wikipedia Grabber is open-sourced software licensed under the [MIT license](LICENSE.md).
 
 [<img src="https://user-images.githubusercontent.com/1286821/43086829-ff7c006e-8ea6-11e8-8b03-ecf97ca95b2e.png" alt="Support on Patreon" width="125" />](https://patreon.com/dmitryivanov)
