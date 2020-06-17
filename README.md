@@ -3,7 +3,7 @@
 [<img src="https://user-images.githubusercontent.com/1286821/43083932-4915853a-8ea0-11e8-8983-db9e0f04e772.png" alt="Become a Patron" width="160" />](https://patreon.com/dmitryivanov)
 
 [![StyleCI](https://styleci.io/repos/117998599/shield?branch=master&style=flat)](https://styleci.io/repos/117998599)
-[![Build Status](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=master)](https://travis-ci.org/dmitry-ivanov/laravel-wikipedia-grabber)
+[![Build Status](https://travis-ci.com/dmitry-ivanov/laravel-wikipedia-grabber.svg?branch=master)](https://travis-ci.com/dmitry-ivanov/laravel-wikipedia-grabber)
 [![Coverage Status](https://coveralls.io/repos/github/dmitry-ivanov/laravel-wikipedia-grabber/badge.svg?branch=master)](https://coveralls.io/github/dmitry-ivanov/laravel-wikipedia-grabber?branch=master)
 
 [![Latest Stable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/stable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
