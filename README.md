@@ -22,6 +22,8 @@ Wikipedia/MediaWiki Grabber for Laravel.
 | 5.6.*   | [5.6.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.6) |
 | 5.5.*   | [5.5.*](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/5.5) |
 
+![Laravel Wikipedia Grabber - Demo](doc/img/demo.gif)
+
 ## Table of contents
 
 - [Usage](#usage)
