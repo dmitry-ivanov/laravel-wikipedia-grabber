@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Component;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Component\Image;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class ImageTest extends TestCase
 {

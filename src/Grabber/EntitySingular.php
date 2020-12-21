@@ -3,8 +3,8 @@
 namespace Illuminated\Wikipedia\Grabber;
 
 use Illuminate\Support\Arr;
-use Illuminated\Wikipedia\Grabber\Parser\Parser;
 use Illuminated\Wikipedia\Grabber\Component\Section;
+use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
 abstract class EntitySingular extends Entity
 {

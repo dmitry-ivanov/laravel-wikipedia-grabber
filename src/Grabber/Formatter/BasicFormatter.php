@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Grabber\Formatter;
 
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 

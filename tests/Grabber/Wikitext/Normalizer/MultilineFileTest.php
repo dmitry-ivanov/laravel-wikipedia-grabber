@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Normalizer;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Normalizer\MultilineFile;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class MultilineFileTest extends TestCase
 {

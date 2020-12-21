@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ListenTemplate;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class ListenTemplateTest extends TestCase
 {

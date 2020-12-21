@@ -2,9 +2,9 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber;
 
-use Illuminated\Wikipedia\Wikipedia;
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Preview;
+use Illuminated\Wikipedia\Tests\TestCase;
+use Illuminated\Wikipedia\Wikipedia;
 
 class PreviewTest extends TestCase
 {

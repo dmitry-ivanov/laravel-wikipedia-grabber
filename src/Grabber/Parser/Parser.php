@@ -5,8 +5,8 @@ namespace Illuminated\Wikipedia\Grabber\Parser;
 use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsAddImages;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsInPreview;
-use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsRemoveEmpty;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsRemoveBoring;
+use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsRemoveEmpty;
 
 class Parser
 {

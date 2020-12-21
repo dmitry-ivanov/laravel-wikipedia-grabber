@@ -2,8 +2,8 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext;
 
-use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Grabber\Wikitext\WikitextImage;
+use Illuminated\Wikipedia\Tests\TestCase;
 
 class WikitextImageTest extends TestCase
 {
