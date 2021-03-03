@@ -8,10 +8,10 @@
 [![Build Status](https://img.shields.io/github/workflow/status/dmitry-ivanov/laravel-wikipedia-grabber/tests/master)](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/actions?query=workflow%3Atests+branch%3Amaster)
 [![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/laravel-wikipedia-grabber/master)](https://app.codecov.io/gh/dmitry-ivanov/laravel-wikipedia-grabber/branch/master)
 
-[![Latest Stable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/stable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![Latest Unstable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/unstable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![Total Downloads](https://poser.pugx.org/illuminated/wikipedia-grabber/downloads)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![License](https://poser.pugx.org/illuminated/wikipedia-grabber/license)](https://packagist.org/packages/illuminated/wikipedia-grabber)
+![Packagist Version](https://img.shields.io/packagist/v/illuminated/wikipedia-grabber)
+![Packagist Stars](https://img.shields.io/packagist/stars/illuminated/wikipedia-grabber)
+![Packagist Downloads](https://img.shields.io/packagist/dt/illuminated/wikipedia-grabber)
+![Packagist License](https://img.shields.io/packagist/l/illuminated/wikipedia-grabber)
 
 Wikipedia/MediaWiki Grabber for Laravel.
 
