@@ -20,7 +20,7 @@
 <div class='iwg-section'>
 <div class='iwg-media right' style='width:300px'><a href='https://upload.wikimedia.org/wikipedia/commons/8/8e/Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg/300px-Beautiful_Baroque_gilded_table_from_the_Cinquantenaire_Museum_%28Bruxelles%2C_Belgium%29.jpg' width='300' height='198' alt='Table (furniture)' /></a><div class='iwg-media-desc'>Table (furniture)</div></div>
 <div class='iwg-media right' style='width:250px'><a href='https://upload.wikimedia.org/wikipedia/commons/e/ed/Writing_table_%28bureau_plat%29_MET_DP105403.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Writing_table_%28bureau_plat%29_MET_DP105403.jpg/250px-Writing_table_%28bureau_plat%29_MET_DP105403.jpg' width='250' height='194' alt='Rococo writing table; 1759; lacquered oak, gilt-bronze mounts and lined with modern leather; height: 80.6 cm, width: 175.9 cm; Metropolitan Museum of Art (New York City)' /></a><div class='iwg-media-desc'>Rococo writing table; 1759; lacquered oak, gilt-bronze mounts and lined with modern leather; height: 80.6 cm, width: 175.9 cm; Metropolitan Museum of Art (New York City)</div></div>
-A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables. <br />
+A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables.<br />
 Common design elements include: <br />
 <br />
 top surfaces of various shapes, including rectangular, square, rounded, semi-circular or oval<br />
@@ -44,7 +44,7 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 
 <h2 id='etymology' class='iwg-section-title'>Etymology</h2>
 <div class='iwg-section'>
-The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord ; its current spelling reflects the influence of the French table.
+The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord; its current spelling reflects the influence of the French table.
 </div>
 
 <h2 id='history' class='iwg-section-title'>History</h2>
@@ -73,6 +73,7 @@ Tables of various shapes, heights, and sizes are designed for specific uses:<br 
 <br />
 Dining room tables are designed to be used for formal dining.<br />
 Bedside tables, nightstands, or  night tables are small tables used in a bedroom. They are often used for convenient placement of a small lamp, alarm clock, glasses, or other personal items.<br />
+Drop-leaf tables have a fixed section in the middle and a hinged section (leaf) on either side that can be folded down.<br />
 Gateleg tables have one or two hinged leaves supported by hinged legs.<br />
 Coffee tables are low tables designed for use in a living room, in front of a sofa, for convenient placement of drinks, books, or other personal items.<br />
 Refectory tables are long tables designed to seat many people for meals.<br />
@@ -105,6 +106,7 @@ Poker tables or card tables are used to play poker or other card games.
 <div class='iwg-section'>
 <div class='iwg-gallery'>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/e/ec/Tables_%287006831253%29.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tables_%287006831253%29.jpg/250px-Tables_%287006831253%29.jpg' width='185' height='139' alt='A pedestal table surface can be folded down in a passenger train' /></a><div class='iwg-media-desc'>A pedestal table surface can be folded down in a passenger train</div></div>
+<div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/5/57/Table_violon_2.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Table_violon_2.jpg/250px-Table_violon_2.jpg' width='185' height='139' alt='Violin table' /></a><div class='iwg-media-desc'>Violin table</div></div>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/6/6b/TableFranzMayer02.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/TableFranzMayer02.jpg/250px-TableFranzMayer02.jpg' width='185' height='132' alt='Carved wooden table from unknown century at the Franz Mayer Museum in Mexico City' /></a><div class='iwg-media-desc'>Carved wooden table from unknown century at the Franz Mayer Museum in Mexico City</div></div>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/0/03/Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG/250px-Stainless_Steel_Talbe_with_FSC_Eucalyptus_wood_Ecodesign.JPG' width='185' height='123' alt='A modern Brazilian stainless steel table made with FSC-certified eucalyptus' /></a><div class='iwg-media-desc'>A modern Brazilian stainless steel table made with FSC-certified eucalyptus</div></div>
 <div class='iwg-media'><a href='https://upload.wikimedia.org/wikipedia/commons/a/a1/Panchetto_x_600%2C_design_alvar_aalto_1932.JPG' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Panchetto_x_600%2C_design_alvar_aalto_1932.JPG/222px-Panchetto_x_600%2C_design_alvar_aalto_1932.JPG' width='164' height='185' alt='Modernist sidetable by Alvar Aalto' /></a><div class='iwg-media-desc'>Modernist sidetable by Alvar Aalto</div></div>
