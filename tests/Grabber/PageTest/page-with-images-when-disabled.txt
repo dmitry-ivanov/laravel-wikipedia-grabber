@@ -6,7 +6,7 @@
 
 <h1 id='table-furniture' class='iwg-section-title'>Table (furniture)</h1>
 <div class='iwg-section'>
-A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables. <br />
+A table is an item of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things. Some common types of table are the dining room table, which is used for seated persons to eat meals; the coffee table, which is a low table used in living rooms to display items or serve refreshments; and the bedside table, which is used to place an alarm clock and a lamp. There are also a range of specialized types of tables, such as drafting tables, used for doing architectural drawings, and sewing tables.<br />
 Common design elements include: <br />
 <br />
 top surfaces of various shapes, including rectangular, square, rounded, semi-circular or oval<br />
@@ -28,7 +28,7 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 
 <h2 id='etymology' class='iwg-section-title'>Etymology</h2>
 <div class='iwg-section'>
-The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord ; its current spelling reflects the influence of the French table.
+The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord; its current spelling reflects the influence of the French table.
 </div>
 
 <h2 id='history' class='iwg-section-title'>History</h2>
@@ -52,6 +52,7 @@ Tables of various shapes, heights, and sizes are designed for specific uses:<br 
 <br />
 Dining room tables are designed to be used for formal dining.<br />
 Bedside tables, nightstands, or  night tables are small tables used in a bedroom. They are often used for convenient placement of a small lamp, alarm clock, glasses, or other personal items.<br />
+Drop-leaf tables have a fixed section in the middle and a hinged section (leaf) on either side that can be folded down.<br />
 Gateleg tables have one or two hinged leaves supported by hinged legs.<br />
 Coffee tables are low tables designed for use in a living room, in front of a sofa, for convenient placement of drinks, books, or other personal items.<br />
 Refectory tables are long tables designed to seat many people for meals.<br />

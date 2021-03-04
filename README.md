@@ -8,10 +8,10 @@
 [![Build Status](https://img.shields.io/github/workflow/status/dmitry-ivanov/laravel-wikipedia-grabber/tests/8.x)](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/actions?query=workflow%3Atests+branch%3A8.x)
 [![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/laravel-wikipedia-grabber/8.x)](https://app.codecov.io/gh/dmitry-ivanov/laravel-wikipedia-grabber/branch/8.x)
 
-[![Latest Stable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/stable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![Latest Unstable Version](https://poser.pugx.org/illuminated/wikipedia-grabber/v/unstable)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![Total Downloads](https://poser.pugx.org/illuminated/wikipedia-grabber/downloads)](https://packagist.org/packages/illuminated/wikipedia-grabber)
-[![License](https://poser.pugx.org/illuminated/wikipedia-grabber/license)](https://packagist.org/packages/illuminated/wikipedia-grabber)
+![Packagist Version](https://img.shields.io/packagist/v/illuminated/wikipedia-grabber)
+![Packagist Stars](https://img.shields.io/packagist/stars/illuminated/wikipedia-grabber)
+![Packagist Downloads](https://img.shields.io/packagist/dt/illuminated/wikipedia-grabber)
+![Packagist License](https://img.shields.io/packagist/l/illuminated/wikipedia-grabber)
 
 Wikipedia/MediaWiki Grabber for Laravel.
 
@@ -35,6 +35,7 @@ Wikipedia/MediaWiki Grabber for Laravel.
 - [Advanced](#advanced)
   - [MediaWiki](#mediawiki)
   - [Modify the grabbed page](#modify-the-grabbed-page)
+- [Sponsors](#sponsors)
 - [License](#license)
 
 ## Usage
@@ -132,6 +133,10 @@ $sections->push(
     new Section('Interesting Facts', 'He had two pet llamas on his ranch called Lola and Louis.', $level = 2)
 );
 ```
+
+## Sponsors
+
+[![Laravel Idea](art/sponsor-laravel-idea.png)](https://laravel-idea.com)
 
 ## License
 
