@@ -3,7 +3,7 @@
 namespace Illuminated\Wikipedia\Tests;
 
 use GuzzleHttp\Psr7\Response;
-use function GuzzleHttp\Psr7\stream_for;
+use GuzzleHttp\Psr7\Utils;
 use Illuminated\Wikipedia\WikipediaGrabberServiceProvider;
 use Mockery;
 
@@ -60,7 +60,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
                 ]],
             ],
         ]);
-        $response = new Response(200, ['Content-Type' => 'application/json'], stream_for($body));
+        $response = new Response(200, ['Content-Type' => 'application/json'], Utils::streamFor($body));
 
         $client = mock('overload:GuzzleHttp\Client');
         $client->expects('get')->withArgs(['', Mockery::any()])->andReturn($response);
