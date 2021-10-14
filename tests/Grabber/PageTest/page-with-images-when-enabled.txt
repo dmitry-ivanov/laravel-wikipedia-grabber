@@ -44,7 +44,7 @@ expansion of the table surface by insertion of leaves or locking hinged drop lea
 
 <h2 id='etymology' class='iwg-section-title'>Etymology</h2>
 <div class='iwg-section'>
-The word table is derived from Old English tabele, derived from the Latin word tabula ("a board, plank, flat top piece"), which replaced OE bord; its current spelling reflects the influence of the French table.
+The word table is derived from Old English tabele, derived from the Latin word tabula ('a board, plank, flat top piece'), which replaced the Old English bord; its current spelling reflects the influence of the French table.
 </div>
 
 <h2 id='history' class='iwg-section-title'>History</h2>
