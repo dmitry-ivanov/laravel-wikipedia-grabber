@@ -9,7 +9,7 @@
 .iwg-media-desc {padding:.625rem 1rem; font-size:0.95em; word-wrap:break-word}
 </style>
 
-<h1 id='ivanov-ivan-ivanovic-svyashhennik' class='iwg-section-title'>Иванов, Иван Иванович (священник)</h1>
+<h1 id='ivanov-ivan-ivanovic-sviashhennik' class='iwg-section-title'>Иванов, Иван Иванович (священник)</h1>
 <div class='iwg-section'>
 <div class='iwg-media right' style='width:300px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg/300px-Perrot_View_of_Sennaya_Square_1841.jpg' width='300' height='184' alt='Иванов, Иван Иванович (священник)' /></a><div class='iwg-media-desc'>Иванов, Иван Иванович (священник)</div></div>
 Иван Иванович Иванов (1796—1848) — протоиерей Русской православной церкви.<br />
