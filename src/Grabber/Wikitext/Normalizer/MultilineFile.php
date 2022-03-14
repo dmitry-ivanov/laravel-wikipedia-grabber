@@ -9,11 +9,8 @@ class MultilineFile
 {
     /**
      * Flatten the multiline file elements.
-     *
-     * @param string $wikitext
-     * @return string
      */
-    public function flatten(string $wikitext)
+    public function flatten(string $wikitext): string
     {
         $flatten = collect();
 
@@ -34,11 +31,8 @@ class MultilineFile
 
     /**
      * Determine whether the given line opens a multiline file element or not.
-     *
-     * @param string $line
-     * @return bool
      */
-    protected function isFileOpened(string $line)
+    protected function isFileOpened(string $line): bool
     {
         if (!Str::contains($line, '[[File:')) {
             return false;
@@ -51,11 +45,8 @@ class MultilineFile
 
     /**
      * Determine whether the given line closes a multiline file element or not.
-     *
-     * @param string $line
-     * @return bool
      */
-    protected function isFileClosed(string $line)
+    protected function isFileClosed(string $line): bool
     {
         $line = (new Wikitext($line))->removeLinks();
 

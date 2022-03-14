@@ -15,16 +15,11 @@ class Wikitext
 {
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * Create a new instance of the Wikitext.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -33,11 +28,8 @@ class Wikitext
 
     /**
      * Get plain wikitext.
-     *
-     * @param string|null $body
-     * @return string
      */
-    public function plain(string $body = null)
+    public function plain(string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -51,11 +43,8 @@ class Wikitext
 
     /**
      * Remove formatting.
-     *
-     * @param string|null $body
-     * @return string
      */
-    public function removeFormatting(string $body = null)
+    public function removeFormatting(string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -64,11 +53,8 @@ class Wikitext
 
     /**
      * Remove links.
-     *
-     * @param string|null $body
-     * @return string
      */
-    public function removeLinks(string $body = null)
+    public function removeLinks(string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -99,11 +85,8 @@ class Wikitext
 
     /**
      * Remove templates.
-     *
-     * @param string|null $body
-     * @return string
      */
-    public function removeTemplates(string $body = null)
+    public function removeTemplates(string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -146,11 +129,8 @@ class Wikitext
 
     /**
      * Remove HTML tags.
-     *
-     * @param string|null $body
-     * @return string
      */
-    public function removeHtmlTags(string $body = null)
+    public function removeHtmlTags(string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -165,11 +145,8 @@ class Wikitext
 
     /**
      * Remove multiple spaces.
-     *
-     * @param string $body
-     * @return string
      */
-    protected function removeMultipleSpaces(string $body)
+    protected function removeMultipleSpaces(string $body): string
     {
         return preg_replace('/ {2,}/', ' ', $body);
     }

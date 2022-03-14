@@ -12,30 +12,21 @@ class ListenTemplate
 {
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * The title.
-     *
-     * @var string
      */
-    protected $title;
+    protected string $title;
 
     /**
      * The description.
-     *
-     * @var string
      */
-    protected $description;
+    protected string $description;
 
     /**
      * Create a new instance of the template.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -44,10 +35,8 @@ class ListenTemplate
 
     /**
      * Transform the template.
-     *
-     * @return string
      */
-    public function transform()
+    public function transform(): string
     {
         $transformed = collect();
 
@@ -75,11 +64,8 @@ class ListenTemplate
 
     /**
      * Check whether the given part is title or not.
-     *
-     * @param string $part
-     * @return bool
      */
-    protected function isTitle(string $part)
+    protected function isTitle(string $part): bool
     {
         $part = mb_strtolower($part, 'utf-8');
 
@@ -89,11 +75,8 @@ class ListenTemplate
 
     /**
      * Check whether the given part is description or not.
-     *
-     * @param string $part
-     * @return bool
      */
-    protected function isDescription(string $part)
+    protected function isDescription(string $part): bool
     {
         $part = mb_strtolower($part, 'utf-8');
 
@@ -103,10 +86,8 @@ class ListenTemplate
 
     /**
      * Compose the title.
-     *
-     * @return string|false
      */
-    protected function composeTitle()
+    protected function composeTitle(): string|false
     {
         $composed = collect();
 

@@ -2,37 +2,28 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 
 class SectionsParser
 {
     /**
      * The title.
-     *
-     * @var string
      */
-    protected $title;
+    protected string $title;
 
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * The sections.
-     *
-     * @var \Illuminate\Support\Collection
      */
-    protected $sections;
+    protected Collection $sections;
 
     /**
      * Create a new instance of the sections parser.
-     *
-     * @param string $title
-     * @param string $body
-     * @return void
      */
     public function __construct(string $title, string $body)
     {
@@ -42,10 +33,8 @@ class SectionsParser
 
     /**
      * Get the sections.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function sections()
+    public function sections(): Collection
     {
         $this->sections = collect([$this->mainSection()]);
 
@@ -58,32 +47,24 @@ class SectionsParser
 
     /**
      * Get the main section.
-     *
-     * @return \Illuminated\Wikipedia\Grabber\Component\Section
      */
-    protected function mainSection()
+    protected function mainSection(): Section
     {
         return $this->section($this->title, 1);
     }
 
     /**
      * Get the section.
-     *
-     * @param string $title
-     * @param int $level
-     * @return \Illuminated\Wikipedia\Grabber\Component\Section
      */
-    protected function section(string $title, int $level)
+    protected function section(string $title, int $level): Section
     {
         return new Section($title, '', $level);
     }
 
     /**
      * Split by titles.
-     *
-     * @return array|string[]
      */
-    protected function splitByTitles()
+    protected function splitByTitles(): array
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -94,11 +75,8 @@ class SectionsParser
 
     /**
      * Handle the item.
-     *
-     * @param string $item
-     * @return void
      */
-    protected function handleItem(string $item)
+    protected function handleItem(string $item): void
     {
         if ($this->isTitle($item)) {
             $section = $this->section($this->title($item), $this->level($item));
@@ -113,11 +91,8 @@ class SectionsParser
 
     /**
      * Check whether the given item is title or not.
-     *
-     * @param string $item
-     * @return bool
      */
-    protected function isTitle(string $item)
+    protected function isTitle(string $item): bool
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -128,11 +103,8 @@ class SectionsParser
 
     /**
      * Get title from the given title item.
-     *
-     * @param string $titleItem
-     * @return string
      */
-    protected function title(string $titleItem)
+    protected function title(string $titleItem): string
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';
@@ -145,11 +117,8 @@ class SectionsParser
 
     /**
      * Get level from the given title item.
-     *
-     * @param string $titleItem
-     * @return int
      */
-    protected function level(string $titleItem)
+    protected function level(string $titleItem): int
     {
         $marker = '[=]{2,}';
         $whitespace = '\s*';

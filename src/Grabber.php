@@ -11,15 +11,11 @@ abstract class Grabber
 {
     /**
      * The client.
-     *
-     * @var \GuzzleHttp\Client
      */
-    protected $client;
+    protected Client $client;
 
     /**
      * Create a new instance of the Grabber.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -33,79 +29,61 @@ abstract class Grabber
 
     /**
      * Get the client.
-     *
-     * @return \GuzzleHttp\Client
      */
-    public function getClient()
+    public function getClient(): Client
     {
         return $this->client;
     }
 
     /**
      * Grab page by the given title or id.
-     *
-     * @param string|int $title
-     * @return \Illuminated\Wikipedia\Grabber\Page
      */
-    public function page($title)
+    public function page(string|int $title): Page
     {
         return new Page($this->client, $title);
     }
 
     /**
      * Grab preview by the given title or id.
-     *
-     * @param string|int $title
-     * @return \Illuminated\Wikipedia\Grabber\Preview
      */
-    public function preview($title)
+    public function preview(string|int $title): Preview
     {
         return new Preview($this->client, $title);
     }
 
     /**
      * Grab random page.
-     *
-     * @return \Illuminated\Wikipedia\Grabber\Page
      */
-    public function randomPage()
+    public function randomPage(): Page
     {
         return $this->page($this->randomTitle());
     }
 
     /**
      * Grab random preview.
-     *
-     * @return \Illuminated\Wikipedia\Grabber\Preview
      */
-    public function randomPreview()
+    public function randomPreview(): Preview
     {
         return $this->preview($this->randomTitle());
     }
 
     /**
      * Get random title.
-     *
-     * @return string
      */
-    protected function randomTitle()
+    protected function randomTitle(): string
     {
         return (new Random($this->client))->title();
     }
 
     /**
      * Get the base URI.
-     *
-     * @return string
      */
-    abstract protected function baseUri();
+    abstract protected function baseUri(): string;
 
     /**
      * Compose the User Agent.
-     *
-     * @return string
      */
-    protected function userAgent()
+    protected function userAgent(): string
     {
         $userAgent = config('wikipedia-grabber.user_agent');
         if (!empty($userAgent)) {

@@ -9,11 +9,8 @@ class MultilineTemplate
 {
     /**
      * Flatten the multiline templates.
-     *
-     * @param string $wikitext
-     * @return string
      */
-    public function flatten(string $wikitext)
+    public function flatten(string $wikitext): string
     {
         $flatten = collect();
 
@@ -34,11 +31,8 @@ class MultilineTemplate
 
     /**
      * Determine whether the given line opens a multiline template or not.
-     *
-     * @param string $line
-     * @return bool
      */
-    protected function isTemplateOpened(string $line)
+    protected function isTemplateOpened(string $line): bool
     {
         $line = mb_strtolower($line, 'utf-8');
 
@@ -68,11 +62,8 @@ class MultilineTemplate
 
     /**
      * Determine whether the given line closes a multiline template or not.
-     *
-     * @param string $line
-     * @return bool
      */
-    protected function isTemplateClosed(string $line)
+    protected function isTemplateClosed(string $line): bool
     {
         $line = (new Wikitext($line))->plain();
 

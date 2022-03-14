@@ -8,20 +8,16 @@ class WikipediaGrabberServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom($this->getConfigPath(), 'wikipedia-grabber');
     }
 
     /**
      * Boot, when everything has been registered.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             $this->getConfigPath() => config_path('wikipedia-grabber.php'),
@@ -30,10 +26,8 @@ class WikipediaGrabberServiceProvider extends ServiceProvider
 
     /**
      * Get the config path.
-     *
-     * @return string
      */
-    protected function getConfigPath()
+    protected function getConfigPath(): string
     {
         return __DIR__ . '/../config/wikipedia-grabber.php';
     }

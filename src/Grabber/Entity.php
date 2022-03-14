@@ -8,54 +8,38 @@ abstract class Entity
 {
     /**
      * The client.
-     *
-     * @var \GuzzleHttp\Client
      */
-    protected $client;
+    protected Client $client;
 
     /**
      * The target, which might be either page id or page title.
-     *
-     * @var int|string
      */
-    protected $target;
+    protected int|string $target;
 
     /**
      * The format.
-     *
-     * @var string
      */
-    protected $format;
+    protected string $format;
 
     /**
      * Indicates whether we want to grab images or not.
-     *
-     * @var bool
      */
-    protected $withImages;
+    protected bool $withImages;
 
     /**
      * An image size, in pixels.
-     *
-     * @var int
      */
-    protected $imageSize;
+    protected int $imageSize;
 
     /**
      * An image size on preview, in pixels.
-     *
-     * @var int
      */
-    protected $imageSizeOnPreview;
+    protected int $imageSizeOnPreview;
 
     /**
      * Create a new instance of the Entity.
-     *
-     * @param \GuzzleHttp\Client $client
-     * @param string|int $target
-     * @return void
      */
-    public function __construct(Client $client, $target)
+    public function __construct(Client $client, int|string $target)
     {
         $this->client = $client;
         $this->target = $target;
@@ -69,24 +53,18 @@ abstract class Entity
 
     /**
      * Grab the content.
-     *
-     * @return void
      */
-    abstract protected function grab();
+    abstract protected function grab(): void;
 
     /**
      * Get the MediaWiki API parameters.
-     *
-     * @return array
      */
-    abstract protected function params();
+    abstract protected function params(): array;
 
     /**
      * Compose the target params.
-     *
-     * @return array
      */
-    protected function targetParams()
+    protected function targetParams(): array
     {
         if (is_int($this->target)) {
             return ['pageids' => $this->target];
@@ -97,11 +75,8 @@ abstract class Entity
 
     /**
      * Make request with the given parameters.
-     *
-     * @param array $params
-     * @return array
      */
-    protected function request(array $params)
+    protected function request(array $params): array
     {
         return json_decode($this->client->get('', $params)->getBody(), true);
     }

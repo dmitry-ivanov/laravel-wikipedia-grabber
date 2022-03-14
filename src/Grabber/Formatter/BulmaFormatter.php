@@ -8,11 +8,8 @@ class BulmaFormatter extends BasicFormatter
 {
     /**
      * Compose the section's title `class` attribute.
-     *
-     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
-     * @return string
      */
-    protected function sectionTitleClass(Section $section)
+    protected function sectionTitleClass(Section $section): string
     {
         $htmlLevel = $section->getHtmlLevel();
 

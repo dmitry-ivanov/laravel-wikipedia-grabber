@@ -8,24 +8,16 @@ class SectionsInPreview
 {
     /**
      * The sections.
-     *
-     * @var \Illuminate\Support\Collection
      */
-    protected $sections;
+    protected Collection $sections;
 
     /**
      * Is in preview mode.
-     *
-     * @var bool
      */
-    protected $isPreview;
+    protected bool $isPreview;
 
     /**
      * Create a new instance of the pipe.
-     *
-     * @param \Illuminate\Support\Collection $sections
-     * @param bool $isPreview
-     * @return void
      */
     public function __construct(Collection $sections, bool $isPreview)
     {
@@ -35,10 +27,8 @@ class SectionsInPreview
 
     /**
      * Execute the pipe.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function pipe()
+    public function pipe(): Collection
     {
         if ($this->isPreview) {
             $this->sections->first()->setTitle('');

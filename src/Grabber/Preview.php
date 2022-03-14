@@ -6,10 +6,8 @@ class Preview extends EntitySingular
 {
     /**
      * Grab the content.
-     *
-     * @return void
      */
-    protected function grab()
+    protected function grab(): void
     {
         $this->response = head($this->request($this->params())['query']['pages']);
         $this->response['iwg_preview'] = true;
@@ -23,10 +21,8 @@ class Preview extends EntitySingular
 
     /**
      * Get the main image.
-     *
-     * @return array|null
      */
-    protected function getMainImage()
+    protected function getMainImage(): array|null
     {
         if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
             return null;
@@ -46,10 +42,8 @@ class Preview extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=query&list=pagepropnames&titles=MediaWiki - List of pageprops
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+extracts - Contents of the page
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
-     *
-     * @return array
      */
-    protected function params()
+    protected function params(): array
     {
         $prop = collect();
         $params = collect();

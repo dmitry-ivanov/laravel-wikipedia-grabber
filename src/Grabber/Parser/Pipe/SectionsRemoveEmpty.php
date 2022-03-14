@@ -8,16 +8,11 @@ class SectionsRemoveEmpty
 {
     /**
      * The sections.
-     *
-     * @var \Illuminate\Support\Collection
      */
-    protected $sections;
+    protected Collection $sections;
 
     /**
      * Create a new instance of the pipe.
-     *
-     * @param \Illuminate\Support\Collection $sections
-     * @return void
      */
     public function __construct(Collection $sections)
     {
@@ -26,10 +21,8 @@ class SectionsRemoveEmpty
 
     /**
      * Execute the pipe.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function pipe()
+    public function pipe(): Collection
     {
         do {
             $filtered = $this->iteration();
@@ -42,10 +35,8 @@ class SectionsRemoveEmpty
 
     /**
      * Do the iteration of filtering.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    protected function iteration()
+    protected function iteration(): Collection
     {
         $filtered = collect();
 

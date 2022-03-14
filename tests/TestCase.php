@@ -41,10 +41,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     /**
      * Mock Wikipedia query.
-     *
-     * @return void
      */
-    protected function mockWikipediaQuery()
+    protected function mockWikipediaQuery(): void
     {
         $body = json_encode([
             'query' => [
