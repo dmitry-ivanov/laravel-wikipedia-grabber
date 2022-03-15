@@ -14,16 +14,11 @@ class ConvertTemplate
 {
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * Create a new instance of the template.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -32,10 +27,8 @@ class ConvertTemplate
 
     /**
      * Extract from the template.
-     *
-     * @return string
      */
-    public function extract()
+    public function extract(): string
     {
         $result = collect();
 
@@ -60,11 +53,8 @@ class ConvertTemplate
 
     /**
      * Handle unknown unit.
-     *
-     * @param array $parts
-     * @return string
      */
-    protected function handleUnknownUnit(array $parts)
+    protected function handleUnknownUnit(array $parts): string
     {
         $value = $parts[0];
         $unit = Str::plural($parts[1]);
@@ -74,11 +64,8 @@ class ConvertTemplate
 
     /**
      * Convert the given unit to its readable representation.
-     *
-     * @param string $unit
-     * @return string
      */
-    protected function toUnit(string $unit)
+    protected function toUnit(string $unit): string|null
     {
         return Arr::get($this->units(), $unit);
     }
@@ -87,10 +74,8 @@ class ConvertTemplate
      * The list of supported units.
      *
      * @see https://en.wikipedia.org/wiki/Help:Convert_units
-     *
-     * @return array
      */
-    protected function units()
+    protected function units(): array
     {
         return [
             // SI prefixes

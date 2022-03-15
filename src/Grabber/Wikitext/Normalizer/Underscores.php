@@ -6,11 +6,8 @@ class Underscores
 {
     /**
      * Normalize underscores.
-     *
-     * @param string $wikitext
-     * @return string
      */
-    public function normalize(string $wikitext)
+    public function normalize(string $wikitext): string
     {
         return str_replace('_', ' ', $wikitext);
     }

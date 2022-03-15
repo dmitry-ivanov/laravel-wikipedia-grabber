@@ -9,43 +9,28 @@ abstract class Formatter
 {
     /**
      * Create the formatter.
-     *
-     * @param string $format
-     * @param \Illuminate\Support\Collection $sections
-     * @return \Illuminated\Wikipedia\Grabber\Formatter\Formatter
      */
-    public static function factory(string $format, Collection $sections)
+    public static function factory(string $format, Collection $sections): self
     {
-        switch ($format) {
-            case 'bulma':
-                return new BulmaFormatter($sections);
-            case 'bootstrap':
-                return new BootstrapFormatter($sections);
-            case 'plain':
-            default:
-                return new PlainFormatter($sections);
-        }
+        return match ($format) {
+            'bulma' => new BulmaFormatter($sections),
+            'bootstrap' => new BootstrapFormatter($sections),
+            default => new PlainFormatter($sections),
+        };
     }
 
     /**
      * Compose the style.
-     *
-     * @return string
      */
-    abstract public function style();
+    abstract public function style(): string;
 
     /**
      * Compose the table of contents.
-     *
-     * @return string
      */
-    abstract public function tableOfContents();
+    abstract public function tableOfContents(): string;
 
     /**
      * Compose the section.
-     *
-     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
-     * @return string
      */
-    abstract public function section(Section $section);
+    abstract public function section(Section $section): string;
 }

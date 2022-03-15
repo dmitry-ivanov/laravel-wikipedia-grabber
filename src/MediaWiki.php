@@ -6,16 +6,11 @@ class MediaWiki extends Grabber
 {
     /**
      * The URL.
-     *
-     * @var string
      */
-    protected $url;
+    protected string $url;
 
     /**
      * Create a new instance of MediaWiki grabber.
-     *
-     * @param string $url
-     * @return void
      */
     public function __construct(string $url)
     {
@@ -26,10 +21,8 @@ class MediaWiki extends Grabber
 
     /**
      * Get the base URI.
-     *
-     * @return string
      */
-    protected function baseUri()
+    protected function baseUri(): string
     {
         return $this->url;
     }

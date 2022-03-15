@@ -8,10 +8,8 @@ class Page extends EntitySingular
 {
     /**
      * Grab the content.
-     *
-     * @return void
      */
-    protected function grab()
+    protected function grab(): void
     {
         $this->response = head($this->request($this->params())['query']['pages']);
 
@@ -24,10 +22,8 @@ class Page extends EntitySingular
 
     /**
      * Get the main image.
-     *
-     * @return array|null
      */
-    protected function getMainImage()
+    protected function getMainImage(): array|null
     {
         if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
             return null;
@@ -41,10 +37,8 @@ class Page extends EntitySingular
 
     /**
      * Get images info.
-     *
-     * @return array
      */
-    protected function getImagesInfo()
+    protected function getImagesInfo(): array
     {
         if (empty($this->response['images'])) {
             return [];
@@ -65,10 +59,8 @@ class Page extends EntitySingular
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+revisions - Wikitext for images
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+pageimages - Main image
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+images - All images list
-     *
-     * @return array
      */
-    protected function params()
+    protected function params(): array
     {
         $prop = collect();
         $params = collect();
@@ -109,11 +101,8 @@ class Page extends EntitySingular
      * Get params for getting image info.
      *
      * @see https://en.wikipedia.org/w/api.php?action=help&modules=query+imageinfo
-     *
-     * @param \Illuminate\Support\Collection $images
-     * @return array
      */
-    protected function imageInfoParams(Collection $images)
+    protected function imageInfoParams(Collection $images): array
     {
         return [
             'query' => [

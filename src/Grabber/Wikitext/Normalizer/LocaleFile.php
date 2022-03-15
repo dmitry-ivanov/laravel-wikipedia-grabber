@@ -6,11 +6,8 @@ class LocaleFile
 {
     /**
      * Normalize locale files.
-     *
-     * @param string $wikitext
-     * @return string
      */
-    public function normalize(string $wikitext)
+    public function normalize(string $wikitext): string
     {
         return str_replace('Файл:', 'File:', $wikitext);
     }

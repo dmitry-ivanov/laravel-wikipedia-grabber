@@ -16,23 +16,16 @@ class MultipleImageTemplate
 {
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * Indicates whether the given template is "Listen" or not.
-     *
-     * @var bool
      */
-    protected $isListen;
+    protected bool $isListen;
 
     /**
      * Create a new instance of the template.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -42,11 +35,8 @@ class MultipleImageTemplate
 
     /**
      * Extract from the template.
-     *
-     * @param string $file
-     * @return string
      */
-    public function extract(string $file)
+    public function extract(string $file): string
     {
         $result = collect();
 
@@ -71,20 +61,16 @@ class MultipleImageTemplate
 
     /**
      * Check whether the given template is "Listen" or not.
-     *
-     * @return bool
      */
-    protected function isListen()
+    protected function isListen(): bool
     {
         return Str::startsWith(mb_strtolower($this->body, 'utf-8'), '{{listen');
     }
 
     /**
      * Explode the body.
-     *
-     * @return array
      */
-    protected function explode()
+    protected function explode(): array
     {
         $body = $this->body;
 
@@ -97,12 +83,8 @@ class MultipleImageTemplate
 
     /**
      * Get the index.
-     *
-     * @param array $parts
-     * @param string $file
-     * @return int
      */
-    protected function getIndex(array $parts, string $file)
+    protected function getIndex(array $parts, string $file): int
     {
         $index = 1;
 
@@ -121,12 +103,8 @@ class MultipleImageTemplate
 
     /**
      * Check whether the given part should be extracted or not.
-     *
-     * @param string $part
-     * @param int $index
-     * @return bool
      */
-    protected function isExtractingPart(string $part, int $index)
+    protected function isExtractingPart(string $part, int $index): bool
     {
         if (!$this->isSomeParameter($part)) {
             return true;
@@ -141,11 +119,8 @@ class MultipleImageTemplate
 
     /**
      * Check whether the given part is not indexed.
-     *
-     * @param string $part
-     * @return bool
      */
-    protected function isNotIndexed(string $part)
+    protected function isNotIndexed(string $part): bool
     {
         $part = mb_strtolower($part, 'utf-8');
 
@@ -156,12 +131,8 @@ class MultipleImageTemplate
 
     /**
      * Remove the index.
-     *
-     * @param string $part
-     * @param int $index
-     * @return string
      */
-    protected function removeIndex(string $part, int $index)
+    protected function removeIndex(string $part, int $index): string
     {
         if (!$this->isSomeParameter($part)) {
             return $part;
@@ -175,11 +146,8 @@ class MultipleImageTemplate
 
     /**
      * Transform the position.
-     *
-     * @param string $part
-     * @return string
      */
-    protected function transformPosition(string $part)
+    protected function transformPosition(string $part): string
     {
         $lowercased = mb_strtolower($part, 'utf-8');
         if (!preg_match('/^(align|pos|float|зона)=/', $lowercased)) {
@@ -191,11 +159,8 @@ class MultipleImageTemplate
 
     /**
      * Check whether the given string is some parameter or not.
-     *
-     * @param string $string
-     * @return bool
      */
-    protected function isSomeParameter(string $string)
+    protected function isSomeParameter(string $string): bool
     {
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
@@ -205,11 +170,8 @@ class MultipleImageTemplate
      * Check whether the given part is filename or not.
      *
      * @see https://www.mediawiki.org/wiki/Help:Images#Supported_media_types_for_images
-     *
-     * @param string $part
-     * @return bool
      */
-    protected function isFileName(string $part)
+    protected function isFileName(string $part): bool
     {
         $part = mb_strtolower($part, 'utf-8');
 

@@ -2,6 +2,7 @@
 
 namespace Illuminated\Wikipedia\Grabber\Parser;
 
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Formatter\Formatter;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsAddImages;
 use Illuminated\Wikipedia\Grabber\Parser\Pipe\SectionsInPreview;
@@ -12,19 +13,11 @@ class Parser
 {
     /**
      * The sections.
-     *
-     * @var \Illuminate\Support\Collection
      */
-    protected $sections;
+    protected Collection $sections;
 
     /**
      * Create a new instance of the Parser.
-     *
-     * @param string $title
-     * @param string $body
-     * @param array|null $images
-     * @param bool $isPreview
-     * @return void
      */
     public function __construct(string $title, string $body, array $images = null, bool $isPreview = false)
     {
@@ -40,11 +33,8 @@ class Parser
 
     /**
      * Parse according to the given format.
-     *
-     * @param string $format
-     * @return string
      */
-    public function parse(string $format)
+    public function parse(string $format): string
     {
         $formatter = Formatter::factory($format, $this->sections);
         $html = $formatter->style();
@@ -62,10 +52,8 @@ class Parser
 
     /**
      * Get the sections.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function getSections()
+    public function getSections(): Collection
     {
         return $this->sections;
     }

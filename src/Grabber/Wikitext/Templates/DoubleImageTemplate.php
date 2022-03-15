@@ -13,16 +13,11 @@ class DoubleImageTemplate
 {
     /**
      * The body.
-     *
-     * @var string
      */
-    protected $body;
+    protected string $body;
 
     /**
      * Create a new instance of the template.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -31,11 +26,8 @@ class DoubleImageTemplate
 
     /**
      * Extract from the template.
-     *
-     * @param string $file
-     * @return string
      */
-    public function extract(string $file)
+    public function extract(string $file): string
     {
         $body = $this->body;
         $body = Str::replaceFirst('{{', '', $body);

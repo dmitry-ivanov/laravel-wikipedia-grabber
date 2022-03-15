@@ -3,6 +3,7 @@
 namespace Illuminated\Wikipedia\Grabber;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminated\Wikipedia\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 
@@ -10,24 +11,18 @@ abstract class EntitySingular extends Entity
 {
     /**
      * The parser.
-     *
-     * @var \Illuminated\Wikipedia\Grabber\Parser\Parser
      */
-    protected $parser;
+    protected Parser $parser;
 
     /**
      * The response.
-     *
-     * @var array
      */
-    protected $response;
+    protected array $response;
 
     /**
      * Indicates whether grabbing was successful or not.
-     *
-     * @return bool
      */
-    public function isSuccess()
+    public function isSuccess(): bool
     {
         return !$this->isMissing()
             && !$this->isInvalid();
@@ -37,10 +32,8 @@ abstract class EntitySingular extends Entity
      * Indicates whether the given page is missing or not.
      *
      * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
-     *
-     * @return bool
      */
-    public function isMissing()
+    public function isMissing(): bool
     {
         return !empty($this->response['missing']);
     }
@@ -49,20 +42,16 @@ abstract class EntitySingular extends Entity
      * Indicates whether the given page is invalid or not.
      *
      * @see https://www.mediawiki.org/wiki/API:Query#Missing_and_invalid_titles
-     *
-     * @return bool
      */
-    public function isInvalid()
+    public function isInvalid(): bool
     {
         return !empty($this->response['invalid']);
     }
 
     /**
      * Indicates whether there's a disambiguation or not.
-     *
-     * @return bool
      */
-    public function isDisambiguation()
+    public function isDisambiguation(): bool
     {
         return !empty($this->response['pageprops'])
             && isset($this->response['pageprops']['disambiguation']);
@@ -70,10 +59,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the page id.
-     *
-     * @return int|null
      */
-    public function getId()
+    public function getId(): int|null
     {
         if (!$this->isSuccess()) {
             return null;
@@ -84,10 +71,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the title.
-     *
-     * @return string|null
      */
-    public function getTitle()
+    public function getTitle(): string|null
     {
         if (!$this->isSuccess()) {
             return null;
@@ -98,10 +83,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the content in plain format.
-     *
-     * @return string
      */
-    public function plain()
+    public function plain(): string
     {
         $this->format = 'plain';
 
@@ -110,10 +93,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the content in Bulma format.
-     *
-     * @return string
      */
-    public function bulma()
+    public function bulma(): string
     {
         $this->format = 'bulma';
 
@@ -122,10 +103,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the content in Bootstrap format.
-     *
-     * @return string
      */
-    public function bootstrap()
+    public function bootstrap(): string
     {
         $this->format = 'bootstrap';
 
@@ -134,10 +113,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the body.
-     *
-     * @return string
      */
-    public function getBody()
+    public function getBody(): string
     {
         if ($this->isMissing()) {
             return $this->getMissingBody();
@@ -152,20 +129,16 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the body for missing pages.
-     *
-     * @return string
      */
-    protected function getMissingBody()
+    protected function getMissingBody(): string
     {
         return "The page `{$this->target}` does not exist.";
     }
 
     /**
      * Get the body for invalid pages.
-     *
-     * @return string
      */
-    protected function getInvalidBody()
+    protected function getInvalidBody(): string
     {
         $reason = Arr::get($this->response, 'invalidreason');
 
@@ -174,13 +147,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Append the section.
-     *
-     * @param string $title
-     * @param string $body
-     * @param int $level
-     * @return $this
      */
-    public function append(string $title, string $body, int $level = 2)
+    public function append(string $title, string $body, int $level = 2): self
     {
         $this->getSections()->push(new Section($title, $body, $level));
 
@@ -189,20 +157,16 @@ abstract class EntitySingular extends Entity
 
     /**
      * Get the sections.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function getSections()
+    public function getSections(): Collection
     {
         return $this->getParser()->getSections();
     }
 
     /**
      * Get the parser.
-     *
-     * @return \Illuminated\Wikipedia\Grabber\Parser\Parser
      */
-    protected function getParser()
+    protected function getParser(): Parser
     {
         if (empty($this->parser)) {
             $imagesResponseData = null;
@@ -224,10 +188,8 @@ abstract class EntitySingular extends Entity
 
     /**
      * Convert to string.
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getBody();
     }

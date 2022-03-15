@@ -8,93 +8,66 @@ class WikitextImage extends Wikitext
 {
     /**
      * The name.
-     *
-     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * The type.
-     *
-     * @var string
      */
-    protected $type;
+    protected ?string $type = null;
 
     /**
      * The border.
-     *
-     * @var string
      */
-    protected $border;
+    protected ?string $border = null;
 
     /**
      * The location.
-     *
-     * @var string
      */
-    protected $location;
+    protected ?string $location = null;
 
     /**
      * The alignment.
-     *
-     * @var string
      */
-    protected $alignment;
+    protected ?string $alignment = null;
 
     /**
      * The size.
-     *
-     * @var string
      */
-    protected $size;
+    protected ?string $size = null;
 
     /**
      * The link.
-     *
-     * @var string
      */
-    protected $link;
+    protected ?string $link = null;
 
     /**
      * The alternative text.
-     *
-     * @var string
      */
-    protected $alt;
+    protected ?string $alt = null;
 
     /**
      * The langtag.
-     *
-     * @var string
      */
-    protected $langtag;
+    protected ?string $langtag = null;
 
     /**
      * The page.
-     *
-     * @var string
      */
-    protected $page;
+    protected ?string $page = null;
 
     /**
      * The class.
-     *
-     * @var string
      */
-    protected $class;
+    protected ?string $class = null;
 
     /**
      * The caption.
-     *
-     * @var string
      */
-    protected $caption;
+    protected ?string $caption = null;
 
     /**
      * Create a new instance of the WikitextImage.
-     *
-     * @param string $body
-     * @return void
      */
     public function __construct(string $body)
     {
@@ -105,10 +78,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Check whether an image is icon or not.
-     *
-     * @return bool
      */
-    public function isIcon()
+    public function isIcon(): bool
     {
         $size = $this->getSize();
         if (empty($size) || Str::contains($size, 'upright') || !preg_match('/\d+/', $size, $matches)) {
@@ -126,10 +97,8 @@ class WikitextImage extends Wikitext
      * @see https://www.mediawiki.org/wiki/Help:Images#Syntax
      * @see https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax
      * @see https://ru.wikipedia.org/wiki/Википедия:Иллюстрирование
-     *
-     * @return void
      */
-    protected function parse()
+    protected function parse(): void
     {
         $body = trim($this->body);
 
@@ -148,11 +117,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Strip the given body.
-     *
-     * @param string $body
-     * @return string
      */
-    protected function strip(string $body)
+    protected function strip(string $body): string
     {
         if (Str::startsWith($body, '[[') && Str::endsWith($body, ']]')) {
             $body = Str::replaceFirst('[[', '', $body);
@@ -169,11 +135,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Check whether the given body is handled template or not.
-     *
-     * @param string $body
-     * @return bool
      */
-    protected function isHandledTemplate(string $body)
+    protected function isHandledTemplate(string $body): bool
     {
         $body = mb_strtolower($body, 'utf-8');
 
@@ -196,11 +159,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Explode the given body.
-     *
-     * @param string $body
-     * @return array|string[]
      */
-    protected function explode(string $body)
+    protected function explode(string $body): array
     {
         $parts = explode('|', $body);
         $this->setName(array_shift($parts));
@@ -210,11 +170,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Handle the given value.
-     *
-     * @param string $value
-     * @return bool
      */
-    protected function handle(string $value)
+    protected function handle(string $value): bool
     {
         $part = mb_strtolower(trim($value), 'utf-8');
 
@@ -248,10 +205,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Get the description.
-     *
-     * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): string|null
     {
         if ($caption = $this->getCaption()) {
             return $caption;
@@ -266,21 +221,16 @@ class WikitextImage extends Wikitext
 
     /**
      * Get the name.
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
      * Set the name.
-     *
-     * @param string $name
-     * @return void
      */
-    protected function setName(string $name)
+    protected function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -288,12 +238,9 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is type or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isType(string $string)
+    protected function isType(string $string): bool
     {
         return in_array($string, ['thumb', 'thumbnail', 'frame', 'framed', 'frameless'])
             || in_array($string, ['мини', 'миниатюра'])
@@ -302,10 +249,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Get the type.
-     *
-     * @return string
      */
-    public function getType()
+    public function getType(): string|null
     {
         return $this->type;
     }
@@ -313,12 +258,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the type.
      *
-     * @param string $type
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setType(string $type)
+    protected function setType(string $type): void
     {
         $this->type = $this->normalize($type, [
             'мини' => 'thumb', 'миниатюра' => 'thumbnail',
@@ -328,22 +270,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is border or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isBorder(string $string)
+    protected function isBorder(string $string): bool
     {
         return $string == 'border';
     }
 
     /**
      * Get the border.
-     *
-     * @return string
      */
-    public function getBorder()
+    public function getBorder(): string|null
     {
         return $this->border;
     }
@@ -351,12 +288,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the border.
      *
-     * @param string $border
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setBorder(string $border)
+    protected function setBorder(string $border): void
     {
         $this->border = $border;
     }
@@ -364,12 +298,9 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is location or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isLocation(string $string)
+    protected function isLocation(string $string): bool
     {
         return in_array($string, ['right', 'left', 'center', 'none'])
             || in_array($string, ['справа', 'слева', 'центр'])
@@ -378,10 +309,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Get the location.
-     *
-     * @return string
      */
-    public function getLocation()
+    public function getLocation(): string|null
     {
         return $this->location;
     }
@@ -389,12 +318,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the location.
      *
-     * @param string $location
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setLocation(string $location)
+    protected function setLocation(string $location): void
     {
         $this->location = $this->normalize($location, [
             'справа' => 'right', 'слева' => 'left', 'центр' => 'center',
@@ -405,22 +331,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is alignment or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isAlignment(string $string)
+    protected function isAlignment(string $string): bool
     {
         return in_array($string, ['baseline', 'middle', 'sub', 'super', 'text-top', 'text-bottom', 'top', 'bottom']);
     }
 
     /**
      * Get the alignment.
-     *
-     * @return string
      */
-    public function getAlignment()
+    public function getAlignment(): string|null
     {
         return $this->alignment;
     }
@@ -428,12 +349,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the alignment.
      *
-     * @param string $alignment
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setAlignment(string $alignment)
+    protected function setAlignment(string $alignment): void
     {
         $this->alignment = $alignment;
     }
@@ -441,14 +359,11 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is size or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isSize(string $string)
+    protected function isSize(string $string): bool
     {
-        return in_array($string, ['upright'])
+        return $string === 'upright'
             || preg_match('/^upright(\s*)=/', $string)
             || preg_match('/^(\d+)(\s*)px$/', $string) || preg_match('/^x(\d+)px$/', $string) || preg_match('/^(\d+)x(\d+)px$/', $string)
             || preg_match('/^(\d+)(\s*)пкс$/', $string) || preg_match('/^x(\d+)пкс$/', $string) || preg_match('/^(\d+)x(\d+)пкс$/', $string);
@@ -456,10 +371,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Get the size.
-     *
-     * @return string
      */
-    public function getSize()
+    public function getSize(): string|null
     {
         return $this->size;
     }
@@ -467,12 +380,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the size.
      *
-     * @param string $size
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setSize(string $size)
+    protected function setSize(string $size): void
     {
         $this->size = $size;
     }
@@ -480,22 +390,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is link or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isLink(string $string)
+    protected function isLink(string $string): bool
     {
         return (bool) preg_match('/^link(\s*)=/', $string);
     }
 
     /**
      * Get the link.
-     *
-     * @return string
      */
-    public function getLink()
+    public function getLink(): string|null
     {
         return $this->link;
     }
@@ -503,12 +408,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the link.
      *
-     * @param string $link
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setLink(string $link)
+    protected function setLink(string $link): void
     {
         $this->link = $link;
     }
@@ -516,22 +418,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is alt or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isAlt(string $string)
+    protected function isAlt(string $string): bool
     {
         return preg_match('/^alt(\s*)=/', $string) || preg_match('/^альт(\s*)=/', $string);
     }
 
     /**
      * Get the alt.
-     *
-     * @return string
      */
-    public function getAlt()
+    public function getAlt(): string|null
     {
         return $this->alt;
     }
@@ -539,12 +436,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the alt.
      *
-     * @param string $alt
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setAlt(string $alt)
+    protected function setAlt(string $alt): void
     {
         $this->alt = $alt;
     }
@@ -552,22 +446,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is langtag or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isLangtag(string $string)
+    protected function isLangtag(string $string): bool
     {
         return (bool) preg_match('/^lang(\s*)=/', $string);
     }
 
     /**
      * Get the langtag.
-     *
-     * @return string
      */
-    public function getLangtag()
+    public function getLangtag(): string|null
     {
         return $this->langtag;
     }
@@ -575,12 +464,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the langtag.
      *
-     * @param string $langtag
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setLangtag(string $langtag)
+    protected function setLangtag(string $langtag): void
     {
         $this->langtag = $langtag;
     }
@@ -588,22 +474,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is page or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isPage(string $string)
+    protected function isPage(string $string): bool
     {
         return (bool) preg_match('/^page(\s*)=/', $string);
     }
 
     /**
      * Get the page.
-     *
-     * @return string
      */
-    public function getPage()
+    public function getPage(): string|null
     {
         return $this->page;
     }
@@ -611,12 +492,9 @@ class WikitextImage extends Wikitext
     /**
      * Set the page.
      *
-     * @param string $page
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setPage(string $page)
+    protected function setPage(string $page): void
     {
         $this->page = $page;
     }
@@ -624,22 +502,17 @@ class WikitextImage extends Wikitext
     /**
      * Check whether the given string is class or not.
      *
-     * @param string $string
-     * @return bool
-     *
      * @noinspection PhpUnused
      */
-    protected function isClass(string $string)
+    protected function isClass(string $string): bool
     {
         return (bool) preg_match('/^class(\s*)=/', $string);
     }
 
     /**
      * Get the class.
-     *
-     * @return string
      */
-    public function getClass()
+    public function getClass(): string|null
     {
         return $this->class;
     }
@@ -647,33 +520,25 @@ class WikitextImage extends Wikitext
     /**
      * Set the class.
      *
-     * @param string $class
-     * @return void
-     *
      * @noinspection PhpUnused
      */
-    protected function setClass(string $class)
+    protected function setClass(string $class): void
     {
         $this->class = $class;
     }
 
     /**
      * Get the caption.
-     *
-     * @return string
      */
-    public function getCaption()
+    public function getCaption(): string|null
     {
         return $this->caption;
     }
 
     /**
      * Set the caption.
-     *
-     * @param string $caption
-     * @return void
      */
-    public function setCaption(string $caption)
+    public function setCaption(string $caption): void
     {
         $this->caption = trim($caption);
     }
@@ -700,11 +565,8 @@ class WikitextImage extends Wikitext
      * @see https://ru.wikipedia.org/wiki/Шаблон:Музыкальный_отрывок_стиля - пояснения
      * @see https://ru.wikipedia.org/wiki/Шаблон:Семпл - пояснения
      * @see https://ru.wikipedia.org/w/index.php?title=Шаблон:МузОС&redirect=no - пояснения
-     *
-     * @param string $string
-     * @return bool
      */
-    protected function isTextParameter(string $string)
+    protected function isTextParameter(string $string): bool
     {
         return preg_match('/^text(\s*)=(.+?)/', $string) || preg_match('/^текст(\s*)=(.+?)/', $string)
             || preg_match('/^caption(\s*)=(.+?)/', $string) || preg_match('/^заголовок(\s*)=(.+?)/', $string)
@@ -716,11 +578,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Check whether the given string is some parameter or not.
-     *
-     * @param string $string
-     * @return bool
      */
-    protected function isSomeParameter(string $string)
+    protected function isSomeParameter(string $string): bool
     {
         return preg_match('/^(\S+)(\s*?)(\S*)(\s*?)=/', $string)
             || preg_match('/^(\d+)(\s*)%$/', $string);
@@ -730,11 +589,8 @@ class WikitextImage extends Wikitext
      * Check whether the given string is file name or not.
      *
      * @see https://www.mediawiki.org/wiki/Help:Images#Supported_media_types_for_images
-     *
-     * @param string $string
-     * @return bool
      */
-    protected function isFileName(string $string)
+    protected function isFileName(string $string): bool
     {
         $string = mb_strtolower($string, 'utf-8');
 
@@ -749,12 +605,8 @@ class WikitextImage extends Wikitext
 
     /**
      * Normalize the given value according to the given map.
-     *
-     * @param string $value
-     * @param array $map
-     * @return string
      */
-    protected function normalize(string $value, array $map)
+    protected function normalize(string $value, array $map): string
     {
         return array_key_exists($value, $map) ? $map[$value] : $value;
     }

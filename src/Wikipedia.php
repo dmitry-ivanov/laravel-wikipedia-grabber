@@ -8,16 +8,11 @@ class Wikipedia extends Grabber
 {
     /**
      * The language.
-     *
-     * @var string
      */
-    protected $lang;
+    protected string $lang;
 
     /**
      * Create a new instance of Wikipedia grabber.
-     *
-     * @param string $lang
-     * @return void
      */
     public function __construct(string $lang = 'en')
     {
@@ -33,10 +28,8 @@ class Wikipedia extends Grabber
 
     /**
      * Get the base URI.
-     *
-     * @return string
      */
-    protected function baseUri()
+    protected function baseUri(): string
     {
         return "https://{$this->lang}.wikipedia.org/w/api.php";
     }

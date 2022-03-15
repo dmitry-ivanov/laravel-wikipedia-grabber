@@ -2,70 +2,48 @@
 
 namespace Illuminated\Wikipedia\Grabber\Component;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class Image
 {
     /**
      * The URL.
-     *
-     * @var string
      */
-    protected $url;
+    protected string $url;
 
     /**
      * The width.
-     *
-     * @var int
      */
-    protected $width;
+    protected int $width;
 
     /**
      * The height.
-     *
-     * @var int
      */
-    protected $height;
+    protected int $height;
 
     /**
      * The URL to original.
-     *
-     * @var string
      */
-    protected $originalUrl;
+    protected string $originalUrl;
 
     /**
      * The position.
-     *
-     * @var string
      */
-    protected $position;
+    protected string $position;
 
     /**
      * The description.
-     *
-     * @var string
      */
-    protected $description;
+    protected string $description;
 
     /**
      * The MIME type.
-     *
-     * @var string|null
      */
-    protected $mime;
+    protected ?string $mime;
 
     /**
      * Create a new instance of the Image.
-     *
-     * @param string $url
-     * @param int $width
-     * @param int $height
-     * @param string $originalUrl
-     * @param string $position
-     * @param string $description
-     * @param string|null $mime
-     * @return void
      */
     public function __construct(string $url, int $width, int $height, string $originalUrl, string $position = 'right', string $description = '', string $mime = null)
     {
@@ -80,105 +58,80 @@ class Image
 
     /**
      * Get the URL.
-     *
-     * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->url;
     }
 
     /**
      * Set the URL.
-     *
-     * @param string $url
-     * @return void
      */
-    public function setUrl(string $url)
+    public function setUrl(string $url): void
     {
         $this->url = $url;
     }
 
     /**
      * Get the width.
-     *
-     * @return int
      */
-    public function getWidth()
+    public function getWidth(): int
     {
         return $this->width;
     }
 
     /**
      * Set the width.
-     *
-     * @param int $width
-     * @return void
      */
-    public function setWidth(int $width)
+    public function setWidth(int $width): void
     {
         $this->width = $width;
     }
 
     /**
      * Get the height.
-     *
-     * @return int
      */
-    public function getHeight()
+    public function getHeight(): int
     {
         return $this->height;
     }
 
     /**
      * Set the height.
-     *
-     * @param int $height
-     * @return void
      */
-    public function setHeight(int $height)
+    public function setHeight(int $height): void
     {
         $this->height = $height;
     }
 
     /**
      * Get the URL to original.
-     *
-     * @return string
      */
-    public function getOriginalUrl()
+    public function getOriginalUrl(): string
     {
         return $this->originalUrl;
     }
 
     /**
      * Set the URL to original.
-     *
-     * @param string $originalUrl
-     * @return void
      */
-    public function setOriginalUrl(string $originalUrl)
+    public function setOriginalUrl(string $originalUrl): void
     {
         $this->originalUrl = $originalUrl;
     }
 
     /**
      * Get the position.
-     *
-     * @return string
      */
-    public function getPosition()
+    public function getPosition(): string
     {
         return $this->position;
     }
 
     /**
      * Set the position.
-     *
-     * @param string $position
-     * @return void
      */
-    public function setPosition(string $position)
+    public function setPosition(string $position): void
     {
         if (!in_array($position, ['left', 'right'])) {
             $position = 'right';
@@ -189,62 +142,48 @@ class Image
 
     /**
      * Get the description.
-     *
-     * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
     /**
      * Set the description.
-     *
-     * @param string $description
-     * @return void
      */
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
     /**
      * Get the MIME type.
-     *
-     * @return string|null
      */
-    public function getMime()
+    public function getMime(): string|null
     {
         return $this->mime;
     }
 
     /**
      * Set the MIME type.
-     *
-     * @param string|null $mime
-     * @return void
      */
-    public function setMime(string $mime = null)
+    public function setMime(string $mime = null): void
     {
         $this->mime = mb_strtolower($mime, 'utf-8');
     }
 
     /**
      * Get the alternative text.
-     *
-     * @return string
      */
-    public function getAlt()
+    public function getAlt(): string
     {
         return htmlspecialchars($this->getDescription(), ENT_QUOTES);
     }
 
     /**
      * Check whether an object is audio or not.
-     *
-     * @return bool
      */
-    public function isAudio()
+    public function isAudio(): bool
     {
         $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
@@ -261,10 +200,8 @@ class Image
 
     /**
      * Check whether an object is video or not.
-     *
-     * @return bool
      */
-    public function isVideo()
+    public function isVideo(): bool
     {
         $originalUrl = mb_strtolower($this->getOriginalUrl(), 'utf-8');
 
@@ -281,10 +218,8 @@ class Image
 
     /**
      * Get the transcoded mp3 URL.
-     *
-     * @return string|false
      */
-    public function getTranscodedMp3Url()
+    public function getTranscodedMp3Url(): string|false
     {
         $originalUrl = $this->getOriginalUrl();
         $originalUrlLowercased = mb_strtolower($originalUrl, 'utf-8');
@@ -305,10 +240,8 @@ class Image
 
     /**
      * Get the transcoded webm URLs.
-     *
-     * @return \Illuminate\Support\Collection|false
      */
-    public function getTranscodedWebmUrls()
+    public function getTranscodedWebmUrls(): Collection|false
     {
         $originalUrl = $this->getOriginalUrl();
 

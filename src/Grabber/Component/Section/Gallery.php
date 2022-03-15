@@ -8,11 +8,8 @@ class Gallery
 {
     /**
      * Validate section gallery.
-     *
-     * @param \Illuminate\Support\Collection $gallery
-     * @return array
      */
-    public function validate(Collection $gallery)
+    public function validate(Collection $gallery): array
     {
         $pure = ['gallery' => $gallery, 'not_gallery' => collect()];
 
@@ -36,11 +33,8 @@ class Gallery
 
     /**
      * Classify the given collection by types.
-     *
-     * @param \Illuminate\Support\Collection $images
-     * @return array
      */
-    protected function byTypes(Collection $images)
+    protected function byTypes(Collection $images): array
     {
         $result = ['video' => collect(), 'audio' => collect(), 'images' => collect()];
 
@@ -63,11 +57,8 @@ class Gallery
 
     /**
      * Get the main type of the gallery.
-     *
-     * @param array $byTypes
-     * @return mixed
      */
-    protected function getMainType(array $byTypes)
+    protected function getMainType(array $byTypes): mixed
     {
         $counts = collect($byTypes)->map(function (Collection $collection, $key) {
             return ['key' => $key, 'count' => $collection->count()];

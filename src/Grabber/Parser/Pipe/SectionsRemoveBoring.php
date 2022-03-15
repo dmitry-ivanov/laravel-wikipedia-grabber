@@ -10,23 +10,16 @@ class SectionsRemoveBoring
 {
     /**
      * The sections.
-     *
-     * @var \Illuminate\Support\Collection
      */
-    protected $sections;
+    protected Collection $sections;
 
     /**
      * The list of the boring titles.
-     *
-     * @var array
      */
-    protected $boringTitles;
+    protected array $boringTitles;
 
     /**
      * Create a new instance of the pipe.
-     *
-     * @param \Illuminate\Support\Collection $sections
-     * @return void
      */
     public function __construct(Collection $sections)
     {
@@ -36,10 +29,8 @@ class SectionsRemoveBoring
 
     /**
      * Execute the pipe.
-     *
-     * @return \Illuminate\Support\Collection
      */
-    public function pipe()
+    public function pipe(): Collection
     {
         $filtered = collect();
 
@@ -54,11 +45,8 @@ class SectionsRemoveBoring
 
     /**
      * Check whether the given section is boring or not.
-     *
-     * @param \Illuminated\Wikipedia\Grabber\Component\Section $section
-     * @return bool
      */
-    protected function isBoring(Section $section)
+    protected function isBoring(Section $section): bool
     {
         return in_array($section->getTitle(), $this->boringTitles);
     }
