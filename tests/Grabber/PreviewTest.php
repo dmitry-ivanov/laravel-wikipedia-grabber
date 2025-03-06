@@ -2,26 +2,27 @@
 
 namespace Illuminated\Wikipedia\Tests\Grabber;
 
-use Illuminated\Wikipedia\Grabber\Preview;
 use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Wikipedia;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use PHPUnit\Framework\Attributes\Test;
 
 class PreviewTest extends TestCase
 {
-    /** @test */
-    public function it_can_be_retrieved_by_title()
+    #[Test]
+    public function it_can_be_retrieved_by_title(): void
     {
         $preview = (new Wikipedia('ru'))->preview('Пушкин');
 
-        $this->assertInstanceOf(Preview::class, $preview);
         $this->assertTrue($preview->isSuccess());
         $this->assertFalse($preview->isDisambiguation());
         $this->assertEquals(537, $preview->getId());
         $this->assertEquals('Пушкин, Александр Сергеевич', $preview->getTitle());
     }
 
-    /** @test */
-    public function it_can_be_retrieved_by_id_if_integer_passed()
+    #[Test]
+    public function it_can_be_retrieved_by_id_if_integer_passed(): void
     {
         $preview = (new Wikipedia('ru'))->preview(537);
 
@@ -31,8 +32,8 @@ class PreviewTest extends TestCase
         $this->assertEquals('Пушкин, Александр Сергеевич', $preview->getTitle());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_missed()
+    #[Test]
+    public function some_can_be_marked_as_missed(): void
     {
         $preview = (new Wikipedia)->preview('Fake-Not-Existing-Page');
 
@@ -46,8 +47,8 @@ class PreviewTest extends TestCase
         $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $preview->getBody());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_invalid()
+    #[Test]
+    public function some_can_be_marked_as_invalid(): void
     {
         $preview = (new Wikipedia)->preview('Talk:');
 
@@ -57,12 +58,12 @@ class PreviewTest extends TestCase
         $this->assertFalse($preview->isMissing());
         $this->assertNull($preview->getId());
         $this->assertNull($preview->getTitle());
-        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $preview);
-        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $preview->getBody());
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only a namespace prefix.', $preview);
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only a namespace prefix.', $preview->getBody());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_disambiguation()
+    #[Test]
+    public function some_can_be_marked_as_disambiguation(): void
     {
         $preview = (new Wikipedia)->preview('David Taylor');
 
@@ -72,12 +73,8 @@ class PreviewTest extends TestCase
         $this->assertFalse($preview->isMissing());
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function it_is_returned_in_specified_in_config_format_by_default()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function it_is_returned_in_specified_in_config_format_by_default(): void
     {
         $this->mockWikipediaQuery();
 
@@ -87,12 +84,8 @@ class PreviewTest extends TestCase
         (new Wikipedia)->preview('Mocked Page')->getBody();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -102,12 +95,8 @@ class PreviewTest extends TestCase
         (new Wikipedia)->preview('Mocked Page')->plain();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -117,12 +106,8 @@ class PreviewTest extends TestCase
         (new Wikipedia)->preview('Mocked Page')->bulma();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function there_is_also_bootstrap_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function there_is_also_bootstrap_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -132,12 +117,8 @@ class PreviewTest extends TestCase
         (new Wikipedia)->preview('Mocked Page')->bootstrap();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function mocked_preview_test_with_images_enabled_but_preview_does_not_have_any_images()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function mocked_preview_test_with_images_enabled_but_preview_does_not_have_any_images(): void
     {
         $this->mockWikipediaQuery();
         config(['wikipedia-grabber.images' => true]);
@@ -152,8 +133,8 @@ class PreviewTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_preview_test_with_images_enabled_but_preview_does_not_have_any()
+    #[Test]
+    public function real_preview_test_with_images_enabled_but_preview_does_not_have_any(): void
     {
         config(['wikipedia-grabber.images' => true]);
 
@@ -167,8 +148,8 @@ class PreviewTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_preview_test_with_images_enabled_and_preview_has_them()
+    #[Test]
+    public function real_preview_test_with_images_enabled_and_preview_has_them(): void
     {
         config(['wikipedia-grabber.images' => true]);
 
@@ -182,8 +163,8 @@ class PreviewTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_preview_test_with_images_disabled_and_preview_has_them()
+    #[Test]
+    public function real_preview_test_with_images_disabled_and_preview_has_them(): void
     {
         config(['wikipedia-grabber.images' => false]);
 

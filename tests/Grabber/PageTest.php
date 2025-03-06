@@ -3,26 +3,27 @@
 namespace Illuminated\Wikipedia\Tests\Grabber;
 
 use Illuminated\Wikipedia\Grabber\Component\Section;
-use Illuminated\Wikipedia\Grabber\Page;
 use Illuminated\Wikipedia\Tests\TestCase;
 use Illuminated\Wikipedia\Wikipedia;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+use PHPUnit\Framework\Attributes\Test;
 
 class PageTest extends TestCase
 {
-    /** @test */
-    public function it_can_be_retrieved_by_title()
+    #[Test]
+    public function it_can_be_retrieved_by_title(): void
     {
         $page = (new Wikipedia('ru'))->page('Пушкин');
 
-        $this->assertInstanceOf(Page::class, $page);
         $this->assertTrue($page->isSuccess());
         $this->assertFalse($page->isDisambiguation());
         $this->assertEquals(537, $page->getId());
         $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
     }
 
-    /** @test */
-    public function it_can_be_retrieved_by_id_if_integer_passed()
+    #[Test]
+    public function it_can_be_retrieved_by_id_if_integer_passed(): void
     {
         $page = (new Wikipedia('ru'))->page(537);
 
@@ -32,8 +33,8 @@ class PageTest extends TestCase
         $this->assertEquals('Пушкин, Александр Сергеевич', $page->getTitle());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_missed()
+    #[Test]
+    public function some_can_be_marked_as_missed(): void
     {
         $page = (new Wikipedia)->page('Fake-Not-Existing-Page');
 
@@ -47,8 +48,8 @@ class PageTest extends TestCase
         $this->assertEquals('The page `Fake-Not-Existing-Page` does not exist.', $page->getBody());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_invalid()
+    #[Test]
+    public function some_can_be_marked_as_invalid(): void
     {
         $page = (new Wikipedia)->page('Talk:');
 
@@ -58,12 +59,12 @@ class PageTest extends TestCase
         $this->assertFalse($page->isMissing());
         $this->assertNull($page->getId());
         $this->assertNull($page->getTitle());
-        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $page);
-        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only the name of a namespace.', $page->getBody());
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only a namespace prefix.', $page);
+        $this->assertEquals('The page `Talk:` is invalid. The requested page title is empty or contains only a namespace prefix.', $page->getBody());
     }
 
-    /** @test */
-    public function some_can_be_marked_as_disambiguation()
+    #[Test]
+    public function some_can_be_marked_as_disambiguation(): void
     {
         $page = (new Wikipedia)->page('David Taylor');
 
@@ -73,12 +74,8 @@ class PageTest extends TestCase
         $this->assertFalse($page->isMissing());
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function it_is_returned_in_specified_in_config_format_by_default()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function it_is_returned_in_specified_in_config_format_by_default(): void
     {
         $this->mockWikipediaQuery();
 
@@ -88,12 +85,8 @@ class PageTest extends TestCase
         (new Wikipedia)->page('Mocked Page')->getBody();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function but_you_can_use_plain_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -103,12 +96,8 @@ class PageTest extends TestCase
         (new Wikipedia)->page('Mocked Page')->plain();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function there_is_also_bulma_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -118,12 +107,8 @@ class PageTest extends TestCase
         (new Wikipedia)->page('Mocked Page')->bulma();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function there_is_also_bootstrap_helper_method_to_change_format_on_the_fly()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function there_is_also_bootstrap_helper_method_to_change_format_on_the_fly(): void
     {
         $this->mockWikipediaQuery();
 
@@ -133,12 +118,8 @@ class PageTest extends TestCase
         (new Wikipedia)->page('Mocked Page')->bootstrap();
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function custom_section_can_be_appended_to_the_page_and_default_level_is_2()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function custom_section_can_be_appended_to_the_page_and_default_level_is_2(): void
     {
         $this->mockWikipediaQuery();
 
@@ -152,12 +133,8 @@ class PageTest extends TestCase
         ]), $sections);
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function however_level_of_appended_section_can_be_set_manually()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function however_level_of_appended_section_can_be_set_manually(): void
     {
         $this->mockWikipediaQuery();
 
@@ -171,12 +148,8 @@ class PageTest extends TestCase
         ]), $sections);
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function page_sections_can_be_massaged_in_any_way_through_the_get_sections_method()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function page_sections_can_be_massaged_in_any_way_through_the_get_sections_method(): void
     {
         $this->mockWikipediaQuery();
 
@@ -194,12 +167,8 @@ class PageTest extends TestCase
         ]), $page->getSections());
     }
 
-    /**
-     * @test
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function mocked_page_test_with_images_enabled_but_page_does_not_have_any_images()
+    #[Test] #[RunInSeparateProcess] #[PreserveGlobalState(false)]
+    public function mocked_page_test_with_images_enabled_but_page_does_not_have_any_images(): void
     {
         $this->mockWikipediaQuery();
         config(['wikipedia-grabber.images' => true]);
@@ -214,8 +183,8 @@ class PageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_page_test_with_images_enabled_but_page_does_not_have_any()
+    #[Test]
+    public function real_page_test_with_images_enabled_but_page_does_not_have_any(): void
     {
         config(['wikipedia-grabber.images' => true]);
 
@@ -229,8 +198,8 @@ class PageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_page_test_with_images_enabled_and_page_has_them()
+    #[Test]
+    public function real_page_test_with_images_enabled_and_page_has_them(): void
     {
         config(['wikipedia-grabber.images' => true]);
 
@@ -244,8 +213,8 @@ class PageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function real_page_test_with_images_disabled_and_page_has_them()
+    #[Test]
+    public function real_page_test_with_images_disabled_and_page_has_them(): void
     {
         config(['wikipedia-grabber.images' => false]);
 

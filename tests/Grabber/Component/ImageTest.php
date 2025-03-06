@@ -4,47 +4,48 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Component;
 
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ImageTest extends TestCase
 {
-    /** @test */
-    public function it_has_position_which_defaults_to_right()
+    #[Test]
+    public function it_has_position_which_defaults_to_right(): void
     {
         $image = new Image('url', 100, 200, 'original');
         $this->assertEquals('right', $image->getPosition());
     }
 
-    /** @test */
-    public function position_can_be_set_to_left_value()
+    #[Test]
+    public function position_can_be_set_to_left_value(): void
     {
         $image = new Image('url', 100, 200, 'original', 'left');
         $this->assertEquals('left', $image->getPosition());
     }
 
-    /** @test */
-    public function but_if_passed_position_is_unknown_it_would_be_set_to_right()
+    #[Test]
+    public function but_if_passed_position_is_unknown_it_would_be_set_to_right(): void
     {
         $image = new Image('url', 100, 200, 'original', 'foobar');
         $this->assertEquals('right', $image->getPosition());
     }
 
-    /** @test */
-    public function passed_mime_would_be_automatically_lowercase()
+    #[Test]
+    public function passed_mime_would_be_automatically_lowercase(): void
     {
         $image = new Image('url', 100, 200, 'original', 'left', 'description', 'IMAGE/JPEG');
         $this->assertEquals('image/jpeg', $image->getMime());
     }
 
-    /** @test */
-    public function it_has_get_alt_method_which_escapes_quotes_in_description()
+    #[Test]
+    public function it_has_get_alt_method_which_escapes_quotes_in_description(): void
     {
         $image = new Image('url', 100, 200, 'original', 'foobar', 'Description with single quote \' and double quote "!');
 
         $this->assertEquals('Description with single quote &#039; and double quote &quot;!', $image->getAlt());
     }
 
-    /** @test */
-    public function it_has_is_audio_method_which_returns_true_for_oga_and_mp3_and_wav_file_extensions()
+    #[Test]
+    public function it_has_is_audio_method_which_returns_true_for_oga_and_mp3_and_wav_file_extensions(): void
     {
         $oga = new Image('http://example.com/thumb.oga.jpg', 100, 200, 'http://example.com/file.oga');
         $mp3 = new Image('http://example.com/thumb.mp3.jpg', 100, 200, 'http://example.com/file.mp3');
@@ -55,8 +56,8 @@ class ImageTest extends TestCase
         $this->assertTrue($wav->isAudio());
     }
 
-    /** @test */
-    public function and_is_audio_returns_false_for_jpg_and_other_image_extensions()
+    #[Test]
+    public function and_is_audio_returns_false_for_jpg_and_other_image_extensions(): void
     {
         $jpg = new Image('http://example.com/file.thumb.jpg', 100, 200, 'http://example.com/file.jpg');
         $png = new Image('http://example.com/file.thumb.png', 100, 200, 'http://example.com/file.png');
@@ -67,8 +68,8 @@ class ImageTest extends TestCase
         $this->assertFalse($gif->isAudio());
     }
 
-    /** @test */
-    public function it_has_is_video_method_which_returns_true_for_ogv_and_mp4_and_webm_file_extensions()
+    #[Test]
+    public function it_has_is_video_method_which_returns_true_for_ogv_and_mp4_and_webm_file_extensions(): void
     {
         $ogv = new Image('http://example.com/thumb.ogv.jpg', 100, 200, 'http://example.com/file.ogv');
         $mp4 = new Image('http://example.com/thumb.mp4.jpg', 100, 200, 'http://example.com/file.mp4');
@@ -79,8 +80,8 @@ class ImageTest extends TestCase
         $this->assertTrue($webm->isVideo());
     }
 
-    /** @test */
-    public function and_is_video_returns_false_for_jpg_and_other_image_extensions()
+    #[Test]
+    public function and_is_video_returns_false_for_jpg_and_other_image_extensions(): void
     {
         $jpg = new Image('http://example.com/file.thumb.jpg', 100, 200, 'http://example.com/file.jpg');
         $png = new Image('http://example.com/file.thumb.png', 100, 200, 'http://example.com/file.png');
@@ -91,8 +92,8 @@ class ImageTest extends TestCase
         $this->assertFalse($gif->isVideo());
     }
 
-    /** @test */
-    public function is_audio_returns_false_for_video_files()
+    #[Test]
+    public function is_audio_returns_false_for_video_files(): void
     {
         $ogv = new Image('http://example.com/thumb.ogv.jpg', 100, 200, 'http://example.com/file.ogv');
         $mp4 = new Image('http://example.com/thumb.mp4.jpg', 100, 200, 'http://example.com/file.mp4');
@@ -103,8 +104,8 @@ class ImageTest extends TestCase
         $this->assertFalse($webm->isAudio());
     }
 
-    /** @test */
-    public function is_video_returns_false_for_audio_files()
+    #[Test]
+    public function is_video_returns_false_for_audio_files(): void
     {
         $oga = new Image('http://example.com/thumb.oga.jpg', 100, 200, 'http://example.com/file.oga');
         $mp3 = new Image('http://example.com/thumb.mp3.jpg', 100, 200, 'http://example.com/file.mp3');
@@ -115,8 +116,8 @@ class ImageTest extends TestCase
         $this->assertFalse($wav->isVideo());
     }
 
-    /** @test */
-    public function ogg_file_would_be_recognized_as_audio_if_it_has_not_video_mime()
+    #[Test]
+    public function ogg_file_would_be_recognized_as_audio_if_it_has_not_video_mime(): void
     {
         $ogg = new Image('http://example.com/thumb.ogg.jpg', 100, 200, 'http://example.com/file.ogg', 'right', 'desc', 'application/ogg');
 
@@ -124,8 +125,8 @@ class ImageTest extends TestCase
         $this->assertFalse($ogg->isVideo());
     }
 
-    /** @test */
-    public function ogg_file_would_be_recognized_as_video_if_it_has_video_mime()
+    #[Test]
+    public function ogg_file_would_be_recognized_as_video_if_it_has_video_mime(): void
     {
         $ogg = new Image('http://example.com/thumb.ogg.jpg', 100, 200, 'http://example.com/file.ogg', 'right', 'desc', 'video/ogg');
 
@@ -133,8 +134,8 @@ class ImageTest extends TestCase
         $this->assertTrue($ogg->isVideo());
     }
 
-    /** @test */
-    public function it_has_get_transcoded_mp3_url()
+    #[Test]
+    public function it_has_get_transcoded_mp3_url(): void
     {
         $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
 
@@ -144,8 +145,8 @@ class ImageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_with_russian_file_names_too()
+    #[Test]
+    public function which_works_with_russian_file_names_too(): void
     {
         $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/ru/4/44/Филипп_Киркоров_-_Атлантида.ogg');
 
@@ -155,29 +156,29 @@ class ImageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_returns_false_for_not_audio_files()
+    #[Test]
+    public function which_returns_false_for_not_audio_files(): void
     {
         $webm = new Image('http://example.com/thumb.webm.jpg', 100, 200, 'http://example.com/file.webm');
         $this->assertFalse($webm->getTranscodedMp3Url());
     }
 
-    /** @test */
-    public function which_returns_false_for_already_mp3_files()
+    #[Test]
+    public function which_returns_false_for_already_mp3_files(): void
     {
         $mp3 = new Image('http://example.com/thumb.mp3.jpg', 100, 200, 'http://example.com/file.mp3');
         $this->assertFalse($mp3->getTranscodedMp3Url());
     }
 
-    /** @test */
-    public function and_it_will_return_false_for_not_wikimedia_urls()
+    #[Test]
+    public function and_it_will_return_false_for_not_wikimedia_urls(): void
     {
         $notWikipediaImage = new Image('thumb-url', 100, 200, 'https://example.com/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
         $this->assertFalse($notWikipediaImage->getTranscodedMp3Url());
     }
 
-    /** @test */
-    public function it_has_get_transcoded_webm_urls()
+    #[Test]
+    public function it_has_get_transcoded_webm_urls(): void
     {
         $ogv = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.ogv');
 
@@ -193,8 +194,8 @@ class ImageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_also_works_with_russian_file_names_too()
+    #[Test]
+    public function which_also_works_with_russian_file_names_too(): void
     {
         $ogv = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Филипп_Киркоров_-_Атлантида.ogv');
 
@@ -210,15 +211,15 @@ class ImageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_returns_false_for_not_video_files()
+    #[Test]
+    public function which_returns_false_for_not_video_files(): void
     {
         $oga = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.oga');
         $this->assertFalse($oga->getTranscodedWebmUrls());
     }
 
-    /** @test */
-    public function which_works_for_already_webm_files()
+    #[Test]
+    public function which_works_for_already_webm_files(): void
     {
         $webm = new Image('thumb-url', 100, 200, 'https://upload.wikimedia.org/wikipedia/commons/2/26/Filipp_Kirkorov_voice.webm');
 
@@ -234,8 +235,8 @@ class ImageTest extends TestCase
         );
     }
 
-    /** @test */
-    public function and_it_will_also_return_false_for_not_wikimedia_urls()
+    #[Test]
+    public function and_it_will_also_return_false_for_not_wikimedia_urls(): void
     {
         $notWikipediaImage = new Image('thumb-url', 100, 200, 'https://example.com/wikipedia/commons/2/26/Filipp_Kirkorov_voice.ogv');
         $this->assertFalse($notWikipediaImage->getTranscodedWebmUrls());

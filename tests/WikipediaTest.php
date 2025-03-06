@@ -3,11 +3,12 @@
 namespace Illuminated\Wikipedia\Tests;
 
 use Illuminated\Wikipedia\Wikipedia;
+use PHPUnit\Framework\Attributes\Test;
 
 class WikipediaTest extends TestCase
 {
-    /** @test */
-    public function it_is_en_wikipedia_by_default()
+    #[Test]
+    public function it_is_en_wikipedia_by_default(): void
     {
         $wiki = new Wikipedia;
 
@@ -17,8 +18,8 @@ class WikipediaTest extends TestCase
         );
     }
 
-    /** @test */
-    public function but_you_can_set_any_language_while_initializing()
+    #[Test]
+    public function but_you_can_set_any_language_while_initializing(): void
     {
         $wiki = new Wikipedia('ru');
 

@@ -5,11 +5,12 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Component\Section;
 use Illuminated\Wikipedia\Grabber\Component\Image;
 use Illuminated\Wikipedia\Grabber\Component\Section\Gallery;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class GalleryTest extends TestCase
 {
-    /** @test */
-    public function it_has_validate_method_which_checks_min_items_count_for_gallery()
+    #[Test]
+    public function it_has_validate_method_which_checks_min_items_count_for_gallery(): void
     {
         $collection = collect([
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
@@ -22,8 +23,8 @@ class GalleryTest extends TestCase
         );
     }
 
-    /** @test */
-    public function min_count_for_gallery_is_3()
+    #[Test]
+    public function min_count_for_gallery_is_3(): void
     {
         $collection = collect([
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
@@ -37,8 +38,8 @@ class GalleryTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_prevents_mixed_collections()
+    #[Test]
+    public function it_prevents_mixed_collections(): void
     {
         $collection = collect([
             new Image('thumb', 200, 200, 'http://example.com/file.oga'),
@@ -53,8 +54,8 @@ class GalleryTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_filters_mixed_collection_by_types()
+    #[Test]
+    public function it_filters_mixed_collection_by_types(): void
     {
         $images = collect([
             new Image('thumb', 200, 200, 'http://example.com/file1.jpg'),
@@ -83,8 +84,8 @@ class GalleryTest extends TestCase
         );
     }
 
-    /** @test */
-    public function when_few_types_have_similar_counts_they_sorted_by_priority()
+    #[Test]
+    public function when_few_types_have_similar_counts_they_sorted_by_priority(): void
     {
         $images = collect([
             new Image('thumb', 200, 200, 'http://example.com/file1.jpg'),

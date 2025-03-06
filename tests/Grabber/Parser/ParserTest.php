@@ -4,11 +4,12 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Parser;
 
 use Illuminated\Wikipedia\Grabber\Parser\Parser;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ParserTest extends TestCase
 {
-    /** @test */
-    public function it_can_parse_body_for_plain_format_also_excluding_an_empty_and_boring_sections()
+    #[Test]
+    public function it_can_parse_body_for_plain_format_also_excluding_an_empty_and_boring_sections(): void
     {
         $body = file_get_contents(__DIR__ . '/ParserTest/extract.txt');
         $imagesResponseData = [
@@ -23,8 +24,8 @@ class ParserTest extends TestCase
         $this->assertEquals($expects, $parsed);
     }
 
-    /** @test */
-    public function it_can_parse_body_for_bulma_format_also_excluding_an_empty_and_boring_sections()
+    #[Test]
+    public function it_can_parse_body_for_bulma_format_also_excluding_an_empty_and_boring_sections(): void
     {
         $body = file_get_contents(__DIR__ . '/ParserTest/extract.txt');
         $imagesResponseData = [
@@ -39,8 +40,8 @@ class ParserTest extends TestCase
         $this->assertEquals($expects, $parsed);
     }
 
-    /** @test */
-    public function it_can_parse_body_for_bootstrap_format_also_excluding_an_empty_and_boring_sections()
+    #[Test]
+    public function it_can_parse_body_for_bootstrap_format_also_excluding_an_empty_and_boring_sections(): void
     {
         $body = file_get_contents(__DIR__ . '/ParserTest/extract.txt');
         $imagesResponseData = [

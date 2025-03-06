@@ -4,11 +4,12 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext;
 
 use Illuminated\Wikipedia\Grabber\Wikitext\Wikitext;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class WikitextTest extends TestCase
 {
-    /** @test */
-    public function it_has_plain_method_for_converting_wikitext_to_plain_text()
+    #[Test]
+    public function it_has_plain_method_for_converting_wikitext_to_plain_text(): void
     {
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.sanitized.txt');
@@ -16,8 +17,8 @@ class WikitextTest extends TestCase
         $this->assertEquals($sanitized, (new Wikitext($multiline))->plain());
     }
 
-    /** @test */
-    public function it_can_remove_formatting_from_wikitext()
+    #[Test]
+    public function it_can_remove_formatting_from_wikitext(): void
     {
         $this->assertEquals(
             "Some formatted text - and this text doesn't care about it.",
@@ -25,8 +26,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_works_fine_with_wikitext_without_formatting()
+    #[Test]
+    public function it_works_fine_with_wikitext_without_formatting(): void
     {
         $this->assertEquals(
             "Some not formatted text - doesn't remove single quote.",
@@ -34,8 +35,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_works_fine_with_wikitext_with_few_formatting()
+    #[Test]
+    public function it_works_fine_with_wikitext_with_few_formatting(): void
     {
         $this->assertEquals(
             "Doesn't remove quote here and more and more with q'oute.",
@@ -43,8 +44,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_remove_links_from_wikitext()
+    #[Test]
+    public function it_can_remove_links_from_wikitext(): void
     {
         $this->assertEquals(
             'Link Title',
@@ -52,8 +53,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_method()
+    #[Test]
+    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_method(): void
     {
         $this->assertEquals(
             'Passed Link Title',
@@ -61,8 +62,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_simple_links_too()
+    #[Test]
+    public function which_works_for_simple_links_too(): void
     {
         $this->assertEquals(
             'Some link',
@@ -70,8 +71,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiple_links_too()
+    #[Test]
+    public function which_works_for_multiple_links_too(): void
     {
         $this->assertEquals(
             'This is Link1, and this is Link2, and Link3',
@@ -79,8 +80,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_wikitext_without_links_too()
+    #[Test]
+    public function which_works_for_wikitext_without_links_too(): void
     {
         $this->assertEquals(
             'This is wikitext without links',
@@ -88,8 +89,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiline_wikitext_too()
+    #[Test]
+    public function which_works_for_multiline_wikitext_too(): void
     {
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.links.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.links.sanitized.txt');
@@ -97,8 +98,8 @@ class WikitextTest extends TestCase
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeLinks());
     }
 
-    /** @test */
-    public function which_works_with_file_blocks_inside()
+    #[Test]
+    public function which_works_with_file_blocks_inside(): void
     {
         $this->assertEquals(
             'Wikitext with  File block!',
@@ -106,8 +107,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_with_mixed_links_and_file_blocks_inside()
+    #[Test]
+    public function which_works_with_mixed_links_and_file_blocks_inside(): void
     {
         $this->assertEquals(
             'This is Link1, and this is  file skipped, and Link3',
@@ -115,8 +116,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_with_mixed_links_and_few_file_blocks_inside()
+    #[Test]
+    public function which_works_with_mixed_links_and_few_file_blocks_inside(): void
     {
         $this->assertEquals(
             'This is Link1, and this is  file skipped  twice, and Link3',
@@ -124,8 +125,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_with_file_in_file_cases()
+    #[Test]
+    public function which_works_with_file_in_file_cases(): void
     {
         $this->assertEquals(
             '/!! IWG-FILE-TITLE !!/|thumb|File with Link and  File Block!]]',
@@ -133,8 +134,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_with_file_in_file_cases_2()
+    #[Test]
+    public function which_works_with_file_in_file_cases_2(): void
     {
         $this->assertEquals(
             '[[File:Test.jpg|thumb|File with Link and /!! IWG-FILE-TITLE !!/|thumb|Some Link here too]] File Block!]]',
@@ -142,8 +143,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_remove_templates_from_wikitext()
+    #[Test]
+    public function it_can_remove_templates_from_wikitext(): void
     {
         $this->assertEquals(
             ' Some Text',
@@ -151,8 +152,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_remove_templates_method()
+    #[Test]
+    public function it_has_an_optional_param_to_pass_wikitext_body_into_the_remove_templates_method(): void
     {
         $this->assertEquals(
             ' Some Passed Text',
@@ -160,8 +161,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_simple_templates_too()
+    #[Test]
+    public function which_works_for_simple_templates_too(): void
     {
         $this->assertEquals(
             ' simple',
@@ -169,8 +170,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiple_templates_too()
+    #[Test]
+    public function which_works_for_multiple_templates_too(): void
     {
         $this->assertEquals(
             'This is Template1, and this is Template2, and foo!',
@@ -178,8 +179,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_are_special_nbsp_and_space_templates_which_are_replaced_by_single_space()
+    #[Test]
+    public function there_are_special_nbsp_and_space_templates_which_are_replaced_by_single_space(): void
     {
         $this->assertEquals(
             'An example of wikitext with space templates.',
@@ -187,8 +188,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_are_special_clear_templates_which_are_replaced_by_single_space()
+    #[Test]
+    public function there_are_special_clear_templates_which_are_replaced_by_single_space(): void
     {
         $this->assertEquals(
             'An example of wikitext with clear templates.',
@@ -196,8 +197,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_is_special_sfn_template_which_is_ignored()
+    #[Test]
+    public function there_is_special_sfn_template_which_is_ignored(): void
     {
         $this->assertEquals(
             'An example of wikitext with sfn template.',
@@ -205,8 +206,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_is_special_cite_template_which_is_ignored()
+    #[Test]
+    public function there_is_special_cite_template_which_is_ignored(): void
     {
         $this->assertEquals(
             'An example of wikitext with cite template.',
@@ -214,8 +215,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_is_special_section_link_template_which_is_ignored()
+    #[Test]
+    public function there_is_special_section_link_template_which_is_ignored(): void
     {
         $this->assertEquals(
             'An example of wikitext with section link template.',
@@ -223,8 +224,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_are_special_anchor_templates_which_are_ignored()
+    #[Test]
+    public function there_are_special_anchor_templates_which_are_ignored(): void
     {
         $this->assertEquals(
             'Wikitext with anchor templates.',
@@ -232,8 +233,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_are_special_see_above_templates_which_are_ignored()
+    #[Test]
+    public function there_are_special_see_above_templates_which_are_ignored(): void
     {
         $this->assertEquals(
             'Wikitext with see above templates.',
@@ -241,8 +242,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function there_are_special_see_below_templates_which_are_ignored()
+    #[Test]
+    public function there_are_special_see_below_templates_which_are_ignored(): void
     {
         $this->assertEquals(
             'Wikitext with see below templates.',
@@ -250,8 +251,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function templates_can_be_in_any_case()
+    #[Test]
+    public function templates_can_be_in_any_case(): void
     {
         $this->assertEquals(
             'Wikitext with templates with mixed case.',
@@ -259,8 +260,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_wikitext_without_templates_too()
+    #[Test]
+    public function which_works_for_wikitext_without_templates_too(): void
     {
         $this->assertEquals(
             'This is wikitext without templates',
@@ -268,8 +269,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiline_wikitext_with_templates_too()
+    #[Test]
+    public function which_works_for_multiline_wikitext_with_templates_too(): void
     {
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.templates.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.templates.sanitized.txt');
@@ -277,8 +278,8 @@ class WikitextTest extends TestCase
         $this->assertEquals($sanitized, (new Wikitext($multiline))->removeTemplates());
     }
 
-    /** @test */
-    public function it_can_remove_html_tags_from_wikitext()
+    #[Test]
+    public function it_can_remove_html_tags_from_wikitext(): void
     {
         $this->assertEquals(
             'Some text with html tags!',
@@ -286,8 +287,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_remove_html_tags_with_attributes_from_wikitext()
+    #[Test]
+    public function it_can_remove_html_tags_with_attributes_from_wikitext(): void
     {
         $this->assertEquals(
             'Another text with tags!',
@@ -295,8 +296,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiple_html_tags_too()
+    #[Test]
+    public function which_works_for_multiple_html_tags_too(): void
     {
         $this->assertEquals(
             'Multiple html tags!',
@@ -304,8 +305,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_wikitext_without_html_tags_too()
+    #[Test]
+    public function which_works_for_wikitext_without_html_tags_too(): void
     {
         $this->assertEquals(
             'This is wikitext without html tags',
@@ -313,8 +314,8 @@ class WikitextTest extends TestCase
         );
     }
 
-    /** @test */
-    public function which_works_for_multiline_wikitext_with_html_tags_too()
+    #[Test]
+    public function which_works_for_multiline_wikitext_with_html_tags_too(): void
     {
         $multiline = file_get_contents(__DIR__ . '/WikitextTest/multiline.html.txt');
         $sanitized = file_get_contents(__DIR__ . '/WikitextTest/multiline.html.sanitized.txt');

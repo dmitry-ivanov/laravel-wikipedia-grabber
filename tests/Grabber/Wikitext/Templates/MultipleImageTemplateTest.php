@@ -4,11 +4,12 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\MultipleImageTemplate;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class MultipleImageTemplateTest extends TestCase
 {
-    /** @test */
-    public function it_can_extract_required_data_for_multiple_image_template()
+    #[Test]
+    public function it_can_extract_required_data_for_multiple_image_template(): void
     {
         $line = '{{multiple image | width = 60 |align = right | image1 = Yellow card.svg | alt1 = Yellow cartouche | image2 = Red card.svg | alt2 = Red cartouche | footer = Players are cautioned with a yellow card and sent off with a red card.}}';
 
@@ -28,8 +29,8 @@ class MultipleImageTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_extract_required_data_for_multiple_image_ru_template()
+    #[Test]
+    public function it_can_extract_required_data_for_multiple_image_ru_template(): void
     {
         $line = '{{Кратное изображение |зона=left|подпись = Игроки предупреждаются… |ширина  = 60 |изобр1  = Yellow card.svg |изобр2  = Red card.svg}}';
 
@@ -49,8 +50,8 @@ class MultipleImageTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_extract_required_data_for_image_column_ru_template()
+    #[Test]
+    public function it_can_extract_required_data_for_image_column_ru_template(): void
     {
         $line = "{{Фотоколонка+ | align=left | Mammillaria prolifera20100407 076.jpg | текст1 = ''[[Mammillaria prolifera]]'' | Tussilago farfara20100409 07.jpg | текст2 = ''[[Tussilago farfara]]'' | Succisa pratensis20090811 088.jpg | текст3 = ''[[Succisa pratensis]]''}}";
 
@@ -70,8 +71,8 @@ class MultipleImageTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_extract_required_data_for_listen_template()
+    #[Test]
+    public function it_can_extract_required_data_for_listen_template(): void
     {
         $line = "{{Listen | type = music | pos = right | Filename = Accordion chords-01.ogg | Title = Accordion chords | Description = Chords being played on an accordion | Filename2 = Moonlight.ogg | Title2 = ''Moonlight Sonata'' | Description2 = [[Ludwig van Beethoven|Beethoven]]'s [[Piano Sonata No. 14 (Beethoven)|Sonata in C-sharp minor]] | Filename3 = Brahms-waltz15.ogg | Title3 = Waltz No. 15 | Description3 = From [[Sixteen Waltzes, Op. 39 (Brahms)|Sixteen Waltzes, Op. 39]] by [[Johannes Brahms|Brahms]]}}";
 
@@ -91,8 +92,8 @@ class MultipleImageTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_extract_required_data_for_listen_ru_template()
+    #[Test]
+    public function it_can_extract_required_data_for_listen_ru_template(): void
     {
         $line = '{{Listen | Имя файла = Russian Anthem chorus.ogg| float = left|Название = Гимн России| Описание = [[Гимн России]] | Имя файла2 = File2.ogg| Название2 = Файл 2| Описание2 = Описание 2 | Имя файла3 = File3.ogg| Название3 = Файл 3| Описание3 = Описание 3}}';
 

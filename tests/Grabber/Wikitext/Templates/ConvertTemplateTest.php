@@ -4,11 +4,12 @@ namespace Illuminated\Wikipedia\Tests\Grabber\Wikitext\Templates;
 
 use Illuminated\Wikipedia\Grabber\Wikitext\Templates\ConvertTemplate;
 use Illuminated\Wikipedia\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ConvertTemplateTest extends TestCase
 {
-    /** @test */
-    public function it_has_extract_method_which_handles_simple_cases()
+    #[Test]
+    public function it_has_extract_method_which_handles_simple_cases(): void
     {
         $this->assertEquals(
             '2 kilometers',
@@ -16,8 +17,8 @@ class ConvertTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function and_it_can_handle_case_with_params()
+    #[Test]
+    public function and_it_can_handle_case_with_params(): void
     {
         $this->assertEquals(
             '4 feet',
@@ -25,8 +26,8 @@ class ConvertTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function and_it_can_handle_case_with_precision()
+    #[Test]
+    public function and_it_can_handle_case_with_precision(): void
     {
         $this->assertEquals(
             '5 feet',
@@ -34,8 +35,8 @@ class ConvertTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function and_it_can_handle_case_with_range()
+    #[Test]
+    public function and_it_can_handle_case_with_range(): void
     {
         $this->assertEquals(
             '137 - 156 centimeters',
@@ -43,8 +44,8 @@ class ConvertTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function and_it_can_handle_case_with_range_2()
+    #[Test]
+    public function and_it_can_handle_case_with_range_2(): void
     {
         $this->assertEquals(
             '137 or 156 centimeters',
@@ -52,8 +53,8 @@ class ConvertTemplateTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_handle_case_with_unknown_unit()
+    #[Test]
+    public function it_can_handle_case_with_unknown_unit(): void
     {
         $this->assertEquals(
             '137 abracadabras',

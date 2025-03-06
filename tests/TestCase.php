@@ -13,25 +13,19 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     /**
      * Get package providers.
-     *
-     * @param \Illuminate\Foundation\Application $app
-     * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [WikipediaGrabberServiceProvider::class];
     }
 
     /**
      * Resolve application core configuration implementation.
-     *
-     * @param \Illuminate\Foundation\Application $app
-     * @return void
      */
-    protected function resolveApplicationConfiguration($app)
+    protected function resolveApplicationConfiguration($app): void
     {
         $fixturePath = __DIR__ . '/fixture/config/wikipedia-grabber.php';
-        $orchestraPath = $this->getBasePath() . '/config/wikipedia-grabber.php';
+        $orchestraPath = $this->getApplicationBasePath() . '/config/wikipedia-grabber.php';
         copy($fixturePath, $orchestraPath);
 
         parent::resolveApplicationConfiguration($app);
