@@ -17,6 +17,7 @@ Wikipedia/MediaWiki Grabber for Laravel.
 
 | Laravel | Wikipedia Grabber                                                            |
 |---------|------------------------------------------------------------------------------|
+| 12.x    | [12.x](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/12.x) |
 | 11.x    | [11.x](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/11.x) |
 | 10.x    | [10.x](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/10.x) |
 | 9.x     | [9.x](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/tree/9.x)   |
