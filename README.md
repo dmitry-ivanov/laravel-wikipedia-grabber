@@ -4,9 +4,9 @@
 
 [<img src="https://user-images.githubusercontent.com/1286821/181085373-12eee197-187a-4438-90fe-571ac6d68900.png" alt="Buy me a coffee" width="200" />](https://buymeacoffee.com/dmitry.ivanov)
 
-[![StyleCI](https://github.styleci.io/repos/117998599/shield?branch=master&style=flat)](https://github.styleci.io/repos/117998599?branch=master)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/dmitry-ivanov/laravel-wikipedia-grabber/tests.yml?branch=master)](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/actions?query=workflow%3Atests+branch%3Amaster)
-[![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/laravel-wikipedia-grabber/master)](https://app.codecov.io/gh/dmitry-ivanov/laravel-wikipedia-grabber/tree/master)
+[![StyleCI](https://github.styleci.io/repos/117998599/shield?branch=11.x&style=flat)](https://github.styleci.io/repos/117998599?branch=11.x)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/dmitry-ivanov/laravel-wikipedia-grabber/tests.yml?branch=11.x)](https://github.com/dmitry-ivanov/laravel-wikipedia-grabber/actions?query=workflow%3Atests+branch%3A11.x)
+[![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/laravel-wikipedia-grabber/11.x)](https://app.codecov.io/gh/dmitry-ivanov/laravel-wikipedia-grabber/tree/11.x)
 
 ![Packagist Version](https://img.shields.io/packagist/v/illuminated/wikipedia-grabber)
 ![Packagist Stars](https://img.shields.io/packagist/stars/illuminated/wikipedia-grabber)
@@ -46,7 +46,7 @@ Wikipedia/MediaWiki Grabber for Laravel.
 1. Install the package via Composer:
 
     ```shell script
-    composer require illuminated/wikipedia-grabber
+    composer require "illuminated/wikipedia-grabber:^11.0"
     ```
 
 2. Publish the config:
