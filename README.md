@@ -39,7 +39,6 @@ Wikipedia/MediaWiki Grabber for Laravel.
 - [Advanced](#advanced)
   - [MediaWiki](#mediawiki)
   - [Modify the grabbed page](#modify-the-grabbed-page)
-- [Sponsors](#sponsors)
 - [License](#license)
 
 ## Usage
@@ -137,11 +136,6 @@ $sections->push(
     new Section('Interesting Facts', 'He had two pet llamas on his ranch called Lola and Louis.', $level = 2)
 );
 ```
-
-## Sponsors
-
-[![Laravel Idea](art/sponsor-laravel-idea.png)](https://laravel-idea.com)<br>
-[![Material Theme UI Plugin](art/sponsor-material-theme.png)](https://material-theme.com)<br>
 
 ## License
 
