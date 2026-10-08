@@ -10,7 +10,7 @@
 </style>
 
 <div class='iwg-section'>
-<div class='iwg-media right' style='width:125px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg' target='_blank'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg/125px-Perrot_View_of_Sennaya_Square_1841.jpg' width='125' height='77' alt='' /></a></div>
+<div class='iwg-media right' style='width:125px'><a href='https://upload.wikimedia.org/wikipedia/commons/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=original' target='_blank'><img src='https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Perrot_View_of_Sennaya_Square_1841.jpg/250px-Perrot_View_of_Sennaya_Square_1841.jpg?utm_source=ru.wikipedia.org&utm_campaign=api&utm_content=thumbnail' width='125' height='77' alt='' /></a></div>
 Иван Иванович Иванов (1796—1848) — протоиерей Русской православной церкви.<br />
 <br />
 В 1814 году, до окончания курса Петербургской духовной семинарии был переведён в Петербургскую духовную академию, которую в 1817 году окончил в составе II курса магистром богословия. Оставлен в академии бакалавром; с 1828 года — ординарный профессор академии, сначала по кафедре общей словесности, затем — церковного красноречия (гомилетики) и с 1835 года — еврейского языка.<br />
