@@ -29,7 +29,7 @@ class Wikitext
     /**
      * Get plain wikitext.
      */
-    public function plain(string $body = null): string
+    public function plain(?string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -44,7 +44,7 @@ class Wikitext
     /**
      * Remove formatting.
      */
-    public function removeFormatting(string $body = null): string
+    public function removeFormatting(?string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -54,7 +54,7 @@ class Wikitext
     /**
      * Remove links.
      */
-    public function removeLinks(string $body = null): string
+    public function removeLinks(?string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -86,7 +86,7 @@ class Wikitext
     /**
      * Remove templates.
      */
-    public function removeTemplates(string $body = null): string
+    public function removeTemplates(?string $body = null): string
     {
         $body = $body ?? $this->body;
 
@@ -130,7 +130,7 @@ class Wikitext
     /**
      * Remove HTML tags.
      */
-    public function removeHtmlTags(string $body = null): string
+    public function removeHtmlTags(?string $body = null): string
     {
         $body = $body ?? $this->body;
 

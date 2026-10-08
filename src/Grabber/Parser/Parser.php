@@ -19,7 +19,7 @@ class Parser
     /**
      * Create a new instance of the Parser.
      */
-    public function __construct(string $title, string $body, array $images = null, bool $isPreview = false)
+    public function __construct(string $title, string $body, ?array $images = null, bool $isPreview = false)
     {
         $sections = (new SectionsParser($title, $body))->sections();
 

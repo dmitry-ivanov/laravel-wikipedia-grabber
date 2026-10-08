@@ -60,7 +60,7 @@ abstract class EntitySingular extends Entity
     /**
      * Get the page id.
      */
-    public function getId(): int|null
+    public function getId(): ?int
     {
         if (!$this->isSuccess()) {
             return null;
@@ -72,7 +72,7 @@ abstract class EntitySingular extends Entity
     /**
      * Get the title.
      */
-    public function getTitle(): string|null
+    public function getTitle(): ?string
     {
         if (!$this->isSuccess()) {
             return null;

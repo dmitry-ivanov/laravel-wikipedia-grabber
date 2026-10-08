@@ -35,7 +35,7 @@ class Section
     /**
      * Create a new instance of the Section.
      */
-    public function __construct(string $title, string $body, int $level, Collection $images = null)
+    public function __construct(string $title, string $body, int $level, ?Collection $images = null)
     {
         $this->setTitle($title);
         $this->setBody($body);
@@ -102,7 +102,7 @@ class Section
     /**
      * Get the images.
      */
-    public function getImages(): Collection|null
+    public function getImages(): ?Collection
     {
         return $this->images;
     }
@@ -110,7 +110,7 @@ class Section
     /**
      * Set the images.
      */
-    public function setImages(Collection $images = null): void
+    public function setImages(?Collection $images = null): void
     {
         $this->images = $images ?? collect();
     }
@@ -118,7 +118,7 @@ class Section
     /**
      * Get the gallery.
      */
-    public function getGallery(): Collection|null
+    public function getGallery(): ?Collection
     {
         return $this->gallery;
     }
@@ -126,7 +126,7 @@ class Section
     /**
      * Set the gallery.
      */
-    public function setGallery(Collection $gallery = null): void
+    public function setGallery(?Collection $gallery = null): void
     {
         $this->gallery = $gallery ?? collect();
     }

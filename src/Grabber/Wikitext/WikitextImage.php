@@ -206,7 +206,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the description.
      */
-    public function getDescription(): string|null
+    public function getDescription(): ?string
     {
         if ($caption = $this->getCaption()) {
             return $caption;
@@ -250,7 +250,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the type.
      */
-    public function getType(): string|null
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -280,7 +280,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the border.
      */
-    public function getBorder(): string|null
+    public function getBorder(): ?string
     {
         return $this->border;
     }
@@ -310,7 +310,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the location.
      */
-    public function getLocation(): string|null
+    public function getLocation(): ?string
     {
         return $this->location;
     }
@@ -341,7 +341,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the alignment.
      */
-    public function getAlignment(): string|null
+    public function getAlignment(): ?string
     {
         return $this->alignment;
     }
@@ -372,7 +372,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the size.
      */
-    public function getSize(): string|null
+    public function getSize(): ?string
     {
         return $this->size;
     }
@@ -400,7 +400,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the link.
      */
-    public function getLink(): string|null
+    public function getLink(): ?string
     {
         return $this->link;
     }
@@ -428,7 +428,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the alt.
      */
-    public function getAlt(): string|null
+    public function getAlt(): ?string
     {
         return $this->alt;
     }
@@ -456,7 +456,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the langtag.
      */
-    public function getLangtag(): string|null
+    public function getLangtag(): ?string
     {
         return $this->langtag;
     }
@@ -484,7 +484,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the page.
      */
-    public function getPage(): string|null
+    public function getPage(): ?string
     {
         return $this->page;
     }
@@ -512,7 +512,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the class.
      */
-    public function getClass(): string|null
+    public function getClass(): ?string
     {
         return $this->class;
     }
@@ -530,7 +530,7 @@ class WikitextImage extends Wikitext
     /**
      * Get the caption.
      */
-    public function getCaption(): string|null
+    public function getCaption(): ?string
     {
         return $this->caption;
     }

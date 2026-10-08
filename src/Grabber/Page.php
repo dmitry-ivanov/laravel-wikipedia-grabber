@@ -23,7 +23,7 @@ class Page extends EntitySingular
     /**
      * Get the main image.
      */
-    protected function getMainImage(): array|null
+    protected function getMainImage(): ?array
     {
         if (empty($this->response['original']) || empty($this->response['thumbnail'])) {
             return null;

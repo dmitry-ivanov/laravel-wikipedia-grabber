@@ -45,7 +45,7 @@ class Image
     /**
      * Create a new instance of the Image.
      */
-    public function __construct(string $url, int $width, int $height, string $originalUrl, string $position = 'right', string $description = '', string $mime = null)
+    public function __construct(string $url, int $width, int $height, string $originalUrl, string $position = 'right', string $description = '', ?string $mime = null)
     {
         $this->setUrl($url);
         $this->setWidth($width);
@@ -159,7 +159,7 @@ class Image
     /**
      * Get the MIME type.
      */
-    public function getMime(): string|null
+    public function getMime(): ?string
     {
         return $this->mime;
     }
@@ -167,7 +167,7 @@ class Image
     /**
      * Set the MIME type.
      */
-    public function setMime(string $mime = null): void
+    public function setMime(?string $mime = null): void
     {
         $this->mime = mb_strtolower($mime, 'utf-8');
     }

@@ -49,7 +49,7 @@ class SectionsAddImages
     /**
      * Create a new instance of the pipe.
      */
-    public function __construct(Collection $sections, array $imagesResponseData = null)
+    public function __construct(Collection $sections, ?array $imagesResponseData = null)
     {
         $this->sections = $sections;
 
@@ -389,7 +389,7 @@ class SectionsAddImages
     /**
      * Get wikitext section for the given section.
      */
-    protected function getWikitextSectionFor(Section $section): Section|null
+    protected function getWikitextSectionFor(Section $section): ?Section
     {
         $wikitextSections = $this->getWikitextSections();
 

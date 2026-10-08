@@ -65,7 +65,7 @@ class ConvertTemplate
     /**
      * Convert the given unit to its readable representation.
      */
-    protected function toUnit(string $unit): string|null
+    protected function toUnit(string $unit): ?string
     {
         return Arr::get($this->units(), $unit);
     }
